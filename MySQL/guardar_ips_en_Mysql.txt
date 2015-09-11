@@ -1,0 +1,10 @@
+Nunca guarden direcciones IPV4 en un campo CHAR(15) o VARCHAR(15) !!!
+
+Utiliza mejor el tipo de datos INTEGER (4 bytes). Para convertir tu ip de texto a un número de 4 bytes, utiliza la función inet_aton (la función inet_ntoa invierte la operación de número a tu ip). Esto te resolverá varios problemas.
+
+Ahorras hasta 70% de espacio en disco con esta columna, no puedes insertar una ip incorrecta (195.10.320.590), todas tus consultas corres más fácil y rápido, por ejemplo el siguiente código para obtener todas las ip's de una tabla en el rango 192.10.*.*:
+
+Esto te da un resultado en un campo de selección mejor que utilizar  "LIKE" con cadenas.
+
+Código:
+SELECT ip FROM ip_table WHERE ip BETWEEN inet_aton("192.10.0.0") AND inet_aton("192.10.255.255")

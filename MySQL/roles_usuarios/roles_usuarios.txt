@@ -1,0 +1,26 @@
+http://www.ingenieroweb.com.co/usuarios-roles-y-permisos
+http://www.ingenieroweb.com.co/usuarios-roles-y-permisos-segunda-parte
+USUARIOS ROLES Y PERMISOS
+
+Un sistema de roles y usuarios podríamos definirlo como la clasificación de privilegios de operación  en nuestro sistema, para entenderlo un poco mejor tendríamos que enumerar y explicar lo siguiente;
+
+Usuarios: son los que interactúan con nuestro sistema a los cuales debemos controlar para validar que pueden o no hacer.
+Perfiles: son los roles que se le asignaran o negaran a un usuario para conceder privilegios en el sistema.
+Recursos: son las zonas en las que dividiremos  la aplicación por ejemplo: crear usuario, listar notas, eliminar notas, etc...
+Por último los permisos son las acciones concretas que se asignan sobre uno o más recursos del sistema.
+Partiendo de esta base daremos solución al siguiente problema.
+
+Tenemos una editorial donde actualmente trabajan unas 50 personas, para el caso se realizan las siguientes actividades.
+
+Unos usuarios pueden registrar noticias.
+Unos usuarios pueden editar noticias.
+Unos usuarios pueden publicar las noticias.
+Unos usuarios pueden registrar clientes.
+Por  ultimo un grupo de usuarios pueden hacer todo.
+Para resolver este problema se necesitarían los siguientes perfiles.
+
+Administrador: tendría permisos para hacer todo en la aplicación
+Periodista: serían los encargados de registrar las noticias pero no publicarlas.
+Auditor: serían los que pueden editar y publicar las noticias
+Vendedor: estos serían los que  registrarían los clientes en el sistema.
+

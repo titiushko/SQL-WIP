@@ -1,0 +1,19 @@
+1 .-> Uno o más clientes de MySQL (mysql.exe) se conectan a una (o más) servidores MySQL (mysqld.exe)
+Ejemplo:
+[Uno / más] (mysql.exe) --- Conecta -> [un / más] (mysqld.exe)
+[A través de TCP / IP con puerto por defecto 3306]
+2 .-> A cada cliente se encarga del trabajo verious como
+a. Iniciar la autenticación, hash de la clave, y así sucesivamente.
+b. La reducción de las consultas de texto en más fichas eficiente.
+c. Cumplir las consultas al servidor.
+d. El almacenamiento en caché conjuntos resultado desde el servidor.
+e. administrado comprimida y / o conexiones encriptadas.
+3 .-> El servidor MySQL gestiona las peticiones de los clientes y responces y devuelve las respuestas a ellos.
+4 .-> Todas las solicitudes de cliente de MySQL son los primeros a cargo de la capa de gestión, que es el coordinador para el servidor MySQL. Se ocupa de tareas tales como
+a. descifrar y / o conexiones de decodificación.
+b. Autenticar al usuario activo con identificador de usuario y contraseña.
+c. Validación y análisis de consultas.
+d. Obtención de consultas en caché de la caché de consultas.
+e. Aprobar las instrucciones para el motor de almacenamiento correcto.
+5 .-> Motores de almacenamiento de gestionar la memoria y el disco a nivel de representación de las bases de datos, tablas e índices. Cada motor de almacenamiento gestiona diferentes tipos de bases de datos, tablas, índices, etc. También manejan algunos registros y la generación de estadísticas.
+6 .-> La capa de gestión y los motores de almacenamiento interactuar fuertemente con la memoria, el disco, y la red. La capa de gestión de registros, escribe en el disco, almacena y lee en la memoria caché, lee los registros binarios de la red, y así sucesivamente. Los motores de almacenamiento del almacén de datos (tablas, troncos, etc) en el disco y en memoria, envía datos a través de la red a otros servidores remotos de MySQL, y así sucesivamente. 

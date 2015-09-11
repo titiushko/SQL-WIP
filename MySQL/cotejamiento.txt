@@ -1,0 +1,24 @@
+Cotejamiento (Collation en inglés)
+Esta palabra tan rara es para indicar qué tipo de codificación 
+queremos usar para los valores de estos campos. 
+Si fueras chino necesitarias codificar los datos con un tipo 
+de cotejamiento que admitiera los símbolos chinos, al igual 
+que si fueras musulman o en definitiva si quisieras escribir 
+con signos raros. Nosotros no somos tan normales tampoco, 
+pues querremos aceptar la ñ o los acentos en nuestros valores 
+(aunque no suelas usarlos... je je je), así que tendremos 
+que escoger el tipo de cotejamiento adecuado.
+
+Nos conformaremos con saber que tomando uno de ellos no 
+tendremos problemas con nuestros valores. 
+Escogeremos el tipo de cotejamiento "utf8_spanish_ci"
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+utf8_unicode_ci
+español, ingles, japones y demas caracteres raros
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+hay la posibilidad de definir el tipo de codificación para 
+la base de datos, para cada tabla y para cada campo.

@@ -1,0 +1,117 @@
+Seguridad inicial
+*****************
+
+El ususario root se crea sin contraseña por defecto, por lo que lo primero que debemos hacer es poner contraseña al usuario root:
+
+Desde mysqladmin:
+
+mysqladmin -u root password "contraseñaMuyTranca"
+mysqladmin -u root -h nombreHost password "contraseñaMuyTranca"
+
+desde mysql -u root:
+mysql -u root
+mysql> SET PASSWORD FOR 'root\@\localhost' = PASSWORD('contraseñaMuyTranca');
+mysql> SET PASSWORD FOR 'root\@\nombreHost' = PASSWORD('contraseñaMuyTranca');
+
+o mediante UPDATE:
+mysql -u root
+mysql> UPDATE mysql.user SET Password = PASSWORD('newpwd') WHERE User = 'root';
+mysql> FLUSH PRIVILEGES;
+
+Deberemos eliminar los usuarios y la tabla test que crea por defecto la instalación de MySql.
+
+mysql -uroot -p mysql
+Nos pedirá la contraseña del usuario root.
+mysql> DELETE FROM user WHERE User = '';
+mysql> DELETE FROM db WHERE Host = '%';
+
+El "%" indica que el usuario se puede conectar desde cualquier IP.
+
+Manera de eliminar los usuarios creados por defecto:
+mysql> DELETE FROM mysql.user WHERE User = '';
+mysql> FLUSH PRIVILEGES;
+
+Si los accesos a la base de datos van a ser locales podemos deshabilitar la conexión remota. Los accesos locales no impiden que la base de datos pueda ser usada para aplicaciones remotas, simplemente es necesario que la aplicación remota (por ejemplo un servidor web) esté en la misma máquina que el servidor mysql.
+Editar el archivo safe_mysqld, dependiendo el sistema estará en una carpeta u otra en linux buscar en'/usr/bin' o '/usr/local/bin'.
+Cambiar la línea
+--skip-locking >> $err_log 2>&1
+Por
+--skip-networking --skip-locking >> $err_log 2>&1
+Y la línea
+--skip-locking "$@" >> $err_log 2>&1
+Por
+--skip-networking --skip-locking "$@" >> $err_log 2>&1
+
+Ahora crearemos nuevos usuarios.
+En este punto deberemos tener en cuenta que se deberá dar los permisos mínimos a cada usuario, no dar más permisos de los que deban usar.
+Conexión a mysql como root:
+mysql -uroot -p mysql
+
+Para crear usuarios con permisos de root para un usuario que se conecte desde localhost:
+
+mysql> GRANT ALL PRIVILEGES ON *.* TO 'usuario1\@\localhost' IDENTIFIED BY 'contraseña' WITH GRANT OPTION;
+Para crear usuarios con permisos de root para un usuario que se conecte desde conexión remota:
+mysql> GRANT ALL PRIVILEGES ON *.* TO 'usuario1\@\%' IDENTIFIED BY 'contraseña' WITH GRANT OPTION;
+
+Usuario administrador para actualizar el servidor pero no para ver ni tocar ninguna base de datos.
+mysql> GRANT RELOAD,PROCESS ON *.* TO 'admin\@\localhost' IDENTIFIED BY 'contraseña';
+
+Crear otros usuarios:
+Ningún usuario podrá crear bases de datos (las crearemos con root desde local).
+A cada usuario sólo se le dará permisos a ciertas bases de datos y/o ciertas tablas.
+> mysql --user=root mysql
+mysql> GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,DROP ON basedatos1.* TO 'usuario1\@\localhost' IDENTIFIED BY 'contraseña';
+
+Las opciones SELECT,INSERT,UPDATE,DELETE,CREATE,DROP dependerán de cada caso.
+Podemos dar acceso a usuarios remotos dependiendo de su ip.
+
+mysql> GRANT ALL PRIVILEGES ON basedatos1.* TO usuario1_at_2_dot_58_dot_197_dot_0/255_dot_255_dot_255_dot_0';
+de un dominio
+mysql> GRANT ALL PRIVILEGES ON basedatos1.* TO usuario1@\%.dominio.com';
+si tenemos una red local tipo 10.1.1.x
+mysql> GRANT ALL PRIVILEGES ON basedatos1.* TO usuario1_at__dot_1_dot_1_dot_%';
+
+Más seguridad
+**************
+
+NUNCA crear un usuario (que no sea root) con acceso a la tabla mysql.user ya que esta tabla contiene las contraseñas de todos los usuarios.
+Si al hacer mysql -u root nos deja entrar sin pedirnos la contraseña, poner contraseña al usuario root.
+Mediante SHOW GRANTS podemos ver los permisos de los usuarios.
+Evitar contraseñas que tengan palabras con algún significado (y por tanto puedan ser atacadas mediante diccionarios). Combinar letras y digitos.
+Para quitar permisos a un usuario:
+
+REVOKE INSERT,UPDATE,DELETE,CREATE,DROP ON *.* TO 'usuario1\@\localhost';
+
+Usar las funciones MD5() o SHA1() para encriptar las contraseñas guardadas en la base de datos.
+Evitar mediante firewalls las conexiones remotas (o las de ip no permitidas) al puerto 3360 (es el puerto por defecto de MySql).
+Comprobar todos los datos que envíe el usuario para ser insertados o modificados en la base de datos. Mirar documentación sobre SQLInjection.
+Comprobar el tamaño de los datos enviados, que no supere el esperado.
+Hay lenguajes de programación que tienen funciones preparadas para estos casos.
+# MySQL C API: mysql_real_escape_string().
+# MySQL++: Use the escape and quote modifiers for query streams.
+# PHP>=4.0.3: mysql_escape_string(). PHP< 4.0.3 addslashes().
+# Perl DBI: quote().
+# Java JDBC: Objeto PreparedStatement.
+
+Enviar y recibir datos mediante SSL, SSH, que envían los datos encriptados.
+En linux usando
+
+tcpdump -l -i eth0 -w - src or dst port 3306 | strings
+
+podemos comprobar si los datos vienen sin encriptar (aunque si los vemos encriptados no es seguro que sea así).
+Si queremos todos los detalles sobre seguridad MySQL en la página oficial hay mucha documentación.
+http://dev.mysql.com/doc/mysql/en/Security.html
+Si perdemos la contraseña de root
+******************************************
+
+1.-Entrar al sistema operativo con usuario root o como el usuario que ejecuta el demonio
+mysqld.
+2.-Buscar el archivo .pid la ubicación dependerá de la distribución, probar en
+`/var/lib/mysql/', `/var/run/mysqld/', o `/usr/local/mysql/data/'.
+Ejecutar:
+shell> kill `cat /mysql-data-directory/host_name.pid`
+Nota: no usar kill -9.
+3.-Reiniciar MySQL mediante:
+shell> mysqld_safe --skip-grant-tables &
+4.-Cambiar la contraseña:
+shell> mysqladmin -u root flush-privileges password "nuevaContraseña"

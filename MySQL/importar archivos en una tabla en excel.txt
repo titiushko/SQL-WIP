@@ -1,0 +1,4 @@
+0 archivo csv
+1 cargar el archivo
+2 separar los nombres de los campos por coma
+3 poner el nombre de los campos exactamente como estan y el mismo orden
