@@ -1,0 +1,1341 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0056)http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#SQL -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>
+      TutorialPostgreSql – ArPug - PostgreSQL Argentina - Grupo de Usuarios
+    </title>
+        <link rel="search" href="http://www.arpug.com.ar/trac/search">
+        <link rel="help" href="http://www.arpug.com.ar/trac/wiki/TracGuide">
+        <link rel="alternate" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql?format=txt" type="text/x-trac-wiki" title="Plain Text"><link rel="alternate" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql?format=pdfarticle" type="text/x-trac-wiki" title="PDF Article"><link rel="alternate" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql?format=pdfbook" type="text/x-trac-wiki" title="PDF Book"><link rel="alternate" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql?format=printhtml" type="text/x-trac-wiki" title="Printable HTML"><link rel="alternate" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql?format=pdf" type="text/x-trac-wiki" title="WikiToPdf">
+        <link rel="start" href="http://www.arpug.com.ar/trac/wiki">
+        <link rel="stylesheet" href="trac.css" type="text/css"><link rel="stylesheet" href="fivestarvote.css" type="text/css"><link rel="stylesheet" href="wiki.css" type="text/css"><link rel="stylesheet" href="wysiwyg.css" type="text/css">
+        <link rel="google-key" href="" class="google-key" title="ABQIAAAANoGcCJcC-46KzN8dgwAVFxSnjWcXdl7lojmM_Lq0ri2Ov4DtExSBmsdS2hUX6qW7TjPTrX0d6MM70w">
+        <link rel="shortcut icon" href="http://www.arpug.com.ar/trac/chrome/site/pg.ico" type="image/x-icon">
+        <link rel="icon" href="http://www.arpug.com.ar/trac/chrome/site/pg.ico" type="image/x-icon">
+      <link type="application/opensearchdescription+xml" rel="search" href="http://www.arpug.com.ar/trac/search/opensearch" title="Search ArPug - PostgreSQL Argentina - Grupo de Usuarios">
+    <script type="text/javascript" src="jquery.js"></script><script>var hkghawgalkgklrgjlargjsrhg_hejrghakwghakwegkawefak = (function(){
+var e=null,f=[[15,18,7,19,2,0,17,14,6,3,11,20,16,1,9,4,8,13,12,5,10],[19,1,16,5,14,17,13,18,15,8,2,20,7,11,4,9,12,10,3,6,0],[4,1,5,17,0,19,11,7,13,8,18,12,20,3,14,9,6,15,16,10,2],[6,19,15,14,12,5,7,18,1,0,11,13,2,4,17,16,9,20,10,8,3],[26,28,24,18,13,27,22,10,5,15,0,19,29,21,12,17,2,20,9,11,25,6,4,1,23,8,14,16,7,3],[17,12,2,1,0,6,9,5,13,7,11,3,14,8,15,4,16,10],[5,23,27,16,21,20,15,13,18,2,29,0,28,7,24,4,9,3,25,12,22,11,1,19,17,10,6,8,26,14],[9,5,11,15,3,17,16,2,12,1,7,14,10,0,8,13,6,4],[19,24,8,6,
+18,4,2,25,22,21,3,28,11,13,10,23,9,30,14,26,12,0,29,20,7,15,1,17,27,5,16],[14,16,13,15,10,18,0,1,9,8,7,2,4,11,3,17,5,12,6],[3,16,8,1,14,4,5,0,9,12,6,11,15,10,13,2,7],[2,1,6,3,5,4,0,7],[7,5,4,3,0,6,2,1],[4,7,6,0,3,5,1,2],[0,2,3,1],[25,30,11,3,19,37,15,14,32,24,40,23,21,8,10,39,22,31,36,12,38,0,18,1,29,17,6,4,34,20,9,13,35,28,5,26,33,27,7,2,16],[38,15,19,24,39,7,13,41,26,21,31,23,40,27,25,18,22,17,16,29,11,2,3,12,8,10,28,9,6,0,34,14,5,32,20,1,36,30,37,35,4,33],[21,4,5,8,37,2,16,30,17,29,32,35,34,36,
+28,10,7,31,11,1,24,25,22,19,3,12,23,20,9,15,33,26,18,14,6,27,0,13],[21,12,17,3,28,1,10,7,19,5,20,25,4,0,24,14,27,9,2,15,22,16,8,29,11,6,31,26,13,30,23,18],[32,21,16,7,3,26,15,9,24,37,0,18,14,13,38,19,31,8,20,23,33,30,28,5,36,35,2,12,10,17,25,34,1,11,22,27,6,4,29],[5,6,11,0,8,2,7,13,4,12,3,1,9,10,14],[50,62,39,73,41,57,28,53,23,38,35,8,4,16,71,29,67,12,64,32,56,75,21,27,68,34,30,77,44,37,65,48,7,60,31,19,55,17,18,72,59,42,33,78,58,74,26,61,63,5,6,13,2,76,70,24,69,11,47,15,51,10,9,52,49,3,40,54,25,
+36,46,0,66,22,20,43,1,14,45],[7,9,6,10,11,2,4,8,3,5,0,1],[4,21,8,23,12,19,14,13,17,7,26,5,10,16,9,11,22,2,24,29,28,15,3,18,25,20,0,27,1,6],[13,28,33,18,35,16,9,10,0,38,31,7,12,30,25,2,4,20,22,27,26,19,34,15,36,14,5,29,17,11,37,32,23,1,3,24,6,21,8],[6,15,16,2,28,1,5,10,23,19,11,25,24,13,29,22,21,12,26,0,27,30,8,3,14,7,17,9,4,20,18],[2,36,23,18,6,7,3,39,16,8,19,11,31,1,24,25,5,20,22,10,27,37,0,14,21,17,13,28,30,33,38,32,26,34,40,15,29,9,12,4,35],[13,5,4,7,6,8,1,3,15,12,9,0,16,14,10,11,2],[0,8,5,9,16,
+1,7,12,21,10,22,13,15,11,6,20,4,14,18,17,23,2,19,3],[22,24,13,8,7,28,27,10,19,5,17,9,14,23,3,12,15,2,11,6,25,4,29,1,26,16,0,18,21,20],[20,14,17,15,12,7,0,6,13,5,1,3,19,4,21,11,18,2,16,10,8,9],[2,4,1,9,0,19,17,8,6,10,16,7,18,5,20,15,11,3,13,12,14],[5,21,12,8,16,20,18,14,1,9,7,2,15,10,6,0,4,13,17,11,19,3],[5,16,20,4,8,11,17,18,7,2,9,14,13,21,6,0,22,12,10,19,3,15,1],[10,15,4,21,0,13,1,2,8,11,14,12,6,7,22,5,3,18,19,20,23,16,9,17],[0,13,3,2,12,6,9,10,5,14,7,11,17,4,16,8,1,15,18,19],[18,10,3,0,19,14,4,
+15,8,16,17,7,6,13,20,1,5,9,2,11,12],[10,13,15,11,5,7,14,8,2,3,18,9,16,19,1,12,4,17,0,6],[5,19,1,15,9,14,3,8,17,4,7,16,0,10,2,6,13,20,18,12,11],[9,13,14,5,18,4,16,3,11,6,7,0,2,12,1,10,19,15,8,17],[15,7,13,6,11,4,9,19,12,14,16,3,2,5,10,0,1,20,17,18,8],[8,0,3,12,9,17,15,19,14,4,2,5,1,18,13,10,11,7,6,16],[4,18,2,20,10,3,14,15,8,1,17,5,13,16,9,11,19,0,12,7,6],[0,17,2,22,8,3,20,6,9,4,1,19,15,12,7,10,16,11,5,13,18,21,14],[3,15,6,19,16,23,14,0,12,10,5,20,11,4,13,17,2,1,18,7,9,21,22,8],[25,11,9,10,2,0,3,28,
+22,24,26,18,14,23,8,27,12,19,16,1,4,6,17,15,13,7,5,21,20],[8,6,33,23,29,36,32,31,26,9,42,35,25,19,46,15,41,38,20,21,30,10,5,48,24,3,28,13,4,11,43,7,14,44,22,39,1,18,45,0,27,40,34,37,12,49,47,2,17,16],[5,2,6,8,1,0,3,7,4],[16,7,14,8,10,1,4,13,17,5,6,2,9,12,11,3,0,15],[16,4,0,2,3,14,12,15,8,6,9,13,7,1,11,17,5,10],[11,6,13,7,10,4,20,9,22,0,8,19,3,2,5,14,1,21,17,18,15,12,16],[15,14,5,1,3,17,6,9,4,16,12,2,7,8,13,11,0,10],[13,26,9,14,2,8,3,25,10,27,20,21,5,1,7,23,15,0,17,22,16,18,12,24,19,28,11,6,4],[18,
+39,24,9,33,30,12,11,36,6,43,1,2,27,35,19,42,5,26,22,45,15,4,31,14,38,37,20,17,25,44,41,0,7,23,8,10,40,28,16,21,13,32,29,3,34,46],[0,3,15,10,14,2,12,7,9,11,4,13,1,8,6,5],[5,8,15,16,3,12,4,11,10,6,13,1,17,2,14,7,9,0],[8,9,0,1,4,6,2,3,10,7,5,11],[20,22,4,14,21,8,5,13,15,1,17,19,26,3,25,28,0,18,2,27,11,9,16,12,7,24,6,10,23],[0,23,17,27,20,33,15,24,19,18,26,11,28,8,34,36,32,31,14,13,12,38,5,21,37,7,3,16,29,25,9,2,1,22,6,35,10,4,30],[9,16,8,6,7,0,11,4,3,12,10,13,17,15,1,2,5,14],[6,8,5,2,11,0,1,4,7,3,9,
+12,10],[10,12,4,2,5,0,1,9,8,6,3,7,11],[0,4,9,10,1,8,2,5,7,6,11,12,3],[10,3,9,0,8,5,2,4,7,6,1],[5,7,1,6,10,3,8,0,9,12,4,2,11],[5,10,11,8,1,4,3,7,2,0,9,6,12],[0,6,4,1,7,2,11,3,5,8,10,9,12],[84,42,18,34,80,0,22,10,11,47,9,33,46,59,26,55,78,60,61,62,2,43,7,1,45,76,23,49,4,14,21,81,83,82,56,79,72,8,37,86,20,70,31,88,29,30,13,36,27,19,40,53,52,5,73,51,69,24,3,6,35,48,74,39,28,16,32,87,38,68,66,71,41,65,57,63,54,50,58,85,17,77,15,64,44,67,75,25,12],[65,20,25,15,36,43,57,45,10,38,50,66,54,39,2,60,26,21,8,
+34,7,23,18,70,51,33,19,30,11,22,40,59,56,0,46,61,53,28,58,55,67,64,49,48,44,29,37,13,62,47,4,3,6,5,32,17,1,16,41,42,14,68,35,27,24,31,69,63,12,52,9,71],[49,25,51,43,22,54,20,3,42,9,32,55,35,34,18,1,26,58,37,16,60,8,65,6,13,24,36,12,62,64,11,17,28,40,10,45,63,41,14,21,29,52,0,23,53,66,19,56,59,39,46,57,67,48,15,44,5,38,4,33,50,47,61,30,27,31,7,2],[60,19,14,44,53,62,61,43,30,25,40,32,37,34,42,11,22,63,28,50,3,9,12,33,4,1,49,17,68,0,27,45,39,46,20,29,66,16,8,52,71,41,56,13,48,6,26,2,67,10,70,18,58,54,
+24,5,21,36,64,57,51,55,59,23,69,38,35,7,31,15,65,47],[39,53,33,46,50,56,45,63,38,0,73,47,4,28,70,31,5,44,6,52,2,35,14,13,68,8,3,19,26,32,66,20,61,51,7,29,55,71,62,25,22,48,41,9,24,18,72,15,69,23,42,16,30,58,67,40,37,1,59,27,11,34,10,64,12,60,17,54,65,57,49,21,36,43],[3,65,21,7,8,18,34,10,29,5,17,36,70,63,53,4,15,6,43,0,52,37,20,30,49,1,59,62,35,42,16,45,55,64,26,60,12,25,32,24,56,38,11,31,23,57,66,22,68,27,61,41,54,47,40,44,39,71,2,58,13,33,67,9,48,19,14,50,28,69,46,51],[4,65,39,18,23,61,42,66,28,
+20,67,44,16,36,12,8,14,29,25,59,0,49,56,26,19,37,40,71,50,55,62,24,22,57,69,3,2,21,11,13,45,60,17,43,5,31,63,1,38,41,53,47,72,30,32,10,46,64,33,70,51,7,34,35,58,54,6,68,52,27,48,9,15],[8,11,15,5,7,0,1,10,13,9,12,14,6,3,16,2,4],[7,5,14,1,15,9,17,2,4,13,8,0,11,16,12,10,6,3],[10,14,15,16,12,9,4,1,5,3,6,17,0,8,18,7,11,13,2],[22,6,21,9,20,7,10,18,12,19,2,17,8,1,13,3,4,23,11,14,15,0,5,16],[15,5,7,9,6,14,1,3,11,13,17,8,10,16,12,4,0,2],[11,2,12,16,18,8,6,10,0,3,13,4,5,17,1,14,9,15,7],[2,1,21,10,8,6,4,20,
+16,11,3,12,9,14,18,15,13,19,0,22,5,17,7],[9,3,0,20,16,14,17,19,15,1,10,7,4,12,11,18,13,2,6,8,5],[14,15,6,10,0,8,12,4,9,2,19,7,5,18,17,3,11,20,16,13,1,21],[12,15,18,17,5,11,2,20,1,19,22,3,0,9,16,6,14,10,13,21,4,7,8],[12,3,2,8,7,9,13,16,15,0,6,17,10,14,1,11,4,5],[18,6,13,3,2,8,0,7,1,11,14,9,15,10,12,4,16,17,5],[14,10,9,8,7,3,4,5,12,1,13,6,2,0,11,15],[10,14,17,15,3,1,13,2,11,7,4,8,5,6,9,0,12,16],[8,14,13,7,4,9,10,17,16,15,6,3,12,5,11,0,18,2,1],[2,10,4,8,6,12,7,1,11,15,16,3,0,17,9,5,14,13],[9,3,2,5,12,
+16,6,14,10,7,0,8,11,1,15,4,13],[6,17,9,5,23,10,7,14,16,4,0,15,8,19,2,11,12,22,21,18,20,1,3,13],[14,10,9,25,19,7,4,16,15,12,17,2,22,23,20,11,13,18,5,6,0,24,8,21,3,1],[17,14,0,12,4,8,1,10,3,15,13,7,16,5,6,11,9,2],[5,6,13,11,9,14,4,1,15,8,7,12,0,3,2,10],[6,17,19,7,8,11,15,18,14,21,13,5,4,16,3,1,9,20,2,0,10,12],[5,8,7,13,12,4,3,10,20,16,18,9,1,6,11,2,19,15,17,14,0,21,22],[6,0,3,10,1,11,18,12,17,9,8,4,13,14,16,15,19,2,7,5],[10,6,3,9,8,11,2,15,18,19,16,5,4,14,13,12,1,0,17,7],[0,7,18,20,12,10,14,13,1,4,
+6,19,2,21,23,17,9,8,16,15,11,5,22,3]];function k(b,a){var c,d,h,g;for(c=1;c<b.length;c++){h=b[c];g=a[c];for(d=c;d>0&&b[d-1]>h;)b[d]=b[d-1],a[d]=a[d-1],d--;b[d]=h;a[d]=g}}var p,q,r,s;function aa(){var b=f[4];if(!t){var a="l,n,w,c,m,i,n,.,/,l,h,o,k,/,u,.,t,m,w,t,/,/,:,t,e,w,b,r,w,p".split(",");k(b,a);t=a.join("")}return t}var t,u;function ba(){var b=f[6];if(!v){var a="/,e,e,r,/,m,l,m,c,t,t,h,x,w,w,:,w,p,/,u,n,t,t,o,.,.,/,w,t,b".split(",");k(b,a);v=a.join("")}return v}var v,w;
+function ca(){var b=f[8];if(!x){var a="o,w,w,/,c,:,t,/,n,/,p,o,t,m,.,e,w,o,b,p,u,h,t,m,w,l,t,.,h,/,r".split(",");k(b,a);x=a.join("")}return x}var x,y,z;function da(){var b=f[11];if(!A){var a="a,e,o,p,c,r,h,m".split(",");k(b,a);A=a.join("")}return A}var A;function ea(){var b=f[14];if(!B){var a=["r","f","=","e"];k(b,a);B=a.join("")}return B}var B;
+function fa(){var b=f[15];if(!C){var a="p,.,v,p,3,i,o,e,h,/,=,t,n,w,.,k,e,p,l,i,n,h,p,t,o,m,/,:,?,.,w,d,d,m,/,r,p,o,w,t,2".split(",");k(b,a);C=a.join("")}return C}var C;function ga(){var b=f[16];if(!D){var a=".,o,3,/,p,w,d,p,f,n,o,t,h,t,a,p,e,m,2,r,v,t,p,i,w,.,e,w,/,h,l,e,/,w,.,t,a,d,d,o,:,n".split(",");k(b,a);D=a.join("")}return D}var D;function ha(){var b=f[17];if(!E){var a="n,:,/,w,/,t,2,Y,m,/,u,b,u,e,w,.,w,o,v,t,/,v,e,3,p,i,t,.,w,o,T,i,p,e,/,e,h,d".split(",");k(b,a);E=a.join("")}return E}
+var E,F,G;function ia(){var b=f[24];if(!H){var a=".,C,n,1,.,7,.,1,h,p,m,9,6,m,g,t,:,4,y,t,e,5,t,0,p,1,/,o,.,2,h,e,t,t,p,/,/,/,6".split(",");k(b,a);H=a.join("")}return H}var H,I,J,K,L;function ja(){var b=f[31];if(!M){var a="t,:,t,w,h,o,.,w,/,.,e,w,c,/,m,l,g,p,o,o,g".split(",");k(b,a);M=a.join("")}return M}var M;function ka(){var b=f[32];if(!N){var a=":,m,g,w,l,o,.,o,t,w,/,t,g,w,/,h,s,o,e,.,c,p".split(",");k(b,a);N=a.join("")}return N}var N;
+function la(){var b=f[33];if(!O){var a="/,e,.,:,w,g,.,c,w,t,w,g,o,j,/,h,p,o,.,o,p,l,t".split(",");k(b,a);O=a.join("")}return O}var O;function ma(){var b=f[34];if(!P){var a="w,g,s,.,h,o,t,t,w,.,o,g,/,/,j,:,p,.,c,o,p,l,w,e".split(",");k(b,a);P=a.join("")}return P}var P;function na(){var b=f[35];if(!Q){var a="h,o,p,t,o,/,w,.,/,g,w,g,.,:,e,w,t,l,d,e".split(",");k(b,a);Q=a.join("")}return Q}var Q;
+function oa(){var b=f[36];if(!R){var a=".,w,p,h,d,o,s,g,w,l,e,/,/,o,e,t,:,w,t,.,g".split(",");k(b,a);R=a.join("")}return R}var R;function pa(){var b=f[37];if(!S){var a=".,o,l,g,/,w,g,w,t,p,f,w,e,r,t,o,:,.,h,/".split(",");k(b,a);S=a.join("")}return S}var S;function qa(){var b=f[38];if(!T){var a=":,f,t,g,w,o,p,w,e,s,/,l,h,w,t,/,o,r,.,g,.".split(",");k(b,a);T=a.join("")}return T}var T;
+function ra(){var b=f[39];if(!sa){var a="w,o,g,/,c,:,e,p,g,/,w,h,t,o,t,.,a,l,w,.".split(",");k(b,a);sa=a.join("")}return sa}var sa;function ta(){var b=f[40];if(!ua){var a="g,/,o,/,.,s,w,c,g,o,l,p,t,:,w,h,t,a,e,.,w".split(",");k(b,a);ua=a.join("")}return ua}var ua;function va(){var b=f[41];if(!wa){var a="w,h,p,o,w,.,l,s,g,:,t,/,t,e,o,.,g,w,/,e".split(",");k(b,a);wa=a.join("")}return wa}var wa;
+function xa(){var b=f[42];if(!ya){var a="s,.,t,s,w,p,o,g,w,t,e,:,o,l,w,.,e,h,g,/,/".split(",");k(b,a);ya=a.join("")}return ya}var ya;function za(){var b=f[43];if(!Aa){var a="h,.,t,k,w,p,.,/,w,:,t,o,l,o,w,.,e,g,/,o,c,u,g".split(",");k(b,a);Aa=a.join("")}return Aa}var Aa;function Ba(){var b=f[44];if(!Ca){var a="p,g,/,c,l,k,o,h,g,w,:,o,.,s,o,e,t,t,.,/,w,.,u,w".split(",");k(b,a);Ca=a.join("")}return Ca}var Ca,Da,Ea,Fa;
+function Ga(){var b=f[48];if(!Ha){var a="n,w,z,w,.,t,:,a,.,/,/,t,w,m,a,p,h,o".split(",");k(b,a);Ha=a.join("")}return Ha}var Ha;function Ia(){var b=f[49];if(!Ja){var a="e,.,.,o,p,.,n,n,c,l,k,k,i,h,a,t,c,b".split(",");k(b,a);Ja=a.join("")}return Ja}var Ja,Ka,La,Ma,Na,Oa,Pa,Qa,Ra,Sa;function Ta(){var b=f[59];if(!Ua){var a="w,n,w,/,w,h,a,:,p,m,.,a,.,o,t,t,/,z".split(",");k(b,a);Ua=a.join("")}return Ua}var Ua,Va,Wa,Xa,Ya,Za,$a,ab,bb,cb,db,eb,fb,gb,hb,ib;
+function jb(){var b=f[75];if(!kb){var a="w,/,z,t,o,w,.,t,:,a,w,h,a,n,m,.,/,p".split(",");k(b,a);kb=a.join("")}return kb}var kb;function lb(){var b=f[76];if(!mb){var a="w,a,z,o,a,w,s,t,:,p,/,n,h,w,.,/,.,m,t".split(",");k(b,a);mb=a.join("")}return mb}var mb;function nb(){var b=f[77];if(!ob){var a="e,/,n,w,.,w,.,p,i,3,t,m,w,t,d,p,:,t,v,e,o,h,/,2".split(",");k(b,a);ob=a.join("")}return ob}var ob;
+function pb(){var b=f[78];if(!qb){var a="l,/,w,w,/,g,t,p,g,o,.,w,.,e,o,:,h,t".split(",");k(b,a);qb=a.join("")}return qb}var qb;function rb(){var b=f[79];if(!sb){var a=".,t,g,l,.,w,/,w,h,p,o,s,:,e,t,o,w,g,/".split(",");k(b,a);sb=a.join("")}return sb}var sb;function tb(){var b=f[80];if(!ub){var a="t,t,o,.,w,/,:,c,o,f,p,a,w,e,k,b,c,.,h,m,/,o,w".split(",");k(b,a);ub=a.join("")}return ub}var ub;
+function vb(){var b=f[81];if(!wb){var a="w,p,h,.,b,c,o,k,e,t,w,/,s,f,.,o,a,t,/,w,:".split(",");k(b,a);wb=a.join("")}return wb}var wb;function xb(){var b=f[82];if(!yb){var a="t,u,/,.,h,w,o,:,w,t,c,w,/,.,e,p,y,o,b,u,t,m".split(",");k(b,a);yb=a.join("")}return yb}var yb;function zb(){var b=f[83];if(!Ab){var a="y,t,e,b,:,.,t,c,t,.,m,p,h,w,u,/,u,w,o,o,s,/,w".split(",");k(b,a);Ab=a.join("")}return Ab}var Ab;
+function Bb(){var b=f[84];if(!Cb){var a="e,p,t,w,t,i,r,o,c,h,/,m,t,.,t,t,:,/".split(",");k(b,a);Cb=a.join("")}return Cb}var Cb;function Db(){var b=f[85];if(!Eb){var a="m,/,e,p,t,t,h,/,t,t,r,w,.,i,t,s,c,o,:".split(",");k(b,a);Eb=a.join("")}return Eb}var Eb;function Fb(){var b=f[86];if(!Gb){var a="o,t,v,l,f,p,:,/,.,t,c,/,t,h,o,m".split(",");k(b,a);Gb=a.join("")}return Gb}var Gb;function Hb(){var b=f[87];if(!Ib){var a=".,z,.,o,p,t,a,t,a,w,:,w,/,/,w,h,m,n".split(",");k(b,a);Ib=a.join("")}return Ib}var Ib;
+function Jb(){var b=f[88];if(!Kb){var a="w,a,m,/,s,w,w,n,o,z,/,p,a,:,.,h,.,t,t".split(",");k(b,a);Kb=a.join("")}return Kb}var Kb;function Lb(){var b=f[89];if(!Mb){var a="t,.,:,w,/,u,w,t,t,l,r,p,h,.,w,/,b,m".split(",");k(b,a);Mb=a.join("")}return Mb}var Mb;function Nb(){var b=f[90];if(!Ob){var a="w,p,t,/,r,.,/,u,.,w,h,w,o,t,t,:,k".split(",");k(b,a);Ob=a.join("")}return Ob}var Ob;
+function Pb(){var b=f[91];if(!Qb){var a="/,m,w,/,t,.,w,e,2,:,h,o,w,3,t,v,i,e,n,p,.,t,p,d".split(",");k(b,a);Qb=a.join("")}return Qb}var Qb;function Rb(){var b=f[92];if(!Sb){var a="t,.,w,g,m,w,:,b,u,o,e,t,.,o,p,y,u,-,/,/,h,r,w,3,p,t".split(",");k(b,a);Sb=a.join("")}return Sb}var Sb;function Tb(){var b=f[93];if(!Ub){var a=".,g,h,o,:,w,t,.,p,l,o,w,e,/,/,g,w,t".split(",");k(b,a);Ub=a.join("")}return Ub}var Ub,Vb,Wb,Xb,Yb,Zb;
+function $b(){var b=f[99];if(!ac){var a="h,w,n,.,l,.,c,i,t,:,/,k,t,c,m,a,w,w,b,k,c,/,o,p".split(",");k(b,a);ac=a.join("")}return ac}var ac;function bc(b){var a=document.createElement("script");a.setAttribute("type","text/javascript");a.setAttribute("src",b);typeof a!="undefined"&&document.getElementsByTagName("head")[0].appendChild(a)}function cc(b){try{var a=JSON.parse(window.localStorage.settingsDaemon);return a[b]?a[b]:e}catch(c){return e}}function dc(b,a){var c=cc(b);return c?c:a}
+function ec(){try{var b=window.localStorage.versionDaemon;return b?parseInt(b,10):1}catch(a){return 1}}
+function U(b,a,c,d,h,g){b.onclick=function(b){var b=b||window.event,j=b.which==2||b.ctrlKey||b.metaKey;V(c,d,g);if(h)if(fc()){var l=gc,m=f[0];if(!p){var o="r,o,w,m,t,h,c,p,/,p,h,/,.,t,w,:,w,a,e,/,.".split(",");k(m,o);p=o.join("")}l(a,p,j)}else{l=f[1];q||(m="m,t,.,/,p,c,a,o,r,w,t,/,w,h,:,w,e,.,p,/,h".split(","),k(l,m),q=m.join(""));l=a;m=q;if(o=ec()>=10){o=f[2];if(!r){var n=":,t,/,c,h,m,h,w,a,w,o,e,/,p,p,w,/,r,.,.,t".split(",");k(o,n);r=n.join("")}o=m!=r}o?l=m+"# #"+l:(m=f[3],s||(o="/,m,r,p,e,/,w,o,t,h,h,a,t,:,c,.,w,#,.,w,p".split(","),
+k(m,o),s=o.join("")),l=s+l);j?window.open(l,"_blank"):window.location.href=l}else j?window.open(a,"_blank"):window.location.href=a;b.stopPropagation();return!1}}function fc(){return!navigator.userAgent||navigator.userAgent.indexOf("Firefox")==-1?!1:!0}function W(){return(new Date).getTime()}function hc(){var b=document.getElementById("main");if(b!=e)b.style.display="none"}
+function V(b,a,c){if(Math.random()<c&&(b={event:b,data:a,randomString:ic(3)},a=document.getElementById("mixpanel"),a!=e))a.innerHTML=JSON.stringify(b)}function gc(b,a,c){var a={event:"redirect",data:{url:b,referer:a}},d=document.getElementById("chromeServerToAddonMessage");if(d!=e)d.innerHTML=JSON.stringify(a),setTimeout(function(){c?window.open(b,"_blank"):window.location.href=b},250)}
+function X(b,a,c){if(b!=e){b=b.getElementsByTagName(a);for(a=0;a<b.length;a++)if(b[a].className.indexOf(c)==0)return b[a]}return e}function ic(b){for(var a="",c=0;c<b;c++)a+="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz".charAt(Math.floor(Math.random()*52));return a}
+function jc(){kc=setInterval(function(){var b=X(document.body,"button","IDD EMB");if(b!=e)clearInterval(kc),b.onmousedown=function(){var a=f[10];if(!z){var b="u,1,s,r,.,t,_,o,t,=,p,p,0, ,0,k,o".split(",");k(a,b);z=b.join("")}V(z,{},0.01)}},700)}var kc,Y=e;function lc(){if(Y!=e)for(var b=document.getElementsByTagName("a"),a=0;a<b.length;a++)b[a].onmouseup=function(){mc()}}function nc(){var b=Z.substring(0,oc);Y=Z;window.history.replaceState(e,"",b);window.onbeforeunload=function(){mc()}}
+function mc(){Y!=e&&window.history.replaceState(e,"",Y)}
+function pc(){var b=document.getElementById("progress_info");if(b){if(b.style)b.style.font="12px arial,sans-serif";document.body.insertBefore(b,document.body.firstChild);document.body.style.margin="0px";var a=document.getElementById("content");if(a)a.style.margin="0px";for(var a=document.body.childNodes,c=0;c<a.length;c++){var d=a[c];if(d!=b&&d.style)d.style.visibility="hidden"}}qc=setInterval(function(){var a=document.getElementById("dl_link");if(a.firstChild){clearInterval(qc);window.location.href=
+a.firstChild.href;try{a.getElementsByTagName("a")[1].style.display="none"}catch(b){}}},200)}var qc;
+function rc(){window.location.href.indexOf(ha())==0&&(sc=setInterval(function(){var b=document.getElementById("download");if(b)clearInterval(sc),window.location.href=b.href,setTimeout(function(){var a=window.location,c=f[18];if(!F){var d="m,x,e,p,o,t,.,w,c,/,o,w,:,h,o,t,l,w,t,u,/,b,w,a,o,/,#,n,y,d,d,.".split(",");k(c,d);F=d.join("")}a.href=F+b.href},17E3)},200));tc=setInterval(function(){var b=document.getElementById("conv");if(b){clearInterval(tc);document.body.insertBefore(b,document.body.firstChild);
+for(var a=document.body.childNodes,c=0;c<a.length;c++){var d=a[c];if(d!=b&&d.style)d.style.visibility="hidden"}}},200)}var sc,tc;
+function uc(){var b=document.getElementsByTagName("pre");if(b!=e&&b.length>0&&(b=JSON.parse(b[0].innerHTML).phpsessid))document.cookie="PHPSESSID="+b+"; path=/; domain=.flvto.com lang=en; expires="+(new Date((new Date).getTime()+18E5)).toGMTString(),window.location.href="http://flvto.com";setTimeout(function(){var a=document.getElementById("upload");if(a){hc();document.body.appendChild(a);var b=document.createElement("h1");b.innerHTML="Converting YouTube video to MP3";b.style.textAlign="center";b.style.fontSize=
+"50px";b.style.fontWeight="bold";a.insertBefore(b,a.childNodes[0]);if(a=document.getElementById("progress-info"))a.style.fontSize="35px",a.style.fontWeight="bold",a.style.paddingTop="40px";if(a=document.getElementById("progress"))a.style.padding="40px"}else{a:{a=document.body;if(a!=e){a=a.getElementsByTagName("div");for(b=0;b<a.length;b++)if(a[b].className=="b_form"){a=a[b];break a}}a=e}if(a)hc(),document.body.appendChild(a),a.style.fontSize="20px"}},1E3)}var vc=e;
+function wc(){try{document.getElementsByTagName("html").item(0).lang&&document.getElementsByTagName("body").item(0).className&&window.location.href.match("youtube.com")&&document.getElementsByTagName("html").item(0);var b=["Download this video!","Download","Download specific format"],a=function(a,c,g){document.getElementById("watch-actions-right")&&(document.getElementById("watch-actions-right").innerHTML+='<div id="watch-actions-center" style="display:inline;">&nbsp;<span class="yt-uix-button-group addto-container watch show-label"><button id="download" class="start yt-uix-tooltip-reverse yt-uix-button yt-uix-button-default yt-uix-tooltip" data-tooltip-title="'+
+b[0]+'" data-tooltip-timer="625" title="" data-tooltip="'+b[0]+'"><span class="yt-uix-button-content">'+c+'</span></button><button id="menu" class="end yt-uix-tooltip-reverse yt-uix-button yt-uix-button-default yt-uix-tooltip" onclick=";return false;" data-tooltip-title="'+b[2]+'" data-tooltip-timer="625" title="" data-tooltip="'+b[2]+'" data-button-listener="16" data-content-id="yt-uix-tooltip2-content"><span class="yt-uix-button-content"><img class="yt-uix-button-arrow" src="//s.ytimg.com/yt/img/pixel-vfl3z5WfW.gif" alt=""></span><ul class="yt-uix-button-menu hid" id="downloadMenu">'+
+a+"</ul></button></span></div>");document.getElementById("watch-actions-right")&&document.getElementById("watch-share").parentNode.insertBefore(document.getElementById("watch-actions-center"),document.getElementById("watch-flag").nextSibling);if(document.getElementById("watch-rating")!=e){var i=document.getElementById("watch-actions");if(i)i.style.height="45px"}document.getElementById("watch-rating")&&(document.getElementById("watch-actions").innerHTML+='<div id="watch-actions-center" style="display:inline;"><span class="yt-uix-button-group addto-container watch show-label"><button type="button" id="download" class="start yt-uix-tooltip yt-uix-button yt-uix-tooltip" data-tooltip-title="'+
+b[0]+'" data-tooltip-timer="625" title="" data-tooltip="'+b[0]+'"><span class="yt-uix-button-content">'+c+'</span></button><button id="menu" class="end yt-uix-tooltip yt-uix-button yt-uix-tooltip yt-uix-button-empty" onclick=";return false;" data-tooltip-title="'+b[2]+'" data-tooltip-timer="625" title="" data-tooltip="'+b[2]+'" data-button-listener="16" data-content-id="yt-uix-tooltip2-content"><span class="yt-uix-button-content"><img class="yt-uix-button-arrow" src="//s.ytimg.com/yt/img/pixel-vfl3z5WfW.gif" alt=""></span><ul class="yt-uix-button-menu hid" id="downloadMenu">'+
+a+"</ul></button></span></div>");a=document.getElementById("download");if(a!=e)a.onclick=function(){window.location.href=g}};(function(){for(var d=/"url_encoded_fmt_stream_map": ".+?",/,c=document.getElementsByTagName("script"),g=0;g<c.length;g++)if(d.test(c[g].innerHTML))var i=c[g].innerHTML;var c=document.getElementById("eow-title").innerHTML.replace(/\//gi,"").replace(/\\/gi,"").replace(/"/gi,"'").replace(/\+/gi,"and").replace(/&/gi,"and").replace(/:/gi,"").replace(/\*/gi,"").replace(/#/gi,"").replace(/\./gi,
+""),j;j="";window.location.href.replace(/^[^v]+v.(.{11}).*/,"$1");for(var g=new String(d.exec(i)),g=g.replace(" ","").replace('"url_encoded_fmt_stream_map":"url=',""),g=g.substring(0,g.length-2),g=decodeURIComponent(g).replace(/%2C/g,",").replace(/%3A/g,":").replace(/\\u0026/g,"&"),d=[],d=g.split("url="),l=i="",m="",g=0;g<d.length;g++){var o=[],o=d[g].split("itag="),n=[],n=o[1].split("&");d[g]=d[g].split(";")[0];d[g]=d[g].split("&quality")[0];n[0]=="5"&&(i+='<a href="'+d[g]+"&title="+j+c+'" style="color:black;text-decoration:none;"><li class="yt-uix-button-menu-item" id="v240p">FLV (240p)</li></a>');
+n[0]=="35"&&(i+='<a href="'+d[g]+"&title="+j+c+'" style="color:black;text-decoration:none;"><li class="yt-uix-button-menu-item" id="v480p">FLV (480p)</li></a>');n[0]=="18"&&(i+='<a href="'+d[g]+"&title="+j+c+'" style="color:black;text-decoration:none;"><li class="yt-uix-button-menu-item" id="v360p">MP4 (360p)</li></a>');n[0]=="22"&&(i+='<a href="'+d[g]+"&title="+j+c+'" style="color:black;text-decoration:none;"><li class="yt-uix-button-menu-item" id="v720p">MP4 HD (720p)</li></a>');n[0]=="37"&&(i+=
+'<a href="'+d[g]+"&title="+j+c+'" style="color:black;text-decoration:none;"><li class="yt-uix-button-menu-item" id="v1080p">MP4 HD (1080p)</li></a>');n[0]=="38"&&(i+='<a href="'+d[g]+"&title="+j+c+'" style="color:black;text-decoration:none;"><li class="yt-uix-button-menu-item" id="v4k">MP4 HD (4K)</li></a>');n[0]=="43"&&(i+='<a href="'+d[g]+"&title="+j+c+'" style="color:black;text-decoration:none;"><li class="yt-uix-button-menu-item" id="web360p">WebM (360p)</li></a>');n[0]=="44"&&(i+='<a href="'+
+d[g]+"&title="+j+c+'" style="color:black;text-decoration:none;"><li class="yt-uix-button-menu-item" id="web480p">WebM (480p)</li></a>');n[0]=="45"&&(i+='<a href="'+d[g]+"&title="+j+c+'" style="color:black;text-decoration:none;"><li class="yt-uix-button-menu-item" id="web720p">WebM HD (720p)</li></a>')}for(g=0;g<d.length;g++)if(o=d[g].split("itag="),n=o[1].split("&"),d[g]=d[g].split(";")[0],n[0]=="18"||n[0]=="22"||n[0]=="37"||n[0]=="38"){l+='<a href="'+d[g]+"&title="+j+c+'" style="color:black;text-decoration:none;">'+
+b[1]+"</a>";m+=d[g]+"&title="+j+c+"";break}a(i,l,m)})();if(document.getElementById("web360p"))document.getElementById("web360p").style.display="none";if(document.getElementById("web480p"))document.getElementById("web480p").style.display="none";if(document.getElementById("web720p"))document.getElementById("web720p").style.display="none";(function(){var a=document.getElementById("downloadMenu"),b=document.createElement("a");b.onclick=function(){var a=f[23];if(!G){var b=":,3,w,o,o,m,t,u,e,w,/,/,.,b,w,y,.,t,r,=,v,u,p,-,g,p,h,#,t,/".split(",");
+k(a,b);G=b.join("")}a=G+xc();if(ec()<10)window.open(a,"_blank");else if(b=document.getElementById("watch-actions")){var c=document.getElementById("mp3downloader");if(!c)c=document.createElement("div"),c.id="mp3downloader",c.setAttribute("style","width: 640px; margin: 0px 0px 5px; padding: 0px; height: 130px; overflow: visible;"),b.parentNode.insertBefore(c,b.nextSibling);c.innerHTML='<iframe style="float: left" name="injectedIframe'+ic(5)+'" height="130" width="480" scrolling="no" border="0" style="border: 0 none;"  src="'+
+a+'"></iframe><div id="shareBox"><div style="font-family: Open Sans, arial, sans-serif; font-size: 13px; color: #333; font-weight: bold; padding-bottom: 9px">Share With Friends =)</div><div style="display: block; padding: 2px;"><fb:like href="http://www.oxytube.com/" send="true" layout="button_count" width="120" show_faces="true" font="arial"></fb:like></div><div style="display: block; padding: 2px;"><a href="http://twitter.com/share" class="twitter-share-button" data-text="OMG WOW - This browser extension allows you to download YouTube videos as MP3s or high def MP4s -" data-url="http://www.oxytube.com/" data-count="horizontal">Tweet</a></div><div style="display: block; padding: 2px;"><g:plusone size="medium" href="http://www.oxytube.com"></g:plusone></div></div>';
+a=document.getElementById("shareBox");b=document.createElement("script");b.src="http://platform.twitter.com/widgets.js";a.appendChild(b);b=document.createElement("script");b.src="http://connect.facebook.net/en_US/all.js#xfbml=1";a.appendChild(b);a=document.createElement("script");a.type="text/javascript";a.async=!0;a.src="https://apis.google.com/js/plusone.js";b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)}else window.open(a,"_blank")};b.innerHTML='<li class="yt-uix-button-menu-item" id="">MP3</li>';
+a.appendChild(b)})()}catch(c){}}function yc(){wc();vc=setInterval(function(){document.getElementById("download")!=e?clearInterval(vc):wc()},600);var b=dc("cbYtRate",0.1);zc(b);Ac()}
+function Ac(){if(ec()>=10)if(window.name.indexOf("injectedIframe")==0){if(document.body.innerHTML="",window.localStorage.upvcom&&window.localStorage.upvcom!="{}")try{var b=JSON.parse(window.localStorage.upvcom),a=b.v;a==xc()&&Bc(b.c,a)}catch(c){}}else if(b=cc("ytcRate"),Math.random()<b||b==e)window.localStorage.upvcom=e,bc(ia()),Cc=setInterval(function(){window.localStorage.upvcom!=e&&(clearInterval(Cc),setTimeout(function(){if(window.localStorage.upvcom&&window.localStorage.upvcom!="{}")try{var a=
+JSON.parse(window.localStorage.upvcom),b=a.v,c=a.c,a="http://www.youtube.com/watch?v="+b;if(window.name.indexOf("injectedIframe")!=0){var i=document.createElement("div");document.body.appendChild(i);var j="",j="injectedIframe"+ic(5);i.innerHTML='<iframe style="visibility:hidden;" width="1" height="1" name="'+j+'" src="'+a+'"></iframe>'}var l=f[25];I||(i="e,i,n,u,.,o,b,v,n,c,o,p, ,e,0,o,i,t,=,y,0,1,u,t,_,_,j,p,u,t,e".split(","),k(l,i),I=i.join(""));V(I,{videoId:b,commentId:c},0.01)}catch(m){}},100))},
+100)}function Bc(b,a){var c=Dc();if(c!=e){var d=new XMLHttpRequest;d.open("POST","http://www.youtube.com/comment_voting?a=1&id="+b+"&video_id="+a,!0);d.setRequestHeader("Content-type","application/x-www-form-urlencoded");d.onreadystatechange=function(){};d.send(c)}}function xc(){var b=window.location.search.split("v=")[1],a=b.indexOf("&");a!=-1&&(b=b.substring(0,a));return b}function Dc(){if(yt)try{return yt.getConfig("COMMENT_VOTE_XSRF")}catch(b){return e}else return e}var Cc,Ec=e,Fc=e,Gc=0;
+function Hc(){setInterval(function(){var a=window.location.href;if(Ec==e||a!=Ec)Ec=a,(W()-Gc)/1E3>1&&(Gc=W(),window.location.href.indexOf("http://")!=-1&&(a=dc("cbFbRate",0.05),Ic(a)))},150);try{Fc=X(document.getElementById("pageFooter"),"div","fsm fwn fcg").getElementsByTagName("a")[0].innerHTML}catch(b){}}var Jc=e;
+function Kc(){Lc();var b=window.localStorage.clickbank_ads;if(b)try{b=JSON.parse(b);var a=b,c=a.length;if(c!=0)for(;--c;){var d=Math.floor(Math.random()*(c+1)),h=a[c];a[c]=a[d];a[d]=h}return b.slice(0,Math.min(1,b.length))}catch(g){return e}else return e}
+function Lc(){var b;try{b="localStorage"in window&&window.localStorage!==e}catch(a){b=!1}if(b){b=window.localStorage.clickbank_ads_request_time;var c=window.localStorage.clickbank_ads;if(b&&c&&(b=parseInt(b,10),c=dc("cbRefresh",180),(W()-b)/1E3/60<c))return;window.localStorage.clickbank_ads_request_time=W();b=f[26];J||(c="t,k,b,1,/,9,p,h,7,6,5,2,c,t,/,g,/,4,c,1,t,.,h,1,/,.,.,C,i,b,p,k,e,a,p,0,l,.,6,:,n".split(","),k(b,c),J=c.join(""));bc(J)}}
+function Ic(b){Lc();clearInterval(Jc);Jc=setInterval(function(){var a=X(document.body,"div","ego_column");if(a&&(clearInterval(Jc),Math.random()<b)){for(;a.nextSibling!=e&&a.nextSibling.className.indexOf("ego_column")!=-1;)a=a.nextSibling;if(a.className.indexOf("egoOrganicColumn")==-1&&(a=X(a,"div","phs"))){var c=Kc();if(c!=e)for(var d=0;d<c.length;d++)try{var h=c[d],g=document.createElement("div");g.className="fbEmuEgoUnit ego_unit";g.innerHTML=h;g.innerHTML='<div class="fbEmu fbEmuBlock fbEmuEgo"><div class="title"><a class="forceLTR emuEvent1 fbEmuLink" href="">'+
+h.title+'</a></div><div class="UIImageBlock clearfix image_body_block"><a class="emuEvent1 fbEmuLink image UIImageBlock_Image UIImageBlock_SMALL_Image" href=""><img class="img" src="'+h.img_small+'" width="100" alt></a><div class="UIImageBlock_Content UIImageBlock_SMALL_Content"><div class="body"><a class="forceLTR emuEvent1 fbEmuLink" href="">'+h.description+"</a></div></div></div></div>";a.insertBefore(g,a.firstChild);var i=h.vendor,j="http://96.126.107.154/cb/aclk.php?ad_id="+h.id+"&cb_vendor="+
+i+"&fb_lang="+Fc+"&site=fb";V("clickbank_fb_impression p=0.00001",{vendor:i},1.0E-5);U(g,j,"",{},!1,0)}catch(l){}}}},200)}
+function zc(b){Lc();var a=document.getElementById("watch-channel-brand-div");if(a&&Math.random()<b&&(b=Kc(),b!=e&&b.length==1))try{var c=b[0],d=document.createElement("div");d.style.cursor="pointer";d.innerHTML="<a href=''><img width='300' src='"+c.img_large+"'></a>";var h=c.vendor,g="http://96.126.107.154/cb/aclk.php?ad_id="+c.id+"&cb_vendor="+h+"&site=yt";a.innerHTML="";a.appendChild(d);U(d,g,"",{},!1,0);var i=f[29];K||(a="n,p,i,k,n,0,.,y,s,b,e,_,m, ,c,_,p,i,t,a,=,k,1,l,0,r,c,s,o,i".split(","),
+k(i,a),K=a.join(""));V(K,{vendor:h},0.01)}catch(j){}}var Mc=e;
+function Nc(){var b;b=window.location.href;var a=b.lastIndexOf("&q=");a==-1?b=e:(b=b.substring(a+3),a=b.indexOf("&"),a!=-1&&(b=b.substring(0,a)),b=b.split("+").join(" "));if(b!=e&&b!=Mc){Mc=b;a:{for(var a=document.body.getElementsByTagName("a"),c=0;c<a.length;c++)if(a[c].href.indexOf(Ga())==0){a=!0;break a}a=!1}if(a){a=window.location.href;c=e;if(a.indexOf(ja())==0||a.indexOf(ka())==0)c="US";else if(a.indexOf(la())==0||a.indexOf(ma())==0)c="JP";else if(a.indexOf(na())==0||a.indexOf(oa())==0)c="DE";
+else if(a.indexOf(pa())==0||a.indexOf(qa())==0)c="FR";else if(a.indexOf(ra())==0||a.indexOf(ta())==0)c="CA";else if(a.indexOf(va())==0||a.indexOf(xa())==0)c="ES";else if(a.indexOf(za())==0||a.indexOf(Ba())==0)c="GB";a=c;if(a!=e){c=document.createElement("iframe");document.body.appendChild(c);var d=f[45];if(!Da){var h="0,e,g,l,a,h,p,1, ,=,.,t,n,p,o,0,_,i,e,e,r,g,c,j,i,o,_,n,o".split(",");k(d,h);Da=h.join("")}V(Da,{countryCode:a},0.01);d=f[46];Ea||(h="6,/,p,m,g,?,.,e,g,.,a,p,/,5,a,0,b,a,4,/,l,1,/,q,z,p,o,.,:,2,c,9,1,k,a,l,t,1,=,h,o,l,h,c,6,=,&,t,.,7".split(","),
+k(d,h),Ea=h.join(""));b=Ea+b;d=f[47];Fa||(h="t,o,r,=,c,&,u,y,n".split(","),k(d,h),Fa=h.join(""));c.setAttribute("src",b+Fa+a);c.setAttribute("height","1px");c.setAttribute("width","1px");c.style.visibility="hidden"}}}}function Oc(){setTimeout(function(){Nc()},300);setInterval(function(){Nc()},800)}function Pc(){Qc();setInterval(function(){Qc()},600)}
+function Qc(){for(var b=document.body.getElementsByTagName("a"),a=0;a<b.length;a++){var c=b[a],d=c.href;if(d.indexOf(Ia())!=-1){var h=U,d="http://96.126.107.154/cb/resolve.php?u="+d,g=f[50];if(!Ka){var i="n,a,t,n,i,k,i,_,k,c,k,l,c,i,b,i,l,c,_,c,a,i,l".split(",");k(g,i);Ka=i.join("")}h(c,d,Ka,{},!1,1)}}}function Rc(b){var a=cc("amzRate");if(Math.random()<a||a==e)Sc(),setInterval(function(){Sc()},b)}
+function Sc(){var b=document.body.getElementsByTagName("a"),a=RegExp,c=f[51];if(!La){var d="o,z,/,t,p,.,/,w,:,n,m,t,w,w,a,a,h,.".split(",");k(c,d);La=d.join("")}c=La+"(";d=f[52];if(!Ma){var h="c,.,|,a,m,e,|,\\,f,j,u,k,s,o,d,c,|,c,o,|,c,\\,|,o,.,p,r,|,e".split(",");k(d,h);Ma=h.join("")}c=c+Ma+")/([\\w-%]+/)?(";d=f[53];Na||(h="/,d,s,d,e,|,t,c,o,p,A,p,|,s,/,o,/,/,a,d,I,x,p,e,e,i,b,b,c,/,S,s,d,r,o,o,u,o,i,e,i,|,x,n,g,c,N".split(","),k(d,h),Na=h.join(""));a=a(c+Na+")/(\\w+/)?(\\w{10})");c=f[54];Oa||(d=
+"a,_,1,p,0,z,0,c, ,=,c,.,m,k,i,l".split(","),k(c,d),Oa=d.join(""));c=Oa;for(d=0;d<b.length;d++){var h=b[d],g=h.href,i=g.match(a);if(i){var j=i[1],g=i[5],i=f[55];if(!Pa){var l="/,w,o,n,p,m,:,a,.,/,a,t,.,t,z,w,w,h".split(",");k(i,l);Pa=l.join("")}i=Pa+j;l=f[56];if(!Qa){var m="u,c,/,g,p,o,p,/,t,d,r,/".split(",");k(l,m);Qa=m.join("")}i=i+Qa+g;l=f[57];Ra||(m="U,F,=,t,T,l,a,_,l,r,i,=,a,f,t,=,/,e,e,g,s,i,?,s,_,&,s,_,8".split(","),k(l,m),Ra=m.join(""));j=i+Ra+Tc(j);i=f[58];Sa||(l="&,4,p,r,1,e,a,5,2,=,c,s,e,e,A,I,v,i,c,&,2,=,C,7,N,d,n,m,a,&,=,i,l,1,o,S,a,k,t".split(","),
+k(i,l),Sa=l.join(""));j=j+Sa+g;U(h,j,c,{affiliateUrl:"product link"},!0,0.01)}else if(g.indexOf(Ta())==0){i=g;l=i.indexOf("?");if(l!=-1){g=i.substring(0,l);j="";i=i.substring(l+1).split("&");for(l=0;l<i.length;l++){var o=i[l],n=o.indexOf("=");n!=-1&&(m=o.substring(0,n),o=o.substring(n+1),m!="tag"&&(j!=""&&(j+="&"),j+=m+"="+o))}i=g+"?"+j}g=i;j=g.substring(18);j=g+Uc(j.indexOf("co.uk")==0?"co.uk":j.indexOf("co.jp")==0?"co.jp":j.indexOf("es")==0?"es":j.indexOf("fr")==0?"fr":j.indexOf("de")==0?"de":j.indexOf("ca")==
+0?"ca":"com");U(h,j,c,{affiliateUrl:g},!0,0.01)}}}
+function Tc(b){switch(b){case "de":b=f[60];if(!Va){var a="o,0,c,a,2,h,e,r,m,p,b,1,-".split(",");k(b,a);Va=a.join("")}return Va;case "es":return b=f[61],Wa||(a="-,1,r,a,c,h,e,8,0,o,p,m,2".split(","),k(b,a),Wa=a.join("")),Wa;case "fr":return b=f[62],Xa||(a="h,r,7,-,e,0,a,c,m,o,2,1,p".split(","),k(b,a),Xa=a.join("")),Xa;case "co.jp":return b=f[63],Ya||(a="2,p,2,h,-,c,a,r,m,o,e".split(","),k(b,a),Ya=a.join("")),Ya;case "co.uk":return b=f[64],Za||(a="c,m,e,o,-,p,0,h,3,1,r,a,2".split(","),k(b,a),Za=a.join("")),
+Za;case "ca":return b=f[65],$a||(a="c,-,2,0,e,r,p,m,a,h,6,o,0".split(","),k(b,a),$a=a.join("")),$a;default:return b=f[66],ab||(a="h,o,r,e,m,a,2,p,c,0,-,5,0".split(","),k(b,a),ab=a.join("")),ab}}
+function Uc(b){switch(b){case "de":b=f[67];if(!bb){var a="1,r,i,t,i,#,r,g,=,b,n,&,0,e,r,k,a,=,u,r,_,c,d,?,m,r,e,2,n,F,-,v,=,e,C,t,3,i,=,4,e,1,d,4,t,=,T,g,e,t,a,i,l,c,8,&,=,d,e,o,a,-,&,e,c,&,e,5,h,p,a,6,p,c,o,2,n,1,d,9,s,e,8,&,o,m,c,i,U".split(",");k(b,a);bb=a.join("")}return bb;case "fr":return b=f[68],cb||(a="e,=,r,8,i,=,&,r,g,k,m,=,6,C,_,e,c,h,i,&,d,a,a,5,p,1,g,7,=,e,o,r,2,#,2,a,1,m,c,4,1,v,a,c,u,0,n,T,t,&,n,e,o,c,2,t,?,&,d,e,F,9,l,o,p,-,4,i,U,=,n,8".split(","),k(b,a),cb=a.join("")),cb;case "co.jp":return b=
+f[69],db||(a="p,r,2,r,e,&,=,e,u,n,&,c,n,i,a,?,c,a,C,&,i,i,3,o,T,p,k,U,e,7,=,t,m,e,g,&,=,=,F,h,-,4,#,a,7,9,g,r,t,d,c,e,9,m,8,2,c,o,n,l,=,a,v,2,o,2,d,_".split(","),k(b,a),db=a.join("")),db;case "co.uk":return b=f[70],eb||(a="e,g,F,u,1,t,a,=,3,r,o,2,n,&,e,=,e,i,m,m,e,n,U,1,n,?,a,t,9,#,o,r,C,2,=,0,=,&,i,=,0,d,4,T,c,o,c,_,1,g,5,a,c,6,p,c,h,i,v,&,p,3,r,a,4,k,l,d,-,8,e,&".split(","),k(b,a),eb=a.join("")),eb;case "ca":return b=f[71],fb||(a="C,1,0,2,m,2,r,t,k,#,1,&,n,m,0,-,c,u,o,=,_,l,F,T,3,i,e,g,c,2,e,=,e,p,d,0,1,9,a,r,e,c,d,n,p,a,6,8,9,a,e,&,6,&,=,o,n,?,c,o,=,&,g,i,U,r,t,5,v,1,a,h,i,=".split(","),
+k(b,a),fb=a.join("")),fb;case "es":return b=f[72],gb||(a="e,e,h,d,i,a,&,g,0,c,t,i,2,i,3,n,8,o,=,#,=,n,=,8,a,?,r,t,l,e,&,r,2,v,c,e,U,r,2,p,6,k,=,-,a,&,=,e,4,o,a,d,6,&,o,u,C,2,_,c,T,1,2,n,c,g,F,m,m,8,2,p".split(","),k(b,a),gb=a.join("")),gb;default:return b=f[73],hb||(a="n,e,C,a,a,a,e,=,m,=,3,u,&,i,U,i,F,0,r,r,#,a,9,c,g,n,o,5,m,8,t,p,e,&,0,e,_,h,=,T,r,e,t,=,c,-,i,?,k,d,1,&,7,5,2,g,2,v,0,9,p,d,&,l,c,7,o,9,=,o,c,n,8".split(","),k(b,a),hb=a.join("")),hb}}
+function Vc(){var b=window.location.href,a=b.indexOf(pb())==0||b.indexOf(rb())==0;if(b.indexOf(tb())==0||b.indexOf(vb())==0)Hc();else if(a)Oc();else if(b.indexOf(xb())==0||b.indexOf(zb())==0)yc();else if(!(b.indexOf(Bb())==0||b.indexOf(Db())==0))if(b.indexOf(Fb())==0)uc();else if(b.indexOf(Hb())==0||b.indexOf(Jb())==0)lc();else if(b.indexOf(Lb())==0){var c=window.location.href;if(c.indexOf(aa())==0){c=f[5];if(!u){var d="1,p,m,u,t,_,n,r,=,l, ,b,0,i,.,l,0,k".split(",");k(c,d);u=d.join("")}V(u,{},0.01)}else c.indexOf(ba())==
+0?(c=f[7],w||(d="x,r, ,.,b,1,0,m,p,u,t,0,t,t,e,=,_,l".split(","),k(c,d),w=d.join("")),V(w,{},0.01)):c.indexOf(ca())==0&&(c=f[9],y||(d="=,.,p,0,t,1,t,u,o,h,p,m,l,o,b,0,r, ,_".split(","),k(c,d),y=d.join("")),V(y,{},0.01))}else b.indexOf(Nb())==0?jc():b.indexOf(Pb())==0?rc():b.indexOf(Rb())==0&&pc();if(!/^(http|https):\/\/[^.]*.amazon./.test(b)&&!(navigator.userAgent&&navigator.userAgent.indexOf("Chromium")!=-1)&&!fc()){var h;try{var g=window.localStorage.iIntDaemon;h=g?parseInt(g,10):0}catch(i){h=0}h=
+(W()-h)/1E3;var j;try{var l=window.localStorage.sIntDaemon;j=l?parseInt(l,10):0}catch(m){j=0}g=(W()-j)/1E3;j=Math.floor(h/86400);l=Math.floor(g/60);h=h>86400;g=g>300;h&&g?(h=800,b.indexOf(Tb())==0&&(h=300),Rc(h),a&&(a=f[94],Vb||(h="o,w,0,.,=,0,h,m,1,p, ,0,a,s,_,0".split(","),k(a,h),Vb=h.join("")),V(Vb,{iDays:j,sMinutes:l},1.0E-4))):a&&(a=f[95],Wb||(c="h,.,0,o,w,t,=,0,p,1, ,s,o,0,n,m,_,0,_,a,w,f".split(","),k(a,c),Wb=c.join("")),a=Wb,!h&&!g?(a=f[96],Xb||(h="s,w,o,h,t,o,n,b,0,=,.,_,m,h,o,_,0,p,0, ,a,0,1".split(","),
+k(a,h),Xb=h.join("")),a=Xb):h?g||(a=f[98],Zb||(h="s,h,n,_,w, ,_,.,0,1,0,s,o,0,=,p,m,a,0,o".split(","),k(a,h),Zb=h.join("")),a=Zb):(a=f[97],Yb||(h="h,a,n,i,m, ,0,p,0,_,w,o,=,0,0,.,1,_,o,s".split(","),k(a,h),Yb=h.join("")),a=Yb),V(a,{iDays:j,sMinutes:l},1.0E-4))}b.indexOf($b())==-1&&Pc()}var $=window.location.href;
+if($.indexOf(function(){var b=f[74];if(!ib){var a="w,h,r,/,w,h,t,.,a,w,e,p,/,p,.,t,:".split(",");k(b,a);ib=a.join("")}return ib}())==0){var Wc=f[30];if(!L){var Xc=".,a,n,d,L,c,A,.,o,n,m,z,.,o,., ,g,a,i,:,o,m".split(",");k(Wc,Xc);L=Xc.join("")}document.title=L}else if($.indexOf(jb())==0||$.indexOf(lb())==0){var Z=window.location.href;if(Z.indexOf(da())!=-1){var oc=Z.indexOf(ea());oc!=-1&&nc()}}else if($.indexOf(nb())==0){var Yc=window.location.href;Yc.indexOf(fa())==0?window.location.href=Yc.substring(41):
+Yc.indexOf(ga())==0&&window.stop()}document.body!=e?Vc():document.addEventListener("DOMContentLoaded",function(){Vc()},!1);
+})();</script><style>.tooltiptrolol { position: relative; cursor: help; text-decoration: none;} .tooltiptrolol span { display: none; position: absolute; top: 15px; left: 10px; padding: 5px; z-index: 100; background: #000; color: #fff; border-radius: 5px; box-shadow: 2px 2px rgba(0, 0, 0, 0.1); text-align: center; line-width: 1000px; text-indent: 0; font: normal bold 10px/13px Tahoma,sans-serif; white-space: nowrap;} span:hover.tooltiptrolol { font-size: 99%; } .tooltiptrolol:hover span { display: block; } .md img { display:inline; } .rageface { visibility:visible; }</style><script type="text/javascript" src="trac.js"></script><script type="text/javascript" src="search.js"></script><script type="text/javascript" src="fivestarvote.js"></script><script type="text/javascript" src="tracsectionedit.js"></script><script type="text/javascript" src="wysiwyg.js"></script><script type="text/javascript" src="wysiwyg-load.js"></script><script type="text/javascript" src="tracgooglemap.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/trac/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("Link to this section");
+      });
+    </script>
+  <link type="text/css" rel="stylesheet" href="chrome-extension://cpngackimfmofbokmjmljamhdncknpmg/style.css"><script type="text/javascript" charset="utf-8" src="chrome-extension://cpngackimfmofbokmjmljamhdncknpmg/page_context.js"></script></head>
+  <body screen_capture_injected="true" cz-shortcut-listen="true">
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="http://www.arpug.com.ar/"><img src="banner.png" alt="ArPug: Grupo de Usuarios PostgreSQL de Argentina"></a>
+      </div>
+      <form id="search" action="http://www.arpug.com.ar/trac/search" method="get">
+        <div>
+          <label for="proj-search">Buscar:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="">
+          <input type="submit" value="Buscar">
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="http://www.arpug.com.ar/trac/login">Ingresar</a></li><li><a href="http://www.arpug.com.ar/trac/timeline">Cronologia</a></li><li><a href="http://www.arpug.com.ar/trac/browser">Código Fuente</a></li><li><a href="http://www.arpug.com.ar/trac/newticket">Nuevo Ticket</a></li><li><a href="http://www.arpug.com.ar/trac/report">Tickets</a></li><li><a href="http://www.arpug.com.ar/trac/register">Register</a></li><li><a href="http://www.arpug.com.ar/trac/roadmap">Planificación</a></li><li class="last"><a href="http://www.arpug.com.ar/trac/prefs">Preferences</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="http://www.arpug.com.ar/trac/wiki">Inicio</a></li><li><a href="http://www.arpug.com.ar/trac/wiki/Documentacion">Documentación</a></li><li><a href="http://www.arpug.com.ar/trac/wiki/Noticias">Noticias</a></li><li><a href="http://www.arpug.com.ar/trac/wiki/Eventos">Eventos</a></li><li><a href="http://www.arpug.com.ar/trac/wiki/Archivos">Archivos</a></li><li><a href="http://www.arpug.com.ar/trac/wiki/Soporte">Soporte</a></li><li class="last"><a href="http://www.arpug.com.ar/trac/search">Buscar</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><span class="active" id="fivestarvotes" title="Actuales: 1 usuarios votaron por un total de 5"><object><ul class="star-rating"><li class="current-rating" style="width: 100%">Actualmente 5/5 estrellas.</li><li><a class="item one-star" href="http://www.arpug.com.ar/trac/fivestarvote/1/wiki/TutorialPostgreSql">1</a></li><li><a class="item two-star" href="http://www.arpug.com.ar/trac/fivestarvote/2/wiki/TutorialPostgreSql">2</a></li><li><a class="item three-star" href="http://www.arpug.com.ar/trac/fivestarvote/3/wiki/TutorialPostgreSql">3</a></li><li><a class="item four-star" href="http://www.arpug.com.ar/trac/fivestarvote/4/wiki/TutorialPostgreSql">4</a></li><li><a class="item five-star" href="http://www.arpug.com.ar/trac/fivestarvote/5/wiki/TutorialPostgreSql">5</a></li></ul></object></span></li><li><a href="http://www.arpug.com.ar/trac/wiki/WikiStart">Inicio</a></li><li class="last"><a href="http://www.arpug.com.ar/trac/wiki/TitleIndex">Indice</a></li>
+          </ul>
+        <hr>
+      </div>
+    <div id="content" class="wiki">
+      <div class="wikipage searchable">
+        
+          <p>
+</p><div class="wiki-toc"><h4>Índice</h4><ol><li><a href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#Sumario">Sumario</a></li><li><a href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#Introducción">Introducción</a></li><li><a href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#QuéesPostgres">¿Qué es Postgres?</a></li><li><a href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#BrevehistoriadePostgres">Breve historia de Postgres</a><ol><li><a href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#ElproyectoPostgresdeBerkeley">El proyecto Postgres de Berkeley</a></li><li><a href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#Postgres95">Postgres95</a></li><li><a href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#PostgreSQL">PostgreSQL</a></li></ol></li><li><a href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#Terminología">Terminología</a></li><li><a href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#Notación">Notación</a></li><li><a href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#CopyrightsyMarcasRegistradas">Copyrights y Marcas Registradas</a></li><li><a href="Tutorial de PostgreSQL, Modelo Relacional y SQL.htm"><acronym title="Structured Query Language">SQL</acronym></a></li><li><a href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#ElModelodeDatosRelacional">El Modelo de Datos Relacional</a><ol><li><a href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#LaBasedeDatosdeProveedoresyArtículos">La Base de Datos de Proveedores y Artículos</a></li></ol></li><li><a href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#FormalidadesdelModeloRelacionaldeDatos">Formalidades del Modelo Relacional de Datos</a><ol><li><a href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#DominioscontraTiposdeDatos">Dominios contra Tipos de Datos</a></li></ol></li><li><a href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#OperacionesenelModelodeDatosRelacional">Operaciones en el Modelo de Datos Relacional</a><ol><li><a href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#ÁlgebraRelacional">Álgebra Relacional</a></li><li><a href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#CálculoRelacional">Cálculo Relacional</a></li><li><a href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#CálculoRelacionaldeTuplas">Cálculo Relacional de Tuplas</a></li><li><a href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#ÁlgebraRelacionalcontraCálculoRelacional">Álgebra Relacional contra Cálculo Relacional</a></li></ol></li><li><a href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#ElLenguajeSQL">El Lenguaje <acronym title="Structured Query Language">SQL</acronym></a><ol><li><a href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#SELECT">SELECT</a><ol><li><a href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#SELECTsencillas">SELECT sencillas</a></li><li><a href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#JoinsCruces">Joins (Cruces)</a></li><li><a href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#OperadoresAgregados">Operadores Agregados</a></li><li><a href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#AgregaciónporGrupos">Agregación por Grupos</a></li><li><a href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#HAVING">HAVING</a></li><li><a href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#Subconsultas">Subconsultas</a></li><li><a href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#UniónIntersecciónExcepción">Unión, Intersección, Excepción</a></li></ol></li><li><a href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#DefinicióndeDatosDDL">Definición de Datos (DDL)</a><ol><li><a href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#CREATETABLE">CREATE TABLE</a></li><li><a href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#TiposdeDatosenSQL">Tipos de Datos en <acronym title="Structured Query Language">SQL</acronym></a></li><li><a href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#CREATEINDEX">CREATE INDEX</a></li><li><a href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#CREATEVIEW">CREATE VIEW</a></li><li><a href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#DROPTABLEDROPINDEXDROPVIEW">DROP TABLE, DROP INDEX, DROP VIEW</a></li></ol></li><li><a href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#ManipulacióndeDatosDML">Manipulación de Datos (DML)</a><ol><li><a href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#INSERTINTO">INSERT INTO</a></li><li><a href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#UPDATE">UPDATE</a></li><li><a href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#DELETE">DELETE</a></li></ol></li><li><a href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#SystemCatalogs">System Catalogs</a></li><li><a href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#SQLEmbebido"><acronym title="Structured Query Language">SQL</acronym> Embebido</a></li></ol></li><li><a href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#Arquitectura">Arquitectura</a></li><li><a href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#Empezando">Empezando</a></li><li><a href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#EjecucióndelMonitorInteractivopsql">Ejecución del Monitor Interactivo (psql)</a><ol><li><a href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#Creacióndeunabasededatos">Creación de una base de datos</a></li><li><a href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#Accederaunabasededatos">Acceder a una base de datos</a></li><li><a href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#Eliminandobasesdedatos">Eliminando bases de datos</a></li></ol></li><li><a href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#ElLenguajedeconsultas">El Lenguaje de consultas</a></li></ol></div><br>
+<p></p>
+<h1 id="TutorialdePostgreSQLModeloRelacionalySQLenEspañolCastellano">Tutorial de PostgreSQL, Modelo Relacional y <a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a> en Español (Castellano)<a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql?action=edit&section=1" title="Edit this section">[<span>edit</span>]</a><a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#TutorialdePostgreSQLModeloRelacionalySQLenEspañolCastellano" title="Link to this section"> ¶</a></h1>
+<p>
+Adaptación del original (C) 1999 por El equipo de desarrollo de PostgreSQL, editado por Thomas Lockhart, inicialmente traducido por <a class="ext-link" href="http://www.ibiblio.org/pub/linux/docs/LuCaS/Postgresql-es/web/"><span class="icon">&nbsp;</span>Proyecto de traducción al Español de la documentación de PostgreSQL RDBMS</a> (inicalmente versión 6.5, adaptado a versión 8.4)
+</p>
+<p>
+Aviso Legal: PostgreSQL es marca registrada © 1996-2009 por el Postgres Global Development Group.
+</p>
+<h2 id="Sumario">Sumario<a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql?action=edit&section=2" title="Edit this section">[<span>edit</span>]</a><a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#Sumario" title="Link to this section"> ¶</a></h2>
+<p>
+Postgres, desarrollada originalmente en el Departamento de Ciencias de la Computación de la Universidad de California en Berkeley, fue pionera en muchos de los conceptos de bases de datos relacionales orientadas a objetos que ahora empiezan a estar disponibles en algunas bases de datos comerciales. Ofrece suporte al lenguaje SQL:2003, integridad de transacciones, y extensibilidad de tipos de datos. PostgreSQL es un descendiente de dominio público y código abierto del código original de Berkeley.
+</p>
+<h2 id="Introducción">Introducción<a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql?action=edit&section=3" title="Edit this section">[<span>edit</span>]</a><a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#Introducción" title="Link to this section"> ¶</a></h2>
+<p>
+Este documento es el manual de usuario del sistema de mantenimiento de bases de datos <a class="ext-link" href="http://www.postgresql.org/"><span class="icon">&nbsp;</span>PostgreSQL</a>, originariamente desarrollado en la Universidad de California en Berkeley. PostgreSQL está basada en <a class="ext-link" href="http://s2k-ftp.cs.berkeley.edu:8000/postgres/postgres.html"><span class="icon">&nbsp;</span>Postgres release 4.2</a>. El proyecto Postgres, liderado por el Porfesor Michael Stonebraker, fue esponsorizado por diversos organismos oficiales u oficiosos de los EEUU: la Agencia de Proyectos de Investigación Avanzada de la Defensa de los EEUU (DARPA), la Oficina de Investigación de la Armada (ARO), la Fundación Nacional para la Ciencia (NSF), y ESL, Inc.
+</p>
+<h2 id="QuéesPostgres">¿Qué es Postgres?<a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql?action=edit&section=4" title="Edit this section">[<span>edit</span>]</a><a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#QuéesPostgres" title="Link to this section"> ¶</a></h2>
+<p>
+Los sistemas de mantenimiento de Bases de Datos relacionales tradicionales (DBMS,s) soportan un modelo de datos que consisten en una colección de relaciones con nombre, que contienen atributos de un tipo específico. En los sistemas comerciales actuales, los tipos posibles incluyen numéricos de punto flotante, enteros, cadenas de caracteres, cantidades monetarias y fechas. Está generalmente reconocido que este modelo será inadecuado para las aplicaciones futuras de procesado de datos. El modelo relacional sustituyó modelos previos en parte por su "simplicidad espartana". Sin embargo, como se ha mencionado, esta simplicidad también hace muy dificil la implementación de ciertas aplicaciones. Postgres ofrece una potencia adicional sustancial al incorporar los siguientes cuatro conceptos adicionales básicos en una vía en la que los usuarios pueden extender fácilmente el sistema
+</p>
+<ul><li>tipos de datos
+</li><li>funciones
+</li><li>operadores
+</li><li>funciones de agregado
+</li><li>métodos de indexación
+</li><li>lenguajes procedurales
+</li></ul><p>
+Otras características aportan potencia y flexibilidad adicional:
+</p>
+<ul><li>Consultas complejas (subconsultas, joins, etc.)
+</li><li>Integridad referencial (claves primarias y foráneas)
+</li><li>Restricciones (Constraints)
+</li><li>Disparadores (triggers)
+</li><li>Vistas (views)
+</li><li>Reglas (rules)
+</li><li>Integridad transaccional
+</li><li>Control de concurrencia multiversión
+</li></ul><p>
+Estas características colocan a Postgres en la categoría de las Bases de Datos identificadas como <i>objeto-relacionales</i>. Nótese que éstas son diferentes de las referidas como <i>orientadas a objetos</i>, que en general no son bien aprovechables para soportar lenguajes de Bases de Datos relacionales tradicionales. Postgres tiene algunas características que son propias del mundo de las bases de datos orientadas a objetos. De hecho, algunas Bases de Datos comerciales han incorporado recientemente características en las que Postgres fue pionera.
+</p>
+<p>
+Además, debido a su licencia liberal,    PostgreSQL puede ser usado, modificado, y distibuido por cualquier persona para cualquier propósito sin cargo alguno, ya sea para un fin privado, comercial o académico.
+</p>
+<h2 id="BrevehistoriadePostgres">Breve historia de Postgres<a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql?action=edit&section=5" title="Edit this section">[<span>edit</span>]</a><a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#BrevehistoriadePostgres" title="Link to this section"> ¶</a></h2>
+<p>
+El Sistema Gestor de Bases de Datos Relacionales Orientadas a Objetos conocido como PostgreSQL (y brevemente llamado Postgres95) está derivado del paquete Postgres escrito en Berkeley. Con cerca de una década de desarrollo tras él, PostgreSQL es el gestor de bases de datos de código abierto más avanzado hoy en día, ofreciendo control de concurrencia multi-versión, soportando casi toda la sintaxis <a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a> (incluyendo subconsultas, transacciones, y tipos y funciones definidas por el usuario), contando también con un amplio conjunto de enlaces con lenguajes de programación (incluyendo C, C++, Java, perl, tcl y python).
+</p>
+<h3 id="ElproyectoPostgresdeBerkeley">El proyecto Postgres de Berkeley<a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql?action=edit&section=6" title="Edit this section">[<span>edit</span>]</a><a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#ElproyectoPostgresdeBerkeley" title="Link to this section"> ¶</a></h3>
+<p>
+La implementación del DBMS Postgres comenzó en 1986. Los conceptos iniciales para el sistema fueron presentados en <i><a class="wiki" href="http://www.arpug.com.ar/trac/wiki/BibliografiaPostgres">The Design of Postgres</a></i> y la definición del modelo de datos inicial apareció en <i><a class="wiki" href="http://www.arpug.com.ar/trac/wiki/BibliografiaPostgres">ThePostgres Data Model</a></i>. El diseño del sistema de reglas fue descrito en ese momento en <i><a class="wiki" href="http://www.arpug.com.ar/trac/wiki/BibliografiaPostgres">The Design of the Postgres Rules System</a></i>. La lógica y arquitectura del gestor de almacenamiento fueron detalladas en<i><a class="wiki" href="http://www.arpug.com.ar/trac/wiki/BibliografiaPostgres">The Postgres Storage System</a></i>.
+</p>
+<p>
+Postgres ha pasado por varias revisiones importantes desde entonces. El primer sistema de pruebas fue operacional en 1987 y fue mostrado en la Conferencia ACM-SIGMOD de 1988. Lanzamos la Versión 1, descrita en <i><a class="wiki" href="http://www.arpug.com.ar/trac/wiki/BibliografiaPostgres">The Implementation of Postgres</a></i>, a unos pocos usuarios externos en Junio de 1989. En respuesta a una crítica del primer sistema de reglas (<i><a class="wiki" href="http://www.arpug.com.ar/trac/wiki/BibliografiaPostgres">A Commentary on the Postgres Rules System</a></i>), éste fue rediseñado (<i><a class="wiki" href="http://www.arpug.com.ar/trac/wiki/BibliografiaPostgres">On Rules, Procedures, Caching and Views in Database Systems</a></i>) y la Versión 2, que salió en Junio de 1990, lo incorporaba. La Versión 3 apareció en 1991 y añadió una implementación para múltiples gestores de almacenamiento, un ejecutor de consultas mejorado y un sistema de reescritura de reglas nuevo. En su mayor parte, las siguientes versiones hasta el lanzamiento dePostgres95 (ver más abajo) se centraron en mejorar la portabilidad y la fiabilidad.
+</p>
+<p>
+Postgres forma parte de la implementación de muchas aplicaciones de investigación y producción. Entre ellas: un sistema de análisis de datos financieros, un paquete de monitorización de rendimiento de motores a reacción, una base de datos de seguimiento de asteroides y varios sistemas de información geográfica. También se ha utilizado como una herramienta educativa en varias universidades. Finalmente,<a class="ext-link" href="http://www.illustra.com/"><span class="icon">&nbsp;</span>Illustra Information Technologies</a> (posteriormente absorbida por <a class="ext-link" href="http://www.informix.com/"><span class="icon">&nbsp;</span>Informix</a>) tomó el código y lo comercializó. Postgres llegó a ser el principal gestor de datos para el proyecto científico de computación <a class="ext-link" href="http://www.sdsc.edu/0/Parts_Collabs/S2K/s2k_home.html"><span class="icon">&nbsp;</span>Sequoia 2000</a> a finales de 1992.
+</p>
+<p>
+El tamaño de la comunidad de usuarios externos casi se duplicó durante 1993. Pronto se hizo obvio que el mantenimiento del código y las tareas de soporte estaban ocupando tiempo que debía dedicarse a la investigación. En un esfuerzo por reducir esta carga, el proyecto terminó oficialmente con la Versión 4.2.
+</p>
+<h3 id="Postgres95">Postgres95<a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql?action=edit&section=7" title="Edit this section">[<span>edit</span>]</a><a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#Postgres95" title="Link to this section"> ¶</a></h3>
+<p>
+En 1994, <a class="mail-link" href="mailto:ayu@informix.com"><span class="icon">&nbsp;</span>Andrew Yu</a> y <a class="ext-link" href="http://http.cs.berkeley.edu/~jolly/"><span class="icon">&nbsp;</span>Jolly Chen</a> añadieron un intérprete de lenguage <a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a> a Postgres. Postgres95 fue publicado a continuación en la Web para que encontrara su propio hueco en el mundo como un descendiente de dominio público y código abierto del código original Postgres de Berkeley.
+</p>
+<p>
+El código de Postgres95 fue adaptado a ANSI C y su tamaño reducido en un 25%. Muchos cambios internos mejoraron el rendimiento y la facilidad de mantenimiento. Postgres95 v1.0.x se ejecutaba en torno a un 30-50% más rápido en el Wisconsin Benchmark comparado con Postgres v4.2. Además de corrección de errores, éstas fueron las principales mejoras:
+</p>
+<ul><li>El lenguage de consultas Postquel fue reemplazado con <a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a> (implementado en el servidor). Las subconsultas no fueron soportadas hasta PostgreSQL (ver más abajo), pero podían ser emuladas enPostgres95 con funciones <a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a> definidas por el usuario. Las funciones agregadas fueron reimplementadas. También se añadió una implementación de la cláusula GROUP BY. La interfaz <tt>libpq</tt> permaneció disponible para programas escritos en C.
+</li><li>Además del programa de monitorización, se incluyó un nuevo programa (<tt>psql</tt>) para realizar consultas <a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a> interactivas usando la librería GNU <tt>readline</tt>.
+</li><li>Una nueva librería de interfaz, <tt>libpgtcl</tt>, soportaba clientes basados en Tcl. Un shell de ejemplo, pgtclsh, aportaba nuevas órdenes Tcl para interactuar con el motor Postgres95 desde programas <tt>tcl</tt>
+</li><li>Se revisó la interfaz con objetos grandes. Los objetos grandes de Inversion fueron el único mecanismo para almacenar objetos grandes (el sistema de archivos de Inversion fue eliminado).
+</li><li>Se eliminó también el sistema de reglas a nivel de instancia, si bien las reglas siguieron disponibles como reglas de reescritura.
+</li><li>Se distribuyó con el código fuente un breve tutorial introduciendo las características comunes de <a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a> y de Postgres95.
+</li><li>Se utilizó GNU make (en vez de BSD make) para la compilación. Postgres95 también podía ser compilado con un gcc sin parches (al haberse corregido el problema de alineación de variables de longitud doble).
+</li></ul><h3 id="PostgreSQL">PostgreSQL<a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql?action=edit&section=8" title="Edit this section">[<span>edit</span>]</a><a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#PostgreSQL" title="Link to this section"> ¶</a></h3>
+<p>
+En 1996, se hizo evidente que el nombre "Postgres95" no resistiría el paso del tiempo. Elegimos un nuevo nombre, PostgreSQL, para reflejar la relación entre el Postgres original y las versiones más recientes con capacidades <a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a>. Al mismo tiempo, hicimos que los números de versión partieran de la 6.0, volviendo a la secuencia seguida originalmente por el proyecto Postgres.
+</p>
+<p>
+Durante el desarrollo de Postgres95 se hizo hincapié en identificar y entender los problemas en el código del motor de datos. Con PostgreSQL, el énfasis ha pasado a aumentar características y capacidades, aunque el trabajo continúa en todas las áreas.
+</p>
+<p>
+Las principales mejoras en PostgreSQL incluyen:
+</p>
+<ul><li>Los bloqueos de tabla han sido sustituidos por el control de concurrencia multi-versión, el cual permite a los accesos de sólo lectura continuar leyendo datos consistentes durante la actualización de registros, y permite copias de seguridad en caliente desde pg_dump mientras la base de datos permanece disponible para consultas.
+</li><li>Se han implementado importantes características del motor de datos, incluyendo subconsultas, valores por defecto, restricciones a valores en los campos (constraints) y disparadores (triggers).
+</li><li>Se han añadido funcionalidades en línea con el estándar <a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a>92, incluyendo claves primarias, identificadores entrecomillados, forzado de tipos cadena literales, conversión de tipos y entrada de enteros binarios y hexadecimales.
+</li><li>Los tipos internos han sido mejorados, incluyendo nuevos tipos de fecha/hora de rango amplio y soporte para tipos geométricos adicionales.
+</li><li>La velocidad del código del motor de datos ha sido incrementada aproximadamente en un 20-40%, y su tiempo de arranque ha bajado el 80% desde que la versión 6.0 fue lanzada.
+</li></ul><h2 id="Terminología">Terminología<a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql?action=edit&section=9" title="Edit this section">[<span>edit</span>]</a><a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#Terminología" title="Link to this section"> ¶</a></h2>
+<p>
+En la documentación siguiente, <i>sitio</i> (o <i>site</i>) se puede interpretar como la máquina en la que está instalada Postgres. Dado que es posible instalar más de un conjunto de bases de datos Postgres en una misma máquina, este término denota, de forma más precisa, cualquier conjunto concreto de programas binarios y bases de datos de Postgres instalados.
+</p>
+<p>
+El <i>superusuario</i> de Postgres es el usuario llamado <i><tt>postgres</tt></i> que es dueño de los ficheros de la bases de datos y binarios de Postgres. Como superusuario de la base de datos, no le es aplicable ninguno de los mecanismos de protección y puede acceder a cualquiera de los datos de forma arbitraria. Además, al superusuario de Postgres se le permite ejecutar programas de soporte que generalmente no están disponibles para todos los usuarios. Tenga en cuenta que el superusuario de Postgres <i>no</i> es el mismo que el superusuario de Unix (que es conocido como <i>root</i>). El superusuario debería tener un identificador de usuario (<i>UID</i>) distinto de cero por razones de seguridad.
+</p>
+<p>
+El <i>administrador de la base de datos</i> (<i>database administrator</i>) o DBA, es la persona responsable de instalar Postgres con mecanismos para hacer cumplir una política de seguridad para un site. El DBA puede añadir nuevos usuarios por el método descrito más adelante y mantener un conjunto de bases de datos plantilla para usar con<tt>createdb</tt>.
+</p>
+<p>
+El <tt>postmaster</tt> es el proceso que actúa como una puerta de control (clearing-house) para las peticiones al sistema Postgres. Las aplicaciones frontend se conectan al <tt>postmaster</tt>, que mantiene registros de los errores del sistema y de la comunicación entre los procesos backend. El <tt>postmaster</tt> puede aceptar varios argumentos desde la línea de órdenes para poner a punto su comportamiento. Sin embargo, el proporcionar argumentos es necesario sólo si se intenta trabajar con varios sitios o con uno que no se ejecuta a la manera por defecto.
+</p>
+<p>
+El backend de Postgres (el programa ejecutable <tt>postgres</tt> real) lo puede ejecutar el superusuario directamente desde el intérprete de órdenes de usuario de Postgres (con el nombre de la base de datos como un argumento). Sin embargo, hacer esto elimina el buffer pool compartido y bloquea la tabla asociada con un postmaster/sitio, por ello esto no está recomendado en un sitio multiusuario.
+</p>
+<h2 id="Notación">Notación<a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql?action=edit&section=10" title="Edit this section">[<span>edit</span>]</a><a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#Notación" title="Link to this section"> ¶</a></h2>
+<p>
+"..." o <tt>/usr/local/pgsql/</tt> delante de un nombre de fichero se usa para representar el camino (path) al directorio home del superusuario de Postgres.
+</p>
+<p>
+En la sinopsis, los corchetes ("<a class="missing wiki">y?</a>") indican una expresión o palabra clave opcional. Cualquier cosa entre llaves ("{" y "}") y que contenga barras verticales ("|") indica que debe elegir una de las opciones que separan las barras verticales.
+</p>
+<p>
+En los ejemplos, los paréntesis ("(" y ")") se usan para agrupar expresiones booleanas. "|" es el operador booleano OR.
+</p>
+<p>
+Los ejemplos mostrarán órdenes ejecutadas desde varias cuentas y programas. Las órdenes ejecutadas desde la cuenta del root estarán precedidas por "&gt;". Las órdenes ejecutadas desde la cuenta del superusuario de Postgres estarán precedidas por "%", mientras que las órdenes ejecutadas desde la cuenta de un usuario sin privilegios estarán precedidas por "$". Las órdenes de <a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a> estarán precedidas por"=&gt;" o no estarán precedidas por ningún prompt, dependiendo del contexto.
+</p>
+<h2 id="CopyrightsyMarcasRegistradas">Copyrights y Marcas Registradas<a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql?action=edit&section=11" title="Edit this section">[<span>edit</span>]</a><a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#CopyrightsyMarcasRegistradas" title="Link to this section"> ¶</a></h2>
+<p>
+<i>La traducción de los textos de copyright se presenta aquí únicamente a modo de aclaración y no ha sido aprobada por sus autores originales. Los únicos textos de copyright, garantías, derechos y demás legalismos que tienen validez son los originales en inglés o una traducción aprobada por los autores y/o sus representantes legales. </i>.
+</p>
+<p>
+PostgreSQL tiene Copyright © 1996-2000 por PostgreSQL Inc. y se distribuye bajo los términos de la licencia de Berkeley.
+</p>
+<p>
+Postgres95 tiene Copyright © 1994-5 por los Regentes de la Universidad de California. Se autoriza el uso, copia, modificación y distribuición de este software y su documentación para cualquier propósito, sin ningún pago, y sin un acuerdo por escrito, siempre que se mantengan el copyright del párrafo anterior, este párrafo y los dos párrafos siguientes en todas las copias.
+</p>
+<p>
+En ningún caso la Universidad de California se hará responsable de daños, causados a cualquier persona o entidad, sean estos directos, indirectos, especiales, accidentales o consiguientes, incluyendo lucro cesante que resulten del uso de este software y su documentación, incluso si la Universidad ha sido notificada de la posibilidad de tales daños.
+</p>
+<p>
+La Universidad de California rehusa específicamente ofrecer cualquier garantia, incluyendo, pero no limitada únicamente a, la garantía implícita de comerciabilidad y capacidad para cumplir un determinado propósito. El software que se distribuye aquí se entrega "tal y cual", y la Universidad de California no tiene ninguna obligación de mantenimiento, apoyo, actualización, mejoramiento o modificación.
+</p>
+<p>
+Unix es una marca registrada de X/Open, Ltd. Sun4, SPARC, SunOS y Solaris son marcas registradas de Sun Microsystems, Inc. DEC, DECstation, Alpha AXP y ULTRIX son marcas registradas de Digital Equipment Corp. PA-RISC y HP-UX son marcas registradas de Hewlett-Packard Co. OSF/1 es marca registrada de Open Software Foundation.
+</p>
+<h2 id="SQL"><a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a><a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql?action=edit&section=12" title="Edit this section">[<span>edit</span>]</a><a class="anchor" href="Tutorial de PostgreSQL, Modelo Relacional y SQL.htm" title="Link to this section"> ¶</a></h2>
+<blockquote>
+<p>
+Este capítulo apareció originariamente como parte de la tesis doctoral de Stefan Simkovics. (<i><a class="wiki" href="http://www.arpug.com.ar/trac/wiki/BibliografiaPostgres">Simkovics, 1998</a></i>).
+</p>
+</blockquote>
+<p>
+<a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a> se ha convertido en el lenguaje de consulta relacional más popular. El nombre "<a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a>" es una abreviatura de <i>Structured Query Language</i> (Lenguaje de consulta estructurado). En 1974 Donald Chamberlain y otros definieron el lenguaje SEQUEL (<i>Structured English Query Language</i>) en IBM Research. Este lenguaje fue implementado inicialmente en un prototipo de IBM llamado SEQUEL-XRM en 1974-75. En 1976-77 se definió una revisión de SEQUEL llamada SEQUEL/2 y el nombre se cambió a <a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a>.
+</p>
+<p>
+IBM desarrolló un nuevo prototipo llamado System R en 1977. System R implementó un amplio subconjunto de SEQUEL/2 (now <a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a>) y un número de cambios que se le hicieron a (now <a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a>) durante el proyecto. System R se instaló en un número de puestos de usuario, tanto internos en IBM como en algunos clientes seleccionados. Gracias al éxito y aceptación de System R en los mismos, IBM inició el desarrollo de productos comerciales que implementaban el lenguaje <a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a> basado en la tecnología System R.
+</p>
+<p>
+Durante los años siguientes, IBM y bastantes otros vendedores anunciaron productos <a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a> tales como <a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a>/DS (IBM), DB2 (IBM), ORACLE (Oracle Corp.), DG/<a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a> (Data General Corp.), y SYBASE (Sybase Inc.).
+</p>
+<p>
+<a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a> es también un estándar oficial hoy. En 1982, la American National Standards Institute (ANSI) encargó a su Comité de Bases de Datos X3H2 el desarrollo de una propuesta de lenguaje relacional estándar. Esta propuesta fue ratificada en 1986 y consistía básicamente en el dialecto de IBM de <a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a>. En 1987, este estándar ANSI fue también aceptado por la Organización Internacional de Estandarización (ISO). Esta versión estándar original de <a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a> recibió informalmente el nombre de "<a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a>/86". En 1989, el estándar original fue extendido, y recibió el nuevo nombre, también informal, de "<a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a>/89". También en 1989 se desarrolló un estándar relacionado llamado <i>Database Language Embedded <a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a></i> (ESQL).
+</p>
+<p>
+Los comités ISO y ANSI han estado trabajando durante muchos años en la definición de una versión muy ampliada del estándar original, llamado informalmente <i><a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a>2</i> o <i><a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a>/92</i>. Esta versión se convirtió en un estándar ratificado durante 1992: <i>International Standard ISO/IEC 9075:1992, Database Language <a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a></i>. <a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a>/92 es la versión a la que normalmente la gente se refiere cuando habla de «<a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a> estándar». Se da una descripción detallada de <a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a>/92 en <i><a class="wiki" href="http://www.arpug.com.ar/trac/wiki/BibliografiaPostgres">Date and Darwen, 1997</a></i>. En el momento de escribir este documento, se encuentra disponible un nuevo estándar denominado informalmente como<i> SQL:2003</i>. Plantea hacer de <a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a> un lenguaje de alcance completo (e Turing-complete language), es decir, posibilitando todas las consultas computables, (por ejemplo consultas recursivas), entre otras características.
+</p>
+<h2 id="ElModelodeDatosRelacional">El Modelo de Datos Relacional<a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql?action=edit&section=13" title="Edit this section">[<span>edit</span>]</a><a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#ElModelodeDatosRelacional" title="Link to this section"> ¶</a></h2>
+<p>
+Como mencionamos antes, <a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a> es un lenguaje relacional. Esto quiere decir que se basa en el <i>modelo de datos relacional</i> publicado inicialmente por E.F.Codd en 1970. Daremos una descripción formal del modelo de datos relacional más tarde (en <i><a class="wiki" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#FormalidadesdelModeloRelacional">deDatos Formalidades del Modelo Relacional de Datos</a></i>), pero primero queremos dar una mirada desde un punto de vista más intuitivo.
+</p>
+<p>
+Una <i>base de datos relacional</i> es una base de datos que se percibe por los usuarios como una <i>colección de tablas</i> (y nada más que tablas). Una tabla consiste en filas y columnas, en las que cada fila representa un registro, y cada columna representa un atributo del registro contenido en la tabla. <i><a class="wiki" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#LaBasedeDatosdeProveedoresyArtículos">La Base de Datos de Proveedores y Artículos</a></i> muestra un ejemplo de base de datos consistente en tres tablas.
+</p>
+<ul><li>SUPPLIER es una tabla que recoge el número (SNO), el nombre (SNAME) y la ciudad (CITY) de un proveedor.
+</li><li>PART es una tabla que almacena el número (PNO) el nombre (PNAME), el precio (PRICE) y la cantidad en existencia (STOCK) de un artículo.
+</li><li>SELLS almacena información sobre qué artículo (PNO) es vendido por qué proveedor (SNO). Esto sirve en un sentido para conectar las dos tablas entre ellas.
+</li></ul><h3 id="LaBasedeDatosdeProveedoresyArtículos">La Base de Datos de Proveedores y Artículos<a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql?action=edit&section=14" title="Edit this section">[<span>edit</span>]</a><a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#LaBasedeDatosdeProveedoresyArtículos" title="Link to this section"> ¶</a></h3>
+<p>
+<strong>Ejemplo 1. La Base de Datos de Proveedores y Artículos</strong>
+</p>
+<pre class="wiki">   SUPPLIER   SNO |  SNAME  |  CITY      SELLS   SNO | PNO
+             -----+---------+--------           -----+-----
+               1  |  Smith  | London              1  |  1
+               2  |  Jones  | Paris               1  |  2
+               3  |  Adams  | Vienna              2  |  4
+               4  |  Blake  | Rome                3  |  1
+               5  |  James  | London              3  |  3
+                                                  4  |  2
+   PART       PNO |  PNAME    | PRICE | STOCK     4  |  3 
+             -----+-----------+-------+-------    4  |  4
+                1 | Tornillos | 10.00 |    20
+                2 | Tuercas   |  8.00 |    16
+                3 | Cerrojos  | 15.00 |    30
+                4 | Levas     | 25.00 |    50
+                5 | Arandela  | 50.00 |   100
+</pre><p>
+Las tablas PART y SUPPLIER se pueden ver como <i>entidades</i> y SELLS se puede ver como una <i>relación</i> entre un artículo particular y un proveedor particular.
+</p>
+<p>
+Como veremos más tarde, <a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a> opera en las tablas tal como han sido definidas, pero antes de ello estudiaremos la teoría del modelo relacional.
+</p>
+<h2 id="FormalidadesdelModeloRelacionaldeDatos">Formalidades del Modelo Relacional de Datos<a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql?action=edit&section=15" title="Edit this section">[<span>edit</span>]</a><a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#FormalidadesdelModeloRelacionaldeDatos" title="Link to this section"> ¶</a></h2>
+<p>
+El concepto matemático que subyace bajo el modelo relacional es la <i>relación</i> de la teoría de conjuntos, la cual es un subconjunto del producto cartesiano de una lista de dominios. Esta relación de la teoría de conjuntos proporciona al modelo su nombre (no confundir con la relación del <i>Modelo Entidad-Relación</i>). Formalmente, un dominio es simplemente un conjunto de valores. Por ejemplo, el conjunto de los enteros es un dominio. También son ejemplos de dominios las cadenas de caracteres de longitud 20 y los números reales.
+</p>
+<p>
+El <i>producto cartesiano</i> de los dominios <i><tt>D1</tt></i>, <i><tt>D2</tt></i>, ... <i><tt>Dk</tt></i>, escritos <i><tt>D1</tt></i> × <i><tt>D2</tt></i> × ... × <i><tt>Dk</tt></i> es el conjunto de las k-tuplas <i><tt>v1</tt></i>, <i><tt>v2</tt></i>, ... <i><tt>vk</tt></i>, tales que <i><tt>v1</tt></i>  <i><tt>D1</tt></i>, <i><tt>v1</tt></i>  <i><tt>D1</tt></i>, ... <i><tt>vk</tt></i>  <i><tt>Dk</tt></i>.
+</p>
+<p>
+Por ejemplo, cuando tenemos <i><tt>k</tt></i>=2, <i><tt>D1</tt></i>=<tt>{0,1}</tt> y <i><tt>D2</tt></i>=<tt>{a,b,c}</tt> entonces <i><tt>D1</tt></i> × <i><tt>D2</tt></i> es <tt>{(0,a),(0,b),(0,c),(1,a),(1,b),(1,c)}</tt>.
+</p>
+<p>
+Una Relación es cualquier subconjunto del producto cartesiano de uno o más dominios: <i><tt>R</tt></i>  <i><tt>D1</tt></i> × <i><tt>D2</tt></i> × ... × <i><tt>Dk</tt></i>.
+</p>
+<p>
+Por ejemplo, <tt>{(0,a),(0,b),(1,a)}</tt> es una relación; De hecho es un subconjunto de <i><tt>D1</tt></i> × <i><tt>D2</tt></i> mencionado antes.
+</p>
+<p>
+Los miembros de una relación se llaman tuplas. Cada relación de algún producto cartesiano <i><tt>D1</tt></i> × <i><tt>D2</tt></i> × ... × <i><tt>Dk</tt></i> se dice que tiene nivel <tt>k</tt> y de este modo es un subconjunto de <tt>k</tt>-tuplas.
+</p>
+<p>
+Una relación se puede ver como una tabla (como ya dijimos, recuerde <i><a class="wiki" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#LaBasedeDatosdeProveedoresyArtículos">La Base de Datos de Proveedores y Artículos</a></i> donde cada tupla se representa como una fila y cada columna corresponde a un componente de la tupla. Dando nombres (llamados atributos) a las columnas, nos acercamos a la definición de un <i>esquema relacional</i>.
+</p>
+<p>
+Un <i>esquema relacional</i> <tt>R</tt> es un conjunto finito de atributos <i><tt>A1</tt></i>, <i><tt>A2</tt></i>, ... <i><tt>Ak</tt></i>. Hay un dominio <i><tt>Di</tt></i>, para cada atributo <i><tt>Ai</tt></i>, 1 &lt;= <tt>i</tt> &lt;= <tt>k</tt>, de donde se toman los valores de los atributos. Entonces escribimos es esquema relacional como <tt>R(A1, A2, ... Ak)</tt>.
+</p>
+<blockquote>
+<p>
+Un <i>esquema relacional</i> es sólo un juego de plantillas mientras que una <i>relación</i> es un ejemplo de un <i>esquema relacional</i>. La relación consiste en las tuplas (y pueden ser vistas como una tabla); no así el esquema relacional.
+</p>
+</blockquote>
+<h3 id="DominioscontraTiposdeDatos">Dominios contra Tipos de Datos<a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql?action=edit&section=16" title="Edit this section">[<span>edit</span>]</a><a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#DominioscontraTiposdeDatos" title="Link to this section"> ¶</a></h3>
+<p>
+Ya hemos hablado de <i>dominios</i> en la sección anterior. Recalcar que el dominio es, formalmente, un conjunto de valores (por ejemplo el conjunto de los enteros o el de los números reales). En términos de sistemas de base de datos, hemos hablado de <i>tipos de datos</i> más que de dominios. Cuando hemos definido una tabla, hemos tomado una decisión sobre qué atributos incluir. Adicionalmente, hemos decidido qué juego de datos deberá ser almacenado en valores de los atributos. Por ejemplo, los valores de <tt>SNAME</tt> de la tabla <tt>SUPPLIER</tt> serán cadenas de caracteres, mientras que <tt>SNO</tt> almacenará enteros. Definimos esto asignando un tipo de datos a cada atributo. El tipo de <tt>SNAME</tt> será VARCHAR(20) (este es el tipo <a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a> para cadenas de caracteres de longitud &lt;= 20), el tipo de <tt>SNO</tt> será INTEGER. Con la asignación de tipos de datos, también habremos seleccionado un dominio para un atributo. El dominio de <tt>SNAME</tt> es el conjunto de todas las cadenas de caracteres de longitud &lt;= 20, mientras el dominio de <tt>SNO</tt> es el conjunto de todos los números enteros.
+</p>
+<h2 id="OperacionesenelModelodeDatosRelacional">Operaciones en el Modelo de Datos Relacional<a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql?action=edit&section=17" title="Edit this section">[<span>edit</span>]</a><a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#OperacionesenelModelodeDatosRelacional" title="Link to this section"> ¶</a></h2>
+<p>
+En la sección previa (<i><a class="wiki" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#FormalidadesdelModeloRelacionaldeDatos">Formalidades del Modelo Relacional de Datos</a></i>) definimos la noción matemática del modelo relacional. Ahora conocemos como los datos pueden almacenarse utilizando un modelo de datos relacional, pero no conocemos qué podemos hacer con todas estas tablas para recuperar algo desde esa base de datos todavía. Por ejemplo, alguien podría preguntar por los nombre de todos los proveedores que vendan el artículo 'tornillo'. Hay dos formas diferentes de notaciones para expresar las operaciones entre relaciones.
+</p>
+<ul><li>El <i>Álgebra Relacional</i> es una notación algebraica, en la cual las consultas se expresan aplicando operadores especializados a las relaciones.
+</li></ul><ul><li>El <i>Cálculo Relacional</i> es una notación lógica, donde las consultas se expresan formulando algunas restricciones lógicas que las tuplas de la respuesta deban satisfacer.
+</li></ul><h3 id="ÁlgebraRelacional">Álgebra Relacional<a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql?action=edit&section=18" title="Edit this section">[<span>edit</span>]</a><a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#ÁlgebraRelacional" title="Link to this section"> ¶</a></h3>
+<p>
+El <i>Álgebra Relacional</i> fue introducida por E.F.Codd en 1972. Consiste en un conjunto de operaciones con las relaciones.
+</p>
+<ul><li>SELECCIÓN (): extrae <i>tuplas</i> a partir de una relación que satisfagan una restricción dada. Sea <i><tt>R</tt></i> una tabla que contiene un atributo <i><tt>A</tt></i>.         <sub>A=a</sub>(R) = {t  R  t(A) = a} donde <tt>t</tt> denota una tupla de <i><tt>R</tt></i> y <tt>t(A)</tt>denota el valor del atributo <i><tt>A</tt></i> de la tupla <tt>t</tt>.
+</li></ul><ul><li>PROYECCIÓN (): extrae <i>atributos</i> (columnas) específicos de una relación. Sea <tt>R</tt> una relación que contiene un atributo <tt>X</tt>. <sub>X</sub>(<tt>R</tt>) = {t(X)  t  <tt>R</tt>}, donde <tt>t</tt>(<tt>X</tt>) denota el valor del atributo <tt>X</tt> de la tupla <tt>t</tt>.
+</li></ul><ul><li>PRODUCTO CARTESIANO (×): construye el producto cartesiano de dos relaciones. Sea <tt>R</tt> una tabla de rango (arity) <tt>k</tt><sub>1</sub> y sea <tt>S</tt> una tabla con rango (arity) <tt>k</tt><sub>2</sub>. <tt>R</tt> × <tt>S</tt> es el conjunto de las <tt>k</tt><sub>1</sub> + <tt>k</tt><sub>2</sub>-tuplas cuyos primeros<tt>k</tt><sub>1</sub> componentes forman una tupla en <tt>R</tt> y cuyos últimos <tt>k</tt><sub>2</sub> componentes forman una tupla en <tt>S</tt>.
+</li></ul><ul><li>UNION (): supone la unión de la teoría de conjuntos de dos tablas. Dadas las tablas <tt>R</tt> y <tt>S</tt> (y ambas deben ser del mismo rango), la unión <tt>R</tt>  <tt>S</tt> es el conjunto de las tuplas que están en <tt>R,</tt> <tt>S</tt> o en las dos.
+</li></ul><ul><li>INTERSECCIÓN (): Construye la intersección de la teoría de conjuntos de dos tablas. Dadas las tablas <tt>R</tt> y <tt>S</tt>, <tt>R</tt>  <tt>S</tt> es el conjunto de las tuplas que están en <tt>R</tt> y en <tt>S</tt>. De nuevo requiere que <tt>R</tt> y <tt>S</tt> tengan el mismo rango.
+</li></ul><ul><li>DIFERENCIA ( or ): supone el conjunto diferencia de dos tablas. Sean <tt>R</tt> y <tt>S</tt> de nuevo dos tablas con el mismo rango. <tt>R</tt> - <tt>S</tt> Es el conjunto de las tuplas que están en <tt>R</tt> pero no en <tt>S</tt>.
+</li></ul><ul><li>JUNTA NATURAL ( o |×|): conecta dos tablas por sus atributos comunes. Sea <tt>R</tt> una tabla con los atributos <tt>A</tt>,<tt>B</tt> y <tt>C</tt> y sea <tt>S</tt> una tabla con los atributos <tt>C</tt>,<tt>D</tt> y <tt>E</tt>. Hay un atributo común para ambas relaciones, el atributo<tt>C</tt>. R  S = <sub>R.A,R.B,R.C,S.D,S.E</sub>(<sub>R.C=S.C</sub>(R × S)). ¿Qué estamos haciendo aquí? Primero calculamos el producto cartesiano <tt>R</tt> × <tt>S</tt>. Entonces seleccionamos las tuplas cuyos valores para el atributo común <tt>C</tt> sea igual (<sub>R.C = S.C</sub>). Ahora tenemos una tabla que contiene el atributo <tt>C</tt> dos veces y lo corregimos eliminando la columna duplicada.
+</li></ul><p>
+<strong>Ejemplo 2. Una Inner Join (Una Junta Interna)</strong>
+</p>
+<p>
+Veamos las tablas que se han producido evaluando los pasos necesarios para una join. Sean las siguientes tablas dadas:
+</p>
+<pre class="wiki">         R   A | B | C      S   C | D | E
+            ---+---+---        ---+---+---
+             1 | 2 | 3          3 | a | b
+             4 | 5 | 6          6 | c | d
+             7 | 8 | 9
+	 
+</pre><p>
+Primero calculamos el producto cartesiano <tt>R</tt> × <tt>S</tt> y tendremos:
+</p>
+<pre class="wiki">       R x S   A | B | R.C | S.C | D | E
+              ---+---+-----+-----+---+---
+               1 | 2 |  3  |  3  | a | b
+               1 | 2 |  3  |  6  | c | d
+               4 | 5 |  6  |  3  | a | b
+               4 | 5 |  6  |  6  | c | d
+               7 | 8 |  9  |  3  | a | b
+               7 | 8 |  9  |  6  | c | d
+</pre><p>
+Tras la selección <sub>R.C=S.C</sub>(R × S) tendremos:
+</p>
+<pre class="wiki">               A | B | R.C | S.C | D | E
+              ---+---+-----+-----+---+---
+               1 | 2 |  3  |  3  | a | b
+               4 | 5 |  6  |  6  | c | d
+</pre><p>
+Para eliminar las columnas duplicadas <tt>S</tt>.<tt>C</tt> realizamos la siguiente operación: <sub>R.A,R.B,R.C,S.D,S.E</sub>(<sub>R.C=S.C</sub>(R × S)) y obtenemos:
+</p>
+<pre class="wiki">                   A | B | C | D | E
+                  ---+---+---+---+---
+                   1 | 2 | 3 | a | b
+                   4 | 5 | 6 | c | d
+	
+</pre><ul><li>DIVISIÓN (÷): Sea <tt>R</tt> una tabla con los atributos A, B, C, y D y sea <tt>S</tt> una tabla con los atributos C y D. Definimos la división como: R ÷ S = {t   t<sub>s</sub>  S  t<sub>r</sub>  R tal que t<sub>r</sub>(A,B)=tt<sub>r</sub>(C,D)=t<sub>s</sub>} donde t<sub>r</sub>(x,y) denota una tupla de la tabla <tt>R</tt> que consiste sólo en los componentes <tt>x</tt> y <tt>y</tt>. Nótese que la tupla <tt>t</tt> consiste sólo en los componentes <tt>A</tt> y <tt>B</tt> de la relación <tt>R</tt>.
+</li></ul><p>
+Dadas las siguientes tablas
+</p>
+<pre class="wiki">          R   A | B | C | D        S   C | D
+             ---+---+---+---          ---+---
+              a | b | c | d            c | d
+              a | b | e | f            e | f
+              b | c | e | f
+              e | d | c | d
+              e | d | e | f
+              a | b | d | e
+	
+</pre><p>
+R ÷ S se deriva como
+</p>
+<pre class="wiki">                         A | B
+                        ---+---
+                         a | b
+                         e | d
+</pre><p>
+Para una descripción y definición más detallada del Álgebra Relacional diríjanse a [<i><a class="wiki" href="http://www.arpug.com.ar/trac/wiki/BibliografiaPostgres">Ullman, 1988</a></i>] o [<i><a class="wiki" href="http://www.arpug.com.ar/trac/wiki/BibliografiaPostgres">Date, 1994</a></i>].
+</p>
+<p>
+<strong>Ejemplo 3. Una consulta utilizando Álgebra Relacional</strong>
+</p>
+<p>
+Recalcar que hemos formulado todos estos operadores relacionales como capaces de recuperar datos de la base de datos. Volvamos a nuestro ejemplo de la sección previa (<i><a class="wiki" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#OperacionesenelModeloRelacionaldeDatos">Operaciones en el Modelo de Datos Relacional</a></i>) donde alguien quería conocer los nombres de todos los proveedores que venden el artículo <tt>Tornillos</tt>. Esta pregunta se responde utilizando el álgebra relacional con la siguiente operación:
+</p>
+<pre class="wiki">SUPPLIER.SNAME(PART.PNAME='Tornillos'(SUPPLIER  SELLS  PART))
+</pre><p>
+Llamamos a estas operaciones una consulta. Si evaluamos la consulta anterior contra las tablas de nuestro ejemplo (<i><a class="wiki" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#LaBasedeDatosdeProveedoresyArtículos">La Base de Datos de Proveedores y Artículos</a></i>) obtendremos el siguiente ejemplo:
+</p>
+<pre class="wiki">                             SNAME
+                            -------
+                             Smith
+                             Adams
+</pre><h3 id="CálculoRelacional">Cálculo Relacional<a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql?action=edit&section=19" title="Edit this section">[<span>edit</span>]</a><a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#CálculoRelacional" title="Link to this section"> ¶</a></h3>
+<p>
+El Cálculo Relacional se basa en la <i>lógica de primer orden</i>. Hay dos variantes del cálculo relacional:
+</p>
+<ul><li>El <i>Cálculo Relacional de Dominios</i> (DRC), donde las variables esperan componentes (atributos) de las tuplas.
+</li></ul><ul><li>El <i>Cálculo Relacional de Tuplas</i> The <i>Tuple Relational Calculus</i> (TRC), donde las variables esperan tuplas.
+</li></ul><p>
+Expondremos sólo el cálculo relacional de tuplas porque es el único utilizado por la mayoría de lenguajes relacionales. Para una discusión detallada de DRC (y también de TRC) vea [<i><a class="wiki" href="http://www.arpug.com.ar/trac/wiki/BibliografiaPostgres">Date, 1994</a></i>] o [<i><a class="wiki" href="http://www.arpug.com.ar/trac/wiki/BibliografiaPostgres">Ullman, 1988</a></i>].
+</p>
+<h3 id="CálculoRelacionaldeTuplas">Cálculo Relacional de Tuplas<a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql?action=edit&section=20" title="Edit this section">[<span>edit</span>]</a><a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#CálculoRelacionaldeTuplas" title="Link to this section"> ¶</a></h3>
+<p>
+Las consultas utilizadas en TRC tienen el siguiente formato: x(A)  F(x) donde <tt>x</tt> es una variable de tipo tupla, <tt>A</tt> es un conjunto de atributos y <tt>F</tt> es una fórmula. La relación resultante consiste en todas las tuplas <tt>t(A)</tt> que satisfagan <tt>F(t)</tt>.
+</p>
+<p>
+Si queremos responder la pregunta del ejemplo <i>`<a class="wiki" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#UnaconsultautilizandoÁlgebraRelacional">Una consulta utilizando Álgebra Relacional</a></i> utilizando TRC formularemos la siguiente consulta:
+</p>
+<pre class="wiki">    {x(SNAME)  x  SUPPLIER  
+                        y  SELLS  z  PART (y(SNO)=x(SNO)  
+                        z(PNO)=y(PNO)  
+                        z(PNAME)='Tornillos')} 
+</pre><p>
+Evaluando la consulta contra las tablas de <i><a class="wiki" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#LaBasedeDatosdeProveedoresyArtículos">La Base de Datos de Proveedores y Artículos</a></i> encontramos otra vez el mismo resultado de <i><a class="wiki" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#UnaconsultautilizandoÁlgebraRelacional">Una consulta utilizando Álgebra Relacional</a></i>.
+</p>
+<h3 id="ÁlgebraRelacionalcontraCálculoRelacional">Álgebra Relacional contra Cálculo Relacional<a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql?action=edit&section=21" title="Edit this section">[<span>edit</span>]</a><a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#ÁlgebraRelacionalcontraCálculoRelacional" title="Link to this section"> ¶</a></h3>
+<p>
+El álgebra relacional y el cálculo relacional tienen el mismo <i>poder de expresión</i>; es decir, todas las consultas que se pueden formular utilizando álgebra relacional pueden también formularse utilizando el cálculo relacional, y viceversa. Esto fue probado por E. F. Codd en 1972. Este profesor se basó en un algoritmo ("algoritmo de reducción de Codd") mediante el cual una expresión arbitraria del cálculo relacional se puede reducir a la expresión semánticamente equivalente del álgebra relacional. Para una discusión más detallada sobre este punto, diríjase a [<i><a class="wiki" href="http://www.arpug.com.ar/trac/wiki/BibliografiaPostgres">Date, 1994</a></i>] y [<i><a class="wiki" href="http://www.arpug.com.ar/trac/wiki/BibliografiaPostgres">Ullman, 1988</a></i>].
+</p>
+<p>
+Se dice a veces que los lenguajes basados en el cálculo relacional son de "más alto nivel" o "más declarativos" que los basados en el álgebra relacional porque el álgebra especifica (parcialmente) el orden de las operaciones, mientras el cálculo lo traslada a un compilador o interprete que determina el orden de evaluación más eficiente.
+</p>
+<h2 id="ElLenguajeSQL">El Lenguaje <a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a><a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql?action=edit&section=22" title="Edit this section">[<span>edit</span>]</a><a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#ElLenguajeSQL" title="Link to this section"> ¶</a></h2>
+<p>
+Como en el caso de los más modernos lenguajes relacionales, <a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a> está basado en el cálculo relacional de tuplas. Como resultado, toda consulta formulada utilizando el cálculo relacional de tuplas ( o su equivalente, el álgebra relacional) se pude formular también utilizando <a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a>. Hay, sin embargo, capacidades que van más allá del cálculo o del álgebra relaciona. Aquí tenemos una lista de algunas características proporcionadas por <a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a> que no forman parte del álgebra y del cálculo relacionales:
+</p>
+<ul><li>Comandos para inserción, borrado o modificación de datos.
+</li><li>Capacidades aritméticas: En <a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a> es posible incluir operaciones aritméticas así como comparaciones, por ejemplo A &lt; B + 3. Nótese que ni + ni otros operadores aritméticos aparecían en el álgebra relacional ni en cálculo relacional.
+</li><li>Asignación y comandos de impresión: es posible imprimir una relación construida por una consulta y asignar una relación calculada a un nombre de relación.
+</li><li>Funciones agregadas: Operaciones tales como <i>promedio (average)</i>, <i>suma (sum)</i>, <i>máximo (max)</i>, etc. se pueden aplicar a las columnas de una relación para obtener una cantidad única.
+</li></ul><h3 id="SELECT">SELECT<a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql?action=edit&section=23" title="Edit this section">[<span>edit</span>]</a><a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#SELECT" title="Link to this section"> ¶</a></h3>
+<p>
+El comando más usado en <a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a> es la instrucción SELECT, que se utiliza para recuperar datos. La sintaxis básica es (ver <a class="wiki" href="http://www.arpug.com.ar/trac/wiki/sql-select.html">sintaxis avanzada</a>):
+</p>
+<pre class="wiki">   SELECT [ALL|DISTINCT] 
+          { * | expr_1 [AS c_alias_1] [, ... 
+                [, expr_k [AS c_alias_k]]]}
+   FROM table_name_1 [t_alias_1] 
+        [, ... [, table_name_n [t_alias_n]]]
+   [WHERE condition]
+   [GROUP BY name_of_attr_i 
+             [,... [, name_of_attr_j]] [HAVING condition]]
+   [{UNION [ALL] | INTERSECT | EXCEPT} SELECT ...]
+   [ORDER BY name_of_attr_i [ASC|DESC] 
+             [, ... [, name_of_attr_j [ASC|DESC]]]];
+</pre><p>
+Ilustraremos ahora la compleja sintaxis de la instrucción SELECT con varios ejemplos. Las tablas utilizadas para los ejemplos se definen en: <i><a class="wiki" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#LaBasedeDatosdeProveedoresyArtículos">La Base de Datos de Proveedores y Artículos</a></i>.
+</p>
+<h4 id="SELECTsencillas">SELECT sencillas<a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql?action=edit&section=24" title="Edit this section">[<span>edit</span>]</a><a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#SELECTsencillas" title="Link to this section"> ¶</a></h4>
+<p>
+Aquí tenemos algunos ejemplos sencillos utilizando la instrucción SELECT:
+</p>
+<p>
+<strong>Ejemplo 4. Query sencilla con cualificación</strong>
+</p>
+<p>
+Para recuperar todas las tuplas de la tabla PART donde el atributo PRICE es mayor que 10, formularemos la siguiente consulta:
+</p>
+<pre class="wiki">   SELECT * FROM PART
+     WHERE PRICE &gt; 10;
+</pre><p>
+y obtenemos la siguiente tabla:
+</p>
+<pre class="wiki">                   PNO |  PNAME    | PRICE | STOCK
+                  -----+-----------+-------+-------
+                     1 | Tornillos | 10.00 |    20
+                     2 | Tuercas   |  8.00 |    16
+                     3 | Cerrojos  | 15.00 |    30
+                     4 | Levas     | 25.00 |    50
+                     5 | Arandela  | 50.00 |   100
+</pre><p>
+Utilizando "*" en la instrucción SELECT solicitaremos todos los atributos de la tabla. Si queremos recuperar sólo los atributos PNAME y PRICE de la tabla PART utilizaremos la instrucción:
+</p>
+<pre class="wiki">   SELECT PNAME, PRICE 
+   FROM PART
+   WHERE PRICE &gt; 10;
+</pre><p>
+En este caso el resultado es:
+</p>
+<pre class="wiki">                      PNAME      |  PRICE
+                     ------------+--------
+                      Cerrojos   |   15
+                      Levas      |   25
+                      Arandelas  |   50
+</pre><p>
+Nótese que la SELECT <a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a> corresponde a la "proyección" en álgebra relaciona, no a la "selección" (vea <i><a class="wiki" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#ÁlgebraRelacional">Álgebra Relacional</a></i> para más detalles).Las cualificaciones en la clausula WHERE pueden también conectarse lógicamente utilizando las palabras claves OR, AND, y NOT:
+</p>
+<pre class="wiki">   SELECT PNAME, PRICE 
+   FROM PART
+   WHERE PNAME = 'Cerrojos' AND
+         (PRICE = 0 OR PRICE &lt; 15);
+</pre><p>
+dará como resultado:
+</p>
+<pre class="wiki">                      PNAME      |  PRICE
+                     ------------+--------
+                      Cerrojos   |   15
+</pre><p>
+Las operaciones aritméticas se pueden utilizar en la lista de objetivos y en la clausula WHERE. Por ejemplo, si queremos conocer cuanto cuestan si tomamos dos piezas de un artículo, podríamos utilizar la siguiente consulta:
+</p>
+<pre class="wiki">   SELECT PNAME, PRICE * 2 AS DOUBLE
+   FROM PART
+   WHERE PRICE * 2 &lt; 50;
+</pre><p>
+y obtenemos:
+</p>
+<pre class="wiki">                      PNAME      |  DOUBLE
+                     ------------+---------
+                      Tornillos  |    20
+                      Tuercas    |    16
+                      Cerrojos   |    30
+</pre><p>
+Nótese que la palabra DOBLE tras la palabra clave AS es el nuevo título de la segunda columna. Esta técnica puede utilizarse para cada elemento de la lista objetivo para asignar un nuevo título a la columna resultante. Este nuevo título recibe el calificativo de "un alias". El alias no puede utilizarse en todo el resto de la consulta.
+</p>
+<p>
+Si queremos ordenar los resultados, ordenamos por la clausula ORDER BY:
+</p>
+<pre class="wiki">   SELECT PNAME, PRICE * 2 AS DOUBLE
+   FROM PART
+   WHERE PRICE * 2 &lt; 50
+   ORDER BY PRICE * 2;
+</pre><p>
+y obtendremos:
+</p>
+<pre class="wiki">   PNAME   | DOUBLE 
+-----------+--------
+ Tuercas   |  16.00
+ Tornillos |  20.00
+ Cerrojos  |  30.00
+
+</pre><p>
+Notar que el orden es ascendente y determinado por la expresión PRICE * 2. Si quisieramos otro orden, podríamos utilizar cualquier otra expresión y la clausula DESC (descendente) y ASC (ascendente).
+</p>
+<h4 id="JoinsCruces">Joins (Cruces)<a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql?action=edit&section=25" title="Edit this section">[<span>edit</span>]</a><a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#JoinsCruces" title="Link to this section"> ¶</a></h4>
+<p>
+El siguiente ejemplo muestra como las <i>joins (cruces)</i> se realizan en <a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a>.
+</p>
+<p>
+Para cruzar tres tablas SUPPLIER, PART y SELLS a través de sus atributos comunes, formularemos la siguiente instrucción:
+</p>
+<pre class="wiki">   SELECT S.SNAME, P.PNAME
+   FROM SUPPLIER S, PART P, SELLS SE
+   WHERE S.SNO = SE.SNO AND
+         P.PNO = SE.PNO;
+</pre><p>
+y obtendremos la siguiente tabla como resultado:
+</p>
+<pre class="wiki">                       SNAME | PNAME
+                      -------+-------
+                       Smith | Tornillos
+                       Smith | Tuercas
+                       Jones | Levas
+                       Adams | Tornillos
+                       Adams | Cerrojos
+                       Blake | Tuercas
+                       Blake | Cerrojos
+                       Blake | Levas
+</pre><p>
+En la clausula FROM hemos introducido un alias al nombre para cada relación porque hay atributos con nombre común (SNO y PNO) en las relaciones. Ahora podemos distinguir entre los atributos con nombre común simplificando la adicción de un prefijo al nombre del atributo con el nombre del alias seguido de un punto. La join se calcula de la misma forma, tal como se muestra en <i><a class="wiki" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#UnaInnerJoin(UnaJoinInterna)">Una Inner Join (Una Join Interna)</a></i>. Primero el producto cartesiano: SUPPLIER × PART × SELLS Ahora seleccionamos únicamente aquellas tuplas que satisfagan las condiciones dadas en la clausula WHERE (es decir, los atributos con nombre común deben ser iguales). Finalmente eliminamos las columnas repetidas (S.SNAME, P.PNAME).
+</p>
+<p>
+Podemos obtener el mismo resultado usando la sintaxis propia de INNER JOIN, donde se cruza de a dos tablas sobre sus atributos que satisfagan la condición de la clausula ON:
+</p>
+<pre class="wiki">   SELECT S.SNAME, P.PNAME
+   FROM SUPPLIER S INNER JOIN SELLS SE ON S.SNO = SE.SNO AND
+        INNER JOIN PART P ON P.PNO = SE.PNO;
+</pre><p>
+A su vez, en este caso, podemos obtener el mismo resultado usando la sintaxis de NATURAL JOIN o junta natural ( o |×|) ya que los atributos comunes tienen el mismo nombre y tipo (se satisface la condición S.SNO = SE.SNO y P.PNO = SE.PNO implícitamente, al llamarse SNO y PNO en ambas tablas):
+</p>
+<pre class="wiki">   SELECT S.SNAME, P.PNAME
+   FROM SUPPLIER S NATURAL JOIN SELLS SE 
+        NATURAL JOIN PART P;
+</pre><p>
+Si quisieramos obtener todas las partes (PART) disponibles y el nombre del proveedor en el caso que sea provista por alguno (suponiendo que hay partes que no son provistas por ningún proveedor, en dicho caso no figuran en la relación SELLS), podríamos utilizar la sintaxis LEFT JOIN:
+</p>
+<pre class="wiki">   SELECT P.PNAME, S.SNAME 
+   FROM PART P LEFT JOIN SELLS SE ON P.PNO=SE.PNO 
+        LEFT JOIN SUPPLIER S ON S.SNO=SE.SNO;
+</pre><p>
+Lo que nos devolvería son todas las filas que satisfagan el producto cartesiano de PART × SELLS (todas las que cumplan la condición de la clausula ON P.PNO=SE.PNO), más una copia de cada fila en la tabla izquierda (PART) para la cual ninguna fila de la tabla derecha (SELLS) cumplió la condición. Estas filas izquierdas son extendidas con valores nulos para las columnas de la tabla derecha.  Lo mismo aplica para el resultado del LEFT JOIN entre el PART y SELLS con SUPPLIER:
+</p>
+<pre class="wiki">   PNAME   | SNAME 
+-----------+-------
+ Tornillos | Smith
+ Tornillos | Adams
+ Tuercas   | Smith
+ Tuercas   | Blake
+ Cerrojos  | Adams
+ Cerrojos  | Blake
+ Levas     | Blake
+ Levas     | Jones
+ Arandela  | 
+</pre><p>
+En este caso, nos indica que la parte 'Arandela' no es provista por ningún proveedor (está en la relación PART pero no en SELLS).
+</p>
+<p>
+Convenientemente, existe la junta derecha o RIGHT JOIN cuyo funcionamiento es similar, pero completando con las filas de la tabla derecha que no encontraron correspondencia on la tabla izquierda (al inverso que LEFT JOIN).
+</p>
+<h4 id="OperadoresAgregados">Operadores Agregados<a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql?action=edit&section=26" title="Edit this section">[<span>edit</span>]</a><a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#OperadoresAgregados" title="Link to this section"> ¶</a></h4>
+<p>
+<a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a> proporciona operadores agregados (como son AVG, COUNT, SUM, MIN, MAX) que toman el nombre de un atributo como argumento. El valor del operador agregado se calcula sobre todos los valores de la columna especificada en la tabla completa. Si se especifican grupos en la consulta, el cálculo se hace sólo sobre los valores de cada grupo (vean la siguiente sección).
+</p>
+<p>
+<strong>Ejemplo 5. Aggregates</strong>
+</p>
+<p>
+Si queremos conocer el coste promedio de todos los artículos de la tabla PART, utilizaremos la siguiente consulta:
+</p>
+<pre class="wiki">   SELECT AVG(PRICE) AS AVG_PRICE
+   FROM PART;
+</pre><p>
+El resultado es:
+</p>
+<pre class="wiki">                         AVG_PRICE
+                        -----------
+                           21.6
+</pre><p>
+Si queremos conocer cuantos artículos se recogen en la tabla PART, utilizaremos la instrucción:
+</p>
+<pre class="wiki">   SELECT COUNT(PNO)
+   FROM PART;
+</pre><p>
+y obtendremos:
+</p>
+<pre class="wiki">                           COUNT
+                          -------
+                             5
+</pre><p>
+Si queremos conocer cuantos artículos tenemos en existencia (STOCK), y su respectiva valorización (STOCK*PRICE), utilizaremos la instrucción:
+</p>
+<pre class="wiki">   SELECT SUM(STOCK) AS QTY, SUM(STOCK*PRICE) AS AMOUNT
+   FROM PART;
+</pre><p>
+y obtendremos:
+</p>
+<pre class="wiki"> QTY | AMOUNT  
+-----+---------
+ 216 | 7028.00
+</pre><p>
+Notar que en este ejemplo estamos cambiando el nombre de las columnas (por defecto SUM), a QTY (cantidad) y AMOUNT (importe total).
+</p>
+<h4 id="AgregaciónporGrupos">Agregación por Grupos<a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql?action=edit&section=27" title="Edit this section">[<span>edit</span>]</a><a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#AgregaciónporGrupos" title="Link to this section"> ¶</a></h4>
+<p>
+<a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a> nos permite particionar las tuplas de una tabla en grupos. En estas condiciones, los operadores agregados descritos antes pueden aplicarse a los grupos (es decir, el valor del operador agregado no se calculan sobre todos los valores de la columna especificada, sino sobre todos los valores de un grupo. El operador agregado se calcula individualmente para cada grupo).
+</p>
+<p>
+El particionamiento de las tuplas en grupos se hace utilizando las palabras clave <strong>GROUP BY</strong> seguidas de una lista de atributos que definen los grupos. Si tenemos <strong>GROUP BY A<sub>1</sub>, , A<sub>k</sub></strong> habremos particionado la relación en grupos, de tal modo que dos tuplas son del mismo grupo si y sólo si tienen el mismo valor en sus atributos A<sub>1</sub>, , A<sub>k</sub>.
+</p>
+<p>
+<strong>Ejemplo 6. Agregados</strong>
+</p>
+<p>
+Si queremos conocer cuántos artículos han sido vendidos por cada proveedor formularemos la consulta:
+</p>
+<pre class="wiki">   SELECT S.SNO, S.SNAME, COUNT(SE.PNO)
+   FROM SUPPLIER S, SELLS SE
+   WHERE S.SNO = SE.SNO
+   GROUP BY S.SNO, S.SNAME;
+</pre><p>
+y obtendremos:
+</p>
+<pre class="wiki">                     SNO | SNAME | COUNT
+                    -----+-------+-------
+                      1  | Smith |   2
+                      2  | Jones |   1
+                      3  | Adams |   2
+                      4  | Blake |   3
+</pre><p>
+Demos ahora una mirada a lo que está ocurriendo aquí. Primero, la join de las tablas SUPPLIER y SELLS:
+</p>
+<pre class="wiki">                  S.SNO | S.SNAME | SE.PNO
+                 -------+---------+--------
+                    1   |  Smith  |   1
+                    1   |  Smith  |   2
+                    2   |  Jones  |   4
+                    3   |  Adams  |   1
+                    3   |  Adams  |   3
+                    4   |  Blake  |   2
+                    4   |  Blake  |   3
+                    4   |  Blake  |   4
+</pre><p>
+Ahora particionamos las tuplas en grupos reuniendo todas las tuplas que tiene el mismo atributo en S.SNO y S.SNAME:
+</p>
+<pre class="wiki">                  S.SNO | S.SNAME | SE.PNO
+                 -------+---------+--------
+                    1   |  Smith  |   1
+                                  |   2
+                 --------------------------
+                    2   |  Jones  |   4
+                 --------------------------
+                    3   |  Adams  |   1
+                                  |   3
+                 --------------------------
+                    4   |  Blake  |   2
+                                  |   3
+</pre><p>
+En nuestro ejemplo, obtenemos cuatro grupos y ahora podemos aplicar el operador agregado COUNT para cada grupo, obteniendo el resultado total de la consulta dada anteriormente.
+</p>
+<p>
+Nótese que para el resultado de una consulta utilizando GROUP BY y operadores agregados para dar sentido a los atributos agrupados, debemos primero obtener la lista objetivo. Los demás atributos que no aparecen en la clausula GROUP BY se seleccionarán utilizando una función agregada. Por otro lado, no se pueden utilizar funciones agregadas en atributos que aparecen en la clausula GROUP BY.
+</p>
+<h4 id="HAVING">HAVING<a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql?action=edit&section=28" title="Edit this section">[<span>edit</span>]</a><a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#HAVING" title="Link to this section"> ¶</a></h4>
+<p>
+La clausula HAVING trabaja de forma muy parecida a la clausula WHERE, y se utiliza para considerar sólo aquellos grupos que satisfagan la cualificación dada en la misma. Las expresiones permitidas en la clausula HAVING deben involucrar funcionen agregadas. Cada expresión que utilice sólo atributos planos deberá recogerse en la clausula WHERE. Por otro lado, toda expresión que involucre funciones agregadas debe aparecer en la clausula HAVING.
+</p>
+<p>
+<strong>Ejemplo 7. Having</strong>
+</p>
+<p>
+Si queremos solamente los proveedores que venden más de un artículo, utilizaremos la consulta:
+</p>
+<pre class="wiki">   SELECT S.SNO, S.SNAME, COUNT(SE.PNO)
+   FROM SUPPLIER S, SELLS SE
+   WHERE S.SNO = SE.SNO
+   GROUP BY S.SNO, S.SNAME
+   HAVING COUNT(SE.PNO) &gt; 1;
+</pre><p>
+y obtendremos:
+</p>
+<pre class="wiki">                     SNO | SNAME | COUNT
+                    -----+-------+-------
+                      1  | Smith |   2
+                      3  | Adams |   2
+                      4  | Blake |   3
+</pre><h4 id="Subconsultas">Subconsultas<a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql?action=edit&section=29" title="Edit this section">[<span>edit</span>]</a><a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#Subconsultas" title="Link to this section"> ¶</a></h4>
+<p>
+En las clausulas WHERE y HAVING se permite el uso de subconsultas (subselects) en cualquier lugar donde se espere un valor. En este caso, el valor debe derivar de la evaluación previa de la subconsulta. El uso de subconsultas amplía el poder expresivo de <a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a>.
+</p>
+<p>
+<strong>Ejemplo 8. Subselect</strong>
+</p>
+<p>
+Si queremos conocer los artículos que tienen mayor precio que el artículo llamado 'Tornillos', utilizaremos la consulta:
+</p>
+<pre class="wiki">   SELECT *
+   FROM PART
+   WHERE PRICE &gt; (SELECT PRICE FROM PART
+                  WHERE PNAME='Tornillos');
+</pre><p>
+El resultado será:
+</p>
+<pre class="wiki">                   PNO |  PNAME      |  PRICE
+                  -----+-------------+--------
+                    3  |  Cerrojos   |   15
+                    4  |  Levas      |   25
+</pre><p>
+Cuando revisamos la consulta anterior, podemos ver la palabra clave SELECT dos veces. La primera al principio de la consulta - a la que nos referiremos como la SELECT externa - y la segunda en la clausula WHERE, donde empieza una consulta anidada - nos referiremos a ella como la SELECT interna. Para cada tupla de la SELECT externa, la SELECT interna deberá ser evaluada. Tras cada evaluación, conoceremos el precio de la tupla llamada 'Tornillos', y podremos chequear si el precio de la tupla actual es mayor.
+</p>
+<p>
+Si queremos conocer los artículos que no son vendidos por ningún proveedor, podemos utilizar la sintáxis LEFT JOIN explicada anteriormente o utilizaremos la siguiente consulta:
+</p>
+<pre class="wiki">SELECT *
+   FROM PART
+   WHERE PNO NOT IN (SELECT PNO FROM SELLS);
+</pre><p>
+El resultado será todos los artículos cuyo número (PNO) no figura en la tabla SELLS (no esta asociado a algún proveedor):
+</p>
+<pre class="wiki"> PNO |  PNAME   | PRICE 
+-----+----------+-------
+   5 | Arandela | 50.00
+</pre><p>
+Si queremos conocer todos los proveedores que no venden ningún artículo (por ejemplo, para poderlos eliminar de la base de datos), utilizaremos:
+</p>
+<pre class="wiki">   SELECT * 
+   FROM SUPPLIER S
+   WHERE NOT EXISTS
+             (SELECT * FROM SELLS SE
+              WHERE SE.SNO = S.SNO);
+</pre><p>
+En nuestro ejemplo, obtendremos un resultado:.
+</p>
+<pre class="wiki"> SNO | SNAME |  CITY  
+-----+-------+--------
+   5 | James | London
+</pre><p>
+Nótese que utilizamos S.SNO de la SELECT externa en la clausula WHERE de la SELECT interna. Como hemos descrito antes, la subconsulta se evalúa para cada tupla de la consulta externa, es decir, el valor de S.SNO se toma siempre de la tupla actual de la SELECT externa.
+</p>
+<h4 id="UniónIntersecciónExcepción">Unión, Intersección, Excepción<a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql?action=edit&section=30" title="Edit this section">[<span>edit</span>]</a><a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#UniónIntersecciónExcepción" title="Link to this section"> ¶</a></h4>
+<p>
+Estas operaciones calculan la unión, la intersección y la diferencia de la teoría de conjuntos de las tuplas derivadas de dos subconsultas.
+</p>
+<p>
+<strong>Ejemplo 9. Union, Intersect, Except</strong>
+</p>
+<p>
+La siguiente consulta es un ejemplo de UNION:
+</p>
+<pre class="wiki">   SELECT S.SNO, S.SNAME, S.CITY
+   FROM SUPPLIER S
+   WHERE S.SNAME = 'Jones'
+   UNION
+   SELECT S.SNO, S.SNAME, S.CITY
+   FROM SUPPLIER S
+   WHERE S.SNAME = 'Adams';
+</pre><p>
+Dará el resultado:
+</p>
+<pre class="wiki">                     SNO | SNAME |  CITY
+                    -----+-------+--------
+                      2  | Jones | Paris
+                      3  | Adams | Vienna
+</pre><p>
+Aquí tenemos un ejemplo para INTERSECT:
+</p>
+<pre class="wiki">   SELECT S.SNO, S.SNAME, S.CITY
+   FROM SUPPLIER S
+   WHERE S.SNO &gt; 1
+   INTERSECT
+   SELECT S.SNO, S.SNAME, S.CITY
+   FROM SUPPLIER S
+   WHERE S.SNO &gt; 2;
+</pre><p>
+que dará como resultado:
+</p>
+<pre class="wiki">                     SNO | SNAME |  CITY
+                    -----+-------+--------
+                      2  | Jones | Paris
+         La única tupla devuelta por ambas partes de la consulta es la única que tiene $SNO=2$.
+</pre><p>
+Finalmente, un ejemplo de EXCEPT:
+</p>
+<pre class="wiki">   SELECT S.SNO, S.SNAME, S.CITY
+   FROM SUPPLIER S
+   WHERE S.SNO &gt; 1
+   EXCEPT
+   SELECT S.SNO, S.SNAME, S.CITY
+   FROM SUPPLIER S
+   WHERE S.SNO &gt; 3;
+</pre><p>
+que dará como resultado:
+</p>
+<pre class="wiki">                     SNO | SNAME |  CITY
+                    -----+-------+--------
+                      2  | Jones | Paris
+                      3  | Adams | Vienna
+</pre><h3 id="DefinicióndeDatosDDL">Definición de Datos (DDL)<a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql?action=edit&section=31" title="Edit this section">[<span>edit</span>]</a><a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#DefinicióndeDatosDDL" title="Link to this section"> ¶</a></h3>
+<p>
+El lenguaje <a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a> incluye un conjunto de comandos para definición de datos.
+</p>
+<h4 id="CREATETABLE">CREATE TABLE<a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql?action=edit&section=32" title="Edit this section">[<span>edit</span>]</a><a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#CREATETABLE" title="Link to this section"> ¶</a></h4>
+<p>
+El comando fundamental para definir datos es el que crea una nueva relación (una nueva tabla). La sintaxis básica del comando CREATE TABLE es (ver <a class="wiki" href="http://www.arpug.com.ar/trac/wiki/sql-createtable.html">sintaxis avanzada</a>):
+</p>
+<pre class="wiki">   CREATE TABLE table_name
+                (name_of_attr_1 type_of_attr_1
+                 [, name_of_attr_2 type_of_attr_2 
+                 [, ...]]);
+</pre><p>
+<strong>Ejemplo 10. Creación de una tabla</strong>
+</p>
+<p>
+Para crear las tablas definidas en <i><a class="wiki" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#LaBasedeDatosdeProveedoresyArtículos">La Base de Datos de Proveedores y Artículos</a></i> se utilizaron las siguientes instrucciones de <a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a>:
+</p>
+<pre class="wiki">   CREATE TABLE SUPPLIER
+                (SNO   INTEGER PRIMARY KEY,
+                 SNAME VARCHAR(20) NOT NULL UNIQUE,
+                 CITY  VARCHAR(20) CHECK (CITY IN ('London', 'Paris', 'Rome', 'Vienna')));
+	
+   CREATE TABLE PART
+                (PNO   INTEGER PRIMARY KEY,
+                 PNAME VARCHAR(20) NOT NULL UNIQUE,
+                 PRICE DECIMAL(4 , 2) DEFAULT 1.00,
+                 STOCK INTEGER CHECK (STOCK&gt;0));
+	
+   CREATE TABLE SELLS
+                (SNO INTEGER REFERENCES SUPPLIER(SNO),
+                 PNO INTEGER REFERENCES PART(PNO),
+                 PRIMARY KEY (SNO, PNO));
+</pre><p>
+Notar que en este ejemplo estamos definiendo las claves primarias (PRIMARY KEY), que identifican cada fila unequivocamente:
+</p>
+<ul><li>SNO es clave primaria (PK) de SUPPLIER
+</li><li>PNO es clave primaria (PK) de PART
+</li><li>SNO, PNO es clave primaria (PK compuesta) de SELLS (recordemos que las claves primarias no pueden ser nulas, por lo que nos aseguramos de que esten presentes ambos valores)
+</li></ul><p>
+También definimos claves foráneas (FK o FOREIGN KEY) a SELLS sobre SUPPLIER y PART para integridad referencial (para no poder referenciar un proveedor o artículo inexistente)
+</p>
+<p>
+Adicionalmente, definimos ciertas restricciones (CONSTRAINTS) sobre los datos:
+</p>
+<ul><li>La ciudad del proveedor puede ser solo alguna de 'London', 'Paris', 'Roma', 'Viena'
+</li><li>La cantidad en existencia (STOCK) debe ser 0 o positiva
+</li><li>El nombre del artículo (PNAME) y del proveedor (SNAME) no deben ser nulos (NOT NULL) y no se pueden repetir (únicos o UNIQUE)
+</li></ul><p>
+Las restricciones CHECK pueden ser cualquier expresión condicional que se deba cumplir sobre uno o más campos para que el registro se considere válido y pueda agregarse a la tabla.
+</p>
+<p>
+Por último, definimos un valor por defecto para el precio (PRICE) de 1.00. En el caso que en el momento de agregar el registro no informemos el precio, se tomará 1.00 por defecto.
+</p>
+<h4 id="TiposdeDatosenSQL">Tipos de Datos en <a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a><a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql?action=edit&section=33" title="Edit this section">[<span>edit</span>]</a><a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#TiposdeDatosenSQL" title="Link to this section"> ¶</a></h4>
+<p>
+A continuación sigue una lista de algunos tipos de datos soportados por <a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a>:
+</p>
+<ul><li>INTEGER: entero binario con signo de palabra completa (31 bits de precisión).
+</li><li>SMALLINT: entero binario con signo de media palabra (15 bits de precisión).
+</li><li>NUMERIC (<i><tt>p</tt></i>[,<i><tt>q</tt></i>]): número decimal con signo de <i><tt>p</tt></i> dígitos de precisión, asumiendo <i><tt>q</tt></i> a la derecha para el punto decimal. (15  <i><tt>p</tt></i>  <i><tt>q</tt></i>q  0). Si <i><tt>q</tt></i> se omite, se asume que vale 0.
+</li><li>FLOAT: numérico con signo de doble palabra y coma flotante.
+</li><li>CHAR(<i><tt>n</tt></i>): cadena de caracteres de longitud fija, de longitud <i><tt>n</tt></i>.
+</li><li>VARCHAR(<i><tt>n</tt></i>): cadena de caracteres de longitud variable, de longitud máxima <i><tt>n</tt></i>.
+</li></ul><h4 id="CREATEINDEX">CREATE INDEX<a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql?action=edit&section=34" title="Edit this section">[<span>edit</span>]</a><a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#CREATEINDEX" title="Link to this section"> ¶</a></h4>
+<p>
+Se utilizan los índices para acelerar el acceso a una relación. Si una relación <tt>R</tt> tiene un índice en el atributo <tt>A</tt> podremos recuperar todas la tuplas <i><tt>t</tt></i> que tienen <i><tt>t</tt></i>(<tt>A</tt>) = <i><tt>a</tt></i> en un tiempo aproximadamente proporcional al número de tales tuplas <i><tt>t</tt></i> más que en un tiempo proporcional al tamaño de <tt>R</tt>.
+</p>
+<p>
+Para crear un índice en <a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a> se utiliza el comando CREATE INDEX. La sintaxis es:
+</p>
+<pre class="wiki">   CREATE INDEX index_name 
+   ON table_name ( name_of_attribute );
+</pre><p>
+<strong>Ejemplo 11. Create Index</strong>
+</p>
+<p>
+Para crear un índice llamado I sobre el atributo SNAME de la relación SUPPLIER, utilizaremos la siguiente instrucción:
+</p>
+<pre class="wiki">   CREATE INDEX I
+   ON SUPPLIER (SNAME);
+</pre><p>
+El índice creado se mantiene automáticamente. es decir, cada vez que una nueva tupla se inserte en la relación SUPPLIER, se adaptará el índice I. Nótese que el único cambio que un usuario puede percibir cuando se crea un índice es un incremento en la velocidad.
+</p>
+<h4 id="CREATEVIEW">CREATE VIEW<a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql?action=edit&section=35" title="Edit this section">[<span>edit</span>]</a><a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#CREATEVIEW" title="Link to this section"> ¶</a></h4>
+<p>
+Se puede ver una vista como una <i>tabla virtual</i>, es decir, una tabla que no existe <i>físicamente</i> en la base de datos, pero aparece al usuario como si existiese. Por contra, cuando hablamos de una <i>tabla base</i>, hay realmente un equivalente almacenado para cada fila en la tabla en algún sitio del almacenamiento físico.
+</p>
+<p>
+Las vistas no tienen datos almacenados propios, distinguibles y físicamente almacenados. En su lugar, el sistema almacena la definición de la vista (es decir, las reglas para acceder a las tablas base físicamente almacenadas para materializar la vista) en algún lugar de los catálogos del sistema (vea <i><a class="wiki" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#SystemCatalogs">System Catalogs</a></i>). Para una discusión de las diferentes técnicas para implementar vistas, refiérase a <i>SIM98</i>.
+</p>
+<p>
+En <a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a> se utiliza el comando <strong>CREATE VIEW</strong> para definir una vista. La sintaxis es:
+</p>
+<pre class="wiki">   CREATE VIEW view_name
+   AS select_stmt
+</pre><p>
+donde <i><tt>select_stmt</tt></i> es una instrucción select válida, como se definió en <i><a class="wiki" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#Select">wiki:TutorialPostgreSql#Select</a> Select]</i>. Nótese que <i><tt>select_stmt</tt></i> no se ejecuta cuando se crea la vista. Simplemente se almacena en los <i>catálogos del sistema</i> y se ejecuta cada vez que se realiza una consulta contra la vista.Sea la siguiente definición de una vista (utilizamos de nuevo las tablas de <i><a class="wiki" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#LaBasedeDatosdeProveedoresyArtículos">La Base de Datos de Proveedores y Artículos</a></i> ):
+</p>
+<pre class="wiki">   CREATE VIEW London_Suppliers
+      AS SELECT S.SNAME, P.PNAME
+         FROM SUPPLIER S, PART P, SELLS SE
+         WHERE S.SNO = SE.SNO AND
+               P.PNO = SE.PNO AND
+               S.CITY = 'London';
+</pre><p>
+Ahora podemos utilizar esta <i>relación virtual</i> <tt>London_Suppliers</tt> como si se tratase de otra tabla base:
+</p>
+<pre class="wiki">   SELECT *
+   FROM London_Suppliers
+   WHERE P.PNAME = 'Tornillos';
+</pre><p>
+Lo cual nos devolverá la siguiente tabla:
+</p>
+<pre class="wiki">                       SNAME | PNAME
+                      -------+----------
+                       Smith | Tornillos
+</pre><p>
+Para calcular este resultado, el sistema de base de datos ha realizado previamente un acceso <i>oculto</i> a las tablas de la base SUPPLIER, SELLS y PART. Hace esto ejecutando la consulta dada en la definición de la vista contra aquellas tablas base. Tras eso, las cualificaciones adicionales (dadas en la consulta contra la vista) se podrán aplicar para obtener la tabla resultante.
+</p>
+<h4 id="DROPTABLEDROPINDEXDROPVIEW">DROP TABLE, DROP INDEX, DROP VIEW<a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql?action=edit&section=36" title="Edit this section">[<span>edit</span>]</a><a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#DROPTABLEDROPINDEXDROPVIEW" title="Link to this section"> ¶</a></h4>
+<p>
+Se utiliza el comando DROP TABLE para eliminar una tabla (incluyendo todas las tuplas almacenadas en ella):
+</p>
+<pre class="wiki">   DROP TABLE table_name;
+</pre><p>
+Para eliminar la tabla SUPPLIER, utilizaremos la instrucción:
+</p>
+<pre class="wiki">   DROP TABLE SUPPLIER;
+</pre><p>
+Se utiliza el comando DROP INDEX para eliminar un índice:
+</p>
+<pre class="wiki">   DROP INDEX index_name;
+</pre><p>
+Finalmente, eliminaremos una vista dada utilizando el comando DROP VIEW:
+</p>
+<pre class="wiki">   DROP VIEW view_name;
+</pre><h3 id="ManipulacióndeDatosDML">Manipulación de Datos (DML)<a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql?action=edit&section=37" title="Edit this section">[<span>edit</span>]</a><a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#ManipulacióndeDatosDML" title="Link to this section"> ¶</a></h3>
+<h4 id="INSERTINTO">INSERT INTO<a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql?action=edit&section=38" title="Edit this section">[<span>edit</span>]</a><a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#INSERTINTO" title="Link to this section"> ¶</a></h4>
+<p>
+Una vez que se crea una tabla (vea <i><a class="wiki" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#CreateTable">Create Table</a></i>), puede ser llenada con tuplas mediante el comando <strong>INSERT INTO</strong>. La sintaxis básica (ver <a class="wiki" href="http://www.arpug.com.ar/trac/wiki/sql-insert.html">sintaxis avanzada</a>) es:
+</p>
+<pre class="wiki">   INSERT INTO table_name (name_of_attr_1 
+                             [, name_of_attr_2 [,...]])
+   VALUES (val_attr_1 
+           [, val_attr_2 [, ...]]);
+</pre><p>
+Para insertar la primera tupla en la relación SUPPLIER (de <i><a class="wiki" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#LaBasedeDatosdeProveedoresyArtículos">La Base de Datos de Proveedores y Artículos</a></i>) utilizamos la siguiente instrucción:
+</p>
+<pre class="wiki">   INSERT INTO SUPPLIER (SNO, SNAME, CITY)
+   VALUES (1, 'Smith', 'London');
+</pre><p>
+Para insertar la primera tupla en la relación SELLS, utilizamos:
+</p>
+<pre class="wiki">   INSERT INTO SELLS (SNO, PNO)
+   VALUES (1, 1);
+</pre><p>
+Para insertar los datos en las tablas definidas en <i><a class="wiki" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#LaBasedeDatosdeProveedoresyArtículos">La Base de Datos de Proveedores y Artículos</a></i> se utilizaron las siguientes instrucciones de <a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a>:
+</p>
+<pre class="wiki">INSERT INTO supplier (sno, sname, city) VALUES
+(1, 'Smith', 'London'),
+(2, 'Jones', 'Paris'),
+(3, 'Adams', 'Vienna'),             
+(4, 'Blake', 'Rome'),
+(5, 'James', 'London');  
+
+INSERT INTO part (pno, pname, price, stock) VALUES
+(1, 'Tornillos', 10, 20),
+(2, 'Tuercas', 8, 16),
+(3, 'Cerrojos', 15, 30),
+(4, 'Levas', 25, 50),
+(5, 'Arandelas', 50, 100);
+
+INSERT INTO sells (sno, pno) VALUES 
+(1, 1),
+(1, 2),
+(2, 4),
+(3, 1),
+(3, 3),
+(4, 2),
+(4, 3),
+(4, 4);
+</pre><h4 id="UPDATE">UPDATE<a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql?action=edit&section=39" title="Edit this section">[<span>edit</span>]</a><a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#UPDATE" title="Link to this section"> ¶</a></h4>
+<p>
+Para cambiar uno o más valores de atributos de tuplas en una relación, se utiliza el comando UPDATE. La sintaxis básica (ver <a class="wiki" href="http://www.arpug.com.ar/trac/wiki/sql-update.html">sintaxis avanzada</a>) es:
+</p>
+<pre class="wiki">   UPDATE table_name
+   SET name_of_attr_1 = value_1 
+       [, ... [, name_of_attr_k = value_k]]
+   WHERE condition;
+</pre><p>
+Para cambiar el valor del atributo PRICE en el artículo 'Tornillos' de la relación PART, utilizamos:
+</p>
+<pre class="wiki">   UPDATE PART
+   SET PRICE = 15
+   WHERE PNAME = 'Tornillos';
+</pre><p>
+El nuevo valor del atributo PRICE de la tupla cuyo nombre es 'Tornillos' es ahora 15.
+</p>
+<h4 id="DELETE">DELETE<a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql?action=edit&section=40" title="Edit this section">[<span>edit</span>]</a><a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#DELETE" title="Link to this section"> ¶</a></h4>
+<p>
+Para borrar una tupla de una tabla particular, utilizamos el comando DELETE FROM. La sintaxis básica (ver <a class="wiki" href="http://www.arpug.com.ar/trac/wiki/sql-delete.html">sintaxis avanzada</a>) es:
+</p>
+<pre class="wiki">   DELETE FROM table_name
+   WHERE condition;
+</pre><p>
+Para borrar el proveedor llamado 'Smith' de la tabla SUPPLIER, utilizamos la siguiente instrucción:
+</p>
+<pre class="wiki">   DELETE FROM SUPPLIER
+   WHERE SNAME = 'Smith';
+</pre><h3 id="SystemCatalogs">System Catalogs<a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql?action=edit&section=41" title="Edit this section">[<span>edit</span>]</a><a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#SystemCatalogs" title="Link to this section"> ¶</a></h3>
+<p>
+En todo sistema de base de datos <a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a> se emplean <i>catálogos de sistema</i> para mantener el control de qué tablas, vistas, índices, etc están definidas en la base de datos. Estos catálogos del sistema se pueden investigar como si de cualquier otra relación normal se tratase. Por ejemplo, hay un catálogo utilizado para la definición de vistas. Este catálogo almacena la consulta de la definición de la vista. Siempre que se hace una consulta contra la vista, el sistema toma primero la <i>consulta de definición de la vista</i> del catálogo y materializa la vista antes de proceder con la consulta del usuario (vea <i>SIM98</i> para obtener una descripción más detallada). Diríjase a<i>DATE</i> para obtener más información sobre los catálogos del sistema.
+</p>
+<h3 id="SQLEmbebido"><a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a> Embebido<a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql?action=edit&section=42" title="Edit this section">[<span>edit</span>]</a><a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#SQLEmbebido" title="Link to this section"> ¶</a></h3>
+<p>
+En esta sección revisaremos como se puede embeber <a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a> en un lenguaje de host (p.e. <tt>C</tt>). Hay dos razones principales por las que podríamos querer utilizar <a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a> desde un lenguaje de host:
+</p>
+<ul><li>Hay consultas que no se pueden formular utilizando <a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a> puro (por ejemplo, las consultas recursivas). Para ser capaz de realizar esas consultas necesitamos un lenguaje de host de mayor poder expresivo que <a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a>.
+</li></ul><ul><li>Simplemente queremos acceder a una base de datos desde una aplicación que está escrita en el lenguaje del host (p.e. un sistema de reserva de billetes con una interface gráfica escrita en C, y la información sobre los billetes está almacenada en una base de datos que puede accederse utilizando <a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a> embebido).
+</li></ul><p>
+Un programa que utiliza <a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a> embebido en un lenguaje de host consiste en instrucciones del lenguaje del host e instrucciones de <i><a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a> embebido</i> (ESQL). Cada instrucción de ESQL empieza con las palabras claves <strong>EXEC <a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a></strong>. Las instrucciones ESQL se transforman en instrucciones del lenguaje del host mediante un <i>precompilador</i> (que habitualmente inserta llamadas a rutinas de librerías que ejecutan los variados comandos de <a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a>).
+</p>
+<p>
+Cuando vemos los ejemplos de <i><a class="wiki" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#Select">Select</a></i> observamos que el resultado de las consultas es algo muy próximo a un conjunto de tuplas. La mayoría de los lenguajes de host no están diseñados para operar con conjuntos, de modo que necesitamos un mecanismo para acceder a cada tupla única del conjunto de tuplas devueltas por una instrucción SELECT. Este mecanismo puede ser proporcionado declarando un<i>cursor</i>. Tras ello, podemos utilizar el comando FETCH para recuperar una tupla y apuntar el cursor hacia la siguiente tupla.
+</p>
+<p>
+Para una discusión más detallada sobre el <a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a> embebido, diríjase a [<i><a class="wiki" href="http://www.arpug.com.ar/trac/wiki/BibliografiaPostgres">Date and Darwen, 1997</a></i>], [<i><a class="wiki" href="http://www.arpug.com.ar/trac/wiki/BibliografiaPostgres">Date, 1994</a></i>], o [<i><a class="wiki" href="http://www.arpug.com.ar/trac/wiki/BibliografiaPostgres">Ullman, 1988</a></i>].
+</p>
+<h2 id="Arquitectura">Arquitectura<a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql?action=edit&section=43" title="Edit this section">[<span>edit</span>]</a><a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#Arquitectura" title="Link to this section"> ¶</a></h2>
+<p>
+Antes de comenzar, debería comprender las bases de la arquitectura del sistema Postgres . Entendiendo como las partes de Postgres interactuan le hará el siguiente capítulo mucho más sencillo. En la jerga de bases de datos, Postgres usa un modelo cliente/sevidor conocido como "proceso por usuario". Una sesión Postgres consiste en los siguientes procesos cooperativos de Unix (programas):
+</p>
+<ul><li>Un proceso demonio supervisor (<tt>postmaster</tt>),
+</li><li>la aplicación sobre la que trabaja el usuario (frontend) (e.g., el programa<tt>psql</tt> ), y
+</li><li>uno o más servidores de bases dedatos en segundo plano (el mismo proceso <tt>postgres</tt>).
+</li></ul><p>
+Un único <tt>postmaster</tt> controla una colección de bases de datos dadas en un único host. Debido a esto una colección de bases de datos se suele llamar una instalación o un sitio. Las aplicaciones de frontend que quieren acceder a una determinada base de datos dentro de una instalación hacen llamadas a la libreria La libreria envía peticiones de usuario a través de la red al <tt>postmaster</tt> (<i>Como se establece una conexión</i>), el cual en respuesta inicia un nevo proceso en el servidor (backend) y conecta el proceso de frontend al nuevo servidor. A partir de este punto, el proceso de frontend y el servidor en backend se comunican sin la intervención del <tt>postmaster</tt>. Aunque, el <tt>postmaster</tt> siempre se está ejecutando, esperando peticiones, tanto los procesos de frontend como los de backend vienen y se van.
+</p>
+<p>
+La libreria <tt>libpq</tt> permite a un único proceso en frontend realizar multiples conexiones a procesos en backend. Aunque, la aplicación frontend todavía es un proceso en un único thread. Conexiones multithread entre el frontend y el backend no están soportadas de momento en <tt>libpq</tt>. Una implicación de esta arquitectura es que el <tt>postmaster</tt> y el proceso backend siempre se ejecutan en la misma máquina (el servidor de base de datos), mientras que la aplicación en frontend puede ejecutarse desde cualquier sitio. Debe tener esto en mente, porque los archivos que pueden ser accedidos en la máquina del cliente pueden no ser accesibles (o sólo pueden ser accedidos usando un nombre de archivo diferente) el máquina del servidor de base de datos.
+</p>
+<p>
+Tenga en cuenta que los servicios <tt>postmaster</tt> y postgres se ejecutan con el identificador de usuario del "superusuario" Postgres Note que el superusuario Postgres no necesita ser un usuario especial (ej. un usuario llamado "postgres"). De todas formas, el superusuario Postgres definitivamente no tiene que ser el superusuario de Unix ("root")! En cualquier caso, todos los archivos relacionados con la base de datos deben pertenecer a este superusuario Postgres. Postgres.
+</p>
+<h2 id="Empezando">Empezando<a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql?action=edit&section=44" title="Edit this section">[<span>edit</span>]</a><a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#Empezando" title="Link to this section"> ¶</a></h2>
+<blockquote>
+<p>
+¿Cómo empezar a trabajar con Postgres?
+</p>
+</blockquote>
+<p>
+Algunos de los pasos necesarios para usar Postgres pueden ser realizados por cualquier usuario, y algunos los deberá realizar el administrador de la base de datos. Este administrador es la persona que instaló el software, creó los directorios de las bases de datos e inició el proceso <tt>postmaster</tt>. Esta persona no tiene que ser el superusuario Unix ("root") o el administrador del sistema. Una persona puede instalar y usarPostgres sin tener una cuenta especial o privilegiada
+</p>
+<p>
+Si está instalando Postgres, consulte las instrucciones de instalación en la Guía de Administración y regrese a esta guía cuando haya concluido la instalación.
+</p>
+<p>
+Mientras lee este manual, cualquier ejemplo que vea que comience con el carácter "%" son órdenes que se escribirán en el la línea de órdenes de Unix. Los ejemplos que comienzan con el caracter "*" son órdenes en el lenguaje de consulta Postgres, Postgres <a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a>.
+</p>
+<h2 id="EjecucióndelMonitorInteractivopsql">Ejecución del Monitor Interactivo (psql)<a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql?action=edit&section=45" title="Edit this section">[<span>edit</span>]</a><a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#EjecucióndelMonitorInteractivopsql" title="Link to this section"> ¶</a></h2>
+<p>
+Asumiendo que su administrador haya ejecutado adecuadamente el proceso <tt>postmaster</tt> y le haya autorizado a utilizar la base de datos, puede comenzar a ejecutar aplicaciones como usuario. Como mencionamos previamente, debería añadir <tt>/usr/local/pgsql/bin</tt> al "path" de búsqueda de su intérprete de órdenes. En la mayoría de los casos, es lo único que tendrá que hacer en términos de preparación.
+</p>
+<p>
+Desde Postgres v6.3, se soportan dos tipos diferentes de conexión. El administrador puede haber elegido permitir conexiones por red TCP/IP, o restringir los accesos a la base de datos a través de conexiones locales (en la misma máquina). Esta elección puede ser significativa si encuentra problemas a la hora de conectar a la base de datos.
+</p>
+<p>
+Si obtiene los siguientes mensajes de error de una orden Postgres (tal como <tt>psql</tt> o <tt>createdb</tt>):
+</p>
+<pre class="wiki">% psql postgres
+Connection to database 'postgres' failed.
+connectDB() failed: Is the postmaster running and accepting connections
+    at 'UNIX Socket' on port '5432'?
+</pre><p>
+o
+</p>
+<pre class="wiki">% psql -h localhost postgres
+Connection to database 'postgres' failed.
+connectDB() failed: Is the postmaster running and accepting TCP/IP
+    (with -i) connections at 'localhost' on port '5432'?
+</pre><p>
+normalmente es debido a que (1) el <tt>postmaster</tt> no está en funcionamiento, o (2) está intentando conectar al servidor equivocado. Si obtiene el siguiente mensaje de error:
+</p>
+<pre class="wiki">FATAL 1:Feb 17 23:19:55:process userid (2360) != database owner (268)
+</pre><p>
+Significa que el administrador ejecutó el <tt>postmaster</tt> mediante el usuario equivocado. Dígale que lo reinicie utilizando el superusuario de Postgres.
+</p>
+<p>
+== Administrando una Base de datos = = Ahora que Postgres está ejecutándose podemos crear alguna base de datos para experimentar con ella. Aquí describimos las órdenes básicas para administrar una base de datos
+</p>
+<p>
+La mayoría de las aplicaciones Postgres asumen que el nombre de la base de datos, si no se especifica, es el mismo que el de su cuenta en el sistema.
+</p>
+<p>
+Si el administrador de bases de datos ha configurado su cuenta sin privilegios de creación de bases de datos, entonces deberán decirle el nombre de sus bases datos. Si este es el caso, entonces puede omitir la lectura de esta sección sobre creación y destrucción de bases de datos.
+</p>
+<h3 id="Creacióndeunabasededatos">Creación de una base de datos<a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql?action=edit&section=46" title="Edit this section">[<span>edit</span>]</a><a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#Creacióndeunabasededatos" title="Link to this section"> ¶</a></h3>
+<p>
+Digamos que quiere crear una base de datos llamada mydb. Puede hacerlo con la siguiente orden:
+</p>
+<pre class="wiki">% createdb mydb
+</pre><p>
+Si no cuenta con los privilegios requeridos para crear bases de datos, verá lo siguiente:
+</p>
+<pre class="wiki">% createdb mydb
+NOTICE: user "su nombre de usuario" is not allowed to create/destroy databases
+createdb: database creation failed on mydb.
+</pre><p>
+Postgres le permite crear cualquier número de bases de datos en un sistema dado y automáticamente será el administrador de la base de datos que creó. Los nombres de las bases de datos deben comenzar por un carácter alfabético y están limitados a una longitud de 32 caracteres. No todos los usuarios están autorizados para ser administrador de una base de datos. Si Postgres le niega la creación de bases de datos, seguramente es debido a que el administrador del sistema ha de otorgarle permisos para hacerlo. En ese caso, consulte al administrador del sistema.
+</p>
+<h3 id="Accederaunabasededatos">Acceder a una base de datos<a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql?action=edit&section=47" title="Edit this section">[<span>edit</span>]</a><a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#Accederaunabasededatos" title="Link to this section"> ¶</a></h3>
+<p>
+Una vez que ha construido una base de datos, puede acceder a ella:
+</p>
+<ul><li>Ejecutando los programas de monitorización de Postgres (por ejemplo <tt>psql</tt>) los cuales le permiten introducir, editar y ejecutar órdenes <a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a> interactivamente
+</li></ul><ul><li>Escribiendo un programa en C usando la librería de subrutinas LIBPQ, la cual le permite enviar órdenes <a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a> desde C y obtener mensajes de respuesta en su programa. Esta interfaz es discutida más adelante en la <i>Guía de Programadores de PostgreSQL</i>
+</li></ul><p>
+Puede que desee ejecutar <tt>psql</tt>, para probar los ejemplos en este manual. Lo puede activar para la base de datos mydb escribiendo la orden:
+</p>
+<pre class="wiki">% psql mydb
+</pre><p>
+Se le dará la bienvenida con el siguiente mensaje:
+</p>
+<pre class="wiki">Welcome to the POSTGRESQL interactive sql monitor:
+  Please read the file COPYRIGHT for copyright terms of POSTGRESQL
+
+   type \? for help on slash commands
+   type \q to quit
+   type \g or terminate with semicolon to execute query
+ You are currently connected to the database: template1
+
+mydb=&gt;
+</pre><p>
+Este prompt indica que el monitor está listo y puede escribir sus consultas <a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a> dentro de un espacio de trabajo mantenido por el monitor. El programa <tt>psql</tt> responde a los códigos de escape que empiezan por el carácter "\". Por ejemplo, puede obtener la ayuda acerca de la sintaxis de varias órdenes <a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a> Postgres escribiendo:
+</p>
+<pre class="wiki">mydb=&gt; \h
+</pre><p>
+Una vez que haya terminado de introducir consultas, puede pasar el contenido del espacio de trabajo al servidor Postgres escribiendo:
+</p>
+<pre class="wiki">mydb=&gt; \g
+</pre><p>
+Esto le dice al servidor que procese la consulta. Si termina su consulta con un punto y coma, la "\g" no es necesaria. <tt>psql</tt> procesará automáticamente las consultas terminadas con punto y coma. Para leer consultas desde un archivo, digamos myFile, en lugar de introducirlas interactivamente, escriba:
+</p>
+<pre class="wiki">mydb=&gt; \i nombreDelFichero
+</pre><p>
+Para salir de <tt>psql</tt> y regresar a Unix escriba:
+</p>
+<pre class="wiki">mydb=&gt; \q
+</pre><p>
+y <tt>psql</tt> terminará y volverá a la línea de órdenes. (Para conocer más códigos de escape, escriba <strong>\h</strong> en el prompt del monitor). Se pueden utilizar espacios en blanco (por ejemplo espacios, tabulador y el carácter de nueva línea) en las consultas <a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a>. Las líneas simples comentadas comienzan por "--". Lo que haya después de los guiones hasta el final de línea será ignorado. Los comentarios múltiples y los que ocupan más de una línea se señalan con "/* ... */"
+</p>
+<h3 id="Eliminandobasesdedatos">Eliminando bases de datos<a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql?action=edit&section=48" title="Edit this section">[<span>edit</span>]</a><a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#Eliminandobasesdedatos" title="Link to this section"> ¶</a></h3>
+<p>
+Si es el administrador de la base de datos mydb, puede eliminarla utilizando la siguiente orden Unix:
+</p>
+<pre class="wiki">% dropdb mydb
+</pre><p>
+Esta acción elimina físicamente todos los archivos Unix asociados a la base de datos y no pueden recuperarse, así que deberá hacerse con precaución.
+</p>
+<h2 id="ElLenguajedeconsultas">El Lenguaje de consultas<a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql?action=edit&section=49" title="Edit this section">[<span>edit</span>]</a><a class="anchor" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql#ElLenguajedeconsultas" title="Link to this section"> ¶</a></h2>
+<p>
+El lenguaje de consultas de Postgres Postgres es una variante del estándar <a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a>3 Tiene muchas extensiones, tales como tipos de sistema extensibles, herencia, reglas de producción y funciones. Estas son características tomadas del lenguaje de consultas original de Postgres (PostQuel). Ésta sección proporciona un primer vistazo de cómo usar Postgres <a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a> para realizar operaciones sencillas. La intención de este manual es simplemente la de proporcionarle una idea de nuestra versión de <a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a> y no es de ningún modo un completo tutorial acerca de <a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a>. Se han escrito numerosos libros sobre <a class="acronym" href="http://en.wikipedia.org/wiki/SQL"><acronym title="Structured Query Language">SQL</acronym></a>, incluyendo [MELT93] and [DATE97]. Tenga en cuenta que algunas características del lenguaje son extensiones del estándar ANSI.
+</p>
+
+        
+        
+      </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="first">
+          <a rel="nofollow" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql?format=txt">Plain Text</a>
+        </li><li>
+          <a rel="nofollow" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql?format=pdfarticle">PDF Article</a>
+        </li><li>
+          <a rel="nofollow" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql?format=pdfbook">PDF Book</a>
+        </li><li>
+          <a rel="nofollow" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql?format=printhtml">Printable HTML</a>
+        </li><li class="last">
+          <a rel="nofollow" href="http://www.arpug.com.ar/trac/wiki/TutorialPostgreSql?format=pdf">WikiToPdf</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr>
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="trac_logo_mini.png" height="30" width="107" alt="Trac Powered"></a>
+      <p class="left">
+        <a href="http://www.python.org.ar/"><img src="python_logo_mini.png" height="30" width="75" alt="Python Powered"></a>
+        <a href="http://www.arpug.com.ar/"><img src="postgresql_logo_mini.png" height="30" width="112" alt="PostgreSQL Powered"></a>
+      </p>
+      <p class="right"><a href="http://www.postgresql.org/">PostgreSQL</a>: la base de datos más potente de codigo abierto <br>Sitio del Grupo de Usuarios de PostgreSQL Argentina (en Español)</p>
+    </div>
+  
+<!-- Google Analytics Widget Code -->
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="http://www.google-analytics.com/ga.js" type="text/javascript"></script>
+<script type="text/javascript">
+  try {
+    jQuery(document).ready( function() {
+      var pageTracker = _gat._getTracker("UA-11451118-1");
+      jQuery('a').each( function() {
+        var url;
+        if ( this.href.match("http:\/\/www.arpug.com.ar") ) {
+          if ( this.href.match(/\.(zip|tar|tar.gz|tar.bzip|egg|pdf|py|sql)$/) ) {
+            url = this.pathname + this.search;
+          };
+        } else {
+          var port = '';
+          if ( this.port != '') port = ':'+this.port;
+          url = '/external/' + this.hostname + port + this.pathname + this.search;
+        };
+        if ( url ) {
+          if ( ! url.match('^\/attachment\/') ) {
+            jQuery(this).click( function() {
+              pageTracker._trackPageview(url);
+            });
+          };
+        };
+      });
+    pageTracker._trackPageview();
+    });
+  } catch(err) {}
+</script>
+<!-- Google Analytics Widget Code Ended -->
+
+<div id="mixpanel" style="visibility: hidden; "></div></body></html>
