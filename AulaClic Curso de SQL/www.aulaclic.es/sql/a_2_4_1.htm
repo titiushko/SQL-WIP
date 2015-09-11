@@ -1,0 +1,324 @@
+<html>
+
+
+<!-- Mirrored from www.aulaclic.es/sql/a_2_4_1.htm by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 10 Jun 2011 06:49:12 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
+<head>
+<title>Caracteres comodines</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="keywords" content="SQL Base datos access access2000 tutorial manual gratis office enseñanza educacion ddl dcl dml">
+<LINK REL=STYLESHEET TYPE="text/css" HREF="estilo_sinf_osc.css" TITLE="estilo_sinf_osc">
+<SCRIPT language=JavaScript>
+<!--
+var previous = "t_2_4.htm#a1";
+var next = "t_2_4.htm#a1";
+//-->
+</SCRIPT>
+</head><body>
+
+<script type='text/javascript' src='../js/sqlmenu_osc.js'></script> 
+<script type='text/javascript' src='../js/menu8_com.js'></script> 
+
+<table width="900" border="0">
+  <tr>
+    <td width="144"><a href="http://www.aulaclic.es/index.html"><img src="comunes/logo_ac1_50.gif" alt="P&aacute;gina inicial"  border="0" longdesc="P%e1gina%20inicial.html"></a></td>
+    <td width="505">&nbsp;</td>
+	    <td width="234">
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 234;
+google_ad_height = 60;
+google_ad_format = "234x60_as";
+google_ad_type = "text_image";
+google_ad_channel ="";
+google_color_border = "FAF1E3";
+google_color_bg = "FAF1E3";
+google_color_link = "663300";
+google_color_text = "000000";
+google_color_url = "CC0000";
+//--></script>
+<script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+
+</script>
+    </td>
+        </tr>
+</table>
+
+<br />
+
+
+
+
+<!--   table de "980" ----------------------------------------------->
+
+<table  border="0"> 
+  <tr> 
+<td >  </td>
+<td  > </td>
+  </tr>
+  <tr> 
+<td > 
+<!--   td width="770" ------------------ texto pagina ------------------------------>
+<table width="469" border="0">
+<tr> 
+	<td width="461" > 
+		
+      <p class=tit-1a align="left" > <font color="#000080"><b>Caracteres comodines.</b></font> 
+      </p>
+	</td>
+</tr>
+</table>
+<br>
+<table width="100%" border="0">
+<tr> 
+	<td width="97%"> 
+      <p class=padding-1 align="left"> En la siguiente tabla se indican los caracteres 
+        que comodines que se pueden poner en un patrón y su significado</p>
+      <TABLE width="100%" border="0" cellpadding="0">
+        <TR> 
+          <TD><p class=padding-1><U>Caracteres en patrón</U></P></TD>
+          <TD><p class=padding-1><U>Significado</U></P></TD>
+        </TR>
+        <TR> 
+          <TD>&nbsp;</TD>
+          <TD>&nbsp;</TD>
+        </TR>
+<TR> 
+          <TD>
+            <p class=padding-1><B>?</B> o bien<B> _</B> (subrayado)/P>
+          </TD>
+          <TD><p class=padding-1>Un carácter cualquiera</P></TD>
+        </TR>
+        <TR> 
+          <TD>
+            <p class=padding-1><B>*</B> o bien <B>%</B></P>
+          </TD>
+          <TD><p class=padding-1>Cero o más caracteres</P></TD>
+        </TR>
+        <TR> 
+          <TD>
+            <p class=padding-1><B>#</B></P>
+          </TD>
+          <TD><p class=padding-1>Un dígito cualquiera (0-9)</P></TD>
+        </TR>
+        <TR> 
+          <TD> 
+            <p class=padding-1><B>[</B>listacaracteres<B>]</B></P>
+          </TD>
+          <TD><p class=padding-1>Un carácter cualquiera de listacaracteres</P></TD>
+        </TR>
+        <TR> 
+          <TD> 
+            <p class=padding-1><B>[!</B>listacaracteres<B>]</B></P>
+          </TD>
+          <TD><p class=padding-1>Un carácter cualquiera no incluido en listacaracteres</P></TD>
+        </TR>
+        <TR> 
+          <TD>&nbsp;</TD>
+          <TD>&nbsp;</TD>
+        </TR>
+      </TABLE>
+      <p class=padding-1 align="left">Los <B><FONT color="#000080">comodines _ 
+        y % s&oacute;lo</FONT></B> funcionan con la versi&oacute;n de <B><FONT color="#000080">Microsoft 
+        Jet 4.X.</FONT></B> Por ejemplo no funcionan en Access97. </p>
+      <p class=padding-1 align="left">Listacaracteres representa una <B><FONT color="#000080">lista 
+        de caracteres</FONT></B><FONT color="#000080"> </FONT>y puede <B><FONT color="#000080">incluir</FONT></B> 
+        casi <B><FONT color="#000080">cualquier carácter</FONT></B>, incluyendo 
+        dígitos, los caracteres se escriben uno detr&aacute;s de otro <B><FONT color="#000080">sin 
+        espacios</FONT></B> en blanco <B><FONT color="#000080">ni comas</FONT></B>. 
+        Por ejemplo para sacar los nombres que empiezan por a,g,r o v el patr&oacute;n 
+        ser&iacute;a: '[agrv]*' </p>
+      <p class=padding-1 align="left"> Los caracteres especiales corchete de apertura 
+        <B><FONT color="#000080">[</FONT></B>, interrogación <B><FONT color="#000080">?</FONT></B>, 
+        subrayado, <B><FONT color="#000080">_</FONT>,</B> porcentaje <B><FONT color="#000080">%</FONT>,</B> 
+        almohadilla <B><FONT color="#000080">#</FONT></B> y asterisco <B><FONT color="#000080">* 
+        dejan de ser</FONT></B> considerados <B><FONT color="#000080">comodines</FONT></B> 
+        cuando van <B><FONT color="#000080">entre corchetes</FONT></B>. Por ejemplo 
+        para buscar los nombres que contienen un asterisco, el patr&oacute;n ser&iacute;a 
+        : '*[*]*' en este caso el segundo * dentro del patr&oacute;n no act&uacute;a 
+        como comod&iacute;n sino como un car&aacute;cter cualquiera porque va 
+        dentro de los corchetes.</p>
+      <p class=padding-1 align="left">Si no se encierra entre corchetes, la exclamación 
+        <B> <FONT color="#000080">!</FONT></B> representa el car&aacute;cter exclamaci&oacute;n.</p>
+      <p class=padding-1 align="left">El corchete de cierre <B><FONT color="#000080">]</FONT></B> 
+        se puede utilizar fuera de una listacaracteres como carácter independiente 
+        pero no se puede utilizar en una listacaracteres. Por ejemplo, el patr&oacute;n 
+        'a]*' permite encontrar nombres que empiecen por una <I>a</I> seguida 
+        de un <I>corchete de cierre</I>.</p>
+      <p class=padding-1 align="left"> La secuencia de caracteres <B><FONT color="#000080">[] 
+        </FONT></B>se considera una <B><FONT color="#000080">cadena</FONT></B> 
+        de caracteres de <B><FONT color="#000080">longitud cero</FONT></B> (""). 
+      </p>
+      <p class=padding-1 align="left">Se puede especificar un <B><FONT color="#000080">intervalo 
+        de caracteres</FONT></B> en listacaracteres colocando un guión <B><FONT color="#000080">-</FONT></B> 
+        para <B><FONT color="#000080">separar</FONT></B> los <B><FONT color="#000080">límites 
+        inferior</FONT></B> y <B><FONT color="#000080">superior</FONT></B> del 
+        intervalo.</p>
+      <p class=padding-1 align="left"> Por ejemplo, la secuencia [A-Z ] en patrón 
+        representa cualquier car&aacute;cter comprendido en el intervalo de la 
+        A a la Z. </p>
+      <p class=padding-1 align="left">Cuando se especifica un <B><FONT color="#000080">intervalo</FONT></B> 
+        de caracteres, éstos deben aparecer en <B><FONT color="#000080">orden 
+        ascendente</FONT></B> (de menor a mayor).[A-Z] es un intervalo válido, 
+        pero [Z-A] no lo es. </p>
+      <p class=padding-1 align="left">Se pueden incluir <B><FONT color="#000080">múltiples 
+        intervalos</FONT></B> entre corchetes, sin necesidad de delimitadores.</p>
+      <p class=padding-1 align="left"> El guión <B><FONT color="#000080">-</FONT></B> 
+        define un intervalo unicamente cuando aparece dentro de los corchetes 
+        entre dos caracteres, en cualquier otro caso representa el car&aacute;cter 
+        gui&oacute;n. </p>
+      <p class=padding-1 align="left">&nbsp;</p>
+      <p class=padding-1 align="left">&nbsp;</p>
+      </td>
+</tr>
+</table>
+
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR>
+    <TD>
+      <p class=padding-1 align="left"><IMG src="graficos/option_compare.gif" width="581" height="439" align="right">El 
+        significado del intervalo especificado depende de la <B><FONT color="#000080">ordenación 
+        de caracteres</FONT></B>, esta ordenaci&oacute;n la podemos cambiar en 
+        la pesta&ntilde;a <B><FONT size="-1" color="#008000">General</FONT></B> 
+        del cuadro de di&aacute;logo <B><FONT size="-1" color="#008000">Opciones</FONT></B>, 
+        men&uacute; <B><FONT size="-1" color="#008000">Herramientas</FONT></B>:</P>
+      <p class=padding-1 align="left">Por ejemplo en Espa&ntilde;ol tradicional la ll se considera una letra 
+        diferente de l y aparece despu&eacute;s de lz, mientras que en el orden 
+        general o espa&ntilde;ol moderno, las palabras que empiecen por ll aparecen 
+        despu&eacute;s de la palabras que empiezan por lk</P>
+      <p class=padding-1 align="left">Nota: Para que el <B><FONT color="#000080">cambio 
+        de orden</FONT></B> tenga efecto se debe compactar la base de datos. (Men&uacute; 
+        <B><FONT size="-1" color="#008000">Herramientas</FONT></B>--&gt; <B><FONT size="-1" color="#008000">Utilidades 
+        de la base de datos</FONT></B>--&gt; <B><FONT size="-1" color="#008000">Compactar 
+        y reparar base de datos</FONT></B>).</P>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR>
+    <TD>&nbsp;</TD>
+    <TD>&nbsp;</TD>
+  </TR>
+</TABLE>
+<table width="100%" border="0">
+<tr> 
+	<td width="3%">&nbsp;
+		
+	</td>
+	<td width="3%">&nbsp;
+		
+	</td>
+	<td width="42%"> 
+	</td>
+	<td width="5%" align="center"> <a href="t_2_4.htm#a1"> <img name="image1" src="comunes/flecha_home.gif" width="22" height="22" border="0"> 
+      </a> </td>
+	<td width="39%"> <a href="a_3_1_1.htm"> </a> </td>
+	<td width="3%">&nbsp;
+		
+	</td>
+	<td width="5%" align="center">&nbsp;
+		
+	</td>
+</tr>
+</table>
+
+<br>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <div align="center"><font size="-1">Aviso legal: este curso es gratuito 
+        siempre que se visualice desde la p&aacute;gina web de aulaClic. No est&aacute; permitido descargar el curso y utilizarlo en academias o centros de ense&ntilde;anza 
+        privados sin estar conectado a Internet. </font></div>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <div align="center"><font size="-1">© aulaClic. Todos los derechos reservados. 
+ <a href="http://www.teacherclick.com/" style="text-decoration: none; color: black;" target="_blank">Free Computer tutorials</a> . 
+        Prohibida la reproducci&oacute;n por cualquier medio.<br>
+        </font><font size="2">Abril-2001.aulaClic.com</font></div>
+    </td>
+  </tr>
+</table>
+
+<!--  fin td width="770" --------------- fin texto pagina -------------------------------->
+
+    </td>
+    <td  valign="top">
+	<!--   td width="160" -------------- anuncios lateral derecho ---------------------------------->
+<table  border="0">
+
+  <tr> 
+    <td valign="bottom" height="700"> 
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 160;
+google_ad_height = 600;
+google_ad_format = "160x600_as";
+google_ad_type = "text_image";
+google_ad_channel ="2175968397";
+google_color_border = "FFF6EC";
+google_color_bg = "FFF6EC";
+google_color_link = "663300";
+google_color_text = "000000";
+google_color_url = "CC0000";
+//--></script>
+<script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>
+    </td>
+	
+  </tr>
+  
+  <tr> 
+    <td height="150">
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 125;
+google_ad_height = 125;
+google_ad_format = "125x125_as_rimg";
+google_cpa_choice = "CAAQmImJlAIaCN5uB6wtFhbmKNyMs4MB";
+google_ad_channel = "6146562423";
+//--></script>
+<script type="text/javascript" src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>
+    </td>
+  </tr>
+
+  <tr> 
+    <td height="150">
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 160;
+google_ad_height = 90;
+google_ad_format = "160x90_0ads_al";
+google_ad_channel ="2175968397";
+google_color_border = "FAF1E3";
+google_color_bg = "FAF1E3";
+google_color_link = "663300";
+google_color_text = "000000";
+google_color_url = "CC0000";
+//--></script>
+<script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>    </td>
+  </tr>
+</table>
+
+	<!--   td width="160" ----------- fin anuncios lateral derecho -------------------------------------->
+
+ </td>
+ </tr>
+<!--   table de "980" ----------------------------------------------->
+</table>
+
+</body>
+
+
+
+<!-- Mirrored from www.aulaclic.es/sql/a_2_4_1.htm by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 10 Jun 2011 06:49:13 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
+</html>

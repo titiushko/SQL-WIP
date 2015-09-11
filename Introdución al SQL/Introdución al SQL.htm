@@ -1,0 +1,1927 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0062)http://www.infor.uva.es/~jvegas/cursos/bd/sqlplus/sqlplus.html -->
+<HTML><HEAD><TITLE>Introdución al SQL</TITLE>
+<META content="text/html; charset=windows-1252" http-equiv=Content-Type>
+<META name=GENERATOR content="MSHTML 8.00.7600.16766"></HEAD>
+<BODY background=Introdución%20al%20SQL_archivos/sqlplus.htm aLink=#394a63 
+link=#394a63 bgColor=#ffffff vLink=#394a63>
+<CENTER>
+<HR>
+<FONT size=+2 face=arial><B>Introdución al SQL </B></FONT>
+<HR>
+</CENTER>
+<P><BR>Este curso pretende ser una introducción al SQL, y en particular a la 
+versión que utiliza el SGBD Oracle (7.3) llamado SQL*Plus. No se pretende 
+realizar un estudio exhaustivo de todas las opciones, comandos y aspectos de 
+almacenamiento y administración que se pueden considerar en SQL. Sólo se ha 
+pretendido introducir y explicar los comandos más utilizados con sus opciones 
+más útiles, dejando los detalles más específicos a los manuales de referencia. 
+</P>
+<P>Las razones que me han movido a construirlo en HTML y facilitar su acceso 
+mediante Web son las posibilidades de interacción con el texto y de mayor 
+difusión. Por ahora las tablas de ejemplo son estáticas y se encuentran en el 
+texto mismo, pero mi intención es que se pueda interactuar con una base de datos 
+en tiempo real. ¿Quizás más adelante?. </P>
+<P>Si tienes cualquier sugerencia o encuentras una errata escondida dímelo. </P>
+<DIV align=right>
+<P>Abril de 1998. </P></DIV>
+<DIV align=right>
+<ADDRESS>Jesús Vegas <BR>Dpto. Informática <BR>Universidad de Valladolid <BR><A 
+href="mailto:jvegas@infor.uva.es">jvegas@infor.uva.es</A> </ADDRESS></DIV>
+<P><BR></P><BR>
+<HR>
+<A name=indice></A><FONT size=+2 face=arial><B>Índice </B></FONT>
+<HR>
+
+<OL>
+  <LI><A 
+  href="http://www.infor.uva.es/~jvegas/cursos/bd/sqlplus/sqlplus.html#terminologia">Terminología</A> 
+
+  <LI><A 
+  href="http://www.infor.uva.es/~jvegas/cursos/bd/sqlplus/sqlplus.html#tiposSentencias">Tipos 
+  de sentencias SQL</A> 
+  <LI><A 
+  href="http://www.infor.uva.es/~jvegas/cursos/bd/sqlplus/sqlplus.html#sql*plus">SQL*Plus</A> 
+
+  <UL>
+    <LI><A 
+    href="http://www.infor.uva.es/~jvegas/cursos/bd/sqlplus/sqlplus.html#conexion">Conexión</A> 
+
+    <LI><A 
+    href="http://www.infor.uva.es/~jvegas/cursos/bd/sqlplus/sqlplus.html#posibilidadesEdicion">Posibilidades 
+    de Edición</A> 
+    <LI><A 
+    href="http://www.infor.uva.es/~jvegas/cursos/bd/sqlplus/sqlplus.html#ficheros">Utilización 
+    de Ficheros</A> </LI></UL>
+  <LI><A 
+  href="http://www.infor.uva.es/~jvegas/cursos/bd/sqlplus/sqlplus.html#creacion">Creación</A> 
+
+  <UL>
+    <LI><A 
+    href="http://www.infor.uva.es/~jvegas/cursos/bd/sqlplus/sqlplus.html#columnas">Tipos 
+    de Columnas</A> 
+    <LI><A 
+    href="http://www.infor.uva.es/~jvegas/cursos/bd/sqlplus/sqlplus.html#restricciones">Restricciones</A> 
+
+    <LI><A 
+    href="http://www.infor.uva.es/~jvegas/cursos/bd/sqlplus/sqlplus.html#describe">Comando 
+    <TT>DESCRIBE</TT></A> </LI></UL>
+  <LI><A 
+  href="http://www.infor.uva.es/~jvegas/cursos/bd/sqlplus/sqlplus.html#modificacion">Modificación</A> 
+
+  <LI><A 
+  href="http://www.infor.uva.es/~jvegas/cursos/bd/sqlplus/sqlplus.html#insercActualBorr">Inserción, 
+  Actualización y Borrado</A> 
+  <UL>
+    <LI><A 
+    href="http://www.infor.uva.es/~jvegas/cursos/bd/sqlplus/sqlplus.html#insercion">Inserción</A> 
+
+    <LI><A 
+    href="http://www.infor.uva.es/~jvegas/cursos/bd/sqlplus/sqlplus.html#actualizacion">Actualización</A> 
+
+    <LI><A 
+    href="http://www.infor.uva.es/~jvegas/cursos/bd/sqlplus/sqlplus.html#borrado">Borrado</A> 
+    </LI></UL>
+  <LI><A 
+  href="http://www.infor.uva.es/~jvegas/cursos/bd/sqlplus/sqlplus.html#seleccion">Selección</A> 
+
+  <UL>
+    <LI><A 
+    href="http://www.infor.uva.es/~jvegas/cursos/bd/sqlplus/sqlplus.html#columnas">Selección 
+    de Columnas</A> 
+    <LI><A 
+    href="http://www.infor.uva.es/~jvegas/cursos/bd/sqlplus/sqlplus.html#from">Cláusula 
+    <TT>FROM</TT></A> 
+    <LI><A 
+    href="http://www.infor.uva.es/~jvegas/cursos/bd/sqlplus/sqlplus.html#where">Cláusula 
+    <TT>WHERE</TT></A> 
+    <LI><A 
+    href="http://www.infor.uva.es/~jvegas/cursos/bd/sqlplus/sqlplus.html#orderBy">Cláusula 
+    <TT>ORDER BY</TT></A> 
+    <LI><A 
+    href="http://www.infor.uva.es/~jvegas/cursos/bd/sqlplus/sqlplus.html#distinct">Cláusula 
+    <TT>DISTINCT</TT></A> 
+    <LI><A 
+    href="http://www.infor.uva.es/~jvegas/cursos/bd/sqlplus/sqlplus.html#funciones">Funciones</A> 
+
+    <LI><A 
+    href="http://www.infor.uva.es/~jvegas/cursos/bd/sqlplus/sqlplus.html#groupBy">Cláusula 
+    <TT>GROUP BY</TT></A> 
+    <LI><A 
+    href="http://www.infor.uva.es/~jvegas/cursos/bd/sqlplus/sqlplus.html#expresionesSelect">Expresiones 
+    con Sentencias <TT>SELECT</TT></A> 
+    <LI><A 
+    href="http://www.infor.uva.es/~jvegas/cursos/bd/sqlplus/sqlplus.html#combinaciones">Combinaciones</A> 
+
+    <LI><A 
+    href="http://www.infor.uva.es/~jvegas/cursos/bd/sqlplus/sqlplus.html#subconsultas">Subconsultas</A> 
+    </LI></UL>
+  <LI><A 
+  href="http://www.infor.uva.es/~jvegas/cursos/bd/sqlplus/sqlplus.html#eliminacion">Eliminación</A> 
+
+  <LI><A 
+  href="http://www.infor.uva.es/~jvegas/cursos/bd/sqlplus/sqlplus.html#vistas">Vistas</A> 
+
+  <LI><A 
+  href="http://www.infor.uva.es/~jvegas/cursos/bd/sqlplus/sqlplus.html#jugandoNombres">Jugando 
+  con los Nombres</A> 
+  <UL>
+    <LI><A 
+    href="http://www.infor.uva.es/~jvegas/cursos/bd/sqlplus/sqlplus.html#sinomimos">Sinónimos</A> 
+
+    <LI><A 
+    href="http://www.infor.uva.es/~jvegas/cursos/bd/sqlplus/sqlplus.html#rename">El 
+    Comando <TT>RENAME</TT></A> </LI></UL>
+  <LI><A 
+  href="http://www.infor.uva.es/~jvegas/cursos/bd/sqlplus/sqlplus.html#loMasSqlPlus">Lo 
+  Mas SQL*Plus</A> 
+  <UL>
+    <LI><A 
+    href="http://www.infor.uva.es/~jvegas/cursos/bd/sqlplus/sqlplus.html#comandos">Ficheros 
+    de Comandos</A> 
+    <LI><A 
+    href="http://www.infor.uva.es/~jvegas/cursos/bd/sqlplus/sqlplus.html#informes">Generación 
+    de Informes</A> </LI></UL></LI></OL>
+<P><BR></P><BR>
+<HR>
+<A name=terminologia></A><FONT size=+2 face=arial><B>1 Terminología </B></FONT>
+<HR>
+
+<DL>
+  <DT>SQL 
+  <DD><I>Structured Query Language</I> o Lenguaje de Consultas Estructurado. Es 
+  el lenguaje que permite la comunicación con el Sistema Gestor de Bases de 
+  Datos (Oracle en nuestro caso). 
+  <DT>El SQL es un lenguaje unificado 
+  <DD>Lo utilizan todo tipo de usuarios, desde el administrador de la base de 
+  datos, DBA, hasta el usuario final. 
+  <DT>El SQL es un lenguaje no procedimental. 
+  <DD>El usuario especifica <I>Qué</I> quiere, no <I>Cómo</I> ni <I>Dónde</I> 
+  conseguirlo. 
+  <DT>El SQL es relacionalmente completo. 
+  <DD>Permite la realización de cualquier consulta de datos. 
+  <DT>SQL= DDL + DML 
+  <DD>Las sentencias del SQL se clasifican como parte del DDL o del DML. 
+  <DT>Lenguaje de Definición de Datos, DDL 
+  <DD>sentencias del SQL que permiten definir los objetos de la Base de Datos 
+  (<TT>create</TT>, <TT>revoke</TT>, <TT>grant</TT>, <TT>alter</TT>, etc.). 
+  Cuando se definen dichos objetos se almacenan en el diccionario de datos. 
+  <DT>Lenguaje de Manipulación de Datos, DML 
+  <DD>sentencias del SQL que se utilizan para manejar los datos de la base de 
+  datos (<TT>select</TT>, <TT>insert</TT>, <TT>update</TT>, <TT>delete</TT>, 
+  etc). 
+  <DT><TT>commit</TT>/<TT>rollback</TT> 
+  <DD>cada vez que se realiza alguna operación en la base de datos se realiza no 
+  sobre la tabla en sí, sino sobre una copia local de la misma. Así, si queremos 
+  que los resultados de la modificación se trasladen a la base de datos y 
+  perduren en el tiempo hay que confirmar dicha operación con el comando 
+  <TT>commit</TT>. También se puede impedir que los últimos cambios lleguen a 
+  efectuarse con <TT>rollback</TT>, aunque existen algunas sentencias SQL que se 
+  'autoconfirman' y no se pueden volver atrás. 
+  <DT>Diccionario de la Base de Datos 
+  <DD>Guarda la definición de todos los objetos almacenados en la base de datos; 
+  sus características, restricciones, privilegios, relaciones entre ellos, etc. 
+  </DD></DL><BR>
+<HR>
+<A name=tiposSentencias></A><FONT size=+2 face=arial><B>2 Tipos de Sentencias 
+</B></FONT>
+<HR>
+
+<P><BR>Las sentencias SQL pertenecen a dos categorías principales: Lenguaje de 
+Definición de Datos, DDL y Lenguaje de Manipulación de Datos, DML. Estos dos 
+lenguajes no son lenguajes en sí mismos, sino que es una forma de clasificar las 
+sentencias de lenguaje SQL en función de su cometido. La diferencia principal 
+reside en que el DDL crea objetos en la base de datos y sus efectos se pueden 
+ver en el diccionario de la base de datos; mientras que el DML es el que permite 
+consultar, insertar, modificar y eliminar la información almacenada en los 
+objetos de la base de datos. </P>
+<P>Cuando se ejecutan las sentencias DDL de SQL, el SGBD confirma la transacción 
+actual antes y después de cada una de las sentencias DDL. En cambio, las 
+sentencias DML no llevan implícito el <TT>commit</TT> y se pueden deshacer. 
+Existe pues un problema al mezclar sentencias DML con DDL, ya que estas últimas 
+pueden confirmar las primeras de manera involuntaria e implicita, lo que en 
+ocasiones puede ser un problema. </P>
+<P>A continuación se presenta una tabla con las sentencias SQL más comunes, 
+clasificadas según el lenguaje al que pertenecen. </P>
+<CENTER>
+<TABLE border=1 width="90%">
+  <TBODY>
+  <TR>
+    <TD><B><I>Sentencia DDL</I></B> </TD>
+    <TD><B><I>Objetivo</I></B> </TD></TR>
+  <TR>
+    <TD>Alter procedure </TD>
+    <TD>Recompilar un procedimiento almacenado. </TD></TR>
+  <TR>
+    <TD>Alter Table </TD>
+    <TD>Añadir o redefinir una columna, modificar la asignación de 
+      almacenamiento. </TD></TR>
+  <TR>
+    <TD>Analyze </TD>
+    <TD>Recoger estadísticas de rendimiento sobre los objetos de la BD para 
+      utilizarlas en el optimizador basado en costes. </TD></TR>
+  <TR>
+    <TD>Create Table </TD>
+    <TD>Crear una tabla. </TD></TR>
+  <TR>
+    <TD>Create Index </TD>
+    <TD>Crear un índice. </TD></TR>
+  <TR>
+    <TD>Drop Table </TD>
+    <TD>Eliminar una tabla. </TD></TR>
+  <TR>
+    <TD>Drop Index </TD>
+    <TD>Eliminar un índice. </TD></TR>
+  <TR>
+    <TD>Grant </TD>
+    <TD>Conceder privilegios o papeles, roles, a un usuario o a otro rol. 
+  </TD></TR>
+  <TR>
+    <TD>Truncate </TD>
+    <TD>Eliminar todas las filas de una tabla. </TD></TR>
+  <TR>
+    <TD>Revoke </TD>
+    <TD>Retirar los privilegios de un usuario o rol de la base de datos. 
+</TD></TR>
+  <TR>
+    <TD><B><I>Sentencia DML</I></B> </TD>
+    <TD><B><I>Objetivo</I></B> </TD></TR>
+  <TR>
+    <TD>Insert </TD>
+    <TD>Añadir filas de datos a una tabla. </TD></TR>
+  <TR>
+    <TD>Delete </TD>
+    <TD>Eliminar filas de datos de una tabla. </TD></TR>
+  <TR>
+    <TD>Update </TD>
+    <TD>Modificar los datos de una tabla. </TD></TR>
+  <TR>
+    <TD>Select </TD>
+    <TD>Recuperar datos de una tabla. </TD></TR>
+  <TR>
+    <TD>Commit </TD>
+    <TD>Confirmar como permamentes las modificaciones realizadas. </TD></TR>
+  <TR>
+    <TD>Rollback </TD>
+    <TD>Deshacer todas las modificaciones realizadas desde la última 
+      confirmación. </TD></TR></TBODY></TABLE></CENTER>
+<P><BR></P><BR>
+<HR>
+<A name=sql*plus></A><FONT size=+2 face=arial><B>3 SQL*Plus </B></FONT>
+<HR>
+
+<P>La herramienta que nos proporciona ORACLE para interactuar con la base de 
+datos se llama SQL*Plus. Básicamente, es un intérprete SQL con algunas opciones 
+de edición y formateo de resultados. </P>
+<P>Antes de ver la manera de conectarse a SQL*Plus, conviene tener claros 
+algunos conceptos: </P>
+<DL>
+  <DT>Usuario/Clave 
+  <DD>Para poder acceder a una base de datos gestionada por ORACLE debemos ser 
+  un usuario autorizado de la misma y conocer la palabra clave, <I>password</I>, 
+  asociada al usuario. 
+  <DT>Variable de ambiente <TT>ORACLE_SID</TT> 
+  <DD>Indica la base de datos con la que vamos a trabajar. </DD></DL><BR><A 
+name=conexion></A><FONT size=+2 face=arial><B>3.1 Conexión </B></FONT>
+<P>Para entar en SQL*Plus se debe ejecutar el comando </P><PRE><FONT face=terminal><FONT color=#008000><FONT size=+1>
+$ sqlplus usuario/passwd
+</FONT></FONT></FONT></PRE>donde le indicamos al SGBD Oracle quién somos y 
+nuestra palabra clave. 
+<P>Si la configuración del SGBD Oracle se corresponde a una configuración 
+cliente-servidor asentada sobre una red (SQL*Net v2) deberemos indicar, además, 
+el sevicio (o base de datos) con el que queremos contactar. Esto se hace 
+colocando el símbolo <TT>@</TT> antes del nombre del servicio como se indica a 
+continuación: </P><PRE><FONT face=terminal><FONT color=#008000><FONT size=+1>
+$ sqlplus usuario/passwd@servicio
+</FONT></FONT></FONT></PRE>Otra circunstancia que hay que tener en cuenta a la 
+hora de conectarnos a SQL*Plus es el modo establecido por el DBA para la 
+autentificación del usuario de la base de datos. La primera posibilidad es que 
+recaiga sobre el SGBD Oracle la autentificación de los usuarios, por lo que 
+tendremos que darle nuestro nombre de usuario y la palabra de paso. Pero existe 
+la posibilidad de que el SGBD Oracle deje en manos del Sistema Operativo esta 
+responsabilidad. Así, no será necesario demostrarle al SGBD Oracle quién somos 
+ya que el SO se ha encargado previamente de comprobar que todo es correcto. En 
+este segundo caso, el comando de conexión con SQL*Plus debe omitir el nombre de 
+usuario y la palabra clave, pero manteniendo el resto de esta manera: 
+<P></P><PRE><FONT face=terminal><FONT color=#008000><FONT size=+1>
+$ sqlplus /@servicio
+</FONT></FONT></FONT></PRE>Una vez que hemos conseguido entrar en SQL*Plus nos 
+presenta el <I>prompt</I> y espera la insercción de sentencias SQL. Todas las 
+sentencias deben acabar con un ';'. Una sentencia puede continuar en varias 
+líneas, que SQL*Plus va numerando. Si queremos anular la sentencia actual 
+podemos hacerlo colocando un '.' como único carácter en una línea. Si queremos 
+volver a ejecutar la última sentencia se puede hacer con el comando '/'. Si 
+queremos ejecutar las sentencias que almacena un fichero .sql podemos hacerlo 
+anteponiendo el símbolo '@' al nombre del fichero. 
+<P></P>
+<P>Para cerrar la sesión vale con teclear 'exit'. </P><BR><A 
+name=posibilidadesEdicion></A><FONT size=+2 face=arial><B>3.2 Posibilidades de 
+Edición </B></FONT>
+<P>SQL*Plus almacena en un <I>buffer</I> la última sentencia SQL introducida. El 
+<I>buffer</I> mantiene sólo una sentencia cada vez, y si se introduce una nueva 
+sentencia se sobreescribe sobre la anterior. </P>
+<P>La sentencia en el <I>buffer</I> puede ser recuperada para ejecutarla de 
+nuevo con los comandos: </P>
+<UL>
+  <LI><TT>RUN</TT> que visualiza la sentencia en el <I>buffer</I> antes de 
+  ejecutarla; 
+  <LI><TT>/</TT> que ejecuta la sentencia sin visualizarla. </LI></UL>
+<P>SQL*Plus también nos permite editar la sentencia SQL alamacenada en el 
+<I>buffer</I> mediante un sencillo (y limitado) editor en línea, cuyos comandos 
+se enumeran a continuación: </P>
+<CENTER>
+<TABLE border=1 width="90%">
+  <TBODY>
+  <TR>
+    <TD><B><I>Comando</I></B> </TD>
+    <TD><B><I>Abreviatura</I></B> </TD>
+    <TD><B><I>Descripción</I></B> </TD></TR>
+  <TR>
+    <TD>APPEND texto </TD>
+    <TD>A texto </TD>
+    <TD>Añade texto al final de la línea. </TD></TR>
+  <TR>
+    <TD>CHANGE/fuente/destino </TD>
+    <TD>C/fuente/destino </TD>
+    <TD>Cambia el contenido 'fuente' por el 'destino' </TD></TR>
+  <TR>
+    <TD>CHANGE/texto </TD>
+    <TD>C/texto </TD>
+    <TD>Quita 'texto' de una línea. </TD></TR>
+  <TR>
+    <TD>CLEAR BUFFER </TD>
+    <TD>CL BUFF </TD>
+    <TD>Borra el <I>buffer</I> </TD></TR>
+  <TR>
+    <TD>DEL </TD>
+    <TD>DEL</TD>
+    <TD>Borra una línea. </TD></TR>
+  <TR>
+    <TD>INPUT </TD>
+    <TD>I </TD>
+    <TD>Inserta una o más líneas. </TD></TR>
+  <TR>
+    <TD>INPUT texto </TD>
+    <TD>I texto </TD>
+    <TD>Inserta una línea con 'texto'. </TD></TR>
+  <TR>
+    <TD>LIST </TD>
+    <TD>L </TD>
+    <TD>Lista las líneas del <I>buffer</I> </TD></TR>
+  <TR>
+    <TD>LIST n </TD>
+    <TD>L n ó n </TD>
+    <TD>Lista la línea n-ésima. </TD></TR>
+  <TR>
+    <TD>LIST * </TD>
+    <TD>L * </TD>
+    <TD>Lista la línea actual. </TD></TR>
+  <TR>
+    <TD>LIST LAST </TD>
+    <TD>L LAST </TD>
+    <TD>Lista la última línea. </TD></TR>
+  <TR>
+    <TD>LIST m n </TD>
+    <TD>L m n </TD>
+    <TD>Lista las líneas desde la m-ésima a la n-ésima. 
+</TD></TR></TBODY></TABLE></CENTER>
+<P>Al contenido del <I>buffer</I> también se puede acceder desde el editor del 
+Sistema Operativo. Así, el buffer podrá ser manipulado con las posibilidades del 
+editor con el que estemos acostumbrados a trabajar. Al salir del editor se 
+devuelve el control al SQL*Plus. Para conseguir trabajar con el editor del 
+Sistema Operativo basta con colocar la variable <TT>DEFINE_EDITOR</TT> y luego 
+llamar al editor. </P><PRE><FONT face=terminal><FONT color=#008000><FONT size=+1>SQL&gt; define_editor=vi
+SQL&gt; edit</FONT></FONT></FONT>
+
+</PRE><BR><A name=ficheros></A><FONT size=+2 face=arial><B>3.3 Utilización de 
+Ficheros </B></FONT>
+<P>SQL*Plus considera dos tipos de ficheros: de <I>spool</I> y de comandos. </P>
+<P>Un <B>fichero de <I>spool</I></B> almacena los resultados de una consulta (o 
+varias) en un fichero con la extensión .lst (o lo manda a la impresora). </P>
+<P>Los comandos asociados con los ficheros <I>spool</I> son </P>
+<DL>
+  <DT><TT>SPOOL fichero</TT> 
+  <DD>Manda el resultado de las consultas al fichero. 
+  <DT><TT>SPOOL OUT</TT> 
+  <DD>Manda el resultado de las consultas a la impresora. 
+  <DT><TT>SPOOL OFF</TT> 
+  <DD>Cierra el fichero de <I>spool</I>. 
+  <DT><TT>EXIT</TT> 
+  <DD>Al salir de SQL*Plus se cierran los ficheros de <I>spool</I>. </DD></DL>
+<P>Los <B>archivos de comandos</B> almacenan comandos SQL y SQL*Plus para ser 
+editado, almacenado y/o ejecutado; y tienen por defecto la extensión .sql : </P>
+<UL>
+  <LI>Para editarlo se puede utilizar el comando <TT>edit fichero</TT>. 
+  <LI>Para ejecutarlo se utilizará el comando <TT>START fichero</TT> o 
+  <TT>@fichero</TT> </LI></UL>
+<P>El SQL*Plus nos proporciona más posibilidades en relación con los ficheros de 
+comandos, la comunicación con el usuario final y la generación de informes. Pero 
+antes de ver este tipo de cosas, es mejor que sigamos profundizando en el 
+conocimiento del lenguaje SQL. Al final del curso se puede se encuentra un 
+capítulo con algunas de las cosillas que quedan por contar del SQL*Plus. 
+</P><BR>
+<HR>
+<A name=creacion></A><FONT size=+2 face=arial><B>4 Creación </B></FONT>
+<HR>
+
+<P>La primera fase de cualquier base de datos comienza siempre con sentencias 
+DDL, ya que antes de poder almacenar información debemos definir los objetos 
+básicos donde agrupar la información. Los objetos básicos con que trabaja SQL 
+son las tablas. Una tabla es un conjunto de celdas agrupadas en filas y columnas 
+donde se almacenan elementos de información. </P>
+<P>Antes de llevar a cabo la creación de una tabla conviene planificar: </P>
+<UL>
+  <LI>nombre de la tabla, 
+  <LI>nombre de cada columna, 
+  <LI>tipo y tamaño de los datos almacenados en cada columna, 
+  <LI>información adicional, restricciones, etc. </LI></UL>
+<P>Hay que tener en cuenta también ciertas restricciones en la formación de los 
+nombres de las tablas: longitud máxima de 30 caracteres, no puede haber nombres 
+de tabla duplicados, deben comenzar con un carácter alfabético, permitir 
+caracteres alfanuméricos y el guión bajo '_', y Oracle no distingue entre 
+mayúsculas y minúsculas. </P>
+<P>La sintaxis del comando que permite crear un tabla es la siguiente: </P><PRE><FONT color=#737b8c size=+1 face=system>
+CREATE TABLE [esquema.]tabla ({columna tipoColumna [NOT NULL],}<SUP>+</SUP>,
+       {CONSTRAINT nombreRestricción
+          {UNIQUE ([column,]<SUP>+</SUP>)|
+           DEFAULT expresion|
+           CHECK (condicion)|
+           PRIMARY KEY ([column,]<SUP>+</SUP>)|
+           FOREIGN KEY (column) REFERENCES tabla(columna)},}<SUP>*</SUP>)
+</FONT></PRE>
+<P>Del examen de la sintaxis de la sentencia <TT>Create Table</TT> se pueden 
+concluir que necesitamos conocer los distintos tipos de columna y las distintas 
+restricciones que se pueden imponer al contenido de las columnas. Vayamos por 
+partes. </P><BR><A name=columnas></A><FONT size=+2 face=arial><B>4.1 Tipos de 
+Columnas </B></FONT>
+<P>Existen varios tipos de datos en SQL. De esta manera, cada columna puede 
+albergar una información de naturaleza distinta. Los tipos de datos más comunes 
+y sus características se resumen en la siguiente tabla. </P>
+<CENTER>
+<TABLE border=1 width="90%">
+  <TBODY>
+  <TR>
+    <TD><B><I>Tipo de Dato</I></B> </TD>
+    <TD><B><I>Descripción</I></B> </TD></TR>
+  <TR>
+    <TD><TT>VARCHAR2(tamaño)</TT> </TD>
+    <TD>Almacena datos de tipo carácter alfanumérico de longitud variable, con 
+      un tamaño máximo de 2.000. </TD></TR>
+  <TR>
+    <TD><TT>CHAR(tamaño)</TT> </TD>
+    <TD>Almacena datos de tipo carácter alfanumérico de longitud fija, con un 
+      tamaño máximo de 255. </TD></TR>
+  <TR>
+    <TD><TT>LONG</TT> </TD>
+    <TD>Almacena datos de tipo carácter alfanumérico de longitud variable con 
+      un tamaño máximo de hasta 2 Gb. </TD></TR>
+  <TR>
+    <TD><TT>NUMBER(dig,dec)</TT> </TD>
+    <TD>Almacena datos numéricos de <TT>dig</TT> dígitos, de los cuales 
+      <TT>dec</TT> son decimales. El tamaño máximo es de 38 dígitos. </TD></TR>
+  <TR>
+    <TD><TT>DATE</TT> </TD>
+    <TD>Almacena fechas desde el 1-Ene-4712 AC hasta el 31-Dic-4712 DC. </TD></TR>
+  <TR>
+    <TD><TT>RAW(tamaño)</TT> </TD>
+    <TD>Almacena datos de longitud variable, con un tamaño máximo de 255 
+      bytes. </TD></TR>
+  <TR>
+    <TD><TT>LONG RAW</TT> </TD>
+    <TD>Almacena datos de longitud variable, con un tamaño máximo de 2 Gb. 
+  </TD></TR></TBODY></TABLE></CENTER><BR><BR><A name=restricciones></A><FONT 
+size=+2 face=arial><B>4.2 Restricciones </B></FONT>
+<P>Las restricciones de los datos se imponen para asegurarnos que los datos 
+cumplen con una serie de condiciones predefinidas para cada tabla. Estas 
+restricciones ayudan a conseguir la integridad de referencia: todas las 
+referencias dentro de una BD son válidas y todas las restricciones se han 
+cumplido.</P>
+<P>Las restricciones se van a definir acompañadas por un nombre, lo que 
+permitirá activarlas o desactivarlas según sea el caso; o también mezcladas en 
+la definiciones de las columnas de la tabla. A continuación vamos a describir 
+cada una de las restricciones mencionadas. </P>
+<DL>
+  <DT><TT>NOT NULL</TT> 
+  <DD>Establece la obligatoriedad de que esta columna tenga un valor no nulo. Se 
+  debe especificar junto a la columna a la que afecta. Los valores nulos no 
+  ocupan espacio, y son distintos a 0 y al espacio en blanco. Hay que tener 
+  cuidado con los valores nulos en las operaciones, ya que <TT>1 * NULL</TT> es 
+  igual a <TT>NULL</TT>. 
+  <DT><TT>UNIQUE</TT> 
+  <DD>Evita valores repetidos en una columna, admitiendo valores nulos. Oracle 
+  crea un índice automáticamente cuando se habilita esta restricción y lo borra 
+  al deshabilitarse. 
+  <DT><TT>DEFAULT</TT> 
+  <DD>Establece un valor por defecto para esa columna, si no se le asigna 
+  ninguno. 
+  <DT><TT>CHECK</TT> 
+  <DD>Comprueba que se cumpla una condición determinada al rellenar esa columna. 
+  Esta condición sólo debe estar construida con columnas de esta misma tabla. 
+  <DT><TT>PRIMARY KEY</TT> 
+  <DD>Establece el conjunto de columnas que forman la clave primaria de esa 
+  tabla. Se comporta como única y obligatoria sin necesidad de explicitarlo. 
+  Sólo puede existir una clave primaria por tabla. Puede ser referenciada como 
+  clave ajena por otras tablas. Crea un índice automáticamente cuando se 
+  habilita o se crea esta restricción. En Oracle, los índices son construidos 
+  sobre árboles B<SUP>+</SUP>. 
+  <DT><TT>FOREIGN KEY</TT> 
+  <DD>Establece que el contenido de esta columna será uno de los valores 
+  contenidos en una columna de otra tabla maestra. Esta columna marcada como 
+  clave ajena puede ser NULL. No hay límite en el número de claves ajenas. La 
+  clave ajena puede ser otra columna de la misma tabla. Se puede forzar que 
+  cuando una fila de la tabla maestra sea borrada, todas las filas de la tabla 
+  detalle cuya clave ajena coincida con la clave borrada se borren también. Esto 
+  se consigue añadiendo la coletilla <TT>ON DELETE CASCADE</TT> en la definición 
+  de la clave ajena. </DD></DL>
+<P>Seguidamente se presenta un ejemplo en el que se crean dos tablas, una de 
+departamentos y otra de empleados: <PRE><FONT face=terminal><FONT color=#008000><FONT size=+1>REM
+REM tabla departamento con un código de departamento, un nombre y una
+REM localización.
+REM
+create table dep (
+   cod_dep number(3),
+   nombre varchar2(15) not null,
+   loc varchar2(10),
+   constraint dep_pk primary key (cod_dep),
+   constraint dep_loc check 
+              (loc in ('Valladolid', 'Boecillo', 'Cigales'))
+);
+
+REM
+REM tabla empleado con un código de empleado, un nombre, un oficio, un
+REM jefe, una fecha de alta en la empresa, un salario mensual, una
+REM comisión y el código del departamento donde trabaja.
+REM
+create table emp (
+   cod_emp number(3),
+   nombre varchar2(10) not null,
+   oficio varchar2(11),
+   jefe number(3),
+   fecha_alta date,
+   salario number(10),
+   comision number(10),
+   cod_dep number(3),
+   constraint emp_pk primary key (cod_emp),
+   constraint emp_fk foreign key (cod_dep) references dep(cod_dep)
+              on delete cascade,
+   constraint emp_ck check (salario &gt; 0)
+);</FONT></FONT></FONT>
+
+</PRE><BR><A name=describe></A><FONT size=+2 face=arial><B>4.3 Comando 
+<TT>Describe</TT> </B></FONT>
+<P>Oracle nos proporciona un comando que resulta muy útil cuando queremos 
+conocer la estructura de una tabla, las columnas que la forman y su tipo y 
+restricciones. Este comando toma una mayor importancia según nos alejemos del 
+momento de creación de una tabla. </P>
+<P>La sintásis es la siguiente </P><PRE><FONT face=system><FONT color=#737b8c><FONT size=+1>DESCRIBE tabla</FONT></FONT></FONT></PRE>
+<P><BR>Y un ejemplo de su utilización se puede ver al describir la definición de 
+las dos tablas creadas antes. Como no es una sentencia SQL no necesita el ';' al 
+final. También se puede abreviar como <TT>DESC</TT>. </P><PRE><FONT face=terminal><FONT color=#008000><FONT size=+1>SQL&gt; describe dep
+ Name                            Null?    Type
+ ------------------------------- -------- ----
+ COD_DEP                         NOT NULL NUMBER(3)
+ NOMBRE                          NOT NULL VARCHAR2(15)
+ LOC                                      VARCHAR2(10)
+
+SQL&gt; desc emp
+ Name                            Null?    Type
+ ------------------------------- -------- ----
+ COD_EMP                         NOT NULL NUMBER(4)
+ NOMBRE                          NOT NULL VARCHAR2(10)
+ OFICIO                                   VARCHAR2(10)
+ JEFE                                     NUMBER(4)
+ FECHA_ALTA                               DATE
+ SALARIO                                  NUMBER(10)
+ COMISION                                 NUMBER(10)
+ COD_DEP                                  NUMBER(3)</FONT></FONT></FONT>
+
+
+</PRE><BR>
+<HR>
+<A name=modificacion></A><FONT size=+2 face=arial><B>5 Modificación </B></FONT>
+<HR>
+
+<P>Después de crear una tabla, a veces nos encontramos con que se necesita 
+añadir una columna adicional o modificar la definición de una columna existente. 
+Esta operación se puede realizar con el comando <TT>ALTER TABLE</TT>. </P><PRE><FONT face=system><FONT color=#737b8c><FONT size=+1>ALTER TABLE tabla {ADD | MODIFY} ({columna tipoColumna [NOT NULL],}<SUP>+</SUP>);</FONT></FONT></FONT>
+
+</PRE>
+<P>Hay que tener en cuenta varios puntos: </P>
+<UL>
+  <LI>No es posible disminuir el tamaño de un columna. 
+  <LI>En las modificaciones, los tipos anterior y nuevo deben ser compatibles, o 
+  la tabla debe estar vacía. 
+  <LI>La opción <TT>ADD ... NOT NULL</TT> sólo será posible si la tabla está 
+  vacía. 
+  <LI>La opción <TT>MODIFY ... NOT NULL</TT> sólo podrá realizarse cuando la 
+  tabla no contenga ninguna fila con valor nulo en la columna en cuestión. 
+</LI></UL>
+<P>Por ejemplo la sentencia siguiente añade la fecha de nacimiento a la tabla de 
+empleados. </P><PRE><FONT face=terminal><FONT color=#008000><FONT size=+1>SQL&gt; alter table emp add (fecha_nac date not null);</FONT></FONT></FONT>
+
+</PRE>
+<P>También se puede querer modificar una tabla añadiendo o eliminando 
+restricciones. En este caso el comando a utilizar será </P><PRE><FONT face=system><FONT color=#737b8c><FONT size=+1>ALTER TABLE tabla {ADD | DROP} CONSTRAINT restricción;</FONT></FONT></FONT>
+
+</PRE><BR>
+<HR>
+<A name=insercActualBorr></A><FONT size=+2 face=arial><B>6 Inserción, 
+Actualización y Borrado </B></FONT>
+<HR>
+
+<P>Una vez que tenemos definida la estructura de una tabla se pueden insertan 
+los datos, modificarlos o borrarlos de la tabla. </P>
+<P>Esta tarea entra dentro de las operaciones que se realizan con el lenguaje 
+DML. Este lenguaje permite manipular los objetos de la base de datos, 
+insertando, modificando y/o borrando el contenido de las tablas. Hay que 
+recordar que estas sentencias no son 'autoconfirmadas' y requieren de la 
+sentencia <TT>COMMIT</TT> para que sus efectos perduren en el tiempo, o de la 
+sentencia <TT>ROLLBACK</TT> para deshacer los cambios efectuados. </P>
+<P>A continuación vamos a estudiar tres de las sentencias DML más comunes. 
+</P><BR><A name=insercion></A><FONT size=+2 face=arial><B>6.1 Inserción 
+</B></FONT>
+<P>El comando que permite insertar filas en las tablas es el siguiente. </P><PRE><FONT face=system><FONT color=#737b8c><FONT size=+1>INSERT INTO tabla [({columna,}<SUP>*</SUP>)] VALUES ({expresión,}<SUP>+</SUP>);</FONT></FONT></FONT>
+
+</PRE>
+<P>Sólo especificaremos las columnas donde insertar y su orden cuando no 
+insertemos datos en todas ellas o no lo hagamos en el mismo orden en que 
+definimos la tabla. La asociación columna-valor es posicional. Los valores deben 
+cumplir con los tipos de datos definidos. Los valores de tipo caracter y fecha 
+deben ir encerrados entre comillas simples, (''). </P>
+<P>A continuación se puede ver la inserción de filas en las tablas de ejemplo. 
+</P><PRE><FONT color=#008000 size=+1 face=terminal>
+REM insertar filas en la tabla dep
+insert into dep values (100,'Administracion','Valladolid');
+insert into dep values (200,'I+D','Boecillo');
+insert into dep values (300,'Produccion','Cigales');
+
+REM insertar filas en la tabla emp
+insert into emp values 
+       (101,'Cano','Presidente',null,'3-FEB-96',450000,null,100);
+insert into emp values
+       (102,'Roncal','Director',101,'3-FEB-96',350000,null,100);
+insert into emp values
+       (103,'Rueda','Secretario',102,'17-MAR-96',175000,null,100);
+insert into emp values
+       (104,'Martin','Contable',102,'17-MAR-96',235000,null,100);
+insert into emp values
+       (105,'Sanz','Comercial',101,'17-MAR-96',150000,10,100);
+insert into emp values
+       (106,'Lopez','Comercial',101,'21-MAR-96',150000,15,100);
+insert into emp values
+       (201,'Perez','Director',101,'4-JUN-96',350000,null,200);
+insert into emp values
+       (202,'Sastre','Analista',201,'8-JUN-96',300000,null,200);
+insert into emp values
+       (203,'Garcia','Programador',202,'8-JUN-96',225000,null,200);
+insert into emp values
+       (204,'Mateo','Programador',202,'8-JUN-96',200000,null,200);
+insert into emp values
+       (301,'Yuste','Director',101,'3-OCT-96',350000,null,300);
+insert into emp values
+       (302,'Recio','Analista',301,'4-FEB-97',300000,null,300);
+insert into emp values
+       (303,'Garcia','Programador',302,'4-FEB-97',210000,null,300);
+insert into emp values
+       (304,'Santana','Programador',302,'4-FEB-97',200000,null,300);
+</FONT></PRE><BR><A name=actualizacion></A><FONT size=+2 face=arial><B>6.2 
+Actualización </B></FONT>
+<P>Otra de las operaciones más comunes es la modificación de la información 
+almacenada en las tablas. Para ello se utiliza el comando <TT>UPDATE</TT> cuya 
+sintaxis se muestra a continuación. </P><PRE><FONT face=system><FONT color=#737b8c><FONT size=+1>UPDATE tabla SET {columna = expresión,}<SUP>+</SUP> [WHERE condición];</FONT></FONT></FONT>
+
+</PRE>
+<P>Se especificará en la cláusula <TT>SET</TT> las columnas que se actualizarán 
+y con qué valores. La cláusula WHERE indica las filas con las que se va a 
+trabajar. Si se omite la actualización afectará a todas las filas de la tabla. 
+</P><BR><A name=borrado></A><FONT size=+2 face=arial><B>6.3 Borrado </B></FONT>
+<P>Con insertar y modificar, la otra operación que completa el trio es la de 
+borrado de filas. La sintaxis es la que sigue: </P><PRE><FONT face=system><FONT color=#737b8c><FONT size=+1>DELETE FROM tabla [WHERE condición];</FONT></FONT></FONT>
+
+</PRE>
+<P>Borrará todas las filas que cumplan la condición especificada en la cláusula 
+<TT>WHERE</TT>. Si esta cláusula no se fija, se borrarán todas las filas de la 
+tabla. Aquí cabe decir que aunque con <TT>DELETE</TT> borremos todas las filas 
+de una tabla, no borramos la definición de la tabla del diccionario y podemos 
+insertar datos posteriormente en la tabla. Esta es una diferencia con la 
+sentencia <TT>DROP TABLE</TT>, que produce la eliminación tanto del contenido de 
+la tabla como de la definición de la misma. </P><BR>
+<HR>
+<A name=seleccion></A><FONT size=+2 face=arial><B>7 Selección </B></FONT>
+<HR>
+
+<P>La recuperación de los datos en el lenguaje SQL se realiza mediante la 
+sentencia <TT>SELECT</TT>, seleccionar. Esta sentencia permite indicar al SGBD 
+la información que se quiere recuperar. Esta es la sentencia SQL, con 
+diferencia, más habitual. La sentencia <TT>SELECT</TT> consta de cuatro partes 
+básicas: </P>
+<UL>
+  <LI>La cláusula <TT>SELECT</TT> seguida de la descripción de lo que se desea 
+  ver, los nombres de las columnas a seleccionar. Esta parte es obligatoria. 
+  <LI>La cláusula <TT>FROM</TT> seguida de la especificación de las tablas de 
+  las que se han de obtener los datos. Esta parte es obligatoria. 
+  <LI>La cláusula <TT>WHERE</TT> seguida por un criterio de selección, una 
+  condición. Esta parte es opcional. 
+  <LI>La cláusula <TT>ORDER BY</TT> seguida por el criterio de ordenación. Esta 
+  parte es opcional. </LI></UL>
+<P>Una primera aproximación a la sintaxis de la sentencia <TT>SELECT</TT> puede 
+mostrarnos la siguiente expresión: </P><PRE><FONT face=system><FONT color=#737b8c><FONT size=+1>SELECT {* | {columna,}<SUP>+</SUP>}
+FROM {tabla,}<SUP>+
+</SUP>[WHERE condición]
+[ORDER BY {expresiónColumna [ASC | DESC],}<SUP>+</SUP>];</FONT></FONT></FONT>
+
+</PRE>
+<P>Como una primera utilización de la sentencia <TT>SELECT</TT> podemos 
+utilizarla para ver todas las tablas que tenemos en la base de datos. </P><PRE><FONT face=terminal><FONT color=#008000><FONT size=+1>SQL&gt; select table_name from user_tables;
+
+TABLE_NAME
+------------------------------
+DEP
+EMP</FONT></FONT></FONT>
+
+</PRE>
+<P>Un breve análisis de la sentencia anterior nos permite observar que hemos 
+consultado sobre la columna llamada <TT>table_name</TT> almacenada en la tabla 
+<TT>user_tables</TT>, que es la tabla que guarda la información sobre todas las 
+tablas de cada usuario. </P><BR><A name=columnas></A><FONT size=+2 
+face=arial><B>7.1 Selección de Columnas </B></FONT>
+<P>Las columnas a seleccionar se enumeran sin más en la cláusula 
+<TT>SELECT</TT>. Si se desea seleccionar todas las columnas de una tabla se 
+puede hacer enumerando a todas las columnas o colocando un asterisco, 
+<TT>*</TT>, en su lugar. </P>
+<P>Cuando se consulta una base de datos, los nombres de las columnas se usan 
+como cabeceras de presentación. Si éste resulta demasiado largo, corto o 
+críptico, puede cambiarse con la misma sentencia SQL de consulta, creando un 
+<B>alias de columna</B>. </P><PRE><FONT face=terminal><FONT color=#008000><FONT size=+1>SQL&gt; select nombre "Departamento", loc "Está en" from dep;
+ 
+Departamento    Esta en
+--------------- ----------
+Administracion  Valladolid
+I+D             Boecillo
+Produccion      Cigales</FONT></FONT></FONT>
+
+</PRE><BR><A name=from></A><FONT size=+2 face=arial><B>7.2 Cláusula 
+<TT>FROM</TT> </B></FONT>
+<P>La cláusula <TT>FROM</TT> define las tablas de las que se van a seleccionar 
+las columnas. </P>
+<P>Se puede añadir al nombre de las tablas el usuario propietario de las mismas 
+de la forma <TT>usuario.tabla</TT>. De esta manera podemos distinguir entre las 
+tablas de un usuario y otro. Oracle siempre considera como prefijo el nombre del 
+propietario de las tablas, aunque no se lo indiquemos. De esta forma dos o más 
+usuarios pueden tener tablas que se llamen igual sin que surjan conflictos. Si 
+quisiéramos acceder a las filas de la tabla <TT>dep</TT> del usuario 
+<TT>jperez</TT>, (ademas de tener privilegios de lectura sobre esa tabla) 
+deberíamos escribir la siguiente sentencia SQL: </P><PRE><FONT face=terminal><FONT color=#008000><FONT size=+1>SQL&gt; select * from jperez.dep;</FONT></FONT></FONT>
+
+</PRE>
+<P>También se puede asociar un alias a las tablas para abreviar los nombres de 
+las tablas. Un ejemplo se puede ver en la sentencia SQL siguiente: </P><PRE><FONT face=terminal><FONT color=#008000><FONT size=+1>SQL&gt; select d.nombre from dep d;</FONT></FONT></FONT>
+
+</PRE><BR><A name=where></A><FONT size=+2 face=arial><B>7.3 Cláusula 
+<TT>WHERE</TT> </B></FONT>
+<P>Hasta ahora hemos visto como puede utilizarse la sentencia <TT>SELECT</TT> 
+para recuperar todas las columnas o un subconjunto de ellas de una tabla. Pero 
+este efecto afecta a todas las filas de la tabla, a menos que especifiquemos 
+algo más en la cláusula <TT>WHERE</TT>. Es aquí donde debemos proponer la 
+condición que han de cumplir todas las filas para salir en el resultado de la 
+consulta. La complejidad del criterio de búsqueda es prácticamente ilimitada, y 
+en él se pueden conjugar operadores de diversos tipos con funciones de columnas, 
+componiendo expresiones más o menos complejas. </P>
+<P><B>Operadores de Comparación</B> </P>
+<CENTER>
+<TABLE border=1 width="90%">
+  <TBODY>
+  <TR>
+    <TD><B><I>Operador</I></B> </TD>
+    <TD><B><I>Operación</I></B> </TD>
+    <TD><B><I>Ejemplo</I></B> </TD></TR>
+  <TR>
+    <TD>= </TD>
+    <TD>Igualdad </TD>
+    <TD><TT>select * from emp where cod_dep = 100; </TT></TD></TR>
+  <TR>
+    <TD>!=, &lt;&gt;, ^= </TD>
+    <TD>Desigualdad </TD>
+    <TD><TT>select * from emp where cod_dep != 100; </TT></TD></TR>
+  <TR>
+    <TD>&lt; </TD>
+    <TD>Menor que </TD>
+    <TD><TT>select * from emp where cod_dep &lt; 200; </TT></TD></TR>
+  <TR>
+    <TD>&gt; </TD>
+    <TD>Mayor que </TD>
+    <TD><TT>select * from emp where cod_dep &gt; 200; </TT></TD></TR>
+  <TR>
+    <TD>&lt;= </TD>
+    <TD>Menor o igual que </TD>
+    <TD><TT>select * from emp where cod_dep &lt;= 200; </TT></TD></TR>
+  <TR>
+    <TD>&gt;= </TD>
+    <TD>Mayor o igual que </TD>
+    <TD><TT>select * from emp where cod_dep &gt;= 200; </TT></TD></TR>
+  <TR>
+    <TD>in </TD>
+    <TD>Igual a cualquiera de los miembros entre paréntesis </TD>
+    <TD><TT>select * from emp where cod_dep in (100, 300); </TT></TD></TR>
+  <TR>
+    <TD>not in </TD>
+    <TD>Distinto a cualquiera de los miembros entre paréntesis </TD>
+    <TD><TT>select * from emp where cod_dep not in (200); </TT></TD></TR>
+  <TR>
+    <TD>between </TD>
+    <TD>Contenido en el rango </TD>
+    <TD><TT>select * from emp where cod_emp between 100 and 199; </TT></TD></TR>
+  <TR>
+    <TD>not between </TD>
+    <TD>Fuera del rango </TD>
+    <TD><TT>select * from emp where cod_emp not between 100 and 199; 
+  </TT></TD></TR>
+  <TR>
+    <TD>like '_abc%' </TD>
+    <TD>Contiene la cadena 'abc' a partir del segundo carácter y luego 
+      cualquier cadena de caracteres </TD>
+    <TD><TT>select * from emp where nombre like 'Ma%'; 
+</TT></TD></TR></TBODY></TABLE></CENTER>
+<P><B>Operadores de Aritméticos</B> </P>
+<CENTER>
+<TABLE border=1 width="90%">
+  <TBODY>
+  <TR>
+    <TD><B><I>Operador</I></B> </TD>
+    <TD><B><I>Operación</I></B> </TD>
+    <TD><B><I>Ejemplo</I></B> </TD></TR>
+  <TR>
+    <TD>+ </TD>
+    <TD>Suma </TD>
+    <TD><TT>select nombre, salario+comision from emp where oficio='VENDEDOR'; 
+      </TT></TD></TR>
+  <TR>
+    <TD>- </TD>
+    <TD>Resta </TD>
+    <TD><TT>select nombre from emp where sysdate-fecha_alta &gt; 365; 
+  </TT></TD></TR>
+  <TR>
+    <TD>* </TD>
+    <TD>Producto </TD>
+    <TD><TT>select nombre, salario*12 from emp; </TT></TD></TR>
+  <TR>
+    <TD>/ </TD>
+    <TD>División </TD>
+    <TD><TT>select nombre, salario/31 from emp; 
+</TT></TD></TR></TBODY></TABLE></CENTER>
+<P><B>Operadores de Cadenas de Caracteres</B> </P>
+<CENTER>
+<TABLE border=1 width="90%">
+  <TBODY>
+  <TR>
+    <TD><B><I>Operador</I></B> </TD>
+    <TD><B><I>Operación</I></B> </TD>
+    <TD><B><I>Ejemplo</I></B> </TD></TR>
+  <TR>
+    <TD>|| </TD>
+    <TD>Concatenación </TD>
+    <TD><TT>select nombre||oficio from emp; 
+</TT></TD></TR></TBODY></TABLE></CENTER><BR><BR><A name=orderBy><FONT size=+2 
+face=arial><B>7.4 Cláusula <TT>ORDER BY</TT> </B></FONT>
+<P>Se utiliza para especificar el criterio de ordenación de la respuesta a la 
+consulta. Por defecto la ordenación es ascendente, aunque se puede especificar 
+un orden descendente. La ordenación se puede establecer sobre el contenido de 
+columnas o sobre expresiones con columnas. A continuación se puede ver un 
+ejemplo de uso de la cláusula <TT>ORDER BY</TT> en la que quiere obtener un 
+listado de los empleados ordenado de manera descendente por su salario y en caso 
+de igualdad de salario, ordenado ascendentemente por su nombre. </P><PRE><FONT face=terminal><FONT color=#008000><FONT size=+1>SQL&gt; select nombre, salario from emp order by salario desc, nombre;
+
+NOMBRE        SALARIO
+---------- ----------
+Cano           450000
+Perez          350000
+Roncal         350000
+Yuste          350000
+Recio          300000
+Sastre         300000
+Martin         235000
+Garcia         225000
+Garcia         210000
+Mateo          200000
+Santana        200000
+Rueda          175000
+Lopez          150000
+Sanz           150000
+ 
+14 rows selected.</FONT></FONT></FONT>
+
+</PRE><BR><A name=distinct></A><FONT size=+2 face=arial><B>7.5 Cláusula 
+<TT>DISTINCT</TT> </B></FONT>
+<P>Cuando se realiza una consulta sobre una tabla en la que se extrae 
+información de varias columnas, puede ocurrir que, si no incluimos la/s 
+columna/s que forman la clave principal, obtengamos filas repetidas en la 
+respuesta. </P>
+<P>Si este comportamiento no nos resulta satisfactorio podemos utilizar la 
+cláusula <TT>DISTINCT</TT> para eliminar las filas duplicadas obtenidas como 
+respuesta a una consulta. </P>
+<P>Podemos ver como funciona en el siguiente ejemplo, en el que preguntamos por 
+los distintos oficios de nuestros empleados. </P><PRE><FONT face=terminal><FONT color=#008000><FONT size=+1>SQL&gt; select oficio from emp;</FONT></FONT></FONT>
+
+</PRE>
+<P>Sin utilizar la cláusula <TT>DISTINCT</TT> obtendremos la siguiente respuesta 
+</P><PRE><FONT face=terminal><FONT color=#008000><FONT size=+1>OFICIO
+-----------
+Presidente
+Director
+Secretario
+Contable
+Comercial
+Comercial
+Director
+Analista
+Programador
+Programador
+Director
+Analista
+Programador
+Programador
+ 
+14 rows selected.</FONT></FONT></FONT>
+
+</PRE>
+<P>Pero si incluimos la cláusula <TT>DISTINCT</TT> la respuesta varía para 
+adecuarse más a nuestras espectativas. </P><PRE><FONT face=terminal><FONT color=#008000><FONT size=+1>SQL&gt; select distinct oficio from emp;
+ 
+OFICIO
+-----------
+Analista
+Comercial
+Contable
+Director
+Presidente
+Programador
+Secretario
+ 
+7 rows selected.</FONT></FONT></FONT>
+
+</PRE><BR><A name=funciones></A><FONT size=+2 face=arial><B>7.6 Funciones 
+</B></FONT>
+<P>Existen en SQL muchas funciones que pueden complementar el manejo de los 
+datos en las consultas. Se utilizan dentro de las expresiones y actuan con los 
+valores de las columnas, variables o constantes. </P>
+<P>Se pueden incluir en las clásulas <TT>SELECT</TT>, <TT>WHERE</TT> y <TT>ORDER 
+BY</TT>. </P>
+<P>Pueden anidarse funciones dentro de funciones. Y existe una gran variedad de 
+funciones para cada tipo de datos: </P>
+<UL>
+  <LI>aritméticas, 
+  <LI>de cadenas de caracteres, 
+  <LI>de manejo de fechas, 
+  <LI>de conversión, 
+  <LI>otras, 
+  <LI>de grupo. </LI></UL>
+<P><B>Funciones Aritméticas</B> </P>
+<CENTER>
+<TABLE border=1 width="90%">
+  <TBODY>
+  <TR>
+    <TD><B><I>Función</I></B> </TD>
+    <TD><B><I>Cometido</I></B> </TD>
+    <TD><B><I>Ejemplo</I></B> </TD>
+    <TD><B><I>Resultado</I></B> </TD></TR>
+  <TR>
+    <TD>ABS(n) </TD>
+    <TD>Calcula el valor absoluto de <I>n</I>. </TD>
+    <TD><TT>select abs(-15) from dual; </TT></TD>
+    <TD>15 </TD></TR>
+  <TR>
+    <TD>CEIL(n) </TD>
+    <TD>Calcula el valor entero inmediatamente superior o igual a <I>n</I>. 
+</TD>
+    <TD><TT>select ceil(15.7) from dual; </TT></TD>
+    <TD>16 </TD></TR>
+  <TR>
+    <TD>FLOOR(n) </TD>
+    <TD>Calcula el valor entero inmediatamante inferior o igual a <I>n</I>. 
+</TD>
+    <TD><TT>select floor(15.7) from dual; </TT></TD>
+    <TD>15 </TD></TR>
+  <TR>
+    <TD>MOD(m,n) </TD>
+    <TD>Calcula el resto resultante de dividir <I>m</I> entre <I>n</I>. </TD>
+    <TD><TT>select mod(11,4) from dual; </TT></TD>
+    <TD>3 </TD></TR>
+  <TR>
+    <TD>POWER(m,n) </TD>
+    <TD>Calcula la potencia <I>n</I>-esima de <I>m</I>. </TD>
+    <TD><TT>select power(3,2) from dual;</TT> </TD>
+    <TD>9 </TD></TR>
+  <TR>
+    <TD>ROUND(m,n) </TD>
+    <TD>Calcula el redondeo de <I>m</I> a <I>n</I> decimales. Si <I>n</I>&lt;0 
+      el redondeo se efectua a por la izquierda del punto decimal. </TD>
+    <TD><TT>select round(123.456,1) from dual; </TT></TD>
+    <TD>123.5 </TD></TR>
+  <TR>
+    <TD>SQRT(n) </TD>
+    <TD>Calcula la raíz cuadrada de <I>n</I>. </TD>
+    <TD><TT>select sqrt(4) from dual; </TT></TD>
+    <TD>2 </TD></TR>
+  <TR>
+    <TD>TRUNC(m,n) </TD>
+    <TD>Calcula <I>m</I> truncado a <I>n</I> decimales (<I>n</I> puede ser 
+      negativo). </TD>
+    <TD><TT>select trunc(123.456,1) from dual; </TT></TD>
+    <TD>123.4 </TD></TR>
+  <TR>
+    <TD>SIGN(n) </TD>
+    <TD>Calcula el signo de <I>n</I>, devolviendo -1 si <I>n</I>&lt;0, 0 si 
+      <I>n</I>=0 y 1 si <I>n</I>&gt;0. </TD>
+    <TD><TT>select sign(-12) from dual; </TT></TD>
+    <TD>-1 </TD></TR></TBODY></TABLE></CENTER>
+<P><B>Funciones de Cadenas de Caracteres</B> </P>
+<CENTER>
+<TABLE border=1 width="90%">
+  <TBODY>
+  <TR>
+    <TD><B><I>Función</I></B> </TD>
+    <TD><B><I>Cometido</I></B> </TD>
+    <TD><B><I>Ejemplo</I></B> </TD>
+    <TD><B><I>Resultado</I></B> </TD></TR>
+  <TR>
+    <TD>CHR(n) </TD>
+    <TD>Devuelve el carácter cuyo valor codificado es <I>n</I>. </TD>
+    <TD><TT>select chr(65) from dual; </TT></TD>
+    <TD>A </TD></TR>
+  <TR>
+    <TD>ASCII(cad) </TD>
+    <TD>Devuelve el valor ascii de <I>cad</I>. </TD>
+    <TD><TT>select ascii('A') from dual; </TT></TD>
+    <TD>65 </TD></TR>
+  <TR>
+    <TD>CONCAT(cad1,cad2) </TD>
+    <TD>Devuelve <I>cad1</I> concatenada con <I>cad2</I>. Esta función es 
+      esquivalente al operador ||. </TD>
+    <TD><TT>select concat(concat(nombre,' es '),oficio) from emp; </TT></TD>
+    <TD>Cano es Presidente, etc. </TD></TR>
+  <TR>
+    <TD>LOWER(cad) </TD>
+    <TD>Devuelve la cadena <I>cad</I> con todas sus letras convertidas a 
+      minúsculas. </TD>
+    <TD><TT>select lower('MinUsCulAs') from dual; </TT></TD>
+    <TD>minusculas </TD></TR>
+  <TR>
+    <TD>UPPER(cad) </TD>
+    <TD>Devuelve la cadena <I>cad</I> con todas sus letras convertidas a 
+      mayúsculas. </TD>
+    <TD><TT>select upper('maYuSCulAs') from dual; </TT></TD>
+    <TD>MAYUSCULAS </TD></TR>
+  <TR>
+    <TD>INITCAP(cad) </TD>
+    <TD>Devuelve <I>cad</I> con el primer caracter en mayúsculas. </TD>
+    <TD><TT>select initcap('isabel') from dual; </TT></TD>
+    <TD>Isabel </TD></TR>
+  <TR>
+    <TD>LPAD(cad1,n,cad2) </TD>
+    <TD>Devuelve <I>cad1</I> con longitud <I>n</I>, y ajustada a la derecha, 
+      rellenando por la izquierda con <I>cad2</I>. </TD>
+    <TD><TT>select lpad('P',5,'*') from dual; </TT></TD>
+    <TD>****P </TD></TR>
+  <TR>
+    <TD>RPAD(cad1,n,cad2) </TD>
+    <TD>Devuelve <I>cad1</I> con longitud <I>n</I>, y ajustada a la izquierda, 
+      rellenando por la derecha con <I>cad2</I>. </TD>
+    <TD><TT>select rpad('P',5,'*') from dual; </TT></TD>
+    <TD>P**** </TD></TR>
+  <TR>
+    <TD>REPLACE(cad,ant,nue) </TD>
+    <TD>Devuelve <I>cad</I> en la que cada ocurrencia de la cadena <I>ant</I> 
+      ha sido sustituida por la cadena <I>nue</I>. </TD>
+    <TD><TT>select replace('digo','i','ie') from dual; </TT></TD>
+    <TD>diego </TD></TR>
+  <TR>
+    <TD>SUBSTR(cad,m,n) </TD>
+    <TD>Devuelve la sudcadena de <I>cad</I> compuesta por <I>n</I> caracteres 
+      a partir de la posicion <I>m</I>. </TD>
+    <TD><TT>select substr('ABCDEFG',3,2) from dual; </TT></TD>
+    <TD>CD </TD></TR>
+  <TR>
+    <TD>LENGTH(cad) </TD>
+    <TD>Devuelve la longitud de <I>cad</I>. </TD>
+    <TD><TT>select length('cadena') from dual; </TT></TD>
+    <TD>6 </TD></TR></TBODY></TABLE></CENTER>
+<P><B>Funciones de Manejo de Fechas</B> </P>
+<CENTER>
+<TABLE border=1 width="90%">
+  <TBODY>
+  <TR>
+    <TD><B><I>Función</I></B> </TD>
+    <TD><B><I>Cometido</I></B> </TD>
+    <TD><B><I>Ejemplo</I></B> </TD>
+    <TD><B><I>Resultado</I></B> </TD></TR>
+  <TR>
+    <TD>SYSDATE </TD>
+    <TD>Devuelve la fecha y hora actuales. </TD>
+    <TD><TT>select sysdate from dual; </TT></TD>
+    <TD>14-MAR-97 </TD></TR>
+  <TR>
+    <TD>ADD_MONTHS(d,n) </TD>
+    <TD>Devuelve la fecha <I>d</I> incrementada en <I>n</I> meses. </TD>
+    <TD><TT>select add_months(sysdate,4) from dual; </TT></TD>
+    <TD>14-JUL-97 </TD></TR>
+  <TR>
+    <TD>LAST_DAY(d) </TD>
+    <TD>Devuelve la fecha del último día del mes de <I>d</I>. </TD>
+    <TD><TT>select last_day(sysdate) from dual; </TT></TD>
+    <TD>31-MAR-97 </TD></TR>
+  <TR>
+    <TD>MONTHS_BETWEEN(d1, d2) </TD>
+    <TD>Devuelve la diferencia en meses entre las fechas <I>d1</I> y 
+      <I>d2</I>. </TD>
+    <TD><TT>select months_between(sysdate,'01-JAN-97') from dual; </TT></TD>
+    <TD>2.43409424 </TD></TR>
+  <TR>
+    <TD>NEXT_DAY(d,cad) </TD>
+    <TD>Devuelve la fecha del primer día de la semana <I>cad</I> después de la 
+      fecha <I>d</I>. </TD>
+    <TD><TT>select next_day(sysdate, 'sunday') from dual; </TT></TD>
+    <TD>16-MAR-97 </TD></TR></TBODY></TABLE></CENTER>
+<P><B>Funciones de Conversión de Tipos</B> </P>
+<CENTER>
+<TABLE border=1 width="90%">
+  <TBODY>
+  <TR>
+    <TD><B><I>Función</I></B> </TD>
+    <TD><B><I>Cometido</I></B> </TD>
+    <TD><B><I>Ejemplo</I></B> </TD>
+    <TD><B><I>Resultado</I></B> </TD></TR>
+  <TR>
+    <TD>TO_NUMBER(cad,fmto) </TD>
+    <TD>Convierte la cadena <I>cad</I> a un número, opcionalmente de acuerdo 
+      con el formato <I>fmto</I>. </TD>
+    <TD><TT>select to_number('12345') from dual; </TT></TD>
+    <TD>124345 </TD></TR>
+  <TR>
+    <TD>TO_CHAR(d, fmto) </TD>
+    <TD>Convierte la fecha <I>d</I> a una cadena de caracteres, opcionalmente 
+      de acuerdo con el formato <I>fmto</I>. </TD>
+    <TD><TT>select to_char(sysdate) from dual; </TT></TD>
+    <TD>'14-MAR-97' </TD></TR>
+  <TR>
+    <TD>TO_DATE(cad,fmto) </TD>
+    <TD>Convierte la cadena <I>cad </I>de tipo varchar2 a fecha, opcionalmente 
+      de acuerdo con el formato <I>fmto</I>. </TD>
+    <TD><TT>select to_date('1-JAN-97') from dual; </TT></TD>
+    <TD>01-JAN-97 </TD></TR></TBODY></TABLE></CENTER>
+<P>Con las fechas pueden utilizarse varios formatos. Estos formatos permiten 
+modificar la presentación de una fecha. En la siguiente tabla se presentan 
+algunos formatos de fecha y el resultado que generan. </P>
+<P><B>Máscaras de Formato Numéricas</B> </P>
+<CENTER>
+<TABLE border=1 width="90%">
+  <TBODY>
+  <TR>
+    <TD><B><I>Formato</I></B> </TD>
+    <TD><B><I>Cometido</I></B> </TD>
+    <TD><B><I>Ejemplo</I></B> </TD>
+    <TD><B><I>Resultado</I></B> </TD></TR>
+  <TR>
+    <TD>cc ó scc </TD>
+    <TD>Valor del siglo. </TD>
+    <TD><TT>select to_char(sysdate,'cc') from dual; </TT></TD>
+    <TD>20 </TD></TR>
+  <TR>
+    <TD>y,yyy ó sy,yyy </TD>
+    <TD>Año con coma, con o sin signo. </TD>
+    <TD><TT>select to_char(sysdate,'y,yyy') from dual; </TT></TD>
+    <TD>1,997 </TD></TR>
+  <TR>
+    <TD>yyyy ó yyy ó yy ó y </TD>
+    <TD>Año sin signo con cuatro, tres, dos o un dígitos. </TD>
+    <TD><TT>select to_char(sysdate,'yyyy') from dual; </TT></TD>
+    <TD>1997 </TD></TR>
+  <TR>
+    <TD>q </TD>
+    <TD>Trimestre. </TD>
+    <TD><TT>select to_char(sysdate,'q') from dual; </TT></TD>
+    <TD>1 </TD></TR>
+  <TR>
+    <TD>ww ó w </TD>
+    <TD>Número de la semana del año o del mes. </TD>
+    <TD><TT>select to_char(sysdate,'ww') from dual; </TT></TD>
+    <TD>11 </TD></TR>
+  <TR>
+    <TD>mm </TD>
+    <TD>Número del mes. </TD>
+    <TD><TT>select to_char(sysdate,'mm') from dual; </TT></TD>
+    <TD>03 </TD></TR>
+  <TR>
+    <TD>ddd ó dd ó d </TD>
+    <TD>Número del día del año, del mes o de la semana. </TD>
+    <TD><TT>select to_char(sysdate,'ddd') from dual; </TT></TD>
+    <TD>073 </TD></TR>
+  <TR>
+    <TD>hh ó hh12 ó hh24 </TD>
+    <TD>La hora en formato 12h. o 24h. </TD>
+    <TD><TT>select to_char(sysdate,'hh') from dual; </TT></TD>
+    <TD>12 </TD></TR>
+  <TR>
+    <TD>mi </TD>
+    <TD>Los minutos de la hora. </TD>
+    <TD><TT>select to_char(sysdate,'mi') from dual; </TT></TD>
+    <TD>15 </TD></TR>
+  <TR>
+    <TD>ss ó sssss </TD>
+    <TD>Los segundos dentro del minuto, o desde las 0 horas. </TD>
+    <TD><TT>select to_char(sysdate,'sssss') from dual; </TT></TD>
+    <TD>44159 </TD></TR></TBODY></TABLE></CENTER>
+<P><B>Máscaras de Formato de Caracteres</B> </P>
+<CENTER>
+<TABLE border=1 width="90%">
+  <TBODY>
+  <TR>
+    <TD><B><I>Formato</I></B> </TD>
+    <TD><B><I>Cometido</I></B> </TD>
+    <TD><B><I>Ejemplo</I></B> </TD>
+    <TD><B><I>Resultado</I></B> </TD></TR>
+  <TR>
+    <TD>syear ó year </TD>
+    <TD>Año en Inglés </TD>
+    <TD><TT>select to_char(sysdate,'syear) from dual; </TT></TD>
+    <TD>nineteen ninety-seven </TD></TR>
+  <TR>
+    <TD>month o mon </TD>
+    <TD>Nombre del mes o su abreviatura de tres letras. </TD>
+    <TD><TT>select to_char(sysdate,'month') from dual; </TT></TD>
+    <TD>march </TD></TR>
+  <TR>
+    <TD>day ó dy </TD>
+    <TD>Nombre del día de la semana o su abreviatura de tres letras. </TD>
+    <TD><TT>select to_char(sysdate,'day') from dual; </TT></TD>
+    <TD>friday </TD></TR>
+  <TR>
+    <TD>a.m. ó p.m. </TD>
+    <TD>El espacio del día. </TD>
+    <TD><TT>select to_char(sysdate,'a.m.') from dual; </TT></TD>
+    <TD>p.m. </TD></TR>
+  <TR>
+    <TD>b.c. ó a.d. </TD>
+    <TD>Indicador del año respecto al del nacimiento de Cristo. </TD>
+    <TD><TT>select to_char(sysdate,'b.c.') from dual; </TT></TD>
+    <TD>a.d. </TD></TR></TBODY></TABLE></CENTER>
+<P><B>Otras Funciones</B> </P>
+<CENTER>
+<TABLE border=1 width="90%">
+  <TBODY>
+  <TR>
+    <TD><B><I>Función</I></B> </TD>
+    <TD><B><I>Cometido</I></B> </TD>
+    <TD><B><I>Ejemplo</I></B> </TD>
+    <TD><B><I>Resultado</I></B> </TD></TR>
+  <TR>
+    <TD>DECODE(var, val1, cod1, val2, cod2, ..., defecto) </TD>
+    <TD>Convierte el valor de <I>var</I>, de acuerdo con la codificación. </TD>
+    <TD><TT>select decode(oficio, 'Presidente', 'P', 'Director', 'D', 'X') 
+      from emp; </TT></TD>
+    <TD>P, D, X, ... </TD></TR>
+  <TR>
+    <TD>GREATEST(exp1, exp2, ...) </TD>
+    <TD>Devuelve el mayor valor de una lista. </TD>
+    <TD>sin ejemplo. </TD>
+    <TD>sin ejemplo. </TD></TR>
+  <TR>
+    <TD>LEAST(cad,fmto) </TD>
+    <TD>Devuelve el menor valor de una lista. </TD>
+    <TD>sin ejemplo. </TD>
+    <TD>sin ejemplo. </TD></TR>
+  <TR>
+    <TD>NVL(val, exp) </TD>
+    <TD>Devuelve la expresión exp si <I>val</I> es NULL, y <I>val</I> si en 
+      otro caso. </TD>
+    <TD><TT>select salario+nvl(comision,0) from emp; </TT></TD>
+    <TD>450000, 350000, ... </TD></TR></TBODY></TABLE></CENTER><BR><BR><A 
+name=groupBy></A><FONT size=+2 face=arial><B>7.7 Cláusula <TT>GROUP BY</TT> 
+</B></FONT>
+<P>SQL nos permite agrupar las filas resultado de una consulta en conjuntos y 
+aplicar funciones sobre esos conjuntos de filas. </P>
+<P>La sintaxis es la siguiente: </P><PRE><FONT face=system><FONT color=#737b8c><FONT size=+1>SELECT {* | {columna,}<SUP>+</SUP>}
+FROM {tabla,}<SUP>+
+</SUP>WHERE condición
+GROUP BY {columna ,}<SUP>+
+</SUP>HAVING condición
+ORDER BY {expresiónColumna [ASC | DESC],}<SUP>+</SUP>;</FONT></FONT></FONT>
+
+</PRE>
+<P>En la cláusula <TT>GROUP BY</TT> se colocan las columnas por las que vamos a 
+agrupar. Y en la cláusula <TT>HAVING</TT> se especifica la condición que han de 
+cumplir los grupos para pasar al resultado. </P>
+<P>La evaluación de las diferentes cláusulas en tiempo de ejecución se efectúa 
+en el siguiente orden: </P>
+<UL>
+  <LI><TT>WHERE</TT> filtra las filas 
+  <LI><TT>GROUP BY</TT> crea una tabla de grupo nueva 
+  <LI><TT>HAVING</TT> filtra los grupos 
+  <LI><TT>ORDER BY</TT> clasifica la salida </LI></UL>
+<P>Un ejemplo de utilización de la selección de grupos puede ser seleccionar los 
+empleados agrupados por su oficio. Un primer intento de consulta es el 
+siguiente: </P><PRE><FONT face=terminal><FONT color=#008000><FONT size=+1>SQL&gt; select nombre, oficio from emp group by oficio;
+ 
+select nombre, oficio from emp
+       *
+ERROR at line 1:
+ORA-00979: not a GROUP BY expression</FONT></FONT></FONT>
+
+</PRE>
+<P>Se presenta un error debido a que cuando se utiliza <TT>GROUP BY</TT>, las 
+columnas implicadas en el <TT>SELECT</TT> y que no aparezcan en la cláusula 
+<TT>GROUP BY</TT> deben tener una función de agrupamiento. En otras palabras, la 
+columna <TT>nombre</TT> debe tener una función de agrupamiento que actue sobre 
+ella (max, min, sum, count, avg). Si no puede ser así, deberá llevar dicha 
+columna a la cláusula <TT>GROUP BY</TT>. </P>
+<P>De nuevo, el ejemplo quedará así: </P><PRE><FONT face=terminal><FONT color=#008000><FONT size=+1>SQL&gt; select count(nombre), oficio from emp group by oficio;
+ 
+COUNT(NOMBRE) OFICIO
+------------- -----------
+            2 Analista
+            2 Comercial
+            1 Contable
+            3 Director
+            1 Presidente
+            4 Programador
+            1 Secretario
+ 
+7 rows selected.</FONT></FONT></FONT>
+
+</PRE>
+<P>Las funciones de agrupamiento que se pueden utilizar son las siguientes. </P>
+<P><B>Funciones de Agrupamiento</B> </P>
+<CENTER>
+<TABLE border=1 width="90%">
+  <TBODY>
+  <TR>
+    <TD><B><I>Función</I></B> </TD>
+    <TD><B><I>Cometido</I></B> </TD>
+    <TD><B><I>Ejemplo</I></B> </TD></TR>
+  <TR>
+    <TD>COUNT(col) </TD>
+    <TD>Cuenta el número de filas agrupadas. </TD>
+    <TD><TT>select count(nombre),oficio from emp group by oficio; </TT></TD></TR>
+  <TR>
+    <TD>AVG(col) </TD>
+    <TD>Calcula el valor medio de todos los valores de la columna <I>col</I>. 
+    </TD>
+    <TD><TT>select avg(salario),oficio from emp group by oficio; </TT></TD></TR>
+  <TR>
+    <TD>MAX(col) </TD>
+    <TD>Calcula el valor máximo de todos los valores de la columna <I>col</I>. 
+    </TD>
+    <TD><TT>select max(salario),oficio from emp group by oficio; </TT></TD></TR>
+  <TR>
+    <TD>MIN(col) </TD>
+    <TD>Calcula el valor mínimo de todos los valores de la columna <I>col</I>. 
+    </TD>
+    <TD><TT>select min(salario),oficio from emp group by oficio; </TT></TD></TR>
+  <TR>
+    <TD>SUM(col) </TD>
+    <TD>Calcula la suma de los valores de la columna <I>col.</I> </TD>
+    <TD><TT>select sum(salario), oficio from emp group by oficio; </TT></TD></TR>
+  <TR>
+    <TD>STDDEV(col) </TD>
+    <TD>Calcula la desviación típica de los valores de la columna <I>col 
+      </I>sin tener en cuenta los valores nulos. </TD>
+    <TD><TT>select stddev(salario), oficio from emp group by oficio; 
+  </TT></TD></TR>
+  <TR>
+    <TD>VARIANCE(col) </TD>
+    <TD>Calcula la varianza de los valores de la columna <I>col</I> sin tener 
+      en cuenta los valores nulos. </TD>
+    <TD><TT>select variance(salario), oficio from emp group by oficio; 
+  </TT></TD></TR></TBODY></TABLE></CENTER>
+<P>Hay que tener en cuenta que los valores nulos no participan en el cálculo de 
+las funciones de conjuntos. Estas funciones se pueden utilizar con las cláusulas 
+<TT>DISTINCT</TT> y <TT>ALL</TT>. También se pueden utilizar aunque no 
+realicemos agrupación alguna en la consulta, considerando a toda la tabla como 
+un grupo. </P><PRE><FONT face=terminal><FONT color=#008000><FONT size=+1>SQL&gt; select count(*) from emp;
+ 
+  COUNT(*)
+----------
+        14</FONT></FONT></FONT>
+
+</PRE><BR><A name=expresionesSelect></A><FONT size=+2 face=arial><B>7.8 
+Expresiones con Sentencias <TT>Select</TT> </B></FONT>
+<P>El resultado de cada consulta es un conjunto de filas. Y con conjuntos se 
+pueden realizar tres operaciones típicas: la unión, la intersección y la 
+diferencia. </P>
+<DL>
+  <DT>Unión, <TT>UNION</TT> 
+  <DD>Combina todas las filas del primer conjunto con todas las filas del 
+  segundo. Cualquier fila duplicada se reducirá a una sóla. 
+  <DT>Intersección, <TT>INTERSECT</TT> 
+  <DD>Examinará las filas de los conjuntos de entrada y devolverá aquellas que 
+  aparezcan en ambos. Todas las filas duplicadas serán eliminadas antes de la 
+  generación del conjunto resultante. 
+  <DT>Diferencia, <TT>MINUS</TT> 
+  <DD>Devuelve aquellas filas que están en el primer conjunto pero no en el 
+  segundo. Las filas duplicadas del primer conjunto se reducirán a una fila 
+  única antes de empezar la comparación con el segundo conjunto. </DD></DL>
+<P><B>Reglas para el Manejo de los Operadores de Conjuntos: </B></P>
+<UL>
+  <LI>Pueden ser encadenados en cualquier combinación, siendo evaluados de 
+  izquierda a derecha. 
+  <LI>No existe jerarquía de precedencia en el uso de estos operadores, pero 
+  puede ser forzada mediante paréntesis. 
+  <LI>Pueden ser empleados con conjuntos de diferentes tablas siempre que se 
+  apliquen las siguientes reglas: 
+  <UL>
+    <LI>Las columnas son relacionadas en orden, de izquierda a derecha. 
+    <LI>Los nombres de las columnas son irrelevantes. 
+    <LI>Los tipos de datos deben coincidir. </LI></UL></LI></UL>
+<P>Como ejemplo podemos consultar sobre todos los nombres de empleado que 
+trabajan para los departamentos 100 o 300. Esto se consigue restando a todos los 
+nombres de empleados, aquellos que están en el departamento 200. </P><PRE><FONT face=terminal><FONT color=#008000><FONT size=+1>SQL&gt; select nombre from emp
+  2  minus
+  3  select nombre from emp where cod_dep=200;
+
+NOMBRE
+----------
+Cano
+Lopez
+Martin
+Recio
+Roncal
+Rueda
+Santana
+Sanz
+Yuste
+ 
+9 rows selected.</FONT></FONT></FONT>
+
+</PRE><BR><A name=combinaciones></A><FONT size=+2 face=arial><B>7.9 
+Combinaciones </B></FONT>
+<P>Hasta ahora hemos construido consultas con una única tabla, pero esto no debe 
+ser siempre así. </P>
+<P>De hecho, sólo se alcanza la verdadera potencia del SQL cuando combinamos el 
+contenido de más de una tabla. </P>
+<P>Supongamos que queremos conseguir una lista con los empleados y los 
+departamentos para los que trabajan. Esta información está repartida en las dos 
+tablas que tenemos, <TT>emp</TT> y <TT>dep</TT>. Así, podríamos intentar una 
+consulta que seleccionara el campo <TT>nombre</TT> de la tabla <TT>emp</TT> y el 
+<TT>nombre</TT> del departamento. Y aquí surge el primer problema, ¿cómo 
+distinguimos entre dos columnas que llamándose igual, pertenecen a tablas 
+distintas? Para eso se utiliza como prefijo o el nombre de la tabla 
+(<TT>dep.nombre</TT>) o un alias de tabla, un nombre que se asocia a cada tabla 
+y se coloca como prefijo a la columna (<TT>d.nombre</TT>). </P>
+<P>Realicemos la consulta ... </P><PRE><FONT face=terminal><FONT color=#008000><FONT size=+1>SQL&gt; select e.nombre, d.nombre from emp e, dep d;
+ 
+NOMBRE     NOMBRE
+---------- ---------------
+Cano       Administracion
+Roncal     Administracion
+Rueda      Administracion
+Martin     Administracion
+Sanz       Administracion
+Lopez      Administracion
+Perez      Administracion
+Sastre     Administracion
+Garcia     Administracion
+Mateo      Administracion
+Yuste      Administracion
+Recio      Administracion
+Garcia     Administracion
+Santana    Administracion
+Cano       I+D
+Roncal     I+D
+Rueda      I+D
+...
+42 rows selected.</FONT></FONT></FONT>
+
+</PRE>
+<P>El resultado puede sorprender un poco. Lo que obtenemos es el producto 
+cartesiano de todos los empleados por todos los departamentos. SQL ha cogido 
+cada fila de la tabla <TT>emp</TT> y le ha asociado todos los <TT>cod_dep</TT> 
+de la tabla <TT>dep</TT>. </P>
+<P>Para conseguir lo que queremos tenemos que forzar que se asocie a un empleado 
+con el nombre del departamento para el que trabaja. Y esto se puede hacer si 
+añadimos la condición de que el <TT>cod_dep</TT> tenga el mismo valor en la fila 
+de la tabla <TT>emp</TT> que en la fila escogida de la tabla <TT>dep</TT>: </P><PRE><FONT face=terminal><FONT color=#008000><FONT size=+1>SQL&gt; select e.nombre, d.nombre from emp e, dep d
+  2&gt; where e.cod_dep = d.cod_dep;
+ 
+NOMBRE     NOMBRE
+---------- ---------------
+Cano       Administracion
+Roncal     Administracion
+Rueda      Administracion
+Martin     Administracion
+Sanz       Administracion
+Lopez      Administracion
+Perez      I+D
+Sastre     I+D
+Garcia     I+D
+Mateo      I+D
+Yuste      Produccion
+Recio      Produccion
+Garcia     Produccion
+Santana    Produccion
+ 
+14 rows selected.</FONT></FONT></FONT>
+
+</PRE>
+<P>De la misma manera se pueden combinar más de dos tablas. Lo importante es 
+emparejar los campos que han de tener valores iguales. </P>
+<P><B>Reglas de Combinación: </B></P>
+<UL>
+  <LI>Pueden combinarse tantas tablas como se desee. 
+  <LI>El criterio de combinación puede estar formado por más de una pareja de 
+  columnas. 
+  <LI>En la cláusula <TT>SELECT</TT> pueden citarse columnas de ambas tablas, 
+  condicionen o no la combinación. 
+  <LI>Si hay columnas con el mismo nombre en las distintas tablas, deben 
+  identificarse especificando la tabla de procedencia o utilizando un alias de 
+  tabla. </LI></UL>
+<P>Existe un tipo especial de combinación llamada <B>Combinación Externa</B>. 
+Suponga que se crea un nuevo departamento, (<TT>insert into dep values 
+(400,'Distribucion','Valladolid');</TT>) pero todavía no hemos asignado personal 
+al mismo. Si realizamos la consulta anterior, el nuevo departamento no aparecerá 
+en la respuesta. Pero esto se puede evitar si señalamos en la cláusula 
+<TT>WHERE</TT> la posibilidad de que en la tabla de empleados no exista alguno 
+de los códigos de departamento que si exista en la tabla de departamentos. Esto 
+se hace colocando un <TT>(+)</TT> de la siguiente manera: </P><PRE><FONT face=terminal><FONT color=#008000><FONT size=+1>SQL&gt;  select e.nombre, d.nombre
+  2  from emp e, dep d
+  3  where e.cod_dep(+)=d.cod_dep;
+ 
+NOMBRE     NOMBRE
+---------- ---------------
+Cano       Administracion
+Roncal     Administracion
+Rueda      Administracion
+Martin     Administracion
+Sanz       Administracion
+Lopez      Administracion
+Perez      I+D
+Sastre     I+D
+Garcia     I+D
+Mateo      I+D
+Yuste      Produccion
+Recio      Produccion
+Garcia     Produccion
+Santana    Produccion
+           Distribucion
+ 
+15 rows selected.</FONT></FONT></FONT>
+
+</PRE><BR><A name=subconsultas></A><FONT size=+2 face=arial><B>7.10 Subconsultas 
+</B></FONT>
+<P>A veces se han de utilizar en una consulta los resultados de otra consulta, 
+llamada subconsulta. </P>
+<P>Un ejemplo de esto ocurre cuando queremos conocer los nombres de los 
+empleados cuyo salario está por encima de la media: </P><PRE><FONT face=terminal><FONT color=#008000><FONT size=+1>SQL&gt; select nombre from emp 
+  2  where salario &gt; (select avg(salario) from emp);
+ 
+NOMBRE
+----------
+Cano
+Roncal
+Perez
+Sastre
+Yuste
+Recio
+ 
+6 rows selected.</FONT></FONT></FONT>
+
+</PRE>
+<P>La consulta más interna calcula el salario medio, y la consulta más externa 
+lo utiliza para seleccionar los nombres que ganan más que la media. </P>
+<P>El valor de comparación puede ser un valor simple, como en el ejemplo 
+anterior, o un conjunto de valores. Hay que tener en cuenta este detalle ya que 
+el tipo de operador a utilizar varía. En el primer caso se puede utilizar un 
+operador de comparación de carácter aritmético (&lt;, &gt;, etc.). Y en el 
+segundo uno de tipo lógico (<TT>IN</TT>). </P>
+<P>Las subconsultas pueden devolver más de una columna, y se habrán de comparar 
+de manera consecuente: </P>
+<UL>
+  <LI>Las columnas de la clausula <TT>WHERE</TT> de la consulta principal deben 
+  estár agrupadas por parentesis. 
+  <LI>Las columnas encerradas entre paréntesis deben coincidir en número y tipo 
+  de datos con los datos que devuelve la subconsulta. </LI></UL>
+<P>El nivel de anidamiento de subconsultas es ilimitado. </P>
+<P>Se puede utilizar una subconsulta para insertar valores en una tabla en el 
+momento de la creación de la misma con la cláusula <TT>AS</TT>. Si quisieramos 
+crear una tabla con los datos de los empleados del departamento 200 lo podríamos 
+hacer de la siguiente manera: </P><PRE><FONT face=terminal><FONT color=#008000><FONT size=+1>SQL&gt; create table dep200 (nombre, oficio)
+  2  as select nombre,oficio from emp
+  3  where cod_dep=200;
+
+Table created.</FONT></FONT></FONT>
+
+</PRE>
+<P>No es necesario especificar tipos ni tamaños de las columnas, ya que vienen 
+determinados por los tipos y tamaños de las columnas recuperadas en la 
+subconsulta. </P><BR>
+<HR>
+<A name=eliminacion></A><FONT size=+2 face=arial><B>8 Eliminación </B></FONT>
+<HR>
+
+<P>Cuando una tabla ya no es útil y no vamos a volver a necesitarla debe ser 
+borrada. Esta operación se puede realizar con el comando <TT>DROP TABLE</TT>. 
+</P><PRE><FONT face=system><FONT color=#737b8c><FONT size=+1>DROP TABLE tabla [CASCADE CONSTRAINTS];</FONT></FONT></FONT>
+
+</PRE>
+<P>Se borra la tabla de la base de datos, borrando toda la información contenida 
+en la tabla, es decir, todas las filas. También se borrará toda la información 
+que sobre la tabla existiera en el diccionario. </P>
+<P>Puede que si alguna columna de esta tabla a borrar sirva como clave ajena de 
+alguna tabla detalle, impida la eliminación de la tabla, ya que existe una 
+restricción que requiere de la existencia de la tabla maestra. Esto se puede 
+areglar colocando la coletilla <TT>CASCADE CONSTRAINTS</TT>. Esto produce que 
+las restricciones de la tabla detalle se borren antes de borrar la tabla 
+maestra. </P>
+<P>La siguiente sentencia produce la eliminación de la tabla de departamentos. 
+</P><PRE><FONT face=terminal><FONT color=#008000><FONT size=+1>SQL&gt; drop table dep cascade constraints;
+ 
+Table dropped.</FONT></FONT></FONT>
+
+</PRE><BR>
+<HR>
+<A name=vistas></A><FONT size=+2 face=arial><B>9 Vistas </B></FONT>
+<HR>
+
+<P>Una vista es como una ventana a través de la cual se puede consultar o 
+cambiar información de la tabla a la que está asociada. </P>
+<P>Las vistas tienen la misma estructura que una tabla: filas y columnas. La 
+única diferencia es que sólo se almacena de ellas la definición, no los datos. 
+Los datos que se recuperan mediante una consulta a una vista se presentarán 
+igual que los de una tabla. De hecho, si no se sabe que se está trabajando con 
+una vista, nada hace suponer que es así. Al igual que sucede con una tabla, se 
+pueden insertar, actualizar, borrar y seleccionar datos en una vista. Aunque 
+siempre es posible seleccionar datos de una vista, en algunas condiciones 
+existen restricciones para realizar el resto de las operaciones sobre 
+vistas.</P>
+<P><B>¿Por qué utilizar vistas?</B></P>
+<UL>
+  <LI>Las vistas pueden proporcionar un nivel adicional de seguridad. Por 
+  ejemplo, en la tabla de empleados, cada responsable de departamento sólo 
+  tendrá acceso a la información de sus empleados. La siguiente sentencia 
+  produce la creación de la vista de los empleados del departamento de 
+  administración (<TT>cod_dep=100</TT>). <PRE><FONT face=terminal><FONT color=#008000><FONT size=+1>
+SQL&gt; create view ampAdmin as 
+  2  select * from ep where cod_dep=100;
+View created.</FONT></FONT></FONT></PRE>
+  <LI>Las vistas permiten ocultar la complejidad de los datos. Una BD se compone 
+  de muchas tablas. La información de dos o más tablas puede recperarse 
+  utilizando una combinación de dos o más tablas, y estas combinaciones pueden 
+  llegar a ser muy confusas. Creando una vista como resultado de la combinación 
+  se puede ocultar la complejidad al usuario. </LI></UL>
+<UL>
+  <LI>Las vistas ayudan a mantener unos nombres razonables. </LI></UL><FONT 
+face=terminal><FONT color=#008000><FONT size=+1></FONT></FONT></FONT>
+<P><B>Creación de una Vista</B> </P><PRE><FONT face=system><FONT color=#737b8c><FONT size=+1>CREATE VIEW vista [({columna ,}<SUP>+</SUP>] AS consulta ;</FONT></FONT></FONT>
+
+</PRE>
+<P>La vista se crea con las columnas que devuelve una consulta. Si no nos 
+importa que las columnas de la vista hereden los nombres de las columnas 
+recuperadas en la consulta no tenemos que especificarlos. </P>
+<P><B>Borrado de una Vista</B> </P><PRE><FONT face=system><FONT color=#737b8c><FONT size=+1>DROP VIEW vista ;</FONT></FONT></FONT>
+
+</PRE><BR><A name=operacionesVistas></A><FONT size=+2 face=arial><B>9.1 
+Operaciones sobre Vistas </B></FONT>
+<P><B>Consultas</B> </P>
+<P>La consultas sobre las vistas se tratan de igual modo que sobre las tablas. 
+</P>
+<P><B>Actualizaciones</B> </P>
+<P>La información puede ser actualizada en las vistas directamente o a través de 
+las tablas sobre las que se definen. </P>
+<P>Esisten algunas restricciones: </P>
+<DL>
+  <DT>Borrado de filas de una tabla a través de una vista 
+  <DD>La vista se debe crear con filas de una sola tabla; sin utilizar las 
+  cláusulas <TT>GROUP BY</TT> y <TT>DISTINCT</TT>; y sin utilizar funciones de 
+  grupo o referencias a pseudocolumnas (ROWNUM). 
+  <DT>Actualización de filas a través de una vista 
+  <DD>La vista ha de estar definida según las restricciones anteriores y además 
+  ninguna de las columnas a actualizar debe haber sido definida como una 
+  expresión. 
+  <DT>Inserción de filas en una tabla a través de una vista 
+  <DD>Todas las restricciones y además todas las columnas obligatorias de la 
+  tabla asociada deben estar presentes en la vista. </DD></DL><BR><A 
+name=vistasMasTablas></A><FONT size=+2 face=arial><B>9.2 Vistas de más de una 
+Tabla </B></FONT>
+<P>Se pueden definir vistas sobre más de una tabla. Por ejemplo, sobre la 
+combinación de dos tablas. </P>
+<P>Podemos querer ver todos los datos de los empleados del departamento 
+Administración. </P><PRE><FONT face=terminal><FONT color=#008000><FONT size=+1>SQL&gt; create view depAdmin (cod_emp, nombre_emp, nombre_dep, dir)
+  2  as select e.cod_emp, e.nombre, d.nombre, d.loc
+  3  from emp e, dep d
+  4  where e.cod_dep=d.cod_dep and d.nombre='Administracion';
+
+SQL&gt; select * from depAdmin;
+ 
+   COD_EMP NOMBRE_EMP NOMBRE_DEP      DIR
+---------- ---------- --------------- ----------
+       101 Cano       Administracion  Valladolid
+       102 Roncal     Administracion  Valladolid
+       103 Rueda      Administracion  Valladolid
+       104 Martin     Administracion  Valladolid
+       105 Sanz       Administracion  Valladolid
+       106 Lopez      Administracion  Valladolid
+ 
+6 rows selected.</FONT></FONT></FONT>
+
+</PRE><BR>
+<HR>
+<A name=jugandoNombres></A><FONT size=+2 face=arial><B>10 Jugando con los 
+Nombres </B></FONT>
+<HR>
+
+<P>A continuación dos comandos que permiten jugar con los nombres de los objetos 
+en SQL: <TT>SINONYM</TT> y <TT>RENAME</TT>. </P><BR><A name=sinonimos></A><FONT 
+size=+2 face=arial><B>10.1 Sinónimos </B></FONT>
+<P>SQL permite crear un sinónimo para una tabla o vista. Esto supone que pueden 
+utilizarse dos nombres diferentes para un mismo objeto. </P>
+<P><B>Creación de un Sinónimo</B> </P><PRE><FONT face=system><FONT color=#737b8c><FONT size=+1>CREATE SYNONYM sinonimo FOR [usuario.]{tabla | vista} ;</FONT></FONT></FONT>
+
+</PRE>
+<P><B>Borrado de un Sinónimo</B> </P><PRE><FONT face=system><FONT color=#737b8c><FONT size=+1>DROP SYNONYM sinonimo ;</FONT></FONT></FONT>
+
+</PRE>
+<P>Una primera utilidad de los sinónimos es la posibilidad de independizar las 
+aplicaciones de los nombres físicos de las tablas que manejan. Asi, las 
+aplicaciones harán referencia a un sinónimo de tabla, que en cada caso puede 
+estar asociado a una tabla distinta. </P>
+<P>Otra utilidad es la posibilidad de que un usuario acceda a las tablas de otro 
+usuario como si fueran suyas, siempre que tenga permiso para hacerlo, si al 
+definir el sinónimo incluye el nombre del usuario en la denominación de la 
+tabla. Así si el usuarioA tiene permiso para leer el contenido de la tabla 
+<TT>emp</TT> del usuarioB, entonces desde la ejecución de la sentencia 
+<TT>CREATE SYNONYM plantilla FOR usuarioB.emp</TT> verá la tabla 
+<TT>usuarioB.emp</TT> como <TT>plantilla</TT>. </P><BR><A name=rename></A><FONT 
+size=+2 face=arial><B>10.2 Comando <TT>RENAME</TT> </B></FONT>
+<P>El comando <TT>RENAME</TT> se utiliza para modificar el nombre de una tabla, 
+vista o sinónimo. </P>
+<P>La sintásis es la siguiente </P><PRE><FONT face=system><FONT color=#737b8c><FONT size=+1>RENAME {tabla | vista | sinonimo} to nuevoNombre ;</FONT></FONT></FONT>
+
+</PRE>
+<P>Esta sentencia cambiará el nombre antiguo por el nuevo, y a partir de este 
+momento cualquier acceso al objeto por el nombre antiguo será respondido con un 
+mensaje de error. </P>
+<P>Conviene resaltar la diferencia entre el comando <TT>SYNONYM</TT> y el 
+comando <TT>RENAME</TT>. Mientras que el primero mantiene el nombre original 
+para acceder al objeto, el segundo elimina ese primer nombre sustituyendolo por 
+el nuevo. </P><BR>
+<HR>
+<A name=loMasSqlPlus></A><FONT size=+2 face=arial><B>11 Lo Más SQL*Plus 
+</B></FONT>
+<HR>
+
+<P>En este apartado vamos a profundizar un poco en las otras posibilidades que 
+nos brinda SQL*Plus en los: </P>
+<UL>
+  <LI>ficheros de comandos, y 
+  <LI>generación de informes, </LI></UL><BR><A name=comandos></A><FONT size=+2 
+face=arial><B>11.1 Ficheros de Comandos </B></FONT>
+<P>Aunque ya vimos una introducción a los ficheros de comandos en anteriormente, 
+vamos ahora a profundizar un poco en las posibilidades que nos ofrece SQL*Plus. 
+</P>
+<P>En un fichero de comandos se pueden incluir: </P>
+<UL>
+  <LI>líneas de comentarios, 
+  <LI>líneas de ejecución, 
+  <LI>líneas de comandos SQL, y 
+  <LI>líneas de comandos SQL*Plus. </LI></UL>
+<P><B>Líneas de Comentarios</B> </P>
+<P>Se pueden introducir comentarios en una archivo de comandos de tres maneras: 
+</P>
+<UL>
+  <LI>Utilizando del comando <TT>REM</TT> del SQL*Plus. 
+  <LI>Utilizando los delimitadores de comentario de SQL <TT>/*</TT> y 
+  <TT>*/</TT>. 
+  <LI>Utilizando los símbolos de comentario PL/SQL "<TT>__</TT>". </LI></UL>
+<P><B>Líneas de Ejecución</B> </P>
+<P>Constan de una única barra inclinada, "<TT>/</TT>", y se introducen a 
+continuación de cada sentencia SQL indicando su ejecución. </P>
+<P>Sustituyen al punto y coma, "<TT>;</TT>" al final de las sentencias SQL. </P>
+<P><B>Líneas de Comandos SQL</B> </P>
+<P>Se puede introducir cualquiera de los comandos SQL enumerados en este curso, 
+y se ejecutarán de manera secuencial. </P>
+<P>Se permite el anidamiento de los ficheros de comandos. </P>
+<P><B>Líneas de Comandos SQL*Plus</B> </P>
+<P>SQL*Plus aporta una serie de posibilidades al lenguaje SQL que le acerca un 
+poco mas a lo que entendemos como un lenguaje de programación. </P>
+<P>Se pueden definir constantes y variables, capturar datos del teclado, 
+introducir parámetros en la llamada de un archivo de comandos, y alguna cosa 
+más. </P>
+<P><B>Variables de Usuario</B> </P>
+<P>Se pueden definir Variables de usuario con el comando <TT>DEFINE</TT> </P><PRE><FONT face=system><FONT color=#737b8c><FONT size=+1>DEFINE Variable = valor
+</FONT></FONT></FONT></PRE>Para borrar una variable se utiliza el comando 
+<TT>UNDEFINE</TT> <PRE></PRE><PRE><FONT face=system><FONT color=#737b8c><FONT size=+1>UNDEFINE variable</FONT></FONT></FONT>
+
+</PRE>
+<P>Como ejemplo se puede definir la variable <TT>OFICIO</TT> </P><PRE><FONT face=terminal><FONT color=#008000><FONT size=+1>SQL&gt; define oficio=analista</FONT></FONT></FONT>
+
+</PRE>
+<P><B>Variables de Sustitución</B> </P>
+<P>Las variables de sustitución son un nombre de variable de usuario con el 
+símbolo <TT>&amp;</TT> delante. Cuando SQL*Plus detecta una variable de 
+sustitución en un comando, ejecuta el comando tomando el valor de la variable. 
+</P>
+<P>Esto se puede ver en el ejemplo, donde preguntamos por los empleados que son 
+analistas: </P><PRE><FONT face=terminal><FONT color=#008000><FONT size=+1>SQL&gt; define oficio=Analista
+SQL&gt; define tabla=emp
+SQL&gt; select nombre, oficio from &amp;tabla where oficio='&amp;oficio';
+old   1: select nombre, oficio from &amp;tabla where oficio='&amp;oficio'
+new   1: select nombre, oficio from emp where oficio='Analista'
+ 
+NOMBRE     OFICIO
+---------- -----------
+Sastre     Analista
+Recio      Analista</FONT></FONT></FONT>
+
+</PRE>
+<P><B>Captura de Datos desde el Terminal </B></P>
+<P>En muchas ocasiones es necesario recoger datos desde un terminal, que luego 
+serán utilizados en el archivo de comandos. Para realizarlo se pueden utilizar 
+dos medios: las variables de sustitución o los parámetros en la línea de 
+comandos. </P>
+<P>Cuando SQL*Plus reconoce una variable de sustitución sin valor asignado se lo 
+pide al usuario: </P><PRE><FONT face=terminal><FONT color=#008000><FONT size=+1>SQL&gt; select * from dep where nombre='&amp;nombredep';
+Enter value for nombredep: I+D
+old   1: select * from dep where nombre='&amp;nombredep'
+new   1: select * from dep where nombre='I+D'
+ 
+   COD_DEP NOMBRE          LOC
+---------- --------------- ----------
+       200 I+D             Boecillo</FONT></FONT></FONT>
+
+</PRE>
+<P>Si se desea que SQL*Plus pregunte por el valor de la variable al usuario sólo 
+la primera vez que se encuentra con ella, se colocará "<TT>&amp;&amp;</TT>" 
+delante de la variable de usuario. </P>
+<P>También se pueden utilizar hasta nueve parámetros en la línea de comandos 
+cuando se llama a la ejecución de un archivo de comandos. </P>
+<P>En el archivo de comandos nos referiremos a los parámetros con las variables 
+<TT>&amp;1</TT>, <TT>&amp;2</TT>, ... ,<TT>&amp;9</TT> que se corresponden 
+posicionalmente con ellos. </P>
+<P>Desde el archivo de comandos se puede hacer referencia a los parámetros 
+cualquier número de veces y en cualquier orden. </P>
+<P><B>Comandos de Comunicación con el Usuario</B> </P>
+<P>Los siguientes comandos proporcionan un medio de comunicación con el usuario: 
+</P>
+<UL>
+  <LI>PROMPT: presenta un mensaje en la pantalla. 
+  <LI>ACCEPT: Solicita un valor y lo almacena en la variable de usuario que se 
+  especifíque. 
+  <LI>PAUSE: Obliga al usuario a pulsar <I>Return</I> despué de leer un mensaje. 
+  </LI></UL>
+<P>Para ver cómo funcionan sirve el siguiente ejemplo: </P><PRE><FONT face=terminal><FONT color=#008000><FONT size=+1>prompt Buscar los datos de un empleado.
+pause Pulse Return.
+accept nombremp prompt 'Empleado? '
+select * from emp where nombre='&amp;nombremp';</FONT></FONT></FONT>
+
+</PRE>
+<P><B>Otros Comandos</B> </P>
+<P>Los siguientes comandos también se pueden incluir en un archivo de comandos: 
+</P>
+<UL>
+  <LI>CONNECT: para conectarse como otro usuario. 
+  <LI>HELP: para obtener ayuda en línea. 
+  <LI>EXIT: para dejar SQL*PLus y salir al Sistema Operativo. 
+  <LI>DESCRIBE ó DESC: para obtener información sobre la estructura de una 
+  tabla. 
+  <LI>HOST o !: para ejecutar un comando del Sistema Operativo. </LI></UL><BR><A 
+name=informes></A><FONT size=+2 face=arial><B>11.2 Generación de Informes 
+</B></FONT>
+<P>Con SQL*Plus podemos dar forma a los resultados de las consultas para 
+producir un informe. Podremos: </P>
+<UL>
+  <LI>Cambiar las cabeceras de las columnas. 
+  <LI>Dar forma a las columnas de tipo <TT>number</TT>, <TT>varchar2</TT>, 
+  <TT>date</TT> y <TT>long</TT>. 
+  <LI>Copiar y listar atributos de presentación de las columnas. 
+  <LI>Suprimir valores duplicados e introducir espacios para mejorar la 
+  presentación. 
+  <LI>Realizar y mostrar cálculos (totales, medias, mínimos, máximos, etc.). 
+  <LI>Definir las dimensiones de las páginas. 
+  <LI>Ubicar títulos en la cabecera y pie de las páginas. 
+  <LI>Introducir la fecha o el número de página en los títulos. </LI></UL>
+<P>Pero de todo esto sólo vamos a ver el modo de realizar las operaciones más 
+comunes y sencillas. </P>
+<P>Básicamente, el formato con el que se van a presentar los resultados de las 
+cosultas dependen de unos parámetros y de unos comandos. </P>
+<P><B>Parámetros</B> </P>
+<UL>
+  <LI>SET LINESIZE: pone el número máximo de caracteres por línea. Por defecto 
+  vale 80 y el máximo es 999. 
+  <LI>SET PAGESIZE: pone el número de filas de la salida antes de empezar una 
+  nueva página. Por defecto es 25. Incluye el título y las líneas de pausa. 
+  <LI>SET HEADING [ON | OFF]: Activa/desactiva la utilización de encabezados de 
+  columnas. Por defecto está activado. 
+  <LI>SET NULL texto: Indica la cadena de caracteres que hay que colocar en 
+  sustitución de los valores NULL. Por defecto es "". 
+  <LI>SET ECHO [ON | OFF]: Activa/desactiva la visualización de los comandos que 
+  SQL*Plus ejecuta según van siendo tratados. Por defecto está desactivada. 
+  <LI>SET FEEDBACK [ n | ON | OFF]: Muestra el número de registros recuperados 
+  en cada consulta cuando se recuperan n o más registros. ON se pueden 
+  considerar como n=1, y OFF como n=0. 
+  <LI>SET VERIFY [ON | OFF]: Controla la salida de confirmación para los valores 
+  de las variables de sustitución. Por defecto está activado. </LI></UL>
+<P><B>Comandos</B> </P>
+<UL>
+  <LI>TTITLE: formación del encabezado de página. 
+  <LI>BTITLE: formación del pie de página. 
+  <LI>COLUMN: formatear cada columna. 
+  <LI>BREAK: puntos de ruptura en los listados. 
+  <LI>COMPUTE: realizar cálculos con las columnas. </LI></UL></BODY></HTML>

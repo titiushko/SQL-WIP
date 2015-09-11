@@ -1,0 +1,454 @@
+<html>
+
+
+<!-- Mirrored from www.aulaclic.es/sql/spr_3_1_1.htm by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 10 Jun 2011 06:49:42 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
+<head>
+<title>Soluci&oacute;n ejercicios consultas multitabla</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<LINK REL=STYLESHEET TYPE="text/css" HREF="estilo_sinf_osc.css" TITLE="estilo_sinf_osc">
+<SCRIPT language=JavaScript>
+<!--
+var previous = "epr_3_1.htm#s1";
+var next = "epr_3_1.htm#s1";
+//-->
+</SCRIPT></head><body>
+
+<script type='text/javascript' src='../js/sqlmenu_osc.js'></script> 
+<script type='text/javascript' src='../js/menu8_com.js'></script> 
+
+<table width="900" border="0">
+  <tr>
+    <td width="144"><a href="http://www.aulaclic.es/index.html"><img src="comunes/logo_ac1_50.gif" alt="P&aacute;gina inicial"  border="0" longdesc="P%e1gina%20inicial.html"></a></td>
+    <td width="505">&nbsp;</td>
+	    <td width="234">
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 234;
+google_ad_height = 60;
+google_ad_format = "234x60_as";
+google_ad_type = "text_image";
+google_ad_channel ="";
+google_color_border = "FAF1E3";
+google_color_bg = "FAF1E3";
+google_color_link = "663300";
+google_color_text = "000000";
+google_color_url = "CC0000";
+//--></script>
+<script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+
+</script>
+    </td>
+        </tr>
+</table>
+
+<br />
+<!--   table de "980" ----------------------------------------------->
+
+<table  border="0"> 
+  <tr> 
+<td >  </td>
+<td  > </td>
+  </tr>
+  <tr> 
+<td > 
+<!--   td width="770" ------------------ texto pagina ------------------------------>
+<table width="943" border="0">
+  <tr> 
+	<td width="937" > 
+      <p class=tit-1 > <b><font color="#800040">Soluci&oacute;n ejercicios tema 
+        3. Las consultas multitabla</font></b></p>
+	</td>
+</tr>
+</table>
+ 
+<br>
+
+<table width="100%" border="0">
+<tr> 
+	<td width="34%"> 
+		
+      <p class=tit-2 > <font color="#800000">Ejercicio 1</font> </p>
+	</td>
+	<td width="66%">
+	</td>	
+</tr>
+</table>
+
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD width="45%" valign = "top">  
+      <P class=padding-sin><FONT size="-1" color="#008000"><B>SELECT oficinas.oficina, 
+        ciudad, numemp, nombre<BR>
+        FROM oficinas INNER JOIN empleados ON oficinas.oficina = empleados.oficina<BR>
+        WHERE region = 'este'</B></FONT><BR>
+        <BR>
+      </P>
+    </TD>
+    <TD width="55%" valign = "top">
+      <P class=padding-sin>Como la columna de emparejamiento oficinas.oficina 
+        es clave principal en la tabla oficinas, es mejor utilizar el JOIN que 
+        un producto cartesiano. Emparejamos las dos tablas por el campo oficina. 
+        Las oficinas que no tengan empleados no salen (es un INNER).</P>
+      <P class=padding-sin>Como queremos s&oacute;lo las oficinas del este a&ntilde;adimos 
+        la cl&aacute;usula WHERE con la condicion. El valor <I>este</I> debe ir 
+        entre comillas (es un valor alfanum&eacute;rico).</P>
+      <P class=padding-sin>Observar que en la lista de selecci&oacute;n la columna 
+        oficina est&aacute; cualificada (su nombre est&aacute; precedido del nombre 
+        de la tabla), es necesario cualificarla porque en las dos tablas existe 
+        una columna llamada oficina y el sistema no sabr&iacute;a cu&aacute;l 
+        de las dos escoger.</P>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD width="45%" valign = "top"> 
+      <P class=padding-sin><FONT size="-1" color="#008000"><B>SELECT oficinas.oficina, 
+        ciudad, numemp, nombre<BR>
+        FROM oficinas LEFT JOIN empleados ON oficinas.oficina = empleados.oficina<BR>
+        WHERE region = 'este'</B></FONT><BR>
+        <BR>
+      </P>
+    </TD>
+    <TD width="55%" valign = "top"> 
+      <P class=padding-sin>Si queremos que tambi&eacute;n aparezcan las oficinas 
+        que no tienen empleados cambiamos INNER por LEFT (queremos todas las oficinas 
+        y la tabla oficinas est&aacute; a la izquierda de la palabra JOIN).</P>
+      <P class=padding-sin>Ojo, si en la lista de selecci&oacute;n ponemos empleados.oficina 
+        en vez de oficinas.oficina, en las filas de oficinas que no tienen empleados 
+        el n&uacute;mero de oficina aparece nulo.</P>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD width="45%" valign = "top">  
+      <P class=padding-sin><FONT size="-1" color="#008000"><B>SELECT oficinas.oficina, 
+        ciudad, numemp, nombre<BR>
+        FROM empleados RIGHT JOIN oficinas ON oficinas.oficina = empleados.oficina<BR>
+        WHERE region = 'este'</B></FONT><BR>
+        <BR>
+      </P>
+    </TD>
+    <TD width="55%" valign = "top"> 
+      <P class=padding-sin>Esta SELECT es equivalente a la anterior pero hemos 
+        cambiado LEFT por RIGHT porque ahora la tabla oficinas est&aacute; a la 
+        derecha de la palabra JOIN.</P>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0">
+  <TR> 
+    <TD width="34%"> 
+      <P class=tit-2 > <FONT color="#800000">Ejercicio 2</FONT> </P>
+    </TD>
+    <TD width="66%"> </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD width="45%" valign = "top"> 
+      <P class=padding-sin><FONT size="-1" color="#008000"><B>SELECT numpedido, 
+        importe, clientes.nombre AS cliente, limitecredito<BR>
+        FROM pedidos INNER JOIN clientes ON pedidos.clie = clientes.numclie </B></FONT></P>
+    </TD>
+    <TD width="55%" valign = "top">  
+      <P class=padding-sin>En este ejercicio no pueden haber pedidos sin cliente, 
+        y lo que nos interesa son los pedidos, luego tampoco tienen que aparecer 
+        los clientes que no tienen pedidos, por lo tanto utilizamos un INNER JOIN.</P>
+      <P class=padding-sin>&nbsp;</P>
+      <P class=padding-sin>&nbsp;</P>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0">
+  <TR> 
+    <TD width="34%"> 
+      <P class=tit-2 > <FONT color="#800000">Ejercicio 3</FONT> </P>
+    </TD>
+    <TD width="66%"> </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD width="45%" valign = "top"> 
+      <P class=padding-sin><FONT size="-1" color="#008000"><B>SELECT empleados.*, 
+        ciudad, region<BR>
+        FROM empleados LEFT JOIN oficinas ON empleados.oficina = oficinas.oficina</B></FONT><BR>
+      </P>
+    </TD>
+    <TD width="55%" valign = "top"> 
+      <P class=padding-sin>Aqu&iacute; hemos utilizado LEFT JOIN para que tambi&eacute;n 
+        salgan los empleados que no tienen oficina asignada.<BR>
+        Como queremos todos los datos del empleado utilizamos empleados.* para 
+        acortar. </P>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0">
+  <TR> 
+    <TD width="34%"> 
+      <P class=tit-2 > <FONT color="#800000">Ejercicio 4</FONT> </P>
+    </TD>
+    <TD width="66%"> </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD width="45%" valign = "top"> 
+      <P class=padding-sin><FONT size="-1" color="#008000"><B>SELECT oficinas.*, 
+        nombre AS director<BR>
+        FROM empleados RIGHT JOIN oficinas ON empleados.oficina = oficinas.oficina<BR>
+        WHERE objetivo &gt; 600000</B></FONT><BR>
+      </P>
+    </TD>
+    <TD width="55%" valign = "top"> 
+      <P class=padding-sin>Nos interesan las oficinas con objetivo superior a 
+        600.000pts. luego nos tenemos que asegurar que salgan todas incluso si 
+        no tienen director asignado por eso utilizamos RIGHT JOIN.<BR>
+        En los valores num&eacute;ricos no utilizar el punto para separar los 
+        miles (lo considerar&iacute;a coma decimal y entender&iacute;a 600 en 
+        vez de 600000).</P>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0">
+  <TR> 
+    <TD width="34%"> 
+      <P class=tit-2 > <FONT color="#800000">Ejercicio 5</FONT> </P>
+    </TD>
+    <TD width="66%"> </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD width="45%" valign = "top"> 
+      <P class=padding-sin><FONT size="-1" color="#008000"><B>SELECT numpedido, 
+        importe, empleados.nombre AS representante, clientes.nombre AS cliente<BR>
+        FROM (pedidos INNER JOIN clientes ON pedidos.clie = clientes.numclie) 
+        INNER JOIN empleados ON pedidos.rep = empleados.numemp<BR>
+        WHERE importe &gt; 25000</B></FONT></P>
+      </TD>
+    <TD width="55%" valign = "top"> 
+      <P class=padding-sin>En este ejercicio no pueden haber pedidos sin representante 
+        ni cliente, y lo que nos interesa son los pedidos, luego tampoco tienen 
+        que aparecer los representantes que no tienen pedidos ni los clientes 
+        que no tienen pedidos, por lo tanto utilizamos un INNER JOIN.</P>
+      <P class=padding-sin>Primero a&ntilde;adimos a cada l&iacute;nea de pedido 
+        los datos del cliente corespondiente (con el primer INNER) y a cada fila 
+        resultante a&ntilde;adimos los datos del representante correspondiente. 
+      </P>
+      <P class=padding-sin>Nota: el representante que nos interesa es el que ha 
+        realizado el pedido y ese dato lo tenemos en el campo rep de pedidos por 
+        eso la condici&oacute;n de emparejamiento es pedidos.rep = empleados.rep.</P>
+      <P class=padding-sin>Si hubiesemos querido el nombre del representante asignado 
+        al cliente, la condici&oacute;n hubiera sido clientes.repclie = empleados.numemp.</P>
+      </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0">
+  <TR> 
+    <TD width="34%"> 
+      <P class=tit-2 > <FONT color="#800000">Ejercicio 6</FONT> </P>
+    </TD>
+    <TD width="66%"> </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD width="45%" valign = "top"> 
+      <P class=padding-sin><FONT size="-1" color="#008000"><B>SELECT empleados.*<BR>
+        FROM empleados INNER JOIN pedidos ON pedidos.rep = empleados.numemp<BR>
+        WHERE fechapedido = contrato</B></FONT></P>
+      <P class=padding-sin>&nbsp;</P>
+    </TD>
+   <TD width="55%" valign = "top"> 
+      <P class=padding-sin>Los representantes que buscamos tienen un pedido con 
+        la misma fecha que la de su contrato, tenemos que a&ntilde;adir a los 
+        pedidos los datos del representante correspondiente para poder comparar 
+        los dos campos.</P>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0">
+  <TR> 
+    <TD width="34%"> 
+      <P class=tit-2 > <FONT color="#800000">Ejercicio 7</FONT> </P>
+    </TD>
+    <TD width="66%"> </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD width="45%" valign = "top"> 
+      <P class=padding-sin><FONT size="-1" color="#008000"><B>SELECT empleados.*, 
+        jefes.numemp AS num_jefe, jefes.nombre AS nombre_jefe, jefes.cuota AS 
+        cuota_jefe<BR>
+        FROM empleados INNER JOIN empleados jefes ON empleados.jefe = jefes.numemp<BR>
+        WHERE empleados.cuota &gt; jefes.cuota</B></FONT></P>
+      <P class=padding-sin>&nbsp;</P>
+    </TD>
+    <TD width="55%" valign="top"> 
+      <P class=padding-sin>En una misma l&iacute;nea necesito los datos del empleado 
+        y los datos de su jefe, luego tengo que combinar empleados con empleados. 
+        No interesan los empleados que no tienen jefe luego utilizo INNER. El 
+        alias de tabla es obligatorio ya que combino empleados con la misma.</P>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0">
+  <TR> 
+    <TD width="34%"> 
+      <P class=tit-2 > <FONT color="#800000">Ejercicio 8</FONT> </P>
+    </TD>
+    <TD width="66%"> </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD width="45%" valign = "top"> 
+      <P class=padding-sin><FONT size="-1" color="#008000"><B>SELECT numemp<BR>
+        FROM empleados LEFT JOIN pedidos ON pedidos.rep = empleados.numemp<BR>
+        WHERE importe &gt; 10000 OR cuota &lt; 10000</B></FONT></P>
+      <P class=padding-sin>&nbsp;</P>
+      </TD>
+    <TD width="55%" valign="top"> 
+      <P class=padding-sin>Una posible soluci&oacute;n es combinar pedidos con 
+        empleados para poder seleccionar las l&iacute;neas de importe &gt; 10000 
+        o cuota &lt; 10000. Hay que utilizar LEFT para que puedan aparecer empleados 
+        con cuota &lt; 10000 que no tengan pedidos.</P>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD width="45%" valign = "top"> 
+      <P class=padding-sin><FONT size="-1" color="#008000"><B>SELECT rep<BR>
+        FROM pedidos<BR>
+        WHERE importe &gt; 10000<BR>
+        UNION<BR>
+        SELECT numemp<BR>
+        FROM empleados <BR>
+        WHERE cuota &lt; 10000</B></FONT></P>
+    </TD>
+    <TD width="55%" valign="top"> 
+      <P class=padding-sin>Esta es otra soluci&oacute;n, obtener por una parte 
+        los c&oacute;digos de los empleados con una l&iacute;nea de pedido &gt; 
+        10000, por otra parte los c&oacute;digos de los empleados con cuota &lt; 
+        10000 y finalmente unir las dos listas con una UNION.</P>
+    </TD>
+  </TR>
+</TABLE>
+<table width="100%" border="0">
+<tr> 
+	<td width="48%">&nbsp;	</td>
+	
+	<td width="5%" align="center"> <a href="epr_3_1.htm#s1"> <img name="image1" src="comunes/flecha_home.gif" width="22" height="22" border="0"> 
+      </a> </td>
+	<td width="47%">
+	</td>
+	
+</tr>
+</table>
+
+<br>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <div align="center"><font size="-1">Aviso legal: este curso es gratuito 
+        siempre que se visualice desde la p&aacute;gina web de aulaClic. No est&aacute; permitido descargar el curso y utilizarlo en academias o centros de ense&ntilde;anza 
+        privados sin estar conectado a Internet. </font></div>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <div align="center"><font size="-1">© aulaClic. Todos los derechos reservados. 
+ <a href="http://www.teacherclick.com/" style="text-decoration: none; color: black;" target="_blank">Free Computer tutorials</a> . 
+        Prohibida la reproducci&oacute;n por cualquier medio.<br>
+        </font><font size="2">Abril -2001.aulaClic.com</font></div>
+    </td>
+  </tr>
+</table>
+
+<!--  fin td width="770" --------------- fin texto pagina -------------------------------->
+
+    </td>
+    <td  valign="top">
+	<!--   td width="160" -------------- anuncios lateral derecho ---------------------------------->
+<table  border="0">
+
+  <tr> 
+    <td valign="bottom" height="700"> 
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 160;
+google_ad_height = 600;
+google_ad_format = "160x600_as";
+google_ad_type = "text_image";
+google_ad_channel ="2175968397";
+google_color_border = "FFF6EC";
+google_color_bg = "FFF6EC";
+google_color_link = "663300";
+google_color_text = "000000";
+google_color_url = "CC0000";
+//--></script>
+<script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>
+    </td>
+	
+  </tr>
+  
+  <tr> 
+    <td height="150">
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 125;
+google_ad_height = 125;
+google_ad_format = "125x125_as_rimg";
+google_cpa_choice = "CAAQmImJlAIaCN5uB6wtFhbmKNyMs4MB";
+google_ad_channel = "6146562423";
+//--></script>
+<script type="text/javascript" src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>
+    </td>
+  </tr>
+
+  <tr> 
+    <td height="150">
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 160;
+google_ad_height = 90;
+google_ad_format = "160x90_0ads_al";
+google_ad_channel ="2175968397";
+google_color_border = "FAF1E3";
+google_color_bg = "FAF1E3";
+google_color_link = "663300";
+google_color_text = "000000";
+google_color_url = "CC0000";
+//--></script>
+<script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>    </td>
+  </tr>
+</table>
+
+	<!--   td width="160" ----------- fin anuncios lateral derecho -------------------------------------->
+
+ </td>
+ </tr>
+<!--   table de "980" ----------------------------------------------->
+</table>
+
+</body>
+
+
+
+<!-- Mirrored from www.aulaclic.es/sql/spr_3_1_1.htm by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 10 Jun 2011 06:49:43 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
+</html>

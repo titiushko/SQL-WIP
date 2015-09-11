@@ -1,0 +1,318 @@
+<html>
+
+
+<!-- Mirrored from www.aulaclic.es/sql/epr_2_1.htm by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 10 Jun 2011 06:49:35 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
+<head>
+<title>Ejercicios consultas simples</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="keywords" content="SQL Base datos access access2000 tutorial manual gratis office enseñanza educacion ddl dcl dml">
+<LINK REL=STYLESHEET TYPE="text/css" HREF="estilo_sinf_osc.css" TITLE="estilo_sinf_osc">
+<SCRIPT language=JavaScript>
+<!--
+var previous = "t_2_4.htm#ej1";
+var next = "t_2_4.htm#ej1";
+//-->
+</SCRIPT></head><body>
+<script type='text/javascript' src='../js/sqlmenu_osc.js'></script> 
+<script type='text/javascript' src='../js/menu8_com.js'></script> 
+
+<table width="900" border="0">
+  <tr>
+    <td width="144"><a href="http://www.aulaclic.es/index.html"><img src="comunes/logo_ac1_50.gif" alt="P&aacute;gina inicial"  border="0" longdesc="P%e1gina%20inicial.html"></a></td>
+    <td width="505">&nbsp;</td>
+	    <td width="234">
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 234;
+google_ad_height = 60;
+google_ad_format = "234x60_as";
+google_ad_type = "text_image";
+google_ad_channel ="";
+google_color_border = "FAF1E3";
+google_color_bg = "FAF1E3";
+google_color_link = "663300";
+google_color_text = "000000";
+google_color_url = "CC0000";
+//--></script>
+<script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+
+</script>
+    </td>
+        </tr>
+</table>
+
+<br />
+
+<!--   table de "980" ----------------------------------------------->
+
+<table  border="0"> 
+  <tr> 
+<td >  </td>
+<td  > </td>
+  </tr>
+  <tr> 
+<td > 
+<!--   td width="770" ------------------ texto pagina ------------------------------>
+<table width="962" border="0">
+  <tr> 
+	<td width="956" > 
+      <p class=tit-1 > <font color="#800040"> <b>Ejercicios tema 2. Las consultas 
+        simples</b></font></p>
+	</td>
+</tr>
+</table>
+ 
+<br>
+<table width="100%" border="0">
+<tr> 
+	<td> 
+		
+      <p class=padding-1 align="left"> Antes de empezar deber&iacute;as crear 
+        la base de datos datos.mdb con las tablas descritas en el tema 1 <A href="t_1_2.htm">clic 
+        aqu&iacute;</A> para verlas. </p>
+		
+      <p class=padding-1 align="left">&nbsp;</p>
+      <p class=padding-1 align="left">Nota: Debes crear una consulta por cada 
+        ejercicio, no se pueden escribir varias sentencias SQL en una misma consulta.</p>
+      <p class=padding-1 align="left">Si quieres puedes guardar cada consulta 
+        con un nombre que permita identificarla por ejemplo: consulta_2_1 siendo 
+        2 el n&uacute;mero del tema y 1 el n&uacute;mero del ejercicio dentro 
+        del tema. </p>
+      <p class=padding-1 align="left">Si la consulta contiene errores sint&aacute;cticos 
+        no se podr&aacute; guardar.</p>
+      <p class=padding-1 align="left">Ahora puedes empezar a redactar las sentencias 
+        SQL para obtener lo que se pide en cada ejercicio.<BR>
+      </p>
+	</td>	
+</tr>
+</table>
+
+<table width="100%" border="0">
+<tr> 
+	<td width="32%"> 
+		
+      <p class=tit-2 > <font color="#800000">La lista de selecci&oacute;n</font></p>
+	</td>
+	<td width="68%">
+	</td>	
+</tr>
+</table>
+
+<table width="100%" border="0">
+<tr> 
+	<td> 
+       
+      <p class=padding-1 align="left"> <b>1</b> Obtener una lista de todos los 
+        productos indicando para cada uno su idfab, idproducto, descripci&oacute;n, 
+        precio y precio con I.V.A. incluido (es el precio anterior aumentado en 
+        un 16%). </p>
+       
+      <p class=padding-1 align="left"> <b>2</b> De cada pedido queremos saber 
+        su n&uacute;mero de pedido, fab, producto, cantidad, precio unitario e 
+        importe. </p>
+       
+      <p class=padding-1 align="left"> <b>3</b> Listar de cada empleado su nombre, 
+        n&ordm; de d&iacute;as que lleva trabajando en la empresa y su a&ntilde;o 
+        de nacimiento (suponiendo que este a&ntilde;o ya ha cumplido a&ntilde;os). 
+      </p>
+       
+      <p class=padding-1 align="left">&nbsp; </p>
+       </td>	
+</tr>
+</table>
+
+<TABLE width="100%" border="0">
+  <TR> 
+    <TD width="32%"> 
+      <P class=tit-2 > <FONT color="#800000">Ordenaci&oacute;n de filas.</FONT> 
+      </P>
+    </TD>
+    <TD width="68%"> </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0">
+  <TR> 
+    <TD> 
+      <P class=padding-1 align="left"> <B>4</B> Obtener la lista de los clientes 
+        agrupados por c&oacute;digo de representante asignado, visualizar todas 
+        la columnas de la tabla. </P>
+      <P class=padding-1 align="left"> <B>5</B> Obtener las oficinas ordenadas 
+        por orden alfab&eacute;tico de regi&oacute;n y dentro de cada regi&oacute;n 
+        por ciudad, si hay m&aacute;s de una oficina en la misma ciudad, aparecer&aacute; 
+        primero la que tenga el n&uacute;mero de oficina mayor. </P>
+      <P class=padding-1 align="left"> <B>6</B> Obtener los pedidos ordenados 
+        por fecha de pedido.</P>
+      <P class=padding-1 align="left">&nbsp; </P>
+      </TD>
+  </TR>
+</TABLE>
+<table width="100%" border="0">
+<tr> 
+	<td width="32%"> 
+		
+      <p class=tit-2 > <font color="#800000">Selecci&oacute;n de filas.</font> 
+      </p>
+	</td>
+	<td width="68%">
+	</td>	
+</tr>
+</table>
+
+<table width="100%" border="0">
+<tr> 
+	<td> 
+       
+      <p class=padding-1 align="left"> <b>7</b> Listar las cuatro l&iacute;neas 
+        de pedido m&aacute;s caras (las de mayor importe). </p>
+       
+      <p class=padding-1 align="left"> <b>8</b> Obtener las mismas columnas que 
+        en el ejercicio 2 pero sacando unicamente las 5 l&iacute;neas de pedido 
+        de menor precio unitario. </p>
+       
+      <p class=padding-1 align="left"> <b>9</b> Listar toda la informaci&oacute;n 
+        de los pedidos de marzo. </p>
+       
+      <p class=padding-1 align="left"> <b>10</b> Listar los n&uacute;meros de 
+        los empleados que tienen una oficina asignada. </p>
+       
+      <p class=padding-1 align="left"><B>11</B> Listar los n&uacute;meros de las 
+        oficinas que no tienen director. </p>
+      <p class=padding-1 align="left"><B>12</B> Listar los datos de las oficinas 
+        de las regiones del norte y del este (tienen que aparecer primero las 
+        del norte y despu&eacute;s las del este).</p>
+      <p class=padding-1 align="left"><B>13</B> Listar los empleados de nombre 
+        Julia. </p>
+      <p class=padding-1 align="left"><B>14</B> Listar los productos cuyo idproducto 
+        acabe en x. <BR>
+      </p>
+	</td>	
+</tr>
+</table>
+
+<TABLE width="100%" border="0">
+  <TR> 
+    <TD> 
+      <P class=padding-1 align="left"> <A name="s1"></A>Podrás encontrar la solución 
+        <A href="spr_2_1_1.htm">aquí</A>. </P>
+      <P class=padding-1 align="left">&nbsp; </P>
+    </TD>
+  </TR>
+</TABLE>
+
+<table width="100%" border="0">
+<tr> 
+	
+	<td width="48%">&nbsp; 
+		
+	</td>
+	<td width="5%" align="center"> <a href="t_2_4.htm#ej1"> <img name="image1" src="comunes/flecha_home.gif" width="22" height="22" border="0"> 
+      </a> </td>
+	<td width="5%" align="center"> <a href="epr_3_1.htm"> </a> </td>
+	<td width="42%">&nbsp;
+		
+	</td>
+	
+</tr>
+</table>
+
+<br>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <div align="center"><font size="-1">Aviso legal: este curso es gratuito 
+        siempre que se visualice desde la p&aacute;gina web de aulaClic. No est&aacute; permitido descargar el curso y utilizarlo en academias o centros de ense&ntilde;anza 
+        privados sin estar conectado a Internet. </font></div>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <div align="center"><font size="-1">© aulaClic. Todos los derechos reservados. 
+ <a href="http://www.teacherclick.com/" style="text-decoration: none; color: black;" target="_blank">Free Computer tutorials</a> . 
+        Prohibida la reproducci&oacute;n por cualquier medio.<br>
+        </font><font size="2">Abril-2001.aulaClic.com</font></div>
+    </td>
+  </tr>
+</table>
+
+<!--  fin td width="770" --------------- fin texto pagina -------------------------------->
+
+    </td>
+    <td  valign="top">
+	<!--   td width="160" -------------- anuncios lateral derecho ---------------------------------->
+<table  border="0">
+
+  <tr> 
+    <td valign="bottom" height="700"> 
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 160;
+google_ad_height = 600;
+google_ad_format = "160x600_as";
+google_ad_type = "text_image";
+google_ad_channel ="2175968397";
+google_color_border = "FFF6EC";
+google_color_bg = "FFF6EC";
+google_color_link = "663300";
+google_color_text = "000000";
+google_color_url = "CC0000";
+//--></script>
+<script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>
+    </td>
+	
+  </tr>
+  
+  <tr> 
+    <td height="150">
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 125;
+google_ad_height = 125;
+google_ad_format = "125x125_as_rimg";
+google_cpa_choice = "CAAQmImJlAIaCN5uB6wtFhbmKNyMs4MB";
+google_ad_channel = "6146562423";
+//--></script>
+<script type="text/javascript" src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>
+    </td>
+  </tr>
+
+  <tr> 
+    <td height="150">
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 160;
+google_ad_height = 90;
+google_ad_format = "160x90_0ads_al";
+google_ad_channel ="2175968397";
+google_color_border = "FAF1E3";
+google_color_bg = "FAF1E3";
+google_color_link = "663300";
+google_color_text = "000000";
+google_color_url = "CC0000";
+//--></script>
+<script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>    </td>
+  </tr>
+</table>
+
+	<!--   td width="160" ----------- fin anuncios lateral derecho -------------------------------------->
+
+ </td>
+ </tr>
+<!--   table de "980" ----------------------------------------------->
+</table>
+
+</body>
+
+
+
+<!-- Mirrored from www.aulaclic.es/sql/epr_2_1.htm by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 10 Jun 2011 06:49:36 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
+</html>

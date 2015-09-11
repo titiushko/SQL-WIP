@@ -1,0 +1,428 @@
+
+<html>
+
+<!-- Mirrored from www.aulaclic.es/sql/t_2_3.htm by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 10 Jun 2011 06:49:08 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name="keywords" content="SQL Base datos access access2000 tutorial manual gratis office enseñanza educacion ddl dcl dml">
+<LINK REL=STYLESHEET TYPE="text/css" HREF="estilo_sinf_osc.css" TITLE="estilo_sinf_osc">
+<title>Tema 2 Las consultas simples</title>
+<SCRIPT language=JavaScript>
+<!--
+var previous = "t_2_2.htm";
+var next = "t_2_4.htm";
+//-->
+</SCRIPT>
+</head><body>
+<script type='text/javascript' src='../js/sqlmenu_osc.js'></script> 
+<script type='text/javascript' src='../js/menu8_com.js'></script> 
+
+<table width="900" border="0">
+  <tr>
+    <td width="144"><a href="http://www.aulaclic.es/index.html"><img src="comunes/logo_ac1_50.gif" alt="P&aacute;gina inicial"  border="0" longdesc="P%e1gina%20inicial.html"></a></td>
+    <td width="505">&nbsp;</td>
+	    <td width="234">
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 234;
+google_ad_height = 60;
+google_ad_format = "234x60_as";
+google_ad_type = "text_image";
+google_ad_channel ="";
+google_color_border = "FAF1E3";
+google_color_bg = "FAF1E3";
+google_color_link = "663300";
+google_color_text = "000000";
+google_color_url = "CC0000";
+//--></script>
+<script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+
+</script>
+    </td>
+        </tr>
+</table>
+
+<br />
+
+<!--   table de "980" ----------------------------------------------->
+
+<table  border="0"> 
+  <tr> 
+<td >  </td>
+<td  > </td>
+  </tr>
+  <tr> 
+<td > 
+<!--   td width="770" ------------------ texto pagina ------------------------------>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR>
+    <TD><p class=tit-1 > <font color="#800000"><B>Tema 2. Las consultas simples</B> (III) </font></p></TD>
+    <td><!-- Search Google -->
+        <center>
+          <form method="get" action="http://www.google.es/custom" target="google_window">
+            <table bgcolor="#ffffff">
+              <tr>
+                <td nowrap="nowrap" valign="top" align="left" height="32"><a href="http://www.google.com/"> <img src="../../www.google.com/logos/Logo_25wht.gif" border="0" alt="Google" align="middle"></a>
+                    <input type="text" name="q" size="20" maxlength="255" value="">
+                    <input type="submit" name="sa" value="B&uacute;squeda">
+                    <input type="hidden" name="client" value="pub-1875034419890743">
+                    <input type="hidden" name="forid" value="1">
+                    <input type="hidden" name="ie" value="ISO-8859-1">
+                    <input type="hidden" name="oe" value="ISO-8859-1">
+                    <input type="hidden" name="cof" value="GALT:#008000;GL:1;DIV:#336699;VLC:663399;AH:center;BGC:FFF6EC;LBGC:FFF6EC;ALC:000000;LC:000000;T:0000FF;GFNT:0000FF;GIMP:0000FF;LH:50;LW:141;L:http://www.aulaclic.es/logo_ac1_50.jpg;S:http://www.aulaclic.es/;FORID:1;">
+                    <input type="hidden" name="hl" value="es">
+                </td>
+              </tr>
+            </table>
+          </form>
+        </center>
+      <!-- Search Google -->
+    </td>
+  </TR>
+</TABLE>
+<BR>
+<TABLE width="65%" border="0">
+  <TR> 
+    <TD width="50%"> 
+      <P class=tit-2 > <FONT color="#800000"><B> Selecci&oacute;n de filas</B> 
+        </FONT></P>
+    </TD>
+  </TR>
+</TABLE>
+<BR>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD class="Normal"> 
+      <P class=padding-1>A continuaci&oacute;n veremos las cl&aacute;usulas que 
+        nos permiten indicar <B><FONT color="#000080">qu&eacute; filas</FONT></B> 
+        queremos <B><FONT color="#000080">visualizar</FONT></B>.<BR>
+      </P>
+    </TD>
+  </TR>
+  <TR> 
+    <TD class="Normal"> 
+      <P class=padding-1><IMG src="graficos/tr_distinct.gif" width="143" height="66" align = "top"> 
+        <BR>
+        <BR>
+        <IMG src="graficos/tr_where.gif" width="206" height="24"> </P>
+      </TD>
+  </TR>
+</TABLE>
+<BR>
+<TABLE width="65%" border="0">
+  <TR> 
+    <TD width="50%"> 
+      <P class=tit-2 > <FONT color="#800000"><B><A name="clausulas"></A>Las cl&aacute;usulas 
+        DISTINCT / ALL</B></FONT></P>
+    </TD>
+  </TR>
+</TABLE>
+<BR>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD class="Normal" width="49%"> 
+      <P class=padding-1> Al incluir la cláusula <B><FONT color="#000080">DISTINCT</FONT></B> 
+        en la SELECT, se <B><FONT color="#000080">eliminan</FONT></B> del resultado 
+        las <B><FONT color="#000080">repeticiones</FONT></B> de filas. Si por 
+        el contrario queremos que aparezcan todas las filas <B><FONT color="#000080">incluidas 
+        las duplicadas</FONT></B>, podemos incluir la cláusula <B><FONT color="#000080">ALL</FONT></B> 
+        o nada, ya que ALL es el valor que SQL asume por defecto.</P>
+      <P class=padding-1> Por ejemplo queremos saber los c&oacute;digos de los 
+        directores de oficina. <BR>
+      </P>
+    </TD>
+  </TR>
+</table>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD width=45%> 
+      <P class=padding-sin><font color="#008000"><b>SELECT dir FROM oficinas <BR>
+        SELECT ALL dir FROM oficinas</b></font></P>
+    </TD>
+    <TD width="55%"><P class=padding-1>Lista los c&oacute;digos de los directores de las oficinas. 
+      El director 108 aparece en cuatro oficinas, por lo tanto aparecer&aacute; 
+      cuatro veces en el resultado de la consulta.</P></TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD width=45%> 
+      <P class=padding-sin><font color="#008000"><b>SELECT DISTINCT dir FROM oficinas</b></font></P>
+    </TD>
+    <TD width="55%">
+      <P class=padding-1>En este caso el valor 108 aparecer&aacute; una sola vez 
+        ya que le decimos que liste los distintos valores de directores.<BR>
+      </P>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE width="65%" border="0">
+  <TR> 
+    <TD width="50%"> 
+      <P class=tit-2 > <FONT color="#800000"><B><a name="top"></a>La cl&aacute;usula 
+        TOP</B> </FONT></P>
+    </TD>
+  </TR>
+</TABLE>
+<table width="99%">
+  <TR> 
+    <TD class="Normal" width="33%"> 
+       
+      <P class=padding-1>La cl&aacute;usula <B><FONT color="#000080">TOP</FONT></B> 
+        permite <B><FONT color="#000080">sacar</FONT></B> las <B><FONT color="#000080">n 
+        primeras filas</FONT></B> de la tabla origen. No elige entre valores iguales, 
+        si pido los 25 primeros valores pero el que hace 26 es el mismo valor 
+        que el 25, entonces devolverá 26 registros en vez de 25 (o los que sea). 
+        Siempre se guia por la columna de ordenaci&oacute;n, la que aparece en 
+        la cl&aacute;usula ORDER BY o en su defecto la clave principal de la tabla.</P>
+      <P class=padding-1>Por ejemplo queremos saber los dos empleados m&aacute;s 
+        antiguos de la empresa.</P>
+       
+      </td>
+   
+  </TR>
+</table>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD width=45%> 
+      <P class=padding-sin><font color="#008000"><b>SELECT TOP 2 numemp, nombre 
+        <BR>
+        FROM empleado<BR>
+        ORDER BY contrato</b></font><BR>
+      </P>
+    </TD>
+    <TD width="55%" align ="top">
+      <P class=padding-1>Lista el c&oacute;digo y nombre de los empleados orden&aacute;ndolos 
+        por fecha de contrato, sacando unicamente los dos primeros (ser&aacute;n 
+        los dos m&aacute;s antiguos).</P>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD width=45%> 
+      <P class=padding-sin><font color="#008000"><b>SELECT TOP 3 numemp, nombre 
+        <BR>
+        FROM empleado<BR>
+        ORDER BY contrato</b></font></P>
+    </TD>
+    <TD width="55%"> 
+      <P class=padding-1>En este caso tiene que sacar los tres primeros, pero 
+        si nos fijamos en las fechas de contrato tenemos 20/10/86, 10/12/86, 01/03/87, 
+        01/03/87, la tercera fecha es igual que la cuarta, en este caso sacar&aacute; 
+        estas cuatro filas en vez de tres, y sacar&iacute;a todas las filas que 
+        tuviesen el mismo valor que la tercera fecha de contrato.<BR>
+      </P>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE width="99%">
+  <TR> 
+    <TD class="Normal" width="33%"> 
+      <P class=padding-1>El n&uacute;mero de filas que queremos visualizar se 
+        puede expresar con un n&uacute;mero entero o como un <B><FONT color="#000080">porcentaje</FONT></B> 
+        sobre el <B><FONT color="#000080">n&uacute;mero total de filas</FONT></B> 
+        que se recuperar&iacute;an sin la cl&aacute;usula TOP. En este &uacute;ltimo 
+        caso utilizaremos la cl&aacute;usula <B><FONT color="#000080">TOP n PERCENT</FONT></B> 
+        (porcentaje en ingl&eacute;s).<BR>
+      </P>
+      </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD width=45%> 
+      <P class=padding-sin><font color="#008000"><b>SELECT TOP 20 PERCENT nombre 
+        <BR>
+        FROM empleado<BR>
+        ORDER BY contrato</b></font></P>
+    </TD>
+    <TD width="55%"> 
+      <P class=padding-1>Lista el nombre de los empleados orden&aacute;ndolos 
+        por fecha de contrato, sacando unicamente un 20% del total de empleados. 
+        Como tenemos 10 empleados, sacar&aacute; los dos primeros, si tuviesemos 
+        100 empleados sacar&iacute;a los 20 primeros.<BR>
+      </P>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE width="65%" border="0">
+  <TR> 
+    <TD width="50%"> 
+      <P class=tit-2 > <FONT color="#800000"><B><A name="where"></A>La cl&aacute;usula 
+        WHERE</B> </FONT></P>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE width="99%">
+  <TR> 
+    <TD class="Normal" width="33%"> 
+      
+      <P class=padding-1><IMG src="graficos/tr_where.gif" width="206" height="24"> 
+      </P>
+      </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR>
+    <TD> 
+      <P class=padding-1> La cláusula <B><FONT color="#000080">WHERE</FONT></B> 
+        selecciona unicamente las <B><FONT color="#000080">filas</FONT></B> que 
+        <B> <FONT color="#000080">cumplan</FONT></B> la <B><FONT color="#000080">condici&oacute;n 
+        de selecci&oacute;n</FONT></B> especificada.<br>
+        <BR>
+        En la consulta sólo aparecerán las filas para las cuales la condición 
+        es verdadera (TRUE), los valores nulos (NULL) no se incluyen por lo tanto 
+        en las filas del resultado. La <B><FONT color="#000080">condici&oacute;n 
+        de selecci&oacute;n</FONT></B> puede ser cualquier <B><FONT color="#000080">condici&oacute;n 
+        v&aacute;lida</FONT></B> o <B><FONT color="#000080">combinaci&oacute;n 
+        de condiciones</FONT></B> utilizando los operadores <B><FONT color="#000080">NOT 
+        </FONT></B> (no) <B><FONT color="#000080">AND</FONT></B> (y) y <B><FONT color="#000080">OR</FONT></B> 
+        (&oacute;). En ACCESS2000 una cláusula WHERE puede contener hasta 40 expresiones 
+        vinculadas por operadores lógicos AND y OR. Si quieres ver c&oacute;mo 
+        funcionan los operadores l&oacute;gicos<a name="b1"></a><A href="b_2_3_1.htm"><IMG src="comunes/ico_menos.gif" width="26" height="20" border="0"></A><br>
+        <BR>
+        Para empezar veamos un ejemplo sencillo:<BR>
+      </P>
+      </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD width="45%">
+      <P class=padding-sin><font color="#008000"><b>SELECT nombre<BR>
+        FROM empleados<BR>
+        WHERE oficina = 12</b></font><BR>
+      <BR></P>
+    </TD>
+    <TD width="55%"><P class=padding-1>Lista el nombre de los empleados de la oficina 12.</P></TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD width="45%">
+      <P class=padding-sin><font color="#008000"><b>SELECT nombre<BR>
+        FROM empleados<BR>
+        WHERE oficina = 12 AND edad &gt; 30</b></font></P>
+    </TD>
+    <TD width="55%"><P class=padding-1>Lista el nombre de los empleados de la oficina 12 que tengan 
+      m&aacute;s de 30 a&ntilde;os. (oficina igual a 12 <B>y</B> edad mayor que 
+      30) </P></TD>
+  </TR>
+</TABLE>
+<br>
+<BR>
+<TABLE width="100%" border="0">
+  <TR> 
+    <TD width="37%">&nbsp;</TD>
+     
+    <TD width="6%"><A href="t_2_2.htm"><IMG name="image8" src="comunes/flecha_re.gif" width="22" height="22" border="0"></A></TD>
+     
+    <TD width="6%"><A href="index.htm"><IMG name="image8" src="comunes/flecha_home.gif" width="22" height="22" border="0"></A></TD>
+		
+    <TD width="6%"><A href="t_2_4.htm"><IMG name="image2" src="comunes/flecha_av.gif" width="22" height="22" border="0"></A></TD>
+    <TD width="45%"> 
+      <DIV align="right">Pag. 2.3</DIV>
+    </TD>
+  </TR>
+</TABLE>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <div align="center"><font size="-1">Aviso legal: este curso es gratuito 
+        siempre que se visualice desde la p&aacute;gina web de aulaClic. No est&aacute; 
+        permitido descargar el curso ni utilizarlo en academias o centros de ense&ntilde;anza 
+        privados sin estar conectado a Internet. </font></div>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <div align="center"><font size="-1">© aulaClic. Todos los derechos reservados. 
+ <a href="http://www.teacherclick.com/" style="text-decoration: none; color: black;" target="_blank">Free Computer tutorials</a> . 
+        Prohibida la reproducci&oacute;n por cualquier medio.<br>
+        </font><font size="2">Abril-2001.aulaClic.com</font></div>
+    </td>
+  </tr>
+</table>
+<p style='text-align:justify'>&nbsp;</p>
+<!--  fin td width="770" --------------- fin texto pagina -------------------------------->
+
+    </td>
+    <td  valign="top">
+	<!--   td width="160" -------------- anuncios lateral derecho ---------------------------------->
+<table  border="0">
+
+  <tr> 
+    <td valign="bottom" height="700"> 
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 160;
+google_ad_height = 600;
+google_ad_format = "160x600_as";
+google_ad_type = "text_image";
+google_ad_channel ="2175968397";
+google_color_border = "FFF6EC";
+google_color_bg = "FFF6EC";
+google_color_link = "663300";
+google_color_text = "000000";
+google_color_url = "CC0000";
+//--></script>
+<script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>
+    </td>
+	
+  </tr>
+  
+  <tr> 
+    <td height="150">
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 125;
+google_ad_height = 125;
+google_ad_format = "125x125_as_rimg";
+google_cpa_choice = "CAAQmImJlAIaCN5uB6wtFhbmKNyMs4MB";
+google_ad_channel = "6146562423";
+//--></script>
+<script type="text/javascript" src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>
+    </td>
+  </tr>
+
+  <tr> 
+    <td height="150">
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 160;
+google_ad_height = 90;
+google_ad_format = "160x90_0ads_al";
+google_ad_channel ="2175968397";
+google_color_border = "FAF1E3";
+google_color_bg = "FAF1E3";
+google_color_link = "663300";
+google_color_text = "000000";
+google_color_url = "CC0000";
+//--></script>
+<script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>    </td>
+  </tr>
+</table>
+
+	<!--   td width="160" ----------- fin anuncios lateral derecho -------------------------------------->
+
+ </td>
+ </tr>
+<!--   table de "980" ----------------------------------------------->
+</table>
+
+</body>
+
+
+<!-- Mirrored from www.aulaclic.es/sql/t_2_3.htm by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 10 Jun 2011 06:49:09 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
+</html>

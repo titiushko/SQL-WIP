@@ -1,0 +1,404 @@
+
+<html>
+
+<!-- Mirrored from www.aulaclic.es/sql/t_8_1.htm by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 10 Jun 2011 06:49:01 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name="keywords" content="SQL Base datos access access2000 tutorial manual gratis office enseñanza educacion ddl dcl dml">
+<LINK REL=STYLESHEET TYPE="text/css" HREF="estilo_sinf_osc.css" TITLE="estilo_sinf_osc">
+<title>Tema  8  Definici&oacute;n de Datos</title>
+<SCRIPT language=JavaScript>
+<!--
+var previous = "t_7_2.htm";
+var next = "t_8_2.htm";
+//-->
+</SCRIPT>
+</head><body>
+<script type='text/javascript' src='../js/sqlmenu_osc.js'></script> 
+<script type='text/javascript' src='../js/menu8_com.js'></script> 
+
+<table width="900" border="0">
+  <tr>
+    <td width="144"><a href="http://www.aulaclic.es/index.html"><img src="comunes/logo_ac1_50.gif" alt="P&aacute;gina inicial"  border="0" longdesc="P%e1gina%20inicial.html"></a></td>
+    <td width="505">&nbsp;</td>
+	    <td width="234">
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 234;
+google_ad_height = 60;
+google_ad_format = "234x60_as";
+google_ad_type = "text_image";
+google_ad_channel ="";
+google_color_border = "FAF1E3";
+google_color_bg = "FAF1E3";
+google_color_link = "663300";
+google_color_text = "000000";
+google_color_url = "CC0000";
+//--></script>
+<script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+
+</script>
+    </td>
+        </tr>
+</table>
+
+<br />
+
+
+<!--   table de "980" ----------------------------------------------->
+
+<table  border="0"> 
+  <tr> 
+<td >  </td>
+<td  > </td>
+  </tr>
+  <tr> 
+<td > 
+<!--   td width="770" ------------------ texto pagina ------------------------------>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR>
+    <TD><p class=tit-1 > <font color="#800000"><B>Tema 8. El DDL, lenguaje de definici&oacute;n 
+        de datos </B> (I) </font></p></TD>
+    <td><!-- Search Google -->
+        <center>
+          <form method="get" action="http://www.google.es/custom" target="google_window">
+            <table bgcolor="#ffffff">
+              <tr>
+                <td nowrap="nowrap" valign="top" align="left" height="32"><a href="http://www.google.com/"> <img src="../../www.google.com/logos/Logo_25wht.gif" border="0" alt="Google" align="middle"></a>
+                    <input type="text" name="q" size="20" maxlength="255" value="">
+                    <input type="submit" name="sa" value="B&uacute;squeda">
+                    <input type="hidden" name="client" value="pub-1875034419890743">
+                    <input type="hidden" name="forid" value="1">
+                    <input type="hidden" name="ie" value="ISO-8859-1">
+                    <input type="hidden" name="oe" value="ISO-8859-1">
+                    <input type="hidden" name="cof" value="GALT:#008000;GL:1;DIV:#336699;VLC:663399;AH:center;BGC:FFF6EC;LBGC:FFF6EC;ALC:000000;LC:000000;T:0000FF;GFNT:0000FF;GIMP:0000FF;LH:50;LW:141;L:http://www.aulaclic.es/logo_ac1_50.jpg;S:http://www.aulaclic.es/;FORID:1;">
+                    <input type="hidden" name="hl" value="es">
+                </td>
+              </tr>
+            </table>
+          </form>
+        </center>
+      <!-- Search Google -->
+    </td>
+  </TR>
+</TABLE>
+<BR>
+<TABLE width="65%" border="0">
+  <TR> 
+    <TD width="50%"> 
+      <P class=tit-2 > <FONT color="#800000"><B> Introducci&oacute;n</B> </FONT></P>
+    </TD>
+  </TR>
+</TABLE>
+<BR>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD class="Normal"> 
+      <P class=padding-1> Hasta ahora hemos estudiado las sentencias que forman 
+        parte del DML (Data Management Language) lenguaje de manipulaci&oacute;n 
+        de datos, todas esas sentencias sirven para recuperar, insertar, borrar, 
+        modificar los datos almacenados en la base de datos; lo que veremos en 
+        este tema son las sentencias que afectan a la estructura de los datos.</P>
+      <P class=padding-1> El <b><font color="#000080">DDL</font></b> (<b><font color="#000080">D</font></b>ata 
+        <b> <font color="#000080">D</font></b>efinition <b><font color="#000080">L</font></b>anguage) 
+        <b> <font color="#000080">lenguaje de definici&oacute;n de datos</font></b> 
+        es la parte del SQL que <b><font color="#000080">m&aacute;s var&iacute;a 
+        de un sistema a otro</font></b> ya que esa area tiene que ver con c&oacute;mo 
+        se organizan internamente los datos y eso, cada sistema lo hace de una 
+        manera u otra.</P>
+      <P class=padding-1> As&iacute; como el DML de Microsoft Jet incluye todas 
+        las sentencias DML que nos podemos encontrar en otros SQLs (o casi todas), 
+        el DDL de Microsoft Jet en cambio contiene menos instrucciones que otros 
+        sistemas. </P>
+      <P class=padding-1>&nbsp;</P>
+    </TD>
+  </TR>
+</TABLE>
+<table width="65%" border="0">
+  <tr> 
+    <td width="50%"> 
+      <p class=tit-2 > <font color="#800000"><b> <a name="create"></a>CREATE TABLE</b></font></p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr>
+  	<td>
+      <P class=padding-1>La sentencia <b><font color="#008000">CREATE TABLE </font></b>sirve 
+        para <b><font color="#000080">crear la estructura de una tabla </font></b>no 
+        para rellenarla con datos, nos permite <b><font color="#000080">definir 
+        las columnas</font></b> que tiene <b><font color="#000080">y ciertas restricciones</font></b> 
+        que deben cumplir esas columnas.</P>
+      <P class=padding-1><a name="a1"></a>La <b><font color="#000080">sintaxis</font></b> 
+        es la siguiente:</P>
+      </td>
+    <td height="21">&nbsp;</td>
+  </tr>
+	<tr>
+    <td> 
+      <P class=padding-1><img src="graficos/create_table.gif" width="474" height="50"></p>
+    </td></tr>
+ </table>
+<table width="100%" border="0">
+  <tr>
+    <td>
+      <P class=padding-1>&nbsp;</p>
+      <P class=padding-1>nbtabla: <b>n</b>om<b>b</b>re de la <b>tab</b>la que 
+        estamos definiendo</p>
+      <P class=padding-1>nbcol: <b>n</b>om<b>b</b>re de la <b>col</b>umna que 
+        estamos definiendo</p>
+      <P class=padding-1>tipo: <b><font color="#000080">tipo de dato</font></b> 
+        de la columna, todos los datos almacenados en la columna deber&aacute;n 
+        ser de ese tipo. Para ver qu&eacute; tipos de datos se pueden emplear 
+        haz clic aqu&iacute; <a href="a_8_1_1.htm"><img src="comunes/ico_mas.gif" width="26" height="20" border="0"></a></p>
+      <P class=padding-1>Una <b><font color="#000080">restricci&oacute;n</font></b> 
+        consiste en la definici&oacute;n de una <b><font color="#000080">caracter&iacute;stica 
+        adicional que tiene una columna </font></b>o una combinaci&oacute;n de 
+        columnas, suelen ser caracter&iacute;sticas como valores no nulos (campo 
+        requerido), definici&oacute;n de &iacute;ndice sin duplicados, definici&oacute;n 
+        de clave principal y definici&oacute;n de clave for&aacute;nea (clave 
+        ajena o externa, campo que sirve para relacionar dos tablas entre s&iacute;). 
+      </p>
+      <P class=padding-1>restricci&oacute;n1: una <b><font color="#000080">restricci&oacute;n 
+        de tipo 1 </font></b>es una restricci&oacute;n que aparece <b><font color="#000080">dentro 
+        de la definici&oacute;n de la columna</font></b> despu&eacute;s del tipo 
+        de dato y <b><font color="#000080">afecta</font></b> a <b><font color="#000080">una 
+        columna</font></b>, la que se est&aacute; definiendo.</p>
+      <P class=padding-1>restricci&oacute;n2: una <b><font color="#000080">restricci&oacute;n 
+        de tipo 2 </font></b>es una restricci&oacute;n que se define<b><font color="#000080"> 
+        despu&eacute;s de definir todas las columnas </font></b>de la tabla y 
+        <b> <font color="#000080">afecta</font></b> a <b><font color="#000080">una</font></b> 
+        columna <b><font color="#000080">o</font></b> a una <b><font color="#000080">combinaci&oacute;n 
+        de columnas.</font></b></p>
+      <P class=padding-1>Para escribir una sentencia <b><font color="#008000">CREATE 
+        TABLE</font></b> se empieza por indicar el<b><font color="#000080"> nombre 
+        de la tabla</font></b> que queremos crear y a continuaci&oacute;n <b><font color="#000080">entre 
+        par&eacute;ntesis</font></b> indicamos <b><font color="#000080">separadas 
+        por comas las definiciones de cada columna</font></b> de la tabla, la 
+        definici&oacute;n de una columna <b><font color="#000080">consta de</font></b> 
+        su <b><font color="#000080">nombre, el tipo de dato</font></b> que tiene 
+        <b> <font color="#000080">y </font></b>podemos a&ntilde;adir <b><font color="#000080">si 
+        queremos una serie de especificaciones</font></b> que deber&aacute;n cumplir 
+        los datos almacenados en la columna,<b><font color="#000080"> despu&eacute;s</font></b> 
+        de definir cada una de las columnas que compone la tabla <b><font color="#000080">se 
+        pueden a&ntilde;adir</font></b> una serie de <b><font color="#000080">restricciones</font></b>, 
+        esas restricciones son las mismas que se pueden indicar para cada columna 
+        pero ahora <b><font color="#000080">pueden afectar a m&aacute;s de una 
+        columna</font></b> por eso tienen una sintaxis ligeramente diferente.</p>
+      </td>
+  </tr>
+  <tr>
+    <td> 
+      <p class=padding-1><img src="comunes/orangeBall.gif" width="14" height="14"> 
+        Una <b><font color="#000080">restricci&oacute;n de tipo 1</font></b> se 
+        utiliza para indicar una caracter&iacute;stica de la columna que estamos 
+        definiendo, tiene la siguiente sintaxis:</p>
+      <p class=padding-1><img src="graficos/restriccion1.gif" width="488" height="189"></p>
+      </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr>
+    <td>
+      <p class=padding-1>La cl&aacute;usula <b><font color="#008000">NOT NULL</font></b> 
+        indica que <b><font color="#000080">la columna no podr&aacute; contener 
+        un valor nulo</font></b>, es decir que se deber&aacute; rellenar obligatoriamente 
+        y con un valor v&aacute;lido (equivale a la propiedad requerido S&iacute; 
+        de las propiedades del campo).</p>
+      <p class=padding-1>La cl&aacute;usula <b><font color="#008000">CONSTRAINT</font></b> 
+        sirve para definir una <b><font color="#000080">restricci&oacute;n</font></b> 
+        que se podr&aacute; eliminar cuando queramos sin tener que borrar la columna. 
+        A cada restricci&oacute;n se le asigna un nombre que se utiliza para identificarla 
+        y para poder eliminarla cuando se quiera.</p>
+      <p class=padding-1>Como restricciones tenemos la de clave primaria (clave 
+        principal), la de &iacute;ndice &uacute;nico (sin duplicados), la de valor 
+        no nulo, y la de clave for&aacute;nea.</p>
+      <p class=padding-1>La cl&aacute;usula<b><font color="#008000"> PRIMARY KEY</font><font color="#000080"> 
+        </font></b>se utiliza para definir la columna como <b><font color="#000080">clave 
+        principal de la tabla</font></b>. Esto supone que <b><font color="#000080">la 
+        columna no puede contener valores nulos ni pueden haber valores duplicados</font></b> 
+        en esa columna, es decir que dos filas no pueden tener el mismo valor 
+        en esa columna.</p>
+      <p class=padding-1>En una tabla <b><font color="#000080">no pueden haber 
+        varias claves principales</font></b>, por lo que no podemos incluir la 
+        cl&aacute;usula <b><font color="#008000">PRIMARY KEY</font></b> m&aacute;s 
+        de una vez, en caso contrario la sentencia da un error. No hay que confundir 
+        la definici&oacute;n de varias claves principales con la definici&oacute;n 
+        de una clave principal compuesta por varias columnas, esto &uacute;ltimo 
+        s&iacute; est&aacute; permitido y se define con una restricci&oacute;n 
+        de tipo 2.</p>
+      <p class=padding-1>La cl&aacute;usula <b><font color="#008000">UNIQUE</font></b> 
+        sirve para definir un <font color="#000080"><b>&iacute;ndice &uacute;nico 
+        </b></font>sobre la columna. Un &iacute;ndice &uacute;nico es un &iacute;ndice 
+        que <b><font color="#000080">no permite valores duplicados</font></b>, 
+        es decir que si una columna tiene definida un restricci&oacute;n de <b><font color="#008000">UNIQUE</font></b> 
+        no podr&aacute;n haber dos filas con el mismo valor en esa columna. Se 
+        suele emplear para que el sistema compruebe el mismo que no se a&ntilde;aden 
+        valores que ya existen, por ejemplo si en una tabla de clientes queremos 
+        asegurarnos que dos clientes no puedan tener el mismo D.N.I. y la tabla 
+        tiene como clave principal un c&oacute;digo de cliente, definiremos la 
+        columna dni con la restricci&oacute;n de <b><font color="#008000">UNIQUE</font></b>.</p>
+      <p class=padding-1>La cl&aacute;usula <b><font color="#008000">NOT NULL</font></b> 
+        indica que la columna no puede contener valores nulos, cuando queremos 
+        indicar que una columna no puede contener el valor nulo lo podemos hacer 
+        sin poner la cl&aacute;usula <b><font color="#008000">CONSTRAINT</font></b>, 
+        o utilizando una cl&aacute;usula <b><font color="#008000">CONSTRAINT</font></b>.</p>
+      <p class=padding-1><a name="b1"></a>La &uacute;ltima restricci&oacute;n 
+        que podemos definir sobre una columna es la de clave for&aacute;nea, una 
+        <b><font color="#000080">clave for&aacute;nea es una columna</font></b> 
+        o conjunto de columnas <b><font color="#000080">que contiene un valor 
+        que hace referencia a una fila de otra tabla</font></b>, en una restricci&oacute;n 
+        de tipo 1 se puede definir con la cl&aacute;usula <b><font color="#008000">REFERENCES</font></b>, 
+        despu&eacute;s de la palabra reservada indicamos a qu&eacute; tabla hace 
+        referencia, opcionalmente podemos indicar entre par&eacute;ntesis el nombre 
+        de la columna donde tiene que buscar el valor de referencia, por defecto 
+        coge la clave principal de la tabla2, si el valor que tiene que buscar 
+        se encuentra en otra columna de tabla2, entonces debemos inidicar el nombre 
+        de esta columna entre par&eacute;ntesis, adem&aacute;s s&oacute;lo podemos 
+        utilizar una columna que est&eacute; definida con una restricci&oacute;n 
+        de <b><font color="#008000">UNIQUE</font></b>, si la columna2 que indicamos 
+        no est&aacute; definida sin duplicados, la sentencia <b><font color="#008000">CREATE</font></b> 
+        nos dar&aacute; un error. Si quieres repasar conceptos de clave for&aacute;nea 
+        e integridad referencial haz clic aqu&iacute; <a href="b_8_1_1.htm"><img src="comunes/ico_menos.gif" width="26" height="20" border="0"></a></p>
+      <p class=padding-1>Para seguir con la instrucci&oacute;n <b><font color="#008000">CREATE 
+        TABLE</font></b> pasa a la siguiente p&aacute;gina...</p>
+      </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <p class=padding-1>Ejemplo:</p>
+      <p class=padding-sin><font color="#008000"><b>CREATE TABLE tab1 (<br>
+        col1 INTEGER CONSTRAINT pk PRIMARY KEY,<br>
+        col2 CHAR(25) NOT NULL,<br>
+        col3 CHAR(10) CONSTRAINT uni1 UNIQUE,<br>
+        col4 INTEGER,<br>
+        col5 INT CONSTRAINT fk5 REFERENCES tab2</b></font><font color="#008000"><b> 
+        );</b></font></p>
+      <p class=padding-1>Con este ejemplo estamos creando la tabla<i> tab1</i> 
+        compuesta por: una columna llamada <i>col1</i> de tipo entero definida 
+        como clave principal, una columna <i>col2</i> que puede almacenar hasta 
+        25 caracteres alfanum&eacute;ricos y no puede contener valores nulos, 
+        una columna <i>col3</i> de hasta 10 caracteres que no podr&aacute; contener 
+        valores repetidos, una columna <i>col4</i> de tipo entero sin ninguna 
+        restricci&oacute;n, y una columna <i>col5</i> de tipo entero clave for&aacute;nea 
+        que hace referencia a valores de la clave principal de la tabla <i>tab2</i>.</p>
+      </td>
+  </tr>
+</table>
+<BR>
+<TABLE width="100%" border="0">
+  <TR> 
+    <TD width="37%">&nbsp;</TD>
+     
+    <TD width="6%"><A href="t_7_2.htm"><IMG name="image8" src="comunes/flecha_re.gif" width="22" height="22" border="0"></A></TD>
+     
+    <TD width="6%"><A href="index.htm"><IMG name="image8" src="comunes/flecha_home.gif" width="22" height="22" border="0"></A></TD>
+		
+    <TD width="6%"><A href="t_8_2.htm"><IMG name="image2" src="comunes/flecha_av.gif" width="22" height="22" border="0"></A></TD>
+    <TD width="45%"> 
+      <DIV align="right">Pag.8.1</DIV>
+    </TD>
+  </TR>
+</TABLE>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <div align="center"><font size="-1">Aviso legal: este curso es gratuito 
+        siempre que se visualice desde la p&aacute;gina web de aulaClic. No est&aacute; 
+        permitido descargar el curso ni utilizarlo en academias o centros de ense&ntilde;anza 
+        privados sin estar conectado a Internet. </font></div>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <div align="center"><font size="-1">© aulaClic. Todos los derechos reservados. 
+ <a href="http://www.teacherclick.com/" style="text-decoration: none; color: black;" target="_blank">Free Computer tutorials</a> . 
+        Prohibida la reproducci&oacute;n por cualquier medio.<br>
+        </font><font size="2">Julio-2001.aulaClic.com</font></div>
+    </td>
+  </tr>
+</table>
+<p style='text-align:justify'>&nbsp;</p>
+<!--  fin td width="770" --------------- fin texto pagina -------------------------------->
+
+    </td>
+    <td  valign="top">
+	<!--   td width="160" -------------- anuncios lateral derecho ---------------------------------->
+<table  border="0">
+
+  <tr> 
+    <td valign="bottom" height="700"> 
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 160;
+google_ad_height = 600;
+google_ad_format = "160x600_as";
+google_ad_type = "text_image";
+google_ad_channel ="2175968397";
+google_color_border = "FFF6EC";
+google_color_bg = "FFF6EC";
+google_color_link = "663300";
+google_color_text = "000000";
+google_color_url = "CC0000";
+//--></script>
+<script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>
+    </td>
+	
+  </tr>
+  
+  <tr> 
+    <td height="150">
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 125;
+google_ad_height = 125;
+google_ad_format = "125x125_as_rimg";
+google_cpa_choice = "CAAQmImJlAIaCN5uB6wtFhbmKNyMs4MB";
+google_ad_channel = "6146562423";
+//--></script>
+<script type="text/javascript" src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>
+    </td>
+  </tr>
+
+  <tr> 
+    <td height="150">
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 160;
+google_ad_height = 90;
+google_ad_format = "160x90_0ads_al";
+google_ad_channel ="2175968397";
+google_color_border = "FAF1E3";
+google_color_bg = "FAF1E3";
+google_color_link = "663300";
+google_color_text = "000000";
+google_color_url = "CC0000";
+//--></script>
+<script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>    </td>
+  </tr>
+</table>
+
+	<!--   td width="160" ----------- fin anuncios lateral derecho -------------------------------------->
+
+ </td>
+ </tr>
+<!--   table de "980" ----------------------------------------------->
+</table>
+
+</body>
+
+
+<!-- Mirrored from www.aulaclic.es/sql/t_8_1.htm by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 10 Jun 2011 06:49:02 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
+</html>

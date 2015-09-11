@@ -1,0 +1,565 @@
+
+<html>
+
+<!-- Mirrored from www.aulaclic.es/sql/t_5_2.htm by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 10 Jun 2011 06:49:19 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name="keywords" content="SQL Base datos access access2000 tutorial manual gratis office enseñanza educacion ddl dcl dml">
+<LINK REL=STYLESHEET TYPE="text/css" HREF="estilo_sinf_osc.css" TITLE="estilo_sinf_osc">
+<title>Tema 5 Las subconsultas</title>
+<SCRIPT language=JavaScript>
+<!--
+var previous = "t_5_1.htm";
+var next = "t_6_1.htm";
+//-->
+</SCRIPT>
+</head><body><script type='text/javascript' src='../js/sqlmenu_osc.js'></script> 
+<script type='text/javascript' src='../js/menu8_com.js'></script> 
+
+<table width="900" border="0">
+  <tr>
+    <td width="144"><a href="http://www.aulaclic.es/index.html"><img src="comunes/logo_ac1_50.gif" alt="P&aacute;gina inicial"  border="0" longdesc="P%e1gina%20inicial.html"></a></td>
+    <td width="505">&nbsp;</td>
+	    <td width="234">
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 234;
+google_ad_height = 60;
+google_ad_format = "234x60_as";
+google_ad_type = "text_image";
+google_ad_channel ="";
+google_color_border = "FAF1E3";
+google_color_bg = "FAF1E3";
+google_color_link = "663300";
+google_color_text = "000000";
+google_color_url = "CC0000";
+//--></script>
+<script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+
+</script>
+    </td>
+        </tr>
+</table>
+
+<br />
+
+
+<!--   table de "980" ----------------------------------------------->
+
+<table  border="0"> 
+  <tr> 
+<td >  </td>
+<td  > </td>
+  </tr>
+  <tr> 
+<td > 
+<!--   td width="770" ------------------ texto pagina ------------------------------>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR>
+    <TD><p class=tit-1 > <font color="#800000"><B>Tema 5. Las subconsultas </B> (II) </font></p></TD>
+    <td><!-- Search Google -->
+        <center>
+          <form method="get" action="http://www.google.es/custom" target="google_window">
+            <table bgcolor="#ffffff">
+              <tr>
+                <td nowrap="nowrap" valign="top" align="left" height="32"><a href="http://www.google.com/"> <img src="../../www.google.com/logos/Logo_25wht.gif" border="0" alt="Google" align="middle"></a>
+                    <input type="text" name="q" size="20" maxlength="255" value="">
+                    <input type="submit" name="sa" value="B&uacute;squeda">
+                    <input type="hidden" name="client" value="pub-1875034419890743">
+                    <input type="hidden" name="forid" value="1">
+                    <input type="hidden" name="ie" value="ISO-8859-1">
+                    <input type="hidden" name="oe" value="ISO-8859-1">
+                    <input type="hidden" name="cof" value="GALT:#008000;GL:1;DIV:#336699;VLC:663399;AH:center;BGC:FFF6EC;LBGC:FFF6EC;ALC:000000;LC:000000;T:0000FF;GFNT:0000FF;GIMP:0000FF;LH:50;LW:141;L:http://www.aulaclic.es/logo_ac1_50.jpg;S:http://www.aulaclic.es/;FORID:1;">
+                    <input type="hidden" name="hl" value="es">
+                </td>
+              </tr>
+            </table>
+          </form>
+        </center>
+      <!-- Search Google -->
+    </td>
+  </TR>
+</TABLE>
+<br>
+<table width="65%" border="0">
+  <tr> 
+    <td width="50%"> 
+      <p class=tit-2 > <font color="#800000"><b><a name="seleccion"></a>Condiciones 
+        de selecci&oacute;n con subconsultas</b></font></p>
+    </td>
+  </tr>
+</table>
+<table width="100%">
+  <tr> 
+    <td class="Normal" width="33%"> 
+      <p>&nbsp;</p>
+      <p class=padding-1>Las <b><font color="#000080">condiciones de selecci&oacute;n</font></b> 
+        son las condiciones que pueden aparecer en la cl&aacute;usula <b><font color="#000080">WHERE</font></b> 
+        o <b><font color="#000080">HAVING</font></b>. La mayor&iacute;a se han 
+        visto en el tema 2 pero ahora incluiremos las condiciones que utilizan 
+        una subconsulta como operando.</p>
+      <p class=padding-sin>En SQL tenemos cuatro nuevas condiciones:<br>
+        <br>
+        el <b><font color="#000080">test de comparación con subconsulta</font></b><br>
+        el <b><font color="#000080">test de comparaci&oacute;n cuantificada</font></b><br>
+        el <b><font color="#000080">test de pertenencia a un conjunto</font></b><br>
+        el <b><font color="#000080">test de existencia</font></b><br>
+        <br>
+        En todos los tests estudiados a continuaci&oacute;n <i>expresion</i> puede 
+        ser cualquier nombre de columna de la consulta principal o una expresi&oacute;n 
+        v&aacute;lida como ya vimos en el tema 2.</p>
+      </td>
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="0">
+  <tr> 
+    <td  > 
+      <p class=padding-1><img src="comunes/orangeBall.gif" width="14" height="14"> 
+        El <b><font color="#000080">test de comparación con subconsulta</font></b>. 
+      </p>
+      <p class=padding-1>Es el <b><font color="#000080">equivalente al test de 
+        comparaci&oacute;n simple</font></b>. Se utiliza para comparar un valor 
+        de la fila que se est&aacute; examinado con un &uacute;nico valor producido 
+        por la subconsulta. La subconsulta debe devolver una <font color="#000080"><b>&uacute;nica 
+        columna</b></font>, sino se produce un error.<br>
+        Si la subconsulta no produce <b><font color="#000080">ninguna fila</font></b> 
+        o devuelve el valor <b><font color="#000080">nulo</font></b>, el test 
+        devuelve el <b><font color="#000080">valor nulo</font></b>, si la subconsulta 
+        produce <b><font color="#000080">varias filas</font></b>, SQL devuelve 
+        una <b><font color="#000080">condici&oacute;n de error</font></b>.<br>
+        <br>
+        La sintaxis es la siguiente: <br>
+      </p>
+   </td>
+  </tr>
+  </table>
+<table width="100%" border="0" cellpadding="0">
+  
+  <tr> 
+    <td width="45%"> <img src="graficos/comparacion_subconsulta.gif" width="292" height="97"><br>
+    </td >
+    <td width="55%"> 
+      <p>&nbsp;</p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="0">
+  <tr> 
+    <td width="43%"> 
+      <p class=padding-sin><font color="#008000"><b>SELECT oficina, ciudad<br>
+        FROM oficinas<br>
+        WHERE objetivo &gt; (SELECT SUM(ventas) FROM empleados WHERE empleados.oficina 
+        = oficinas.oficina)<br>
+        <br>
+        </b></font><br>
+      </p>
+    </td>
+    <td width="57%" valign="top"> 
+      <p class=padding-sin >Lista las oficinas cuyo objetivo sea superior a la 
+        suma de las ventas de sus empleados.<br>
+        En este caso la subconsulta devuelve una &uacute;nica columna y una &uacute;nica 
+        fila (es un consulta de resumen sin <b><font color="#008000">GROUP BY</font></b>)</p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="0">
+  <tr> 
+    <td  > 
+      <p class=padding-1><img src="comunes/orangeBall.gif" width="14" height="14"> 
+        El <b><font color="#000080">test de comparación cuantificada</font></b>. 
+      </p>
+      <p class=padding-1>Este test es una extensi&oacute;n del test de comparaci&oacute;n 
+        y del test de conjunto. <b><font color="#000080">Compara el valor</font></b> 
+        de la expresi&oacute;n <b><font color="#000080">con cada uno de los valores</font></b> 
+        producidos por la subconsulta. La subconsulta debe devolver una <font color="#000080"><b>&uacute;nica 
+        columna</b></font> sino se produce un error.<br>
+        Tenemos el test <b><font color="#008000">ANY</font></b> (<i>alg&uacute;n</i>,<i> 
+        alguno</i> en ingl&eacute;s) y el test <b><font color="#008000">ALL</font></b> 
+        (<i>todos</i> en ingl&eacute;s).<br>
+        <br>
+        La sintaxis es la siguiente: <br>
+      </p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="0">
+  <tr> 
+    <td width="45%"> <img src="graficos/comparacion_cuantificada.gif" width="358" height="98"><br>
+    </td >
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="0">
+  <tr> 
+    <td  > 
+      <p class=padding-1><img src="comunes/orangeBall.gif" width="14" height="14"> 
+        El <b><font color="#000080">test ANY</font></b>. </p>
+      <p class=padding-1>La subconsulta debe devolver una &uacute;nica columna 
+        sino se produce un error.<br>
+        Se eval&uacute;a la comparaci&oacute;n con cada valor devuelto por la 
+        subconsulta. <br>
+        Si <b><font color="#000080">alguna de las comparaciones individuales produce 
+        el resultado verdadero, el test ANY devuelve el resultado verdadero</font></b>.<br>
+        Si la subconsulta no devuelve <b><font color="#000080">ning&uacute;n valor</font></b>, 
+        el test <b><font color="#008000">ANY</font></b> devuelve <b><font color="#000080">falso</font></b>.<br>
+        Si el test de comparaci&oacute;n es <b><font color="#000080">falso</font></b> 
+        para <b><font color="#000080">todos los valores</font></b> de la columna, 
+        <b><font color="#008000">ANY</font></b> devuelve <b><font color="#000080">falso</font></b>.<br>
+        Si el test de comparaci&oacute;n <b><font color="#000080">no es verdadero</font></b> 
+        para ning&uacute;n valor de la columna, <b><font color="#000080">y es 
+        nulo</font></b> para al menos alguno de los valores, <b><font color="#008000">ANY</font></b> 
+        devuelve <b><font color="#000080">nulo</font></b>.<br>
+        <br>
+      </p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="0">
+  <tr> 
+    <td width="43%"> 
+      <p class=padding-sin><font color="#008000"><b>SELECT oficina, ciudad<br>
+        FROM oficinas<br>
+        WHERE objetivo &gt; ANY (SELECT SUM(cuota) FROM empleados GROUP BY oficina)<br>
+        <br>
+        </b></font><br>
+      </p>
+    </td>
+    <td width="57%" valign="top"> 
+      <p class=padding-sin >En este caso la subconsulta devuelve una &uacute;nica 
+        columna con las sumas de las cuotas de los empleados de cada oficina. 
+        <br>
+        Lista las oficinas cuyo objetivo sea superior a alguna de las sumas obtenidas. 
+      </p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="0">
+  <tr> 
+    <td  > 
+      <p class=padding-1><img src="comunes/orangeBall.gif" width="14" height="14"> 
+        El <b><font color="#000080">test ALL</font></b>. </p>
+      <p class=padding-1>La subconsulta debe devolver una &uacute;nica columna 
+        sino se produce un error.<br>
+        Se eval&uacute;a la comparaci&oacute;n con cada valor devuelto por la 
+        subconsulta.<br>
+        <b><font color="#000080">Si todas</font></b> las comparaciones individuales, 
+        producen un resultado <b><font color="#000080">verdadero</font></b>, el 
+        test devuelve el valor <b><font color="#000080">verdadero</font></b>.<br>
+        Si la subconsulta no devuelve <b><font color="#000080">ning&uacute;n valor</font></b> 
+        el test <b><font color="#008000">ALL</font></b> devuelve el valor <b><font color="#000080">verdadero</font></b>. 
+        (&iexcl;Ojo con esto!)<br>
+        Si el test de comparaci&oacute;n es <b><font color="#000080">falso</font></b> 
+        para alg&uacute;n valor de la columna, el resultado es <b><font color="#000080">falso</font></b>.<br>
+        Si el test de comparaci&oacute;n <b><font color="#000080">no es falso</font></b> 
+        para ning&uacute;n valor de la columna, pero es <b><font color="#000080">nulo</font></b> 
+        para alguno de esos valores, el test <b><font color="#008000">ALL</font></b> 
+        devuelve valor <b><font color="#000080">nulo.</font></b><br>
+        <br>
+        <br>
+      </p>
+      </td>
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="0">
+  <tr> 
+    <td width="43%"> 
+      <p class=padding-sin><font color="#008000"><b>SELECT oficina, ciudad<br>
+        FROM oficinas<br>
+        WHERE objetivo &gt; ALL (SELECT SUM(cuota) FROM empleados GROUP BY oficina)<br>
+        <br>
+        </b></font><br>
+      </p>
+    </td>
+    <td width="57%" valign="top"> 
+      <p class=padding-sin >En este caso se listan las oficinas cuyo objetivo 
+        sea superior a todas las sumas.</p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="0">
+  <tr> 
+    <td > 
+      <p class=padding-1><img src="comunes/orangeBall.gif" width="14" height="14"><font color="#000080"><b> 
+        Test</b></font> de <b><font color="#000080">pertenencia a conjunto</font></b> 
+        (<b><font color="#000080">IN</font></b>).</p>
+      <p class=padding-1>Examina si el <b><font color="#000080">valor</font></b> 
+        de la expresión es uno de los valores <b><font color="#000080">incluidos</font></b> 
+        <b><font color="#000080">en</font></b> la <b><font color="#000080">lista</font></b> 
+        <b><font color="#000080">de valores producida por la subconsulta</font></b>.<br>
+        La subconsulta debe generar una &uacute;nica columna y las filas que sean. 
+        <br>
+        Si la subconsulta no produce ninguna fila, el test da falso.<br>
+        Tiene la siguiente sintaxis:<br>
+        <br>
+      </p>
+      <p class=padding-1>&nbsp;</p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="0">
+  <tr> 
+    <td > <img src="graficos/in_subconsulta.gif" width="214" height="16"><br>
+    </td >
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="0">
+  <tr> 
+    <td width="44%" valign="top"> 
+      <p class=padding-sin><font color="#008000"><b>SELECT numemp, nombre, oficina<br>
+        FROM empleados<br>
+        WHERE oficina IN (SELECT oficina FROM oficinas WHERE region = 'este')</b></font><br>
+        <br>
+      </p>
+    </td>
+    <td width="56%" valign="top"> 
+      <p class=padding-sin> Con la subconsulta se obtiene la lista de los n&uacute;meros 
+        de oficina del <i>este</i> y la consulta principal obtiene los empleados 
+        cuyo n&uacute;mero de oficina sea uno de los n&uacute;meros de oficina 
+        del <i>este</i>.<br>
+        Por lo tanto lista los empleados de las oficinas del <i>este</i>.</p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="0">
+  <tr> 
+    <td  > 
+      <p class=padding-1><img src="comunes/orangeBall.gif" width="14" height="14"> 
+        El <b><font color="#000080">test de existencia EXISTS</font></b>. </p>
+      <p class=padding-1>Examina si la subconsulta produce alguna fila de resultados. 
+        <br>
+        <b><font color="#000080">Si la subconsulta contiene filas</font></b>, 
+        el test adopta el valor <b><font color="#000080">verdadero</font></b>, 
+        si la subconsulta no contiene ninguna fila, el test toma el valor falso, 
+        nunca puede tomar el valor nulo.<br>
+        Con este test la subconsulta <b><font color="#000080">puede tener varias 
+        columnas</font></b>, no importa ya que el test se fija no en los valores 
+        devueltos sino en si hay o no fila en la tabla resultado de la subconsulta.<br>
+        Cuando se utiliza el test de existencia en la mayor&iacute;a de los casos 
+        habr&aacute; que utilizar una referencia externa. Si no se utiliza una 
+        referencia externa la subconsulta devuelta siempre ser&aacute; la misma 
+        para todas las filas de la consulta principal y en este caso se seleccionan 
+        todas las filas de la consulta principal (si la subconsulta genera filas) 
+        o ninguna (si la subconsulta no devuelve ninguna fila)</p>
+      <p></p>
+      <p class=padding-1>La sintaxis es la siguiente: <br>
+      </p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="0">
+  <tr> 
+    <td > <img src="graficos/existencia.gif" width="246" height="34"><br>
+    </td >
+    
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="0">
+  <tr> 
+    <td width="43%"> 
+      <p class=padding-sin><font color="#008000"><b>SELECT numemp, nombre, oficina<br>
+        FROM empleados<br>
+        WHERE EXISTS (SELECT * FROM oficinas WHERE region = 'este' AND empleados.oficina 
+        = oficinas.oficina)<br>
+        <br>
+        </b></font><br>
+      </p>
+    </td>
+    <td width="57%" valign="top"> 
+      <p class=padding-sin >Este ejemplo obtiene lo mismo que el ejemplo del test 
+        <b> <font color="#008000">IN</font></b>.<br>
+        Observa que delante de <b><font color="#008000">EXISTS</font></b> no va 
+        ning&uacute;n nombre de columna.<br>
+        En la subconsulta se pueden poner las columnas que queramos en la lista 
+        de selecci&oacute;n (hemos utilizado el *).<br>
+        Hemos a&ntilde;adido una condici&oacute;n adicional al <b><font color="#008000">WHERE</font></b>, 
+        la de la referencia externa para que la oficina que se compare sea la 
+        oficina del empleado. </p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="0">
+  <tr> 
+    <td >  
+      <p class=padding-sin >NOTA. Cuando se trabaja con tablas muy voluminosas 
+        el test <b><font color="#008000">EXISTS</font></b> suele dar mejor rendimiento 
+        que el test <b><font color="#008000">IN</font></b>.<br>
+      </P>
+    </td >
+  </tr>
+</table>
+<BR>
+<TABLE width="65%" border="0">
+  <TR> 
+    <TD width="50%"> 
+      <P class=tit-2 > <FONT color="#800000"><B> <a name="resumen"></a>Resumen 
+        del tema</B></FONT></P>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD class="Normal"> 
+      <P class=padding-1>&nbsp;</P>
+      </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD class="Normal"> 
+      <P class=padding-1><img src="comunes/orangeBall.gif" width="14" height="14"> 
+        Una subconsulta es una sentencia <b><font color="#008000">SELECT</font></b> 
+        que aparece en la lista de selecci&oacute;n, o en las cl&aacute;usulas 
+        <b> <font color="#008000">WHERE</font></b> o <b><font color="#008000">HAVING</font></b> 
+        de otra sentencia <b><font color="#008000">SELECT</font></b>.<br>
+      </P>
+      <P class=padding-1><img src="comunes/orangeBall.gif" width="14" height="14"> 
+        La subconsulta se ejecuta por cada fila de la consulta principal. </P>
+      <P class=padding-1><img src="comunes/orangeBall.gif" width="14" height="14"> 
+        Dentro de una consulta se puede utilizar una columna del origen de la 
+        consulta principal, una referencia externa.</P>
+      <P class=padding-1><img src="comunes/orangeBall.gif" width="14" height="14"> 
+        Aunque se puedan anidar subconsultas no es aconsejado m&aacute;s de un 
+        nivel de anidamiento.</P>
+      <P class=padding-1><img src="comunes/orangeBall.gif" width="14" height="14"> 
+        La subconsulta sufre una serie de restricciones seg&uacute;n el lugar 
+        donde se encuentre.</P>
+      <P class=padding-1><img src="comunes/orangeBall.gif" width="14" height="14"> 
+        Las condiciones asociadas a las subconsultas son las siguientes:<BR>
+      </P>
+      <P class=padding-1>el test de comparaci&oacute;n con subconsulta</P>
+      <P class=padding-1>el test <b><font color="#008000">ANY</font></b></P>
+      <P class=padding-1>el test <b><font color="#008000">ALL</font></b></P>
+      <P class=padding-1>el test <b><font color="#008000">IN</font></b></P>
+      <P class=padding-1>el test <b><font color="#008000">EXISTS</font></b></P>
+      </TD>
+  </TR>
+</TABLE>
+<table width="100%" border="0" cellpadding="0">
+  <tr> 
+    <td > 
+      <p class=padding-1><a name="ej1"></a><img src="comunes/redBall2-2.gif" width="14" height="14" ><a href="epr_5_1.htm">Ejercicios 
+        propuestos</a><br>
+      </p>
+    </td>
+    <td > 
+      <p class=padding-1><br>
+      </p>
+    </td>
+  </tr>
+</table>
+<BR>
+<br>
+<BR>
+<TABLE width="100%" border="0">
+  <TR> 
+    <TD width="37%">&nbsp;</TD>
+     
+    <TD width="6%"><A href="t_5_1.htm"><IMG name="image8" src="comunes/flecha_re.gif" width="22" height="22" border="0"></A></TD>
+     
+    <TD width="6%"><A href="index.htm"><IMG name="image8" src="comunes/flecha_home.gif" width="22" height="22" border="0"></A></TD>
+		
+    <TD width="6%"><a href="t_6_1.htm"><img name="image2" src="comunes/flecha_av.gif" width="22" height="22" border="0"></a></TD>
+    <TD width="45%"> 
+      <DIV align="right">Pag. 5.2</DIV>
+    </TD>
+  </TR>
+</TABLE>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <div align="center"><font size="-1">Aviso legal: este curso es gratuito 
+        siempre que se visualice desde la p&aacute;gina web de aulaClic. No est&aacute; 
+        permitido descargar el curso ni utilizarlo en academias o centros de ense&ntilde;anza 
+        privados sin estar conectado a Internet. </font></div>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <div align="center"><font size="-1">© aulaClic. Todos los derechos reservados. 
+ <a href="http://www.teacherclick.com/" style="text-decoration: none; color: black;" target="_blank">Free Computer tutorials</a> . 
+        Prohibida la reproducci&oacute;n por cualquier medio.<br>
+        </font><font size="2">Junio-2001.aulaClic.com</font></div>
+    </td>
+  </tr>
+</table>
+<p style='text-align:justify'>&nbsp;</p>
+<!--  fin td width="770" --------------- fin texto pagina -------------------------------->
+
+    </td>
+    <td  valign="top">
+	<!--   td width="160" -------------- anuncios lateral derecho ---------------------------------->
+<table  border="0">
+
+  <tr> 
+    <td valign="bottom" height="700"> 
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 160;
+google_ad_height = 600;
+google_ad_format = "160x600_as";
+google_ad_type = "text_image";
+google_ad_channel ="2175968397";
+google_color_border = "FFF6EC";
+google_color_bg = "FFF6EC";
+google_color_link = "663300";
+google_color_text = "000000";
+google_color_url = "CC0000";
+//--></script>
+<script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>
+    </td>
+	
+  </tr>
+  
+  <tr> 
+    <td height="150">
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 125;
+google_ad_height = 125;
+google_ad_format = "125x125_as_rimg";
+google_cpa_choice = "CAAQmImJlAIaCN5uB6wtFhbmKNyMs4MB";
+google_ad_channel = "6146562423";
+//--></script>
+<script type="text/javascript" src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>
+    </td>
+  </tr>
+
+  <tr> 
+    <td height="150">
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 160;
+google_ad_height = 90;
+google_ad_format = "160x90_0ads_al";
+google_ad_channel ="2175968397";
+google_color_border = "FAF1E3";
+google_color_bg = "FAF1E3";
+google_color_link = "663300";
+google_color_text = "000000";
+google_color_url = "CC0000";
+//--></script>
+<script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>    </td>
+  </tr>
+</table>
+
+	<!--   td width="160" ----------- fin anuncios lateral derecho -------------------------------------->
+
+ </td>
+ </tr>
+<!--   table de "980" ----------------------------------------------->
+</table>
+
+</body>
+
+
+<!-- Mirrored from www.aulaclic.es/sql/t_5_2.htm by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 10 Jun 2011 06:49:21 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
+</html>

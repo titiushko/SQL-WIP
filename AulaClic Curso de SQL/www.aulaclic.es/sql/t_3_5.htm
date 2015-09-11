@@ -1,0 +1,321 @@
+
+<html>
+
+<!-- Mirrored from www.aulaclic.es/sql/t_3_5.htm by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 10 Jun 2011 06:49:16 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name="keywords" content="SQL Base datos access access2000 tutorial manual gratis office enseñanza educacion ddl dcl dml">
+<LINK REL=STYLESHEET TYPE="text/css" HREF="estilo_sinf_osc.css" TITLE="estilo_sinf_osc">
+<title>Tema 3 Las consultas multitabla</title>
+<SCRIPT language=JavaScript>
+<!--
+var previous = "t_3_4.htm";
+var next = "t_4_1.htm";
+//-->
+</SCRIPT>
+</head><body>
+
+<script type='text/javascript' src='../js/sqlmenu_osc.js'></script> 
+<script type='text/javascript' src='../js/menu8_com.js'></script> 
+
+<table width="900" border="0">
+  <tr>
+    <td width="144"><a href="http://www.aulaclic.es/index.html"><img src="comunes/logo_ac1_50.gif" alt="P&aacute;gina inicial"  border="0" longdesc="P%e1gina%20inicial.html"></a></td>
+    <td width="505">&nbsp;</td>
+	    <td width="234">
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 234;
+google_ad_height = 60;
+google_ad_format = "234x60_as";
+google_ad_type = "text_image";
+google_ad_channel ="";
+google_color_border = "FAF1E3";
+google_color_bg = "FAF1E3";
+google_color_link = "663300";
+google_color_text = "000000";
+google_color_url = "CC0000";
+//--></script>
+<script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+
+</script>
+    </td>
+        </tr>
+</table>
+
+<br />
+<!--   table de "980" ----------------------------------------------->
+
+<table  border="0"> 
+  <tr> 
+<td >  </td>
+<td  > </td>
+  </tr>
+  <tr> 
+<td > 
+<!--   td width="770" ------------------ texto pagina ------------------------------>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR>
+    <TD><p class=tit-1 > <font color="#800000"><B>Tema 3. Las consultas multitabla </B> (V) </font></p></TD>
+    <td><!-- Search Google -->
+        <center>
+          <form method="get" action="http://www.google.es/custom" target="google_window">
+            <table bgcolor="#ffffff">
+              <tr>
+                <td nowrap="nowrap" valign="top" align="left" height="32"><a href="http://www.google.com/"> <img src="../../www.google.com/logos/Logo_25wht.gif" border="0" alt="Google" align="middle"></a>
+                    <input type="text" name="q" size="20" maxlength="255" value="">
+                    <input type="submit" name="sa" value="B&uacute;squeda">
+                    <input type="hidden" name="client" value="pub-1875034419890743">
+                    <input type="hidden" name="forid" value="1">
+                    <input type="hidden" name="ie" value="ISO-8859-1">
+                    <input type="hidden" name="oe" value="ISO-8859-1">
+                    <input type="hidden" name="cof" value="GALT:#008000;GL:1;DIV:#336699;VLC:663399;AH:center;BGC:FFF6EC;LBGC:FFF6EC;ALC:000000;LC:000000;T:0000FF;GFNT:0000FF;GIMP:0000FF;LH:50;LW:141;L:http://www.aulaclic.es/logo_ac1_50.jpg;S:http://www.aulaclic.es/;FORID:1;">
+                    <input type="hidden" name="hl" value="es">
+                </td>
+              </tr>
+            </table>
+          </form>
+        </center>
+      <!-- Search Google -->
+    </td>
+  </TR>
+</TABLE>
+<BR>
+<TABLE width="65%" border="0">
+  <TR> 
+    <TD width="50%"> 
+      <P class=tit-2 > <FONT color="#800000"><B> El LEFT JOIN y RIGHT JOIN</B></FONT></P></TD></TR>
+</TABLE><BR>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD class="Normal" height="104"> 
+      <P class=padding-1>El <B><FONT color="#000080">LEFT JOIN</FONT></B> y <B><FONT color="#000080">RIGHT 
+        JOIN</FONT></B> son otro tipo de composici&oacute;n de tablas, tambi&eacute;n 
+        denominada <B><FONT color="#000080">composici&oacute;n externa</FONT></B>. 
+        Son una extensi&oacute;n del <B><FONT size="-1" color="#008000">INNER 
+        JOIN</FONT></B>. </P><P class=padding-1>Las composiciones vistas hasta ahora (el <B><FONT color="#000080">producto 
+        cartesiano</FONT></B> y el <B><FONT color="#000080">INNER JOIN</FONT></B>) 
+        son <B><FONT color="#000080">composiciones internas</FONT></B> ya que 
+        todos los valores de las filas del resultado son valores que est&aacute;n 
+        en las tablas que se combinan.</P><P class=padding-1>Con una composici&oacute;n interna s&oacute;lo se obtienen 
+        las filas que tienen al menos una fila de la otra tabla que cumpla la 
+        condici&oacute;n, veamos un ejemplo:</P><P class=padding-1>Queremos combinar los empleados con las oficinas para 
+        saber la ciudad de la oficina donde trabaja cada empleado, si utilizamos 
+        un producto cartesiano tenemos:</P><P class=padding-sin><FONT color="#008000" size="-1"><B>SELECT empleados.*,ciudad<BR>
+        FROM empleados, oficinas<BR>
+        WHERE empleados.oficina = oficinas.oficina</B></FONT><BR>
+        <BR>
+        Observar que hemos cualificado el nombre de columna oficina ya que ese 
+        nombre aparece en las dos tablas de la FROM.</P><P class=padding-1>Con esta sentencia los <B><FONT color="#000080">empleados</FONT></B> 
+        que <B><FONT color="#000080">no tienen</FONT></B> una <B><FONT color="#000080">oficina</FONT></B> 
+        asignada (un valor nulo en el campo oficina de la tabla empleados) <B><FONT color="#000080">no 
+        aparecen en el resultado</FONT></B> ya que la condici&oacute;n <B><FONT size="-1" color="#008000">empleados.oficina 
+        = oficinas.oficina</FONT></B> ser&aacute; siempre nula para esos empleados.</P><P class=padding-1>Si utilizamos el <B><FONT size="-1" color="#008000">INNER 
+        JOIN</FONT></B>:</P><P class=padding-sin><FONT size="-1" color="#008000"><B>SELECT empleados.*, 
+        ciudad<BR>
+        FROM empleados INNER JOIN oficinas ON empleados.oficina = oficinas.oficina</B></FONT></P><P class=padding-1>Nos pasa lo mismo, el empleado 110 tiene un valor nulo 
+        en el campo oficina y no aparecer&aacute; en el resultado.</P><P class=padding-1>Pues en los casos en que <B><FONT color="#000080">queremos</FONT></B> 
+        que <B><FONT color="#000080">tambi&eacute;n aparezcan</FONT></B> las <B><FONT color="#000080">filas 
+        que no tienen una fila coincidente</FONT></B> en la otra tabla, <B><FONT color="#000080">utilizaremos</FONT></B> 
+        el <B><FONT color="#000080">LEFT</FONT></B> o <B><FONT color="#000080">RIGHT 
+        JOIN</FONT></B>.</P><P class=padding-1><img src="comunes/orangeBall.gif" width="14" height="14"> 
+        La sintaxis del <B><FONT size="-1" color="#008000">LEFT JOIN</FONT></B> 
+        es la siguiente: <BR>
+      </P></TD></TR>
+  
+</TABLE><TABLE width="100%" border="0" cellpadding="0">
+  <TR>
+    <TD> 
+      <P><IMG src="graficos/left.gif" width="504" height="19"> <BR>
+      </P></TD></TR>
+</TABLE><TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD class="Normal" width="49%"> 
+      <P class=padding-1>La descripci&oacute;n de la sintaxis es la <B><FONT color="#000080">misma</FONT></B> 
+        que la del <B><FONT color="#000080">INNER JOIN</FONT></B> (ver p&aacute;gina 
+        anterior), lo &uacute;nico que cambia es la palabra <B><FONT size="-1" color="#008000">INNER</FONT></B> 
+        por <B><FONT color="#000080">LEFT</FONT></B> (<FONT color="#000080"><B>izquierda</B></FONT> 
+        en ingl&eacute;s). </P><P class=padding-1>&nbsp;</P><P class=padding-1>Esta operaci&oacute;n consiste en <B><FONT color="#000080">añadir 
+        al resultado</FONT></B> del <B><FONT size="-1" color="#008000">INNER JOIN</FONT></B> 
+        las <B><FONT color="#000080">filas</FONT></B> de la <B><FONT color="#000080">tabla</FONT></B> 
+        de la <B><FONT color="#000080">izquierda</FONT></B> que <B><FONT color="#000080">no 
+        tienen correspondencia</FONT></B> en la otra tabla, y <B><FONT color="#000080">rellenar</FONT></B> 
+        en esas filas los <B><FONT color="#000080">campos</FONT></B> de la <B><FONT color="#000080">tabla</FONT></B> 
+        de la <B><FONT color="#000080">derecha</FONT></B> con <B><FONT color="#000080">valores 
+        nulos</FONT></B>.</P><P class=padding-1>Ejemplo:</P><P class=padding-sin><FONT size="-1" color="#008000"><B>SELECT *<BR>
+        FROM empleados LEFT JOIN oficinas ON empleados.oficina = oficinas.oficina<BR>
+        </B></FONT></P><P class=padding-1>Con el ejemplo anterior obtenemos una lista de los empleados 
+        con los datos de su oficina, y el empleado 110 que no tiene oficina aparece 
+        con sus datos normales y los datos de su oficina a nulos.</P><P class=padding-1>&nbsp;</P><P class=padding-1><img src="comunes/orangeBall.gif" width="14" height="14"> 
+        La sintaxis del <B><FONT SIZE="-1" COLOR="#008000">RIGHT JOIN</FONT></B> 
+        es la siguiente:</P><P class=padding-1><IMG src="graficos/right.gif" width="516" height="20"></P><br>
+      <P class=padding-sin>La sintaxis es la misma que la del <B><FONT size="-1" color="#008000">INNER 
+        JOIN</FONT></B> (ver p&aacute;gina anterior), lo &uacute;nico que cambia 
+        es la palabra <B><FONT size="-1" color="#008000">INNER</FONT></B> por 
+        <B><FONT color="#000080">RIGHT</FONT></B> (<FONT color="#000080"><B>derecha</B></FONT> 
+        en ingl&eacute;s). </P><P class=padding-1>&nbsp;</P><P class=padding-1>Esta operaci&oacute;n consiste en <B><FONT color="#000080">añadir 
+        al resultado</FONT></B> del <B><FONT size="-1" color="#008000">INNER JOIN</FONT></B> 
+        las <B><FONT color="#000080">filas</FONT></B> de la <B><FONT color="#000080">tabla</FONT></B> 
+        de la <B><FONT color="#000080">derecha</FONT></B> que <B><FONT color="#000080">no 
+        tienen correspondencia</FONT></B> en la otra tabla, y <B><FONT color="#000080">rellenar</FONT></B> 
+        en esas filas los <B><FONT color="#000080">campos</FONT></B> de la <B><FONT color="#000080">tabla</FONT></B> 
+        de la <B><FONT color="#000080">izquierda</FONT></B> con <B><FONT color="#000080">valores 
+        nulos</FONT></B>.</P><P class=padding-1>Ejemplo:</P><P class=padding-sin><FONT size="-1" color="#008000"><B>SELECT *<BR>
+        FROM empleados RIGHT JOIN oficinas ON empleados.oficina = oficinas.oficina</B></FONT></P><P class=padding-sin>Con el ejemplo anterior obtenemos una lista de los 
+        empleados con los datos de su oficina, y adem&aacute;s aparece una fila 
+        por cada oficina que no est&aacute; asignada a ning&uacute;n empleado 
+        con los datos del empleado a nulos.</P><P class=padding-1>&nbsp;</P><P class=padding-1><IMG src="comunes/orangeBall.gif" width="14" height="14">Una 
+        operación<B><FONT color="#000080"> LEFT</FONT></B> JOIN o <B><FONT color="#000080">RIGHT 
+        JOIN</FONT></B> <B><FONT color="#000080">se puede anidar</FONT></B> dentro 
+        de una operación <B><FONT color="#000080">INNER</FONT></B> JOIN, pero 
+        una operación <B><FONT color="#000080">INNER</FONT></B> JOIN <B><FONT color="#000080">no</FONT></B> 
+        se puede <B><FONT color="#000080">anidar</FONT></B> <B><FONT color="#000080">dentro</FONT></B> 
+        de <B><FONT color="#000080">LEFT</FONT></B> JOIN o <B><FONT color="#000080">RIGHT 
+        JOIN</FONT></B>. Los anidamientos de <B><FONT size="-1" color="#008000">JOIN</FONT></B> 
+        de distinta naturaleza no funcionan siempre, a veces depende del orden 
+        en que colocamos las tablas, en estos casos lo mejor es probar y si no 
+        permite el anudamiento, cambiar el orden de las tablas ( y por tanto de 
+        los <B><FONT size="-1" color="#008000">JOIN</FONT></B>s) dentro de la 
+        cl&aacute;usula <B><FONT size="-1" color="#008000">FROM</FONT></B>.</P><P class=padding-1>Por ejemplo podemos tener:</P><P class=padding-sin><FONT size="-1" color="#008000"><B>SELECT *<BR>
+        FROM clientes INNER JOIN (empleados LEFT JOIN oficinas ON empleados.oficina 
+        = oficinas.oficina) ON clientes.repclie = empleados.numclie</B></FONT></P><P class=padding-1>Combinamos empleados con oficinas para obtener los datos 
+        de la oficina de cada empleado, y luego a&ntilde;adimos los clientes de 
+        cada representante, as&iacute; obtenemos los clientes que tienen un representante 
+        asignado y los datos de la oficina del representante asignado.</P><P class=padding-1>Si hubi&eacute;ramos puesto <B><FONT size="-1" color="#008000">INNER</FONT></B> 
+        en vez de <B><FONT size="-1" color="#008000">LEFT</FONT></B> no saldr&iacute;an 
+        los clientes que tienen el empleado 110 (porque no tiene oficina y por 
+        tanto no aparece en el resultado del <B><FONT size="-1" color="#008000">LEFT 
+        JOIN</FONT></B> y por tanto no entrar&aacute; en el c&aacute;lculo del 
+        <B><FONT size="-1" color="#008000">INNER JOIN</FONT></B> con clientes).</P><P class=padding-1>&nbsp; </P></TD></TR>
+</table><TABLE width="65%" border="0">
+  <TR> 
+    <TD width="50%"> 
+      <P class=tit-2 > <FONT color="#800000"><B> <a name="resumen"></a>Resumen 
+        de cu&aacute;ndo utilizar cada operaci&oacute;n.</B></FONT></P></TD></TR>
+</TABLE><table width="100%" border="0" cellpadding="0">
+  <tr> 
+    <td class="Normal" width="49%"> 
+      <p class=padding-1>Para saber en cada caso qu&eacute; tipo de operaci&oacute;n 
+        se debe utilizar, a continuaci&oacute;n tienes un gr&aacute;fico que indica 
+        qu&eacute; preguntas se tienen que hacer y seg&uacute;n la respuesta, 
+        qu&eacute; operaci&oacute;n utilizar.</p><p class=padding-1>Para resumir hemos llamado T1 y T2 las tablas de las 
+        que queremos sacar los datos y R la tabla l&oacute;gica que representa 
+        el resultado de consulta. T1 y T2 podr&iacute;an ser tablas guardadas 
+        o consultas.</p><p class=padding-1>En la &uacute;ltima parte cuando se pregunta &quot;En 
+        T1 hay filas que no tienen pareja en T2&quot;, la pregunta se debe de 
+        interpretar como &quot;en alguna de las tablas hay filas que no tienen 
+        pareja&quot;.</p><p class=padding-1>&nbsp;</p><p class=padding-sin>&nbsp;</p></td></tr>
+</table><TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD> 
+      <P class=padding-1><IMG src="graficos/resumen_multitabla.gif" width="484" height="499"></P></TD></TR>
+  <TR>
+    <TD>&nbsp;</TD></TR>
+</TABLE><TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD > 
+      <P class=padding-1><A name="ej1"></A><IMG src="comunes/redBall2-2.gif" width="14" height="14" ><A href="epr_3_1.htm">Ejercicios 
+        propuestos</A><BR>
+      </P></TD><TD > 
+      <P class=padding-1><BR>
+      </P></TD></TR>
+</TABLE><br>
+<BR>
+<TABLE width="100%" border="0">
+  <TR> 
+    <TD width="37%">&nbsp;</TD><TD width="6%"><A href="t_3_4.htm"><IMG name="image8" src="comunes/flecha_re.gif" width="22" height="22" border="0"></A></TD><TD width="6%"><A href="index.htm"><IMG name="image8" src="comunes/flecha_home.gif" width="22" height="22" border="0"></A></TD><TD width="6%"><A href="t_4_1.htm"><IMG name="image2" src="comunes/flecha_av.gif" width="22" height="22" border="0"></A></TD><TD width="45%"> 
+      <DIV align="right">Pag. 3.5</DIV></TD></TR>
+</TABLE><table width="100%" border="0">
+  <tr> 
+    <td> 
+      <div align="center"><font size="-1">Aviso legal: este curso es gratuito 
+        siempre que se visualice desde la p&aacute;gina web de aulaClic. No est&aacute; 
+        permitido descargar el curso ni utilizarlo en academias o centros de ense&ntilde;anza 
+        privados sin estar conectado a Internet. </font></div></td></tr>
+</table><table width="100%" border="0">
+  <tr> 
+    <td> 
+      <div align="center"><font size="-1">© aulaClic. Todos los derechos reservados. 
+ <a href="http://www.teacherclick.com/" style="text-decoration: none; color: black;" target="_blank">Free Computer tutorials</a> . 
+        Prohibida la reproducci&oacute;n por cualquier medio.<br>
+        </font><font size="2">Abril-2001.aulaClic.com</font></div></td></tr>
+</table><p style='text-align:justify'>&nbsp;</p>
+<!--  fin td width="770" --------------- fin texto pagina -------------------------------->
+
+    </td>
+    <td  valign="top">
+	<!--   td width="160" -------------- anuncios lateral derecho ---------------------------------->
+<table  border="0">
+
+  <tr> 
+    <td valign="bottom" height="700"> 
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 160;
+google_ad_height = 600;
+google_ad_format = "160x600_as";
+google_ad_type = "text_image";
+google_ad_channel ="2175968397";
+google_color_border = "FFF6EC";
+google_color_bg = "FFF6EC";
+google_color_link = "663300";
+google_color_text = "000000";
+google_color_url = "CC0000";
+//--></script>
+<script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>
+    </td>
+	
+  </tr>
+  
+  <tr> 
+    <td height="150">
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 125;
+google_ad_height = 125;
+google_ad_format = "125x125_as_rimg";
+google_cpa_choice = "CAAQmImJlAIaCN5uB6wtFhbmKNyMs4MB";
+google_ad_channel = "6146562423";
+//--></script>
+<script type="text/javascript" src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>
+    </td>
+  </tr>
+
+  <tr> 
+    <td height="150">
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 160;
+google_ad_height = 90;
+google_ad_format = "160x90_0ads_al";
+google_ad_channel ="2175968397";
+google_color_border = "FAF1E3";
+google_color_bg = "FAF1E3";
+google_color_link = "663300";
+google_color_text = "000000";
+google_color_url = "CC0000";
+//--></script>
+<script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>    </td>
+  </tr>
+</table>
+
+	<!--   td width="160" ----------- fin anuncios lateral derecho -------------------------------------->
+
+ </td>
+ </tr>
+<!--   table de "980" ----------------------------------------------->
+</table>
+
+</body>
+
+
+<!-- Mirrored from www.aulaclic.es/sql/t_3_5.htm by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 10 Jun 2011 06:49:18 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
+</html>

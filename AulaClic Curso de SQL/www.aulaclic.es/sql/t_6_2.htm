@@ -1,0 +1,366 @@
+
+<html>
+
+<!-- Mirrored from www.aulaclic.es/sql/t_6_2.htm by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 10 Jun 2011 06:49:21 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name="keywords" content="SQL Base datos access access2000 tutorial manual gratis office enseñanza educacion ddl dcl dml">
+<LINK REL=STYLESHEET TYPE="text/css" HREF="estilo_sinf_osc.css" TITLE="estilo_sinf_osc">
+<title>Tema 6  Actualizaci&oacute;n de datos</title>
+<SCRIPT language=JavaScript>
+<!--
+var previous = "t_6_1.htm";
+var next = "t_6_3.htm";
+//-->
+</SCRIPT>
+</head><body>
+<script type='text/javascript' src='../js/sqlmenu_osc.js'></script> 
+<script type='text/javascript' src='../js/menu8_com.js'></script> 
+
+<table width="900" border="0">
+  <tr>
+    <td width="144"><a href="http://www.aulaclic.es/index.html"><img src="comunes/logo_ac1_50.gif" alt="P&aacute;gina inicial"  border="0" longdesc="P%e1gina%20inicial.html"></a></td>
+    <td width="505">&nbsp;</td>
+	    <td width="234">
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 234;
+google_ad_height = 60;
+google_ad_format = "234x60_as";
+google_ad_type = "text_image";
+google_ad_channel ="";
+google_color_border = "FAF1E3";
+google_color_bg = "FAF1E3";
+google_color_link = "663300";
+google_color_text = "000000";
+google_color_url = "CC0000";
+//--></script>
+<script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+
+</script>
+    </td>
+        </tr>
+</table>
+
+<br />
+
+<!--   table de "980" ----------------------------------------------->
+
+<table  border="0"> 
+  <tr> 
+<td >  </td>
+<td  > </td>
+  </tr>
+  <tr> 
+<td > 
+<!--   td width="770" ------------------ texto pagina ------------------------------>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR>
+    <TD><p class=tit-1 > <font color="#800000"><B>Tema 6. Actualizaci&oacute;n de 
+      datos </B> (II) </font></p></TD>
+    <td><!-- Search Google -->
+        <center>
+          <form method="get" action="http://www.google.es/custom" target="google_window">
+            <table bgcolor="#ffffff">
+              <tr>
+                <td nowrap="nowrap" valign="top" align="left" height="32"><a href="http://www.google.com/"> <img src="../../www.google.com/logos/Logo_25wht.gif" border="0" alt="Google" align="middle"></a>
+                    <input type="text" name="q" size="20" maxlength="255" value="">
+                    <input type="submit" name="sa" value="B&uacute;squeda">
+                    <input type="hidden" name="client" value="pub-1875034419890743">
+                    <input type="hidden" name="forid" value="1">
+                    <input type="hidden" name="ie" value="ISO-8859-1">
+                    <input type="hidden" name="oe" value="ISO-8859-1">
+                    <input type="hidden" name="cof" value="GALT:#008000;GL:1;DIV:#336699;VLC:663399;AH:center;BGC:FFF6EC;LBGC:FFF6EC;ALC:000000;LC:000000;T:0000FF;GFNT:0000FF;GIMP:0000FF;LH:50;LW:141;L:http://www.aulaclic.es/logo_ac1_50.jpg;S:http://www.aulaclic.es/;FORID:1;">
+                    <input type="hidden" name="hl" value="es">
+                </td>
+              </tr>
+            </table>
+          </form>
+        </center>
+      <!-- Search Google -->
+    </td>
+  </TR>
+</TABLE>
+<br>
+<table width="72%" border="0">
+  <tr> 
+    <td width="50%"> 
+      <p class=tit-2 > <font color="#800000"><b> Insertar varias filas INSERT 
+        INTO...SELECT</b> </font></p>
+    </td>
+  </tr>
+</table>
+<br>
+<table width="100%" border="0">
+  <tr> 
+    <td>
+      <p class=padding-1>Podemos <b><font color="#000080">insertar en una tabla varias filas</font></b> 
+        con una sola sentencia <b><font color="#008000">SELECT INTO</font></b> 
+        si los valores a insertar se pueden obtener como resultado de una consulta, 
+        en este caso sustituimos la cl&aacute;usula <b><font color="#008000">VALUES</font></b><font color="#008000"><b><i> 
+        lista de valores</i></b></font> por una sentencia <b><font color="#008000">SELECT</font></b> 
+        como las que hemos visto hasta ahora.<b><font color="#000080"> Cada fila 
+        resultado</font></b> de la <b><font color="#008000">SELECT</font></b> 
+        <b><font color="#000080">forma una lista de valores</font></b> que son 
+        los que se insertan en una nueva fila de la tabla destino. Es como si 
+        tuviesemos una <b><font color="#008000">INSERT...VALUES</font></b> por 
+        cada fila resultado de la sentencia <b><font color="#008000">SELECT</font></b>.</p>
+      <p class=padding-1>La sintaxis es la siguiente:</p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td><img src="graficos/insert_select.gif" width="394" height="63"></td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <p class=padding-1><IMG src="comunes/orangeBall.gif" width="14" height="14"> 
+        El <b><font color="#000080">origen</font></b> de la <b><font color="#008000">SELECT</font></b> 
+        puede ser el <b><font color="#000080">nombre de una consulta guardada, 
+        un nombre de tabla o una composici&oacute;n de varias tablas</font></b> 
+        ( mediante <b><font color="#008000">INNER JOIN, LEFT JOIN, RIGHT JOIN 
+        </font></b>o producto cartesiano).</p>
+      <p class=padding-1><font color="#000080"><b><IMG src="comunes/orangeBall.gif" width="14" height="14"> 
+        Cada fila devuelta</b></font> por la <b><font color="#008000">SELECT</font></b> 
+        <b><font color="#000080">act&uacute;a como la lista de valores</font></b> 
+        que vimos con la <b><font color="#008000">INSERT...VALUES</font></b> por 
+        lo que tiene las <b><font color="#000080">mismas restricciones</font></b> 
+        en cuanto a tipo de dato, etc. La <b><font color="#000080">asignaci&oacute;n 
+        de valores se realiza por posici&oacute;n</font></b> por lo que la <b><font color="#008000">SELECT</font></b> 
+        debe devolver el <b><font color="#000080">mismo n&uacute;mero de columnas</font></b> 
+        que las de la tabla destino y en el mismo orden, o el mismo n&uacute;mero 
+        de columnas que indicamos en la lista de columnas despu&eacute;s de destino. 
+      </p>
+      <p class=padding-1><IMG src="comunes/orangeBall.gif" width="14" height="14"> 
+        Las columnas de la <b><font color="#008000">SELECT</font></b> <b><font color="#000080">no 
+        tienen porque llamarse igual que en la tabla destino </font></b>ya que 
+        el sistema s&oacute;lo se fija en los valores devueltos por la <b><font color="#008000">SELECT</font></b>. 
+      </p>
+      <p class=padding-1><font color="#000080"><b><IMG src="comunes/orangeBall.gif" width="14" height="14"> 
+        Si no queremos asignar valores a todas las columnas </b></font>entonces 
+        tenemos que indicar <b><font color="#000080">entre par&eacute;ntesis la 
+        lista de columnas</font></b> a rellenar <b><font color="#000080">despu&eacute;s 
+        del nombre del destino.</font></b></p>
+      <p class=padding-1><IMG src="comunes/orangeBall.gif" width="14" height="14"> 
+        El <b><font color="#000080">est&aacute;ndar ANSI/ISO </font></b>especifica 
+        <b><font color="#000080">varias restricciones sobre la consulta</font></b> 
+        que aparece dentro de la sentencia <b><font color="#008000">INSERT</font></b>:<br>
+        <br>
+        <img src="comunes/redBall2-2.gif" width="14" height="14"> la consulta no 
+        puede tener una cl&aacute;usula <b><font color="#008000">ORDER BY</font></b>,<br>
+        <br>
+        <img src="comunes/redBall2-2.gif" width="14" height="14"> la tabla destino 
+        de la sentencia <b><font color="#008000">INSERT</font></b> no puede aparecer 
+        en la cl&aacute;usula <b><font color="#008000">FROM</font></b> de la consulta 
+        o de ninguna subconsulta que &eacute;sta tenga. Esto prohibe insertar 
+        parte de una tabla en s&iacute; misma,<br>
+        <br>
+        <img src="comunes/redBall2-2.gif" width="14" height="14"> la consulta no 
+        puede ser la <b><font color="#008000">UNION</font></b> de varias sentencias 
+        <b><font color="#008000">SELECT</font></b> diferentes,<br>
+        <br>
+        <img src="comunes/redBall2-2.gif" width="14" height="14"> el resultado de 
+        la consulta debe contener el mismo n&uacute;mero de columnas que las indicadas 
+        para insertar y los tipos de datos deben ser compatibles columna a columna.<br>
+      </p>
+      <p class=padding-1><IMG src="comunes/orangeBall.gif" width="14" height="14"> 
+        Sin embargo en <b><font color="#000080">SQL de Microsoft Jet</font></b>, 
+        <b><font color="#000080"><br>
+        <br>
+        <img src="comunes/redBall2-2.gif" width="14" height="14"> se <b> <font color="#000080">puede 
+        incluir </font></b>la cl&aacute;usula <b><font color="#008000">ORDER BY</font></b> 
+        aunque no tiene mucho sentido.<br>
+        <br>
+        <img src="comunes/redBall2-2.gif" width="14" height="14"> se puede</font><font color="#000080"> 
+        poner</font></b> en la cl&aacute;usula <b><font color="#008000">FROM</font></b> 
+        de la consulta, <b><font color="#000080">la tabla</font></b> en la que 
+        vamos a insertar,<br>
+        <br>
+        <img src="comunes/redBall2-2.gif" width="14" height="14"> pero<b><font color="#000080"> 
+        no</font></b> podemos utilizar una <b><font color="#008000">UNION</font></b>.</p>
+      <p>&nbsp;</p>
+      </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <p class=padding-1>Ejemplo: Supongamos que tenemos una tabla llamada <i>repres</i> 
+        con la misma estructura que la tabla <i>empleados</i>, y queremos insertar 
+        en esa tabla los empleados que tengan como titulo<i> rep ventas</i></p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <p class=padding-sin><font color="#008000"><b>INSERT INTO repres SELECT 
+        * FROM empleados WHERE titulo = 'rep ventas'</b></font></p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <p class=padding-1>Con la <b><font color="#008000">SELECT</font></b> obtenemos 
+        las filas correspondientes a los empleados con t&iacute;tulo <i>rep ventas,</i>y 
+        las insertamos en la tabla <i>repres</i>. Como las tablas tienen la misma 
+        estructura no hace falta poner la lista de columnas y podemos emplear 
+        * en la lista de selecci&oacute;n de la <b><font color="#008000">SELECT</font></b>. 
+      </p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <p class=padding-1>Ejemplo: Supongamos ahora que la tabla <i>repres</i> 
+        tuviese las siguientes columnas <i>numemp</i>, <i>oficinarep</i>, <i>nombrerep</i>. 
+        En este caso no podr&iacute;amos utilizar el asterisco, tendr&iacute;amos 
+        que poner:</p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <p class=padding-sin><font color="#008000"><b>INSERT INTO repres SELECT 
+        numemp, oficina, nombre FROM empleados WHERE titulo = 'rep ventas'</b></font></p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <p class=padding-1>O bien:</p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <p class=padding-sin><font color="#008000"><b>INSERT INTO repres (numemp, 
+        oficinarep, nombrerep) SELECT numemp, oficina, nombre FROM empleados WHERE 
+        titulo = 'rep ventas'</b></font></p>
+    </td>
+  </tr>
+</table>
+<br>
+<BR>
+<TABLE width="100%" border="0">
+  <TR> 
+    <TD width="37%">&nbsp;</TD>
+     
+    <TD width="6%"><A href="t_6_1.htm"><IMG name="image8" src="comunes/flecha_re.gif" width="22" height="22" border="0"></A></TD>
+     
+    <TD width="6%"><A href="index.htm"><IMG name="image8" src="comunes/flecha_home.gif" width="22" height="22" border="0"></A></TD>
+		
+    <TD width="6%"><A href="t_6_3.htm"><IMG name="image2" src="comunes/flecha_av.gif" width="22" height="22" border="0"></A></TD>
+    <TD width="45%"> 
+      <DIV align="right">Pag.6.2</DIV>
+    </TD>
+  </TR>
+</TABLE>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <div align="center"><font size="-1">Aviso legal: este curso es gratuito 
+        siempre que se visualice desde la p&aacute;gina web de aulaClic. No est&aacute; 
+        permitido descargar el curso ni utilizarlo en academias o centros de ense&ntilde;anza 
+        privados sin estar conectado a Internet. </font></div>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <div align="center"><font size="-1">© aulaClic. Todos los derechos reservados. 
+ <a href="http://www.teacherclick.com/" style="text-decoration: none; color: black;" target="_blank">Free Computer tutorials</a> . 
+        Prohibida la reproducci&oacute;n por cualquier medio.<br>
+        </font><font size="2">Julio-2001.aulaClic.com</font></div>
+    </td>
+  </tr>
+</table>
+<p style='text-align:justify'>&nbsp;</p>
+<!--  fin td width="770" --------------- fin texto pagina -------------------------------->
+
+    </td>
+    <td  valign="top">
+	<!--   td width="160" -------------- anuncios lateral derecho ---------------------------------->
+<table  border="0">
+
+  <tr> 
+    <td valign="bottom" height="700"> 
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 160;
+google_ad_height = 600;
+google_ad_format = "160x600_as";
+google_ad_type = "text_image";
+google_ad_channel ="2175968397";
+google_color_border = "FFF6EC";
+google_color_bg = "FFF6EC";
+google_color_link = "663300";
+google_color_text = "000000";
+google_color_url = "CC0000";
+//--></script>
+<script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>
+    </td>
+	
+  </tr>
+  
+  <tr> 
+    <td height="150">
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 125;
+google_ad_height = 125;
+google_ad_format = "125x125_as_rimg";
+google_cpa_choice = "CAAQmImJlAIaCN5uB6wtFhbmKNyMs4MB";
+google_ad_channel = "6146562423";
+//--></script>
+<script type="text/javascript" src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>
+    </td>
+  </tr>
+
+  <tr> 
+    <td height="150">
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 160;
+google_ad_height = 90;
+google_ad_format = "160x90_0ads_al";
+google_ad_channel ="2175968397";
+google_color_border = "FAF1E3";
+google_color_bg = "FAF1E3";
+google_color_link = "663300";
+google_color_text = "000000";
+google_color_url = "CC0000";
+//--></script>
+<script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>    </td>
+  </tr>
+</table>
+
+	<!--   td width="160" ----------- fin anuncios lateral derecho -------------------------------------->
+
+ </td>
+ </tr>
+<!--   table de "980" ----------------------------------------------->
+</table>
+
+</body>
+
+
+<!-- Mirrored from www.aulaclic.es/sql/t_6_2.htm by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 10 Jun 2011 06:49:22 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
+</html>

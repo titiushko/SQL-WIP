@@ -1,0 +1,517 @@
+<html>
+
+
+<!-- Mirrored from www.aulaclic.es/sql/spr_5_1_1.htm by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 10 Jun 2011 06:49:43 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
+<head>
+<title>Soluci&oacute;n ejercicios subconsultas</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<LINK REL=STYLESHEET TYPE="text/css" HREF="estilo_sinf_osc.css" TITLE="estilo_sinf_osc">
+<SCRIPT language=JavaScript>
+<!--
+var previous = "epr_5_1.htm#s1";
+var next = "epr_5_1.htm#s1";
+//-->
+</SCRIPT></head><body>
+
+<script type='text/javascript' src='../js/sqlmenu_osc.js'></script> 
+<script type='text/javascript' src='../js/menu8_com.js'></script> 
+
+<table width="900" border="0">
+  <tr>
+    <td width="144"><a href="http://www.aulaclic.es/index.html"><img src="comunes/logo_ac1_50.gif" alt="P&aacute;gina inicial"  border="0" longdesc="P%e1gina%20inicial.html"></a></td>
+    <td width="505">&nbsp;</td>
+	    <td width="234">
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 234;
+google_ad_height = 60;
+google_ad_format = "234x60_as";
+google_ad_type = "text_image";
+google_ad_channel ="";
+google_color_border = "FAF1E3";
+google_color_bg = "FAF1E3";
+google_color_link = "663300";
+google_color_text = "000000";
+google_color_url = "CC0000";
+//--></script>
+<script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+
+</script>
+    </td>
+        </tr>
+</table>
+
+<br />
+<!--   table de "980" ----------------------------------------------->
+
+<table  border="0"> 
+  <tr> 
+<td >  </td>
+<td  > </td>
+  </tr>
+  <tr> 
+<td > 
+<!--   td width="770" ------------------ texto pagina ------------------------------>
+<table width="943" border="0">
+  <tr> 
+	<td width="937" > 
+      <p class=tit-1 > <b><font color="#800040">Soluci&oacute;n ejercicios tema 
+        5. Las subconsultas</font></b></p>
+	</td>
+</tr>
+</table>
+ 
+<br>
+
+<table width="100%" border="0">
+<tr> 
+	<td width="34%"> 
+		
+      <p class=tit-2 > <font color="#800000">Ejercicio 1</font> </p>
+	</td>
+	<td width="66%">
+	</td>	
+</tr>
+</table>
+
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD width="45%" valign = "top"> 
+      <P class=padding-sin><FONT size="-1" color="#008000"><B>SELECT nombre<br>
+        FROM clientes<br>
+        WHERE repclie = (SELECT numemp FROM empleados WHERE nombre = 'Alvaro Jaumes' 
+        );<BR>
+        </B></FONT></P>
+    </TD>
+    <TD width="55%" valign = "top">
+      <P class=padding-sin>Hemos supuesto que no pueden haber dos empleados con 
+        el mismo nombre, de lo contrario habr&iacute;a que a&ntilde;adir <b><font color="#008000">ANY</font></b> 
+        antes de la subconsulta.</P>
+      </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0">
+  <TR> 
+    <TD width="34%"> 
+      <P class=tit-2 > <FONT color="#800000">Ejercicio 2</FONT> </P>
+    </TD>
+    <TD width="66%"> </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD width="45%" valign = "top"> 
+      <P class=padding-sin><FONT size="-1" color="#008000"><B><font color="#000000">Soluci&oacute;n 
+        1<br>
+        </font>SELECT numemp, nombre, oficina<br>
+        FROM empleados<br>
+        WHERE oficina IN ( SELECT oficina FROM oficinas WHERE ventas &gt; objetivo 
+        );<br>
+        </B></FONT></P>
+    </TD>
+    <TD width="55%" valign = "top">  
+      <P class=padding-sin>Con esta soluci&oacute;n buscamos que la oficina del 
+        empleado est&eacute; en la lista de oficinas que tienen ventas superiores 
+        a su objetivo.</P>
+      <P class=padding-sin>&nbsp;</P>
+    </TD>
+  </TR>
+</TABLE>
+<table width="100%" border="0" cellpadding="0">
+  <tr> 
+    <td width="45%" valign = "top"> 
+      <p class=padding-sin><font size="-1" color="#008000"><b><font color="#000000">Soluci&oacute;n 
+        2 </font><br>
+        SELECT numemp, nombre, oficina<br>
+        FROM empleados<br>
+        WHERE EXISTS ( SELECT * FROM oficinas WHERE empleados.oficina = oficinas.oficina 
+        AND ventas &gt; objetivo );<br>
+        </b></font></p>
+    </td>
+    <td width="55%" valign = "top"> 
+      <p class=padding-sin>Con esta soluci&oacute;n buscamos que exista una oficina 
+        igual al del empleado y que tenga ventas superiores a su objetivo. El 
+        resultado ser&aacute; el mismo que con la soluci&oacute;n 1.</p>
+      <p class=padding-sin>&nbsp;</p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="0">
+  <tr> 
+    <td width="45%" valign = "top"> 
+      <p class=padding-sin><font size="-1" color="#008000"><b><font color="#000000">Soluci&oacute;n 
+        3</font><br>
+        SELECT numemp, nombre, oficina<br>
+        FROM empleados<br>
+        WHERE oficina = ANY ( SELECT oficina FROM oficinas WHERE ventas &gt; objetivo 
+        );<br>
+        </b></font></p>
+    </td>
+    <td width="55%" valign = "top"> 
+      <p class=padding-sin>Con esta otra comparamos la oficina del empleado con 
+        cada una de las oficinas que tengan ventas superiores a su objetivo, si 
+        la oficina del empleado es igual a alguna de esas oficinas aparece el 
+        empleado en el resultado. El resultado ser&aacute; el mismo que con la 
+        soluci&oacute;n 1.</p>
+      </td>
+  </tr>
+</table>
+<TABLE width="100%" border="0">
+  <TR> 
+    <TD width="34%"> 
+      <P class=tit-2 > <FONT color="#800000">Ejercicio 3</FONT> </P>
+    </TD>
+    <TD width="66%"> </TD>
+  </TR>
+</TABLE>
+<table width="100%" border="0" cellpadding="0">
+  <tr> 
+    <td width="45%" valign = "top"> 
+      <p class=padding-sin><font size="-1" color="#008000"><b><font color="#000000">Soluci&oacute;n 
+        1<font color="#008000"><br>
+        </font> </font>SELECT numemp, nombre, oficina<br>
+        FROM empleados<br>
+        WHERE NOT EXISTS ( SELECT * FROM oficinas WHERE empleados.oficina = oficinas.oficina 
+        AND dir = 108);</b></font><br>
+      </p>
+    </td>
+    <td width="55%" valign = "top"> 
+      <p class=padding-sin>Obtenemos los empleados tales que no exista una oficina 
+        igual a la suya que adem&aacute;s est&eacute; dirigida por el empleado 
+        108, con esta soluci&oacute;n s&iacute; aparecen los empleados que no 
+        tienen oficina.</p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="0">
+  <tr> 
+    <td width="45%" valign = "top"> 
+      <p class=padding-sin><font size="-1" color="#008000"><b>SELECT numemp, nombre, 
+        oficina<br>
+        FROM empleados<br>
+        WHERE oficina NOT IN ( SELECT oficina FROM oficinas WHERE dir = 108);</b></font></p>
+      </td>
+    <td width="55%" valign="top"> 
+      <p class=padding-sin>Con la subconsulta obtenemos la lista de las oficinas 
+        dirigidas por el empleado 108. Al final se obtienen los empleados cuya 
+        oficina no est&eacute; en esa lista. Pero no salen los empleados que no 
+        tienen oficina asignada ya que su campo oficina es nulo por lo que el 
+        resultado de la comparaci&oacute;n es nulo, no es verdadero y no se seleccionan. 
+        El problema se puede arreglar indicando que tambi&eacute;n se tienen que 
+        seleccionar los empleados con oficina nula:</p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="0">
+  <tr> 
+    <td width="45%" valign = "top"> 
+      <p class=padding-sin><font size="-1" color="#008000"><b><font color="#000000">Soluci&oacute;n 
+        2</font><br>
+        SELECT numemp, nombre, oficina<br>
+        FROM empleados<br>
+        WHERE ( oficina NOT IN ( SELECT oficina FROM oficinas WHERE dir = 108) 
+        ) OR ( oficina IS NULL);</b></font></p>
+    </td>
+    <td width="55%" valign="top"> 
+      <p class=padding-sin>Con la subconsulta obtenemos la lista de las oficinas 
+        dirigidas por el empleado 108. Al final se obtienen los empleados cuya 
+        oficina no est&eacute; en esa lista. Pero no salen los empleados que no 
+        tienen oficina asignada ya que su campo oficina es nulo por lo que el 
+        resultado de la comparaci&oacute;n es nulo, no es verdadero y no se seleccionan.</p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="0">
+  <tr> 
+    <td width="45%" valign = "top"> 
+      <p class=padding-sin><font size="-1" color="#008000"><b>SELECT numemp, nombre, 
+        oficina<br>
+        FROM empleados<br>
+        WHERE oficina &lt;&gt; ALL ( SELECT oficina FROM oficinas WHERE dir = 
+        108);</b></font></p>
+      <p class=padding-sin>&nbsp;</p>
+    </td>
+    <td width="55%" valign="top"> 
+      <p class=padding-sin>Con esta soluci&oacute;n tenemos el mismo problema 
+        que con <b><font color="#008000">NOT IN</font></b> , cuando la oficina 
+        del empleado es nula todos los resultados de las comparaciones individuales 
+        son nulos por los que el test <b><font color="#008000">ALL</font></b> 
+        da nulo y no se seleccionan los empleados con oficina nula.</p>
+    </td>
+  </tr>
+</table>
+<TABLE width="100%" border="0">
+  <TR> 
+    <TD width="34%"> 
+      <P class=tit-2 > <FONT color="#800000">Ejercicio 4</FONT> </P>
+    </TD>
+    <TD width="66%"> </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD width="45%" valign = "top"> 
+      <P class=padding-sin><FONT size="-1" color="#008000"><B>SELECT idfab, idproducto, 
+        descripcion<br>
+        FROM productos<br>
+        WHERE NOT EXISTS (SELECT * FROM pedidos WHERE fab = idfab AND producto 
+        = idproducto AND importe &gt;= 25000);</B></FONT><BR>
+      </P>
+    </TD>
+    <TD width="55%" valign = "top"> 
+      <P class=padding-sin>En este caso es m&aacute;s c&oacute;modo utilizar <b><font color="#008000">NOT 
+        EXISTS</font></b> ya que hay que preguntar por el <i>idfab</i> e <i>idproducto</i> 
+        a la vez.</P>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0">
+  <TR> 
+    <TD width="34%"> 
+      <P class=tit-2 > <FONT color="#800000">Ejercicio 5</FONT> </P>
+    </TD>
+    <TD width="66%"> </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD width="45%" valign = "top"> 
+      <P class=padding-sin><FONT size="-1" color="#008000"><B>SELECT numclie, 
+        nombre<br>
+        FROM clientes<br>
+        WHERE repclie IN ( SELECT numemp FROM empleados WHERE nombre = 'Ana Bustamante' 
+        )<br>
+        AND numclie NOT IN ( SELECT clie FROM pedidos WHERE importe &gt; 3000);<br>
+        </B></FONT></P>
+      </TD>
+    <TD width="55%" valign = "top"> 
+      <P class=padding-sin>&nbsp;</P>
+      </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0">
+  <TR> 
+    <TD width="34%"> 
+      <P class=tit-2 > <FONT color="#800000">Ejercicio 6</FONT> </P>
+    </TD>
+    <TD width="66%"> </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD width="45%" valign = "top"> 
+      <P class=padding-sin><FONT size="-1" color="#008000"><B>SELECT * <br>
+        FROM oficinas<br>
+        WHERE EXISTS ( SELECT * FROM empleados WHERE ventas &gt; objetivo * 0.55); 
+        <br>
+        </B></FONT></P>
+      </TD>
+   <TD width="55%" valign = "top"> 
+      <P class=padding-sin>En una subconsulta todos los campos no cualificados 
+        se presuponen de la tabla origen de la subconsulta y s&oacute;lo si no 
+        existe ninguna columna con ese nombre, la considera como referencia externa, 
+        por eso no es necesario cualificar ventas porque interpreta que es el 
+        campo ventas de la tabla empleados.</P>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0">
+  <TR> 
+    <TD width="34%"> 
+      <P class=tit-2 > <FONT color="#800000">Ejercicio 7</FONT> </P>
+    </TD>
+    <TD width="66%"> </TD>
+  </TR>
+</TABLE>
+<table width="100%" border="0" cellpadding="0">
+  <tr> 
+    <td width="45%" valign = "top"> 
+      <p class=padding-sin><font size="-1" color="#008000"><b>SELECT *<br>
+        FROM oficinas<br>
+        WHERE (objetivo * 0.5) &lt;= ALL ( SELECT ventas FROM empleados WHERE 
+        empleados.oficina = oficinas.oficina );</b></font></p>
+      <p class=padding-sin>&nbsp;</p>
+    </td>
+    <td width="55%" valign="top"> 
+      <p class=padding-sin>Esta soluci&oacute;n no vale porque salen las oficinas 
+        que no tienen empleados.<br>
+        Hay que a&ntilde;adir una condici&oacute;n para que se consideren s&oacute;lo 
+        las oficinas con empleados como muestra la soluci&oacute;n 1.</p>
+    </td>
+  </tr>
+</table>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD width="45%" valign = "top"> 
+      <P class=padding-sin><FONT size="-1" color="#008000"><B><font color="#000000">Soluci&oacute;n 
+        1<br>
+        </font></B></FONT><FONT size="-1" color="#008000"><B>SELECT *<br>
+        FROM oficinas<br>
+        WHERE ((objetivo * 0.5) &lt;= ALL ( SELECT ventas FROM empleados WHERE 
+        empleados.oficina = oficinas.oficina ) )<br>
+        AND ( EXISTS ( SELECT * FROM empleados WHERE empleados.oficina = oficinas.oficina 
+        ) );</B></FONT></P>
+      <P class=padding-sin>&nbsp;</P>
+    </TD>
+    <TD width="55%" valign="top"> 
+      <P class=padding-sin>&nbsp;</P>
+    </TD>
+  </TR>
+</TABLE>
+<table width="100%" border="0" cellpadding="0">
+  <tr> 
+    <td width="45%" valign = "top"> 
+      <p class=padding-sin><font size="-1" color="#008000"><b><font color="#000000">Soluci&oacute;n 
+        2<br>
+        </font>SELECT *<br>
+        FROM oficinas<br>
+        WHERE (objetivo * .5) &lt;= (SELECT MIN(ventas) FROM empleados WHERE empleados.oficina 
+        = oficinas.oficina);<br>
+        </b></font></p>
+      </td>
+    <td width="55%" valign="top"> 
+      <p class=padding-sin>Esta es otra posible soluci&oacute;n, calculamos la 
+        menor venta de los empleados de la oficina y si esta es mayor que el 50% 
+        del ojetivo de la oficina quiere decir que todos los empleados de esa 
+        oficina tienen ventas iguales o superiores. Si la oficina no tiene empleados, 
+        la subconsulta no devuelve ninguna fila y como estamos utilizando una 
+        comparaci&oacute;n simple el resultado es nulo, luego no salen las oficinas 
+        que no tienen empleados.</p>
+    </td>
+  </tr>
+</table>
+<TABLE width="100%" border="0">
+  <TR> 
+    <TD width="34%"> 
+      <P class=tit-2 > <FONT color="#800000">Ejercicio 8</FONT> </P>
+    </TD>
+    <TD width="66%"> </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD width="45%" valign = "top"> 
+      <P class=padding-sin><FONT size="-1" color="#008000"><B>SELECT *<br>
+        FROM oficinas<br>
+        WHERE objetivo &gt; ( SELECT SUM(cuota) FROM empleados WHERE empleados.oficina 
+        = oficinas.oficina);</B></FONT></P>
+      <P class=padding-sin>&nbsp;</P>
+      </TD>
+    <TD width="55%" valign="top"> 
+      <P class=padding-sin>&nbsp;</P>
+      </TD>
+  </TR>
+</TABLE>
+<table width="100%" border="0">
+<tr> 
+	<td width="48%">&nbsp;	</td>
+	
+	<td width="5%" align="center"> <a href="epr_5_1.htm#s1"> <img name="image1" src="comunes/flecha_home.gif" width="22" height="22" border="0"> 
+      </a> </td>
+	<td width="47%">
+	</td>
+	
+</tr>
+</table>
+
+<br>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <div align="center"><font size="-1">Aviso legal: este curso es gratuito 
+        siempre que se visualice desde la p&aacute;gina web de aulaClic. No est&aacute; permitido descargar el curso y utilizarlo en academias o centros de ense&ntilde;anza 
+        privados sin estar conectado a Internet. </font></div>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <div align="center"><font size="-1">© aulaClic. Todos los derechos reservados. 
+ <a href="http://www.teacherclick.com/" style="text-decoration: none; color: black;" target="_blank">Free Computer tutorials</a> . 
+        Prohibida la reproducci&oacute;n por cualquier medio.<br>
+        </font><font size="2">Junio -2001.aulaClic.com</font></div>
+    </td>
+  </tr>
+</table>
+
+<!--  fin td width="770" --------------- fin texto pagina -------------------------------->
+
+    </td>
+    <td  valign="top">
+	<!--   td width="160" -------------- anuncios lateral derecho ---------------------------------->
+<table  border="0">
+
+  <tr> 
+    <td valign="bottom" height="700"> 
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 160;
+google_ad_height = 600;
+google_ad_format = "160x600_as";
+google_ad_type = "text_image";
+google_ad_channel ="2175968397";
+google_color_border = "FFF6EC";
+google_color_bg = "FFF6EC";
+google_color_link = "663300";
+google_color_text = "000000";
+google_color_url = "CC0000";
+//--></script>
+<script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>
+    </td>
+	
+  </tr>
+  
+  <tr> 
+    <td height="150">
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 125;
+google_ad_height = 125;
+google_ad_format = "125x125_as_rimg";
+google_cpa_choice = "CAAQmImJlAIaCN5uB6wtFhbmKNyMs4MB";
+google_ad_channel = "6146562423";
+//--></script>
+<script type="text/javascript" src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>
+    </td>
+  </tr>
+
+  <tr> 
+    <td height="150">
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 160;
+google_ad_height = 90;
+google_ad_format = "160x90_0ads_al";
+google_ad_channel ="2175968397";
+google_color_border = "FAF1E3";
+google_color_bg = "FAF1E3";
+google_color_link = "663300";
+google_color_text = "000000";
+google_color_url = "CC0000";
+//--></script>
+<script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>    </td>
+  </tr>
+</table>
+
+	<!--   td width="160" ----------- fin anuncios lateral derecho -------------------------------------->
+
+ </td>
+ </tr>
+<!--   table de "980" ----------------------------------------------->
+</table>
+
+</body>
+
+
+
+<!-- Mirrored from www.aulaclic.es/sql/spr_5_1_1.htm by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 10 Jun 2011 06:49:43 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
+</html>

@@ -1,0 +1,473 @@
+
+<html>
+
+<!-- Mirrored from www.aulaclic.es/sql/t_5_1.htm by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 10 Jun 2011 06:48:58 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name="keywords" content="SQL Base datos access access2000 tutorial manual gratis office enseñanza educacion ddl dcl dml">
+<LINK REL=STYLESHEET TYPE="text/css" HREF="estilo_sinf_osc.css" TITLE="estilo_sinf_osc">
+<title>Tema 5 Las subconsultas</title>
+<SCRIPT language=JavaScript>
+<!--
+var previous = "t_4_2.htm";
+var next = "t_5_2.htm";
+//-->
+</SCRIPT>
+</head><body>
+
+<script type='text/javascript' src='../js/sqlmenu_osc.js'></script> 
+<script type='text/javascript' src='../js/menu8_com.js'></script> 
+
+<table width="900" border="0">
+  <tr>
+    <td width="144"><a href="http://www.aulaclic.es/index.html"><img src="comunes/logo_ac1_50.gif" alt="P&aacute;gina inicial"  border="0" longdesc="P%e1gina%20inicial.html"></a></td>
+    <td width="505">&nbsp;</td>
+	    <td width="234">
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 234;
+google_ad_height = 60;
+google_ad_format = "234x60_as";
+google_ad_type = "text_image";
+google_ad_channel ="";
+google_color_border = "FAF1E3";
+google_color_bg = "FAF1E3";
+google_color_link = "663300";
+google_color_text = "000000";
+google_color_url = "CC0000";
+//--></script>
+<script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+
+</script>
+    </td>
+        </tr>
+</table>
+
+<br />
+<!--   table de "980" ----------------------------------------------->
+
+<table  border="0"> 
+  <tr> 
+<td >  </td>
+<td  > </td>
+  </tr>
+  <tr> 
+<td > 
+<!--   td width="770" ------------------ texto pagina ------------------------------>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR>
+    <TD><p class=tit-1 > <font color="#800000"><B>Tema 5. Las subconsultas </B> (I) </font></p></TD>
+    <td><!-- Search Google -->
+        <center>
+          <form method="get" action="http://www.google.es/custom" target="google_window">
+            <table bgcolor="#ffffff">
+              <tr>
+                <td nowrap="nowrap" valign="top" align="left" height="32"><a href="http://www.google.com/"> <img src="../../www.google.com/logos/Logo_25wht.gif" border="0" alt="Google" align="middle"></a>
+                    <input type="text" name="q" size="20" maxlength="255" value="">
+                    <input type="submit" name="sa" value="B&uacute;squeda">
+                    <input type="hidden" name="client" value="pub-1875034419890743">
+                    <input type="hidden" name="forid" value="1">
+                    <input type="hidden" name="ie" value="ISO-8859-1">
+                    <input type="hidden" name="oe" value="ISO-8859-1">
+                    <input type="hidden" name="cof" value="GALT:#008000;GL:1;DIV:#336699;VLC:663399;AH:center;BGC:FFF6EC;LBGC:FFF6EC;ALC:000000;LC:000000;T:0000FF;GFNT:0000FF;GIMP:0000FF;LH:50;LW:141;L:http://www.aulaclic.es/logo_ac1_50.jpg;S:http://www.aulaclic.es/;FORID:1;">
+                    <input type="hidden" name="hl" value="es">
+                </td>
+              </tr>
+            </table>
+          </form>
+        </center>
+      <!-- Search Google -->
+    </td>
+  </TR>
+</TABLE>
+<BR>
+<TABLE width="65%" border="0">
+  <TR> 
+    <TD width="50%"> 
+      <P class=tit-2 > <FONT color="#800000"><B> Definiciones</B> </FONT></P>
+    </TD>
+  </TR>
+</TABLE>
+<BR>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD class="Normal"> 
+      <P class=padding-1>Una <b><font color="#000080">subconsulta es una sentencia 
+        SELECT que aparece dentro de otra sentencia</font></b> <b><font color="#008000">SELECT</font></b> 
+        que llamaremos <b><font color="#000080">consulta principal</font></b>.<br>
+      </P>
+      <P class=padding-1>Se puede encontrar <b><font color="#000080">en la lista 
+        de selecci&oacute;n</font></b>, <b><font color="#000080">en la cl&aacute;usula 
+        WHERE</font></b> o <b><font color="#000080">en la cl&aacute;usula HAVING</font></b> 
+        de la consulta principal. </P>
+      <P class=padding-1>Una subconsulta tiene la misma sintaxis que una sentencia 
+        SELECT normal exceptuando que aparece <b><font color="#000080">encerrada 
+        entre par&eacute;ntesis</font></b>, no puede contener la cl&aacute;usula 
+        <b><font color="#008000">ORDER BY</font></b>, ni puede ser la <b><font color="#008000">UNION</font></b> 
+        de varias sentencias <b> <font color="#008000">SELECT</font></b>, adem&aacute;s 
+        tiene algunas restricciones en cuanto a n&uacute;mero de columnas seg&uacute;n 
+        el lugar donde aparece en la consulta principal. Estas restricciones las 
+        iremos describiendo en cada caso.</P>
+      <P class=padding-1>Cuando se ejecuta una consulta que contiene una subconsulta, 
+        <b> <font color="#000080">la subconsulta se ejecuta por cada fila de la 
+        consulta principal</font></b>. </P>
+      <P class=padding-1>Se aconseja no utilizar campos calculados en las subconsultas, 
+        ralentizan la consulta.<br>
+      </P>
+      <P class=padding-1>Las consultas que utilizan subconsultas suelen ser <b><font color="#000080">m&aacute;s 
+        f&aacute;ciles de interpretar por el usuario</font></b>.<br>
+      </P>
+     
+      </TD>
+  </TR>
+</TABLE>
+<table width="65%" border="0">
+  <tr> 
+    <td width="50%"> 
+      <p class=tit-2 > <font color="#800000"><b> <a name="referencias"></a>Referencias 
+        externas</b> </font></p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr>
+    <td> 
+      <P class=padding-1>A menudo, es necesario, dentro del cuerpo de una subconsulta, 
+        hacer referencia al valor de una columna en la fila actual de la consulta 
+        principal, ese nombre de columna se denomina referencia externa.<br>
+        Una<b><font color="#000080"> referencia externa</font></b> es un nombre 
+        de columna que estando en la subconsulta, no se refiere a ninguna columna 
+        de las tablas designadas en la <b><font color="#008000">FROM</font></b> 
+        de la subconsulta sino a una <b><font color="#000080">columna de las tablas 
+        designadas en la FROM de la consulta principal.</font></b> Como la subconsulta 
+        se ejecuta por cada fila de la consulta principal, el valor de la referencia 
+        externa ir&aacute; cambiando.</P>
+      <P class=padding-1><br>
+        Ejemplo:<br>
+        <br>
+        <b><font color="#008000">SELECT numemp, nombre, (SELECT MIN(fechapedido) 
+        FROM pedidos WHERE rep = numemp)<br>
+        FROM empleados;<br>
+        </font></b><font color="#008000"> </font> </P>
+    </td>
+    
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr>
+    <td> 
+      <P class=padding-1>En este ejemplo la consulta principal es <b><font color="#008000">SELECT... 
+        FROM empleados</font></b>.<br>
+        La subconsulta es <b><font color="#008000">( SELECT MIN(fechapedido) FROM 
+        pedidos WHERE rep = numemp )</font></b>.<br>
+        En esta subconsulta tenemos una referencia externa ( <i>numemp</i> ) es 
+        un campo de la tabla empleados (origen de la consulta principal).
+      <P class=padding-1>&iquest;Qu&eacute; pasa cuando se ejecuta la consulta 
+        principal?<br>
+        <br>
+        - se coge el primer empleado y se calcula la subconsulta sustituyendo 
+        numemp por el valor que tiene en el primer empleado. La subconsulta obtiene 
+        la fecha m&aacute;s antigua en los pedidos del rep = 101,<br>
+        - se coge el segundo empleado y se calcula la subconsulta con numemp = 
+        102 (numemp del segundo empleado)... y as&iacute; sucesivamente hasta 
+        llegar al &uacute;ltimo empleado.<br>
+        Al final obtenemos una lista con el n&uacute;mero, nombre y fecha del 
+        primer pedido de cada empleado.
+      <P class=padding-1> Si quitamos la cl&aacute;usula<b><font color="#008000"> 
+        WHERE</font></b> de la subconsulta obtenemos la fecha del primer pedido 
+        de todos los pedidos no del empleado correspondiente.<br>
+    </td>
+  </tr>
+</table>
+<table width="65%" border="0">
+  <tr> 
+    <td width="50%"> 
+      <p class=tit-2 > <font color="#800000"><b> <a name="anidar"></a>Anidar subconsultas</b> 
+        </font></p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <P class=padding-1>Las subconsultas pueden <b><font color="#000080">anidarse</font></b> 
+        de forma que <b><font color="#000080">una subconsulta aparezca en la cl&aacute;usula 
+        WHERE</font></b> (por ejemplo) <b><font color="#000080">de otra subconsulta</font></b> 
+        que a su vez forma parte de otra consulta principal. En la pr&aacute;ctica, 
+        una consulta consume mucho m&aacute;s tiempo y memoria cuando se incrementa 
+        el n&uacute;mero de niveles de anidamiento. La consulta resulta tambi&eacute;n 
+        m&aacute;s dif&iacute;cil de leer , comprender y mantener cuando contiene 
+        m&aacute;s de uno o dos niveles de subconsultas.<br>
+        <br>
+        Ejemplo:</p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td>
+      <P class=padding-sin><font color="#008000"><b>SELECT numemp, nombre<br>
+        FROM empleados<br>
+        WHERE numemp = (SELECT rep FROM pedidos WHERE clie = (SELECT numclie FROM 
+        clientes WHERE nombre = 'Julia Antequera'))</b></font><br>
+      </P>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td><P class=padding-1>En este ejemplo, por cada linea de pedido se calcula la subconsulta de 
+      clientes, y esto se repite por cada empleado, en el caso de tener 10 filas 
+      de empleados y 200 filas de pedidos (tablas realmente peque&ntilde;as), 
+      la subconsulta m&aacute;s interna se ejecutar&iacute;a 2000 veces (10 x 
+      200).<br></p>
+    </td>
+  </tr>
+</table>
+<table width="65%" border="0">
+  <tr> 
+    <td width="50%"> 
+      <p class=tit-2 > <font color="#800000"><b> <a name="subconsulta"></a>Subconsulta 
+        en la lista de selecci&oacute;n</b> </font></p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr>
+    <td>
+      <P class=padding-1>Cuando la subconsulta aparece <b><font color="#000080">en 
+        la lista de selecci&oacute;n</font></b> de la consulta principal, en este 
+        caso la subconsulta, <b><font color="#000080">no puede devolver varias 
+        filas ni varias columnas</font></b>, de lo contrario se da un mensaje 
+        de error.</p>
+     <P class=padding-1>Muchos SQLs no permiten que una subconsulta aparezca en la lista de selecci&oacute;n 
+        de la consulta principal pero eso no es ning&uacute;n problema ya que 
+        normalmente se puede obtener lo mismo utilizando como origen de datos 
+        las dos tablas. El ejemplo anterior se puede obtener de la siguiente forma:</p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr>
+    <td>
+      <P class=padding-sin><font color="#008000"><b>SELECT numemp, nombre, MIN(fechapedido)<br>
+        FROM empleados LEFT JOIN pedidos ON empleados.numemp = pedidos.rep<br>
+        GROUP BY numemp, nombre</b></font><br>
+      </p>
+    </td>
+  </tr>
+</table>
+<table width="65%" border="0">
+  <tr> 
+    <td width="50%"> 
+      <p class=tit-2 > <font color="#800000"><b> <a name="from"></a>En la cl&aacute;usula 
+        FROM</b> </font></p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <p class=padding-1>En la cl&aacute;usula FROM se puede encontrar una sentencia 
+        SELECT encerrada entre par&eacute;ntesis pero <b><font color="#000080">m&aacute;s 
+        que subconsulta ser&iacute;a una consulta</font></b> ya que no se ejecuta 
+        para cada fila de la tabla origen sino que se ejecuta una sola vez al 
+        principio, su resultado se combina con las filas de la otra tabla para 
+        formar las filas origen de la SELECT primera y no admite referencias externas. 
+        <br>
+      </p>
+      <p class=padding-1> En la cl&aacute;usula FROM vimos que se pod&iacute;a 
+        poner un nombre de tabla o un nombre de consulta, pues en vez de poner 
+        un nombre de consulta se puede poner directamente la sentencia SELECT 
+        correspondiente a esa consulta encerrada entre par&eacute;ntesis.</p>
+      <p class=padding-1>&nbsp;</p>
+    </td>
+  </tr>
+</table>
+<table width="65%" border="0">
+  <tr> 
+    <td width="50%"> 
+      <p class=tit-2 > <font color="#800000"><b> <a name="clausulas"></a>Subconsulta 
+        en las cl&aacute;usulas WHERE y HAVING</b> </font></p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+     <P class=padding-1>Se suele utilizar subconsultas en las cl&aacute;usulas WHERE o HAVING 
+        cuando los datos que queremos visualizar est&aacute;n en una tabla pero 
+        para seleccionar las filas de esa tabla necesitamos un dato que est&aacute; 
+        en otra tabla. </p>
+      </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr>
+    <td> 
+      <P class=padding-sin>Ejemplo:<br>
+        <br>
+        <b><font color="#008000">SELECT numemp, nombre<br>
+        FROM empleados<br>
+        WHERE contrato = (SELECT MIN(fechapedido) FROM pedidos)</font></b></p>
+      <P class=padding-1>En este ejemplo listamos el n&uacute;mero y nombre de los empleados cuya 
+        fecha de contrato sea igual a la primera fecha de todos los pedidos de 
+        la empresa.</p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <P class=padding-1>En una cl&aacute;usula <b><font color="#008000">WHERE</font></b> 
+        / <b><font color="#008000">HAVING</font></b> tenemos siempre una condici&oacute;n 
+        y la subconsulta act&uacute;a de operando dentro de esa condici&oacute;n.<br>
+        En el ejemplo anterior se compara contrato con el resultado de la subconsulta. 
+        Hasta ahora las condiciones estudiadas ten&iacute;an como operandos valores 
+        simples (el valor contenido en una columna de una fila de la tabla, el 
+        resultado de una operaci&oacute;n aritm&eacute;tica...) ahora la subconsulta 
+        puede devolver una columna entera por lo que es necesario definir otro 
+        tipo de<b><font color="#000080"> condiciones especiales</font></b> para 
+        cuando se utilizan con subconsultas.</p>
+      <P class=padding-1>Estas nuevas condiciones se describen en la p&aacute;gina siguiente...</p>
+      </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> <div align="center"> 
+        <script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_ad_channel ="5259272651";
+google_page_url = document.location;
+google_color_border = "FDE8D0";
+google_color_bg = "FFF6EC";
+google_color_link = "663300";
+google_color_url = "CC0000";
+google_color_text = "000000";
+//--></script>
+        <script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>
+      </div></td>
+  </tr>
+</table>
+
+<BR>
+<TABLE width="100%" border="0">
+  <TR> 
+    <TD width="37%">&nbsp;</TD>
+     
+    <TD width="6%"><A href="t_4_2.htm"><IMG name="image8" src="comunes/flecha_re.gif" width="22" height="22" border="0"></A></TD>
+     
+    <TD width="6%"><A href="index.htm"><IMG name="image8" src="comunes/flecha_home.gif" width="22" height="22" border="0"></A></TD>
+		
+    <TD width="6%"><A href="t_5_2.htm"><IMG name="image2" src="comunes/flecha_av.gif" width="22" height="22" border="0"></A></TD>
+    <TD width="45%"> 
+      <DIV align="right">Pag. 5.1</DIV>
+    </TD>
+  </TR>
+</TABLE>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <div align="center"><font size="-1">Aviso legal: este curso es gratuito 
+        siempre que se visualice desde la p&aacute;gina web de aulaClic. No est&aacute; 
+        permitido descargar el curso ni utilizarlo en academias o centros de ense&ntilde;anza 
+        privados sin estar conectado a Internet. </font></div>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <div align="center"><font size="-1">© aulaClic. Todos los derechos reservados. 
+ <a href="http://www.teacherclick.com/" style="text-decoration: none; color: black;" target="_blank">Free Computer tutorials</a> . 
+        Prohibida la reproducci&oacute;n por cualquier medio.<br>
+        </font><font size="2">Junio-2001.aulaClic.com</font></div>
+    </td>
+  </tr>
+</table>
+<p style='text-align:justify'>&nbsp;</p>
+<!--  fin td width="770" --------------- fin texto pagina -------------------------------->
+
+    </td>
+    <td  valign="top">
+	<!--   td width="160" -------------- anuncios lateral derecho ---------------------------------->
+<table  border="0">
+
+  <tr> 
+    <td valign="bottom" height="700"> 
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 160;
+google_ad_height = 600;
+google_ad_format = "160x600_as";
+google_ad_type = "text_image";
+google_ad_channel ="2175968397";
+google_color_border = "FFF6EC";
+google_color_bg = "FFF6EC";
+google_color_link = "663300";
+google_color_text = "000000";
+google_color_url = "CC0000";
+//--></script>
+<script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>
+    </td>
+	
+  </tr>
+  
+  <tr> 
+    <td height="150">
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 125;
+google_ad_height = 125;
+google_ad_format = "125x125_as_rimg";
+google_cpa_choice = "CAAQmImJlAIaCN5uB6wtFhbmKNyMs4MB";
+google_ad_channel = "6146562423";
+//--></script>
+<script type="text/javascript" src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>
+    </td>
+  </tr>
+
+  <tr> 
+    <td height="150">
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 160;
+google_ad_height = 90;
+google_ad_format = "160x90_0ads_al";
+google_ad_channel ="2175968397";
+google_color_border = "FAF1E3";
+google_color_bg = "FAF1E3";
+google_color_link = "663300";
+google_color_text = "000000";
+google_color_url = "CC0000";
+//--></script>
+<script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>    </td>
+  </tr>
+</table>
+
+	<!--   td width="160" ----------- fin anuncios lateral derecho -------------------------------------->
+
+ </td>
+ </tr>
+<!--   table de "980" ----------------------------------------------->
+</table>
+
+</body>
+
+
+<!-- Mirrored from www.aulaclic.es/sql/t_5_1.htm by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 10 Jun 2011 06:48:58 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
+</html>

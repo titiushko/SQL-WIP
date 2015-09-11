@@ -1,0 +1,349 @@
+
+<html>
+
+<!-- Mirrored from www.aulaclic.es/sql/t_7_1.htm by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 10 Jun 2011 06:48:59 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name="keywords" content="SQL Base datos access access2000 tutorial manual gratis office enseñanza educacion ddl dcl dml">
+<LINK REL=STYLESHEET TYPE="text/css" HREF="estilo_sinf_osc.css" TITLE="estilo_sinf_osc">
+<title>Tema 7  Referencias cruzadas</title>
+<SCRIPT language=JavaScript>
+<!--
+var previous = "t_6_5.htm";
+var next = "t_7_2.htm";
+//-->
+</SCRIPT>
+</head><body>
+
+<script type='text/javascript' src='../js/sqlmenu_osc.js'></script> 
+<script type='text/javascript' src='../js/menu8_com.js'></script> 
+
+<table width="900" border="0">
+  <tr>
+    <td width="144"><a href="http://www.aulaclic.es/index.html"><img src="comunes/logo_ac1_50.gif" alt="P&aacute;gina inicial"  border="0" longdesc="P%e1gina%20inicial.html"></a></td>
+    <td width="505">&nbsp;</td>
+	    <td width="234">
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 234;
+google_ad_height = 60;
+google_ad_format = "234x60_as";
+google_ad_type = "text_image";
+google_ad_channel ="";
+google_color_border = "FAF1E3";
+google_color_bg = "FAF1E3";
+google_color_link = "663300";
+google_color_text = "000000";
+google_color_url = "CC0000";
+//--></script>
+<script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+
+</script>
+    </td>
+        </tr>
+</table>
+
+<br />
+<!--   table de "980" ----------------------------------------------->
+
+<table  border="0"> 
+  <tr> 
+<td >  </td>
+<td  > </td>
+  </tr>
+  <tr> 
+<td > 
+<!--   td width="770" ------------------ texto pagina ------------------------------>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR>
+    <TD><p class=tit-1 > <font color="#800000"><B>Tema 7. Tablas de referencias 
+        cruzadas </B> (I) </font></p></TD>
+    <td><!-- Search Google -->
+        <center>
+          <form method="get" action="http://www.google.es/custom" target="google_window">
+            <table bgcolor="#ffffff">
+              <tr>
+                <td nowrap="nowrap" valign="top" align="left" height="32"><a href="http://www.google.com/"> <img src="../../www.google.com/logos/Logo_25wht.gif" border="0" alt="Google" align="middle"></a>
+                    <input type="text" name="q" size="20" maxlength="255" value="">
+                    <input type="submit" name="sa" value="B&uacute;squeda">
+                    <input type="hidden" name="client" value="pub-1875034419890743">
+                    <input type="hidden" name="forid" value="1">
+                    <input type="hidden" name="ie" value="ISO-8859-1">
+                    <input type="hidden" name="oe" value="ISO-8859-1">
+                    <input type="hidden" name="cof" value="GALT:#008000;GL:1;DIV:#336699;VLC:663399;AH:center;BGC:FFF6EC;LBGC:FFF6EC;ALC:000000;LC:000000;T:0000FF;GFNT:0000FF;GIMP:0000FF;LH:50;LW:141;L:http://www.aulaclic.es/logo_ac1_50.jpg;S:http://www.aulaclic.es/;FORID:1;">
+                    <input type="hidden" name="hl" value="es">
+                </td>
+              </tr>
+            </table>
+          </form>
+        </center>
+      <!-- Search Google -->
+    </td>
+  </TR>
+</TABLE>
+<BR>
+<TABLE width="65%" border="0">
+  <TR> 
+    <TD width="50%"> 
+      <P class=tit-2 > <FONT color="#800000"><B> Introducci&oacute;n</B> </FONT></P>
+    </TD>
+  </TR>
+</TABLE>
+<BR>
+
+<table width="100%" border="0">
+  <tr>
+  	<td> 
+      <P class=padding-1><img src="graficos/ej_cruzada_sin.gif" width="178" height="396" align="right">Cuando 
+        queremos representar una <b><font color="#000080">consulta sumaria con 
+        dos columnas de agrupaci&oacute;n como una tabla de doble entrada</font><font color="#000080"> 
+        en la que cada una de las columnas de agrupaci&oacute;n es una entrada 
+        de la tabla utilizaremos una </font></b>consulta de tabla de referencias 
+        cruzadas.</P>
+      <p class=padding-1>Por ejemplo queremos obtener las ventas mensuales de 
+        nuestros empleados. Tenemos que dise&ntilde;ar una consulta sumaria calculando 
+        la suma de los importes de los pedidos agrupando por empleado y mes de 
+        la venta. </p>
+      <P class=padding-1>La consulta ser&iacute;a:</P>
+      <P class=padding-sin><font color="#008000"><b>SELECT rep as empleado, month(fechapedido) 
+        as mes, sum(importe) as vendido<br>
+        FROM pedidos<br>
+        GROUP BY rep, month(fechapedido)</b></font></P>
+      <P class=padding-1>El resultado ser&iacute;a la tabla que aparece a la derecha:</P>
+    </td>
+    <td height="21">&nbsp;</td>
+  </tr>
+	<tr>
+  <td><P class=padding-1>La consulta quedar&iacute;a mucho m&aacute;s elegante y clara presentando 
+      los datos en un formato m&aacute;s compacto como el siguiente:</p></td></tr>
+ </table>
+<table width="100%" border="0">
+  <tr>
+    <td> 
+      <p><img src="graficos/ej_cruzada_mes.gif" width="478" height="162"></p>
+      </td>
+  </tr>
+  <tr>
+    <td>
+      <p class=padding-1>Pues este &uacute;ltimo resultado se obtiene mediante 
+        una consulta de referencias cruzadas. Observar que una de las columnas 
+        de agrupaci&oacute;n (rep) sigue definiendo las filas que aparecen (hay 
+        una fila por cada empleado), mientras que la otra columna de agrupaci&oacute;n 
+        (mes) ahora sirve para definir las otras columnas, cada valor de mes define 
+        una columna en el resultado, y la celda en la intersecci&oacute;n de un 
+        valor de rep y un valor de mes es la columna resumen, la que contiene 
+        la funci&oacute;n de columna (la suma de importe).</p>
+      <p class=padding-1>Las consultas de referencias cruzadas se pueden crear 
+        utilizando el asistente, es mucho m&aacute;s c&oacute;modo pero es &uacute;til 
+        saber c&oacute;mo hacerlo directamente en SQL por si queremos variar alg&uacute;n 
+        dato una vez realizada la consulta con el asistente o si queremos definir 
+        una consulta de referencias cruzadas que no se puede definir con el asistente.</p>
+      <p class=padding-1>&nbsp;</p>
+      </td>
+  </tr>
+</table>
+<table width="65%" border="0">
+  <tr> 
+    <td width="50%"> 
+      <p class=tit-2 > <font color="#800000"><b> <a name="sentencia"></a>La sentencia 
+        TRANSFORM</b></font></p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr>
+    <td> 
+      <P class=padding-1>La sentencia <b><font color="#008000">TRANSFORM</font></b> 
+        es la que se utiliza <b><font color="#000080">para definir una consulta 
+        de referencias cruzadas</font></b>.</P>
+      <P class=padding-1>La sintaxis es la siguiente:<br>
+      </P>
+      </td>
+    
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr>
+    <td><img src="graficos/transform.gif" width="314" height="161"></td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr>
+    <td> 
+      <P class=padding-1><img src="comunes/orangeBall.gif" width="14" height="14"> 
+        <b><font color="#000080">Resultado</font></b> es <b><font color="#000080">la 
+        funci&oacute;n de columna</font></b> que permite obtener el <b><font color="#000080">resultado 
+        de las celdas</font></b>.</p>
+      <p class=padding-1><img src="comunes/orangeBall.gif" width="14" height="14"> 
+        En la <b><font color="#008000">SELECT</font></b> la <b><font color="#000080">columna 
+        fija</font></b> es la columna que define el <b><font color="#000080">encabezado 
+        de filas</font></b>, el origen que indicamos en la cl&aacute;usula FROM 
+        es la tabla (o tablas) de donde sacamos la informaci&oacute;n, y en la 
+        cl&aacute;usula <b><font color="#008000">GROUP BY</font></b> ponemos la 
+        <b> <font color="#000080">columna que va a definir las filas del resultado</font></b>.</p>
+      <p class=padding-1><img src="comunes/orangeBall.gif" width="14" height="14"> 
+        La <b><font color="#008000">SELECT</font></b> puede contener una cl&aacute;usula 
+        <b> <font color="#008000">WHERE</font></b> para seleccionar la filas que 
+        se utilizan para calcular el resultado, puede contener subconsultas pero 
+        no la cl&aacute;usula <b><font color="#008000">HAVING</font></b>.</p>
+      <p class=padding-1><img src="comunes/orangeBall.gif" width="14" height="14"> 
+        En la cl&aacute;usula <b><font color="#008000">PIVOT</font></b> indicamos 
+        la <b><font color="#000080">columna</font></b> cuyos valores van a definir 
+        <b><font color="#000080">columnas din&aacute;micas del resultado</font></b> 
+        a esta columna la llamaremos <b><font color="#000080">pivote</font></b>.</p>
+      <p class=padding-1><img src="comunes/orangeBall.gif" width="14" height="14"> 
+        La cl&aacute;usula <b><font color="#008000">IN</font></b> permite definir 
+        el <b><font color="#000080">conjunto de valores que queremos que aparezcan 
+        como columnas din&aacute;micas</font></b>. </p>
+      <p class=padding-1><img src="comunes/orangeBall.gif" width="14" height="14"> 
+        Es conveniente que la columna pivote que sirve de <b><font color="#000080">encabezado 
+        de columna</font></b> tenga un <b><font color="#000080">n&uacute;mero 
+        limitado de posibles valores</font></b> para que no se generen demasiadas 
+        columnas. En nuestro ejemplo es mejor utilizar el mes como encabezado 
+        de columna y no de fila ya que posibles empleados hay muchos m&aacute;s 
+        y adem&aacute;s el mes toma valores que conocemos y podemos utilizar por 
+        lo tanto la cl&aacute;usula <b><font color="#008000">IN</font></b> para 
+        que aparezcan todos los meses del a&ntilde;o.</p>
+      <P class=padding-1>&nbsp;</p>
+      </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <p class=padding-1><img src="comunes/orangeBall.gif" width="14" height="14"> 
+        En nuestro ejemplo resultado ser&iacute;a <b><font color="#008000">SUM(importe)</font></b>, 
+        la columna fija es rep con un alias para que salga la palabra empleado 
+        en el encabezado, el origen de datos es la tabla pedidos (porque el resultado 
+        <b> <font color="#008000">SUM(importe)</font></b> se obtiene de pedidos), 
+        la columna del <b><font color="#008000">GROUP BY</font></b> es rep ya 
+        que queremos una fila por cada representante, la columna din&aacute;mica, 
+        la que ponemos en la cl&aacute;usula <b><font color="#008000">PIVOT</font></b> 
+        ser&iacute;a <b><font color="#008000">MONTH(fechapedido)</font></b>.</p>
+      <p class=padding-1>La sentencia quedar&iacute;a de la siguiente forma:</p>
+      <p class=padding-sin><font color="#008000"><b>TRANSFORM Sum(importe)<br>
+        SELECT rep as empleado<br>
+        FROM pedidos<br>
+        GROUP BY rep<br>
+        PIVOT month(fechapedido)</b></font></p>
+      <p class=padding-1>Lo mejor para montar una consulta de referencias cruzadas 
+        en SQL es pensar la sumaria normal y luego distribuir los t&eacute;rminos 
+        seg&uacute;n corresponda.</p>
+      </td>
+  </tr>
+</table>
+<BR>
+<TABLE width="100%" border="0">
+  <TR> 
+    <TD width="37%">&nbsp;</TD>
+     
+    <TD width="6%"><A href="t_6_5.htm"><IMG name="image8" src="comunes/flecha_re.gif" width="22" height="22" border="0"></A></TD>
+     
+    <TD width="6%"><A href="index.htm"><IMG name="image8" src="comunes/flecha_home.gif" width="22" height="22" border="0"></A></TD>
+		
+    <TD width="6%"><A href="t_7_2.htm"><IMG name="image2" src="comunes/flecha_av.gif" width="22" height="22" border="0"></A></TD>
+    <TD width="45%"> 
+      <DIV align="right">Pag.7.1</DIV>
+    </TD>
+  </TR>
+</TABLE>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <div align="center"><font size="-1">Aviso legal: este curso es gratuito 
+        siempre que se visualice desde la p&aacute;gina web de aulaClic. No est&aacute; 
+        permitido descargar el curso ni utilizarlo en academias o centros de ense&ntilde;anza 
+        privados sin estar conectado a Internet. </font></div>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <div align="center"><font size="-1">© aulaClic. Todos los derechos reservados. 
+ <a href="http://www.teacherclick.com/" style="text-decoration: none; color: black;" target="_blank">Free Computer tutorials</a> . 
+        Prohibida la reproducci&oacute;n por cualquier medio.<br>
+        </font><font size="2">Julio-2001.aulaClic.com</font></div>
+    </td>
+  </tr>
+</table>
+<p style='text-align:justify'>&nbsp;</p>
+<!--  fin td width="770" --------------- fin texto pagina -------------------------------->
+
+    </td>
+    <td  valign="top">
+	<!--   td width="160" -------------- anuncios lateral derecho ---------------------------------->
+<table  border="0">
+
+  <tr> 
+    <td valign="bottom" height="700"> 
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 160;
+google_ad_height = 600;
+google_ad_format = "160x600_as";
+google_ad_type = "text_image";
+google_ad_channel ="2175968397";
+google_color_border = "FFF6EC";
+google_color_bg = "FFF6EC";
+google_color_link = "663300";
+google_color_text = "000000";
+google_color_url = "CC0000";
+//--></script>
+<script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>
+    </td>
+	
+  </tr>
+  
+  <tr> 
+    <td height="150">
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 125;
+google_ad_height = 125;
+google_ad_format = "125x125_as_rimg";
+google_cpa_choice = "CAAQmImJlAIaCN5uB6wtFhbmKNyMs4MB";
+google_ad_channel = "6146562423";
+//--></script>
+<script type="text/javascript" src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>
+    </td>
+  </tr>
+
+  <tr> 
+    <td height="150">
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 160;
+google_ad_height = 90;
+google_ad_format = "160x90_0ads_al";
+google_ad_channel ="2175968397";
+google_color_border = "FAF1E3";
+google_color_bg = "FAF1E3";
+google_color_link = "663300";
+google_color_text = "000000";
+google_color_url = "CC0000";
+//--></script>
+<script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>    </td>
+  </tr>
+</table>
+
+	<!--   td width="160" ----------- fin anuncios lateral derecho -------------------------------------->
+
+ </td>
+ </tr>
+<!--   table de "980" ----------------------------------------------->
+</table>
+
+</body>
+
+
+<!-- Mirrored from www.aulaclic.es/sql/t_7_1.htm by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 10 Jun 2011 06:49:01 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
+</html>

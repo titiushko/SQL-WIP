@@ -1,0 +1,404 @@
+
+<html>
+
+<!-- Mirrored from www.aulaclic.es/sql/t_8_4.htm by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 10 Jun 2011 06:49:33 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name="keywords" content="SQL Base datos access access2000 tutorial manual gratis office enseñanza educacion ddl dcl dml">
+<LINK REL=STYLESHEET TYPE="text/css" HREF="estilo_sinf_osc.css" TITLE="estilo_sinf_osc">
+<title>Tema  8  Definici&oacute;n de Datos</title>
+<SCRIPT language=JavaScript>
+<!--
+var previous = "t_8_3.htm";
+var next = "index.htm";
+//-->
+</SCRIPT>
+</head><body>
+
+<script type='text/javascript' src='../js/sqlmenu_osc.js'></script> 
+<script type='text/javascript' src='../js/menu8_com.js'></script> 
+
+<table width="900" border="0">
+  <tr>
+    <td width="144"><a href="http://www.aulaclic.es/index.html"><img src="comunes/logo_ac1_50.gif" alt="P&aacute;gina inicial"  border="0" longdesc="P%e1gina%20inicial.html"></a></td>
+    <td width="505">&nbsp;</td>
+	    <td width="234">
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 234;
+google_ad_height = 60;
+google_ad_format = "234x60_as";
+google_ad_type = "text_image";
+google_ad_channel ="";
+google_color_border = "FAF1E3";
+google_color_bg = "FAF1E3";
+google_color_link = "663300";
+google_color_text = "000000";
+google_color_url = "CC0000";
+//--></script>
+<script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+
+</script>
+    </td>
+        </tr>
+</table>
+
+<br />
+<!--   table de "980" ----------------------------------------------->
+
+<table  border="0"> 
+  <tr> 
+<td >  </td>
+<td  > </td>
+  </tr>
+  <tr> 
+<td > 
+<!--   td width="770" ------------------ texto pagina ------------------------------>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR>
+    <TD><p class=tit-1 > <font color="#800000"><B>Tema 8. El DDL, lenguaje de definici&oacute;n 
+      de datos </B> (IV) </font></p></TD>
+    <td><!-- Search Google -->
+        <center>
+          <form method="get" action="http://www.google.es/custom" target="google_window">
+            <table bgcolor="#ffffff">
+              <tr>
+                <td nowrap="nowrap" valign="top" align="left" height="32"><a href="http://www.google.com/"> <img src="../../www.google.com/logos/Logo_25wht.gif" border="0" alt="Google" align="middle"></a>
+                    <input type="text" name="q" size="20" maxlength="255" value="">
+                    <input type="submit" name="sa" value="B&uacute;squeda">
+                    <input type="hidden" name="client" value="pub-1875034419890743">
+                    <input type="hidden" name="forid" value="1">
+                    <input type="hidden" name="ie" value="ISO-8859-1">
+                    <input type="hidden" name="oe" value="ISO-8859-1">
+                    <input type="hidden" name="cof" value="GALT:#008000;GL:1;DIV:#336699;VLC:663399;AH:center;BGC:FFF6EC;LBGC:FFF6EC;ALC:000000;LC:000000;T:0000FF;GFNT:0000FF;GIMP:0000FF;LH:50;LW:141;L:http://www.aulaclic.es/logo_ac1_50.jpg;S:http://www.aulaclic.es/;FORID:1;">
+                    <input type="hidden" name="hl" value="es">
+                </td>
+              </tr>
+            </table>
+          </form>
+        </center>
+      <!-- Search Google -->
+    </td>
+  </TR>
+</TABLE>
+<br>
+<table width="65%" border="0">
+  <tr> 
+    <td width="50%"> 
+      <p class=tit-2 > <font color="#800000"><b> DROP TABLE</b></font></p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <p class=padding-1>La sentencia <b><font color="#008000">DROP TABLE</font></b> 
+        sirve para <b><font color="#000080">eliminar una tabla</font></b>. No 
+        se puede eliminar una tabla si est&aacute; abierta, tampoco la podemos 
+        eliminar si el borrado infringe las reglas de integridad referencial (si 
+        interviene como tabla padre en una relaci&oacute;n y tiene registros relacionados).</p>
+      <p class=padding-1>La <b><font color="#000080">sintaxis</font></b> es la 
+        siguiente:</p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <p class=padding-1><img src="graficos/drop_table.gif" width="148" height="19"></p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <p class=padding-1><font color="#000080"><b>Ejemplo</b></font>:</p>
+      <p class=padding-1><font color="#008000"><b>DROP TABLE tab1</b></font> </p>
+      <p class=padding-1>Elimina de la base de datos la tabla tab1.</p>
+      <p class=padding-1>&nbsp;</p>
+    </td>
+  </tr>
+</table>
+<BR>
+<table width="65%" border="0">
+  <tr> 
+    <td width="50%"> 
+      <p class=tit-2 > <font color="#800000"><b> <a name="b1"></a><a name="create"></a>CREATE 
+        INDEX</b></font></p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <p class=padding-1>La sentencia <b><font color="#008000">CREATE INDEX</font></b> 
+        sirve para <b><font color="#000080">crear un &iacute;ndice</font></b> 
+        sobre una o varias columnas de una tabla. Si quieres repasar conceptos 
+        b&aacute;sicos sobre &iacute;ndices haz clic aqu&iacute;<a href="b_8_4_1.htm"><img src="comunes/ico_menos.gif" width="26" height="20" border="0"></a></p>
+      <p class=padding-1>La <b><font color="#000080">sintaxis</font></b> es la 
+        siguiente:</p>
+    </td>
+ </tr>
+  <tr> 
+    <td> 
+      <p class=padding-1><img src="graficos/create_index.gif" width="486" height="122"></p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <p class=padding-1><font color="#000080"><b>nbindi</b></font>: <b><font color="#000080">nombre 
+        del &iacute;ndice</font></b> que estamos definiendo. <b> <font color="#000080">En 
+        una tabla no pueden haber dos &iacute;ndices con el mismo nombre</font></b> 
+        de lo contrario da error.</p>
+      <p class=padding-1><font color="#000080"><b>nbtabla</b></font>: <b><font color="#000080">nombre 
+        de la t</font></b><b><font color="#000080">abla donde definimos el &iacute;ndice</font></b>. 
+        A continuaci&oacute;n entre par&eacute;ntesis se indica la composici&oacute;n 
+        del &iacute;ndice (las columnas que lo forman).</p>
+      <p class=padding-1><font color="#000080"><b>nbcol</b></font>: <b><font color="#000080">nombre 
+        de la columna que indexamos</font></b>. Despu&eacute;s del nombre de la 
+        columna podemos indicar c&oacute;mo queremos que se ordenen las filas 
+        seg&uacute;n el &iacute;ndice mediante las cl&aacute;usulas <b><font color="#008000">ASC</font></b>/<b><font color="#008000">DESC</font></b>.</p>
+      <p class=padding-1><font color="#008000"><b>ASC</b></font>: la cl&aacute;usula 
+        <b> <font color="#008000">ASC</font></b> es la que se asume <b><font color="#000080">por 
+        defecto</font></b> e indica que el <b><font color="#000080">orden</font></b> 
+        elegido para el &iacute;ndice es<b><font color="#000080"> ascendente </font></b>(en 
+        orden alfab&eacute;tico si la columna es de tipo texto, de menor a mayor 
+        si es de tipo num&eacute;rico, en orden cronol&oacute;gico si es de tipo 
+        fecha).</p>
+      <p class=padding-1><font color="#008000"><b>DESC</b></font>: indica <b><font color="#000080">orden 
+        descendente</font></b>, es decir el orden inverso al ascendente.</p>
+      <p class=padding-1>Podemos formar un &iacute;ndice <b><font color="#000080">basado 
+        en varias columnas</font></b>, en este caso despu&eacute;s de indicar 
+        la primera columna con su orden, se escribe una coma y la segunda columna 
+        tambi&eacute;n con su orden, as&iacute; sucesivamente hasta indicar todas 
+        las columnas que forman el &iacute;ndice. </p>
+      <p class=padding-1>Opcionalmente se pueden indicar las cl&aacute;usulas:</p>
+      <p class=padding-1><font color="#008000"><b>WITH PRIMARY </b></font>indica 
+        que el &iacute;ndice define la <b><font color="#000080">clave principal 
+        </font></b>de la tabla, si la tabla ya tiene una clave principal, la sentencia 
+        <b> <font color="#008000">CREATE INDEX </font></b>dar&aacute; error.</p>
+      <p class=padding-1><font color="#008000"><b>WITH DISALLOW NULL</b></font> 
+        indica que<b><font color="#000080"> no permite valores nulos</font></b> 
+        en las columnas que forman el &iacute;ndice.</p>
+      <p class=padding-1><font color="#000080"><b>WITH IGNORE NULL</b></font> 
+        indica que <b><font color="#000080">las filas </font></b>que <b><font color="#000080">tengan 
+        valores nulos</font></b> en las columnas que forman el &iacute;ndice <b><font color="#000080">se 
+        ignoran</font></b>, no aparecen cuando recuperamos las filas de la tabla 
+        utilizando ese &iacute;ndice.</p>
+      <p class=padding-1>&nbsp;</p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <p class=padding-1><font color="#000080"><b>Ejemplo:</b></font></p>
+      <p class=padding-1><font color="#008000"><b>CREATE UNIQUE INDEX ind1 ON 
+        clientes (provincia, poblacion ASC, fecha_nacimiento DESC) </b></font></p>
+      <p class=padding-1>Crea un &iacute;ndice llamado<i> ind1 </i>sobre la tabla 
+        <i>clientes</i> formado por las columnas <i>provincia, poblaci&oacute;n 
+        y fecha_nacimiento</i>. Este &iacute;ndice permite tener ordenadas las 
+        filas de la tabla <i>clientes</i> de forma que aparezcan los clientes 
+        ordenados por <i>provincia</i>, dentro de la misma provincia por <i>poblaci&oacute;n</i> 
+        y dentro de la misma poblaci&oacute;n por edad y del m&aacute;s joven 
+        al m&aacute;s mayor.</p>
+      <p class=padding-1>Al a&ntilde;adir la cl&aacute;usula <b><font color="#008000">UNIQUE</font></b> 
+        el &iacute;ndice no permitir&aacute; duplicados por lo que no podr&iacute;a 
+        tener dos clientes con la misma fecha de nacimiento en la misma poblaci&oacute;n 
+        y misma provincia, para evitar el poblema ser&iacute;a mejor utilizar:</p>
+      <p class=padding-1><font color="#008000"><b>CREATE INDEX ind1 ON clientes 
+        (provincia, poblacion ASC, fecha_nacimiento DESC) </b></font></p>
+      <p class=padding-1>&nbsp;</p>
+    </td>
+  </tr>
+</table>
+<table width="65%" border="0">
+  <tr> 
+    <td width="50%"> 
+      <p class=tit-2 > <font color="#800000"><b> <a name="drop"></a>DROP INDEX</b></font></p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <p class=padding-1>La sentencia <b><font color="#008000">DROP INDEX</font></b> 
+        sirve para <b><font color="#000080">eliminar un &iacute;ndice</font></b> 
+        de una tabla. Se elimina el &iacute;ndice pero no las columnas que lo 
+        forman.</p>
+      <p class=padding-1>La <b><font color="#000080">sintaxis</font></b> es la 
+        siguiente:</p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <p class=padding-1><img src="graficos/drop_index.gif" width="252" height="17"></p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <p class=padding-1><font color="#000080"><b>Ejemplo:</b></font></p>
+      <p class=padding-1><font color="#008000"><b>DROP INDEX ind1 ON clientes</b></font></p>
+      <p class=padding-1><b></b>Elimina el &iacute;ndice que hab&iacute;amos creado 
+        en el ejemplo anterior.</p>
+      <p class=padding-1>&nbsp;</p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="0">
+  <tr> 
+    <td > 
+      <p class=padding-1><a name="ej1"></a><img src="comunes/redBall2-2.gif" width="14" height="14" ><a href="epr_8_1.htm">Ejercicios 
+        propuestos</a><br>
+      </p>
+    </td>
+    <td > 
+      <p class=padding-1><br>
+      </p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> <div align="center"> 
+        <script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_ad_channel ="5259272651";
+google_page_url = document.location;
+google_color_border = "FDE8D0";
+google_color_bg = "FFF6EC";
+google_color_link = "663300";
+google_color_url = "CC0000";
+google_color_text = "000000";
+//--></script>
+        <script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>
+      </div></td>
+  </tr>
+</table>
+
+<BR>
+<TABLE width="100%" border="0">
+  <TR> 
+    <TD width="37%">&nbsp;</TD>
+     
+    <TD width="6%"><A href="t_8_3.htm"><IMG name="image8" src="comunes/flecha_re.gif" width="22" height="22" border="0"></A></TD>
+     
+    <TD width="6%"><A href="index.htm"><IMG name="image8" src="comunes/flecha_home.gif" width="22" height="22" border="0"></A></TD>
+		
+    <TD width="6%"><A href="index.htm"><IMG name="image2" src="comunes/flecha_av.gif" width="22" height="22" border="0"></A></TD>
+    <TD width="45%"> 
+      <DIV align="right">Pag.8.4</DIV>
+    </TD>
+  </TR>
+</TABLE>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <div align="center"><font size="-1">Aviso legal: este curso es gratuito 
+        siempre que se visualice desde la p&aacute;gina web de aulaClic. No est&aacute; 
+        permitido descargar el curso ni utilizarlo en academias o centros de ense&ntilde;anza 
+        privados sin estar conectado a Internet. </font></div>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <div align="center"><font size="-1">© aulaClic. Todos los derechos reservados. 
+ <a href="http://www.teacherclick.com/" style="text-decoration: none; color: black;" target="_blank">Free Computer tutorials</a> . 
+        Prohibida la reproducci&oacute;n por cualquier medio.<br>
+        </font><font size="2">Julio-2001.aulaClic.com</font></div>
+    </td>
+  </tr>
+</table>
+<p style='text-align:justify'>&nbsp;</p>
+<!--  fin td width="770" --------------- fin texto pagina -------------------------------->
+
+    </td>
+    <td  valign="top">
+	<!--   td width="160" -------------- anuncios lateral derecho ---------------------------------->
+<table  border="0">
+
+  <tr> 
+    <td valign="bottom" height="700"> 
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 160;
+google_ad_height = 600;
+google_ad_format = "160x600_as";
+google_ad_type = "text_image";
+google_ad_channel ="2175968397";
+google_color_border = "FFF6EC";
+google_color_bg = "FFF6EC";
+google_color_link = "663300";
+google_color_text = "000000";
+google_color_url = "CC0000";
+//--></script>
+<script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>
+    </td>
+	
+  </tr>
+  
+  <tr> 
+    <td height="150">
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 125;
+google_ad_height = 125;
+google_ad_format = "125x125_as_rimg";
+google_cpa_choice = "CAAQmImJlAIaCN5uB6wtFhbmKNyMs4MB";
+google_ad_channel = "6146562423";
+//--></script>
+<script type="text/javascript" src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>
+    </td>
+  </tr>
+
+  <tr> 
+    <td height="150">
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 160;
+google_ad_height = 90;
+google_ad_format = "160x90_0ads_al";
+google_ad_channel ="2175968397";
+google_color_border = "FAF1E3";
+google_color_bg = "FAF1E3";
+google_color_link = "663300";
+google_color_text = "000000";
+google_color_url = "CC0000";
+//--></script>
+<script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>    </td>
+  </tr>
+</table>
+
+	<!--   td width="160" ----------- fin anuncios lateral derecho -------------------------------------->
+
+ </td>
+ </tr>
+<!--   table de "980" ----------------------------------------------->
+</table>
+
+</body>
+
+
+<!-- Mirrored from www.aulaclic.es/sql/t_8_4.htm by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 10 Jun 2011 06:49:35 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
+</html>

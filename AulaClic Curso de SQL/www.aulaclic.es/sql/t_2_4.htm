@@ -1,0 +1,540 @@
+
+<html>
+
+<!-- Mirrored from www.aulaclic.es/sql/t_2_4.htm by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 10 Jun 2011 06:49:09 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name="keywords" content="SQL Base datos access access2000 tutorial manual gratis office enseñanza educacion ddl dcl dml">
+<LINK REL=STYLESHEET TYPE="text/css" HREF="estilo_sinf_osc.css" TITLE="estilo_sinf_osc">
+<title>Tema 2 Las consultas simples</title>
+<SCRIPT language=JavaScript>
+<!--
+var previous = "t_2_3.htm";
+var next = "t_3_1.htm";
+//-->
+</SCRIPT>
+</head><body>
+
+<script type='text/javascript' src='../js/sqlmenu_osc.js'></script> 
+<script type='text/javascript' src='../js/menu8_com.js'></script> 
+
+<table width="900" border="0">
+  <tr>
+    <td width="144"><a href="http://www.aulaclic.es/index.html"><img src="comunes/logo_ac1_50.gif" alt="P&aacute;gina inicial"  border="0" longdesc="P%e1gina%20inicial.html"></a></td>
+    <td width="505">&nbsp;</td>
+	    <td width="234">
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 234;
+google_ad_height = 60;
+google_ad_format = "234x60_as";
+google_ad_type = "text_image";
+google_ad_channel ="";
+google_color_border = "FAF1E3";
+google_color_bg = "FAF1E3";
+google_color_link = "663300";
+google_color_text = "000000";
+google_color_url = "CC0000";
+//--></script>
+<script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+
+</script>
+    </td>
+        </tr>
+</table>
+
+<br />
+<!--   table de "980" ----------------------------------------------->
+
+<table  border="0"> 
+  <tr> 
+<td >  </td>
+<td  > </td>
+  </tr>
+  <tr> 
+<td > 
+<!--   td width="770" ------------------ texto pagina ------------------------------>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR>
+    <TD>
+      <p class=tit-1 > <font color="#800000"><B>Tema 2. Las consultas simples</B> 
+        (IV)</font></p>
+    </TD>
+  </TR>
+</TABLE>
+<BR>
+<TABLE width="65%" border="0">
+  <TR> 
+    <TD width="50%"> 
+      <P class=tit-2 > <FONT color="#800000"><B><A name="seleccion"></A>Condiciones 
+        de selecci&oacute;n</B></FONT></P>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE width="99%">
+  <TR> 
+    <TD class="Normal" width="33%"> 
+      <P>&nbsp;</P>
+      <P class=padding-1>Las <B><FONT color="#000080">condiciones de selecci&oacute;n</FONT></B> 
+        son las condiciones que pueden aparecer en la cl&aacute;usula <B><FONT color="#000080">WHERE</FONT></B>.</P>
+      <P class=padding-sin>En SQL tenemos cinco condiciones básicas:<br>
+        <BR>
+        el <B><FONT color="#000080">test de comparación</FONT></B><BR>
+        el <B><FONT color="#000080">test de rango</FONT></B><BR>
+        el <B><FONT color="#000080">test de pertenencia a un conjunto</FONT></B><BR>
+        el <B><FONT color="#000080">test de valor nulo</FONT></B><BR>
+        el <B><FONT color="#000080">test de correspondencia con patrón</FONT></B> 
+        . </P>
+          <BR>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR>
+    <TD  width="60%" > 
+      <P class=padding-1><IMG src="comunes/orangeBall.gif" width="14" height="14"> 
+        El <B><FONT color="#000080">test de comparación</FONT></B>. <br>
+        <BR>
+        Compara el valor de una expresión con el valor de otra.<BR>
+        La sintaxis es la siguiente: <BR>
+        <BR>
+      </P>
+</tr>
+<tr>
+<td>
+      <IMG src="graficos/tr_test_comparacion.gif" width="305" height="103"> <BR>
+    </TD width="40%">
+    <td> 
+      <P>= igual que<BR>
+        &lt;&gt; distinto de<BR>
+        &lt; menor que<BR>
+        &lt;= menor o igual <BR>
+        &gt; mayor que<BR>
+        &gt;= mayor o igual</P>
+      </td>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR>
+    <TD width="43%">
+      <P class=padding-sin><font color="#008000"><b>SELECT numemp, nombre<BR>
+        FROM empleados<BR>
+        WHERE ventas > cuota <BR>
+        </b></font><BR>
+      </P>
+    </TD>
+    <TD width="57%" valign="top"><P class=padding-sin >Lista los empleados cuyas ventas superan su cuota</P></TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD width="43%" valign="top">
+      <P class=padding-sin><font color="#008000"><b>SELECT numemp, nombre<BR>
+        FROM empleados<BR>
+        WHERE contrato < #01/01/1988# </b></font><BR>
+      <BR></P>
+    </TD>
+    <TD width="57%" valign="top"> 
+      <P class=padding-sin>Lista los empleados contratados antes del a&ntilde;o 88 (cuya fecha de 
+        contrato sea anterior al 1 de enero de 1988).<BR>
+        &iexcl;&iexcl;Ojo!!, las fechas entre almohadillas # # deben estar con 
+        el formato mes,dia,a&ntilde;o aunque tengamos definido otro formato para 
+        nuestras fechas.<BR>
+      </P>
+      </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD width="43%" valign="top">
+      <P class=padding-sin><font color="#008000"><b>SELECT numemp, nombre<BR>
+        FROM empleados<BR>
+        WHERE YEAR(contrato) < 1988 </b></font><BR>
+      <BR></P>
+    </TD>
+    <TD width="57%"  valign="top"><P class=padding-sin>Este ejemplo obtiene lo mismo que el anterior pero utiliza 
+      la funci&oacute;n year(). Obtiene los empleados cuyo a&ntilde;o de la fecha 
+      de contrato sea menor que 1988.</P></TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD width="43%" valign="top">
+      <P class=padding-sin><font color="#008000"><b>SELECT oficina <BR>
+        FROM oficinas <BR>
+        WHERE ventas < objetivo * 0.8</b></font><BR>
+      <BR></P>
+    </TD>
+    <TD width="57%" valign="top"> 
+      <P class=padding-sin>Lista las oficinas cuyas ventas estén por debajo del 80% de su objetivo.<BR>
+        Hay que utilizar siempre el punto decimal aunque tengamos definida la 
+        coma como separador de decimales.</P>
+      </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD width="43%" valign="top">
+      <P class=padding-sin><font color="#008000"><b>SELECT oficina <BR>
+        FROM oficinas <BR>
+        WHERE dir = 108</b></font><BR>
+      <BR></P>
+    </TD>
+    <TD width="57%" valign="top"> 
+     <P class=padding-sin>Lista las oficinas dirigidas por el empleado 108.</P>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR>
+    <TD>
+      <P class=padding-sin><IMG src="comunes/orangeBall.gif" width="14" height="14"><FONT color="#000080"><B>Test 
+        de rango</B></FONT> (<B><FONT color="#000080">BETWEEN</FONT></B>).<BR>
+        Examina si el <B><FONT color="#000080">valor</FONT></B> de la expresión 
+        est&aacute; <B><FONT color="#000080">comprendido</FONT></B> <B><FONT color="#000080">entre</FONT></B> 
+        los <B><FONT color="#000080">dos valores</FONT></B> definidos por exp1 
+        y exp2. <BR>
+      Tiene la siguiente sintaxis:<BR>
+      <BR>
+      <IMG src="graficos/tr_between.gif" width="406" height="33"> </P></TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR>
+    <TD width="44%">
+      <P class=padding-sin> <b><font color="#008000">SELECT numemp, nombre<BR>
+        FROM empleados<BR>
+        WHERE ventas BETWEEN 100000 AND 500000 </font></b><BR>
+      <BR></P>
+    </TD>
+    <TD width="56%" valign="top"> <P class=padding-sin>Lista los empleados cuyas ventas est&eacute;n comprendidas 
+      entre 100.000 y 500.00</P></TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD width="44%" valign="top">
+      <P class=padding-sin><font color="#008000"><b>SELECT numemp, nombre<BR>
+        FROM empleados<BR>
+        WHERE (ventas &gt;= 100000) AND (ventas &lt;= 500000) </b></font><BR>
+      <BR></P>
+    </TD>
+    <TD width="56%" valign="top"> <P class=padding-sin>Obtenemos lo mismo que en el ejemplo anterior. Los par&eacute;ntesis 
+      son opcionales.</P></TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD >
+      <P class=padding-1><IMG src="comunes/orangeBall.gif" width="14" height="14"><FONT color="#000080"><B> 
+        Test</B></FONT> de <B><FONT color="#000080">pertenencia a conjunto</FONT></B> 
+        (<B><FONT color="#000080">IN</FONT></B>)<BR>
+        Examina si el <B><FONT color="#000080">valor</FONT></B> de la expresión 
+        es uno de los valores <B><FONT color="#000080">incluidos</FONT></B> <B><FONT color="#000080">en</FONT></B> 
+        la <B><FONT color="#000080">lista</FONT></B> <B><FONT color="#000080">de 
+        valores</FONT></B>.<BR>
+      Tiene la siguiente sintaxis:<BR>
+      <BR>
+      <IMG src="graficos/tr_pertenencia.gif" width="241" height="36"></P> </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD width="44%" valign="top"> 
+      <P class=padding-sin><font color="#008000"><b>SELECT numemp, nombre, oficina<BR>
+        FROM empleados<BR>
+        WHERE oficina IN (12,14,16)</b></font><BR>
+      <BR></P>
+    </TD>
+    <TD width="56%" valign="top"><P class=padding-sin> Lista los empleados de las oficinas 12, 14 y 16</P></TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD width="44%" valign="top"> 
+      <P class=padding-sin><font color="#008000"><b>SELECT numemp, nombre<BR>
+        FROM empleados<BR>
+        WHERE (oficina = 12) OR (oficina = 14) OR (oficina = 16)</b></font><BR>
+      <BR></P>
+    </TD>
+    <TD width="56%" valign="top"><P class=padding-sin> Obtenemos lo mismo que en el ejemplo anterior. Los par&eacute;ntesis 
+      son opcionales.</P></TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD> 
+      <P class=padding-1><IMG src="comunes/orangeBall.gif" width="14" height="14"><FONT color="#000080"><B> 
+        Test de valor nulo</B></FONT> (<B><FONT color="#000080">IS NULL</FONT></B>)<br>
+        <BR>
+        Una condición de selecci&oacute;n puede dar como resultado el valor verdadero 
+        TRUE, falso FALSE o nulo NULL.<br>
+        <BR>
+        Cuando una <B><FONT color="#000080">columna</FONT></B> que interviene 
+        en una condici&oacute;n de selecci&oacute;n <B><FONT color="#000080">contiene</FONT></B> 
+        el <B><FONT color="#000080">valor nulo,</FONT></B> el <B><FONT color="#000080">resultado</FONT></B> 
+        de la condici&oacute;n no es verdadero ni falso, sino <B><FONT color="#000080">nulo</FONT></B>, 
+        <B> <FONT color="#000080">sea cual sea el test</FONT></B> que se haya 
+        utilizado. Por eso si queremos listar las filas que tienen valor en una 
+        determinada columna, no podemos utilizar el test de comparaci&oacute;n, 
+        la condici&oacute;n oficina = null devuelve el valor nulo sea cual sea 
+        el valor contenido en oficina. Si queremos preguntar si una columna contiene 
+        el valor nulo debemos utilizar un <B><FONT color="#000080">test especial</FONT></B>, 
+        el test de valor nulo.<BR>
+        Tiene la siguiente sintaxis:<BR>
+        <BR>
+        <IMG src="graficos/tr_null.gif" width="264" height="33"> <BR>
+        Ejemplos: </P>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD width="44%" valign="top">
+      <P class=padding-sin> <b><font color="#008000">SELECT oficina, ciudad<BR>
+        FROM oficinas<BR>
+        WHERE dir IS NULL</font></b><BR>
+      <BR></P>
+    </TD>
+    <TD width="56%" valign="top"><P class=padding-sin>Lista las oficinas que no tienen director.</P></TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD width="44%" valign="top"> 
+      <P class=padding-sin><font color="#008000"><b>SELECT numemp, nombre<BR>
+        FROM empleados<BR>
+        WHERE oficina IS NOT NULL</b></font><BR>
+      </P>
+    </TD>
+    <TD width="56%" valign="top"> <P class=padding-sin>Lista los empleados asignados a alguna oficina (los que tienen 
+      un valor en la columna oficina).</P></TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD> 
+      <P class=padding-1><IMG src="comunes/orangeBall.gif" width="14" height="14"><FONT color="#000080"><B> 
+        Test de correspondencia con patrón</B></FONT> (<B><FONT color="#000080">LIKE</FONT></B>)<br>
+        <BR>
+        Se utiliza cuando queremos <B><FONT color="#000080">utilizar caracteres 
+        comodines</FONT></B> para formar el valor con el comparar.<BR>
+        Tiene la siguiente sintaxis:<BR>
+        <BR>
+        <IMG src="graficos/tr_like.gif" width="289" height="32"> <BR>
+        <BR>
+        Los comodines m&aacute;s usados son los siguientes:<BR>
+        <B><FONT color="#000080">?</FONT></B> representa un carácter cualquiera<BR>
+        <B><FONT color="#000080">*</FONT></B> representa cero o más caracteres<BR>
+        <B><FONT color="#000080">#</FONT></B> representa un dígito cualquiera 
+        (0-9) <BR>
+        <BR>
+        Ejemplos: </P>
+      </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD width="44%" valign="top"> 
+      <P class=padding-sin><font color="#008000"><b>SELECT numemp, nombre<BR>
+        FROM empleados<BR>
+        WHERE nombre LIKE 'Luis*'<BR>
+        </b> </font> </P>
+    </TD>
+    <TD width="56%" valign="top"> 
+      <P class=padding-sin>Lista los empleados cuyo nombre empiece por Luis (Luis 
+        seguido de cero o m&aacute;s caracteres).</P>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD width="44%" valign="top"> 
+      <P class=padding-sin><font color="#008000"><b>SELECT numemp, nombre<BR>
+        FROM empleados<BR>
+        WHERE nombre LIKE '*Luis*'</b></font><BR>
+      </P>
+    </TD>
+    <TD width="56%" valign="top"> 
+      <P class=padding-sin>Lista los empleados cuyo nombre contiene Luis, en este 
+        caso tambi&eacute;n saldr&iacute;a los empleados Jos&eacute; Luis (cero 
+        o m&aacute;s caracteres seguidos de LUIS y seguido de cero o m&aacute;s 
+        caracteres).</P>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD width="44%" valign="top"> 
+      <P class=padding-sin><font color="#008000"><b>SELECT numemp, nombre<BR>
+        FROM empleados<BR>
+        WHERE nombre LIKE '??a*'</b></font><BR>
+      </P>
+    </TD>
+    <TD width="56%" valign="top"> 
+      <P class=padding-sin>Lista los empleados cuyo nombre contenga una a como tercera 
+        letra (dos caracteres, la letra a, y cero o m&aacute;s caracteres.</P>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD > 
+      <P class=padding-1>Si quieres saber m&aacute;s sobre comodines de Access2000 
+        Pincha aqu&iacute;<A name="a1"></A><A href="a_2_4_1.htm"><IMG src="comunes/ico_mas.gif" width="26" height="20" border="0"></A><BR>
+      </P>
+    </TD>
+   </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD > 
+      <P class=padding-1><A name="ej1"></A><IMG src="comunes/redBall2-2.gif" width="14" height="14" ><A href="epr_2_1.htm">Ejercicios 
+        propuestos</A><BR>
+      </P>
+    </TD>
+    <TD > 
+      <P class=padding-1><BR>
+      </P>
+    </TD>
+  </TR>
+</TABLE>
+<br>
+<table width="100%" border="0">
+  <tr> 
+    <td> <div align="center"> 
+        <script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_ad_channel ="5259272651";
+google_page_url = document.location;
+google_color_border = "FDE8D0";
+google_color_bg = "FFF6EC";
+google_color_link = "663300";
+google_color_url = "CC0000";
+google_color_text = "000000";
+//--></script>
+        <script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>
+      </div></td>
+  </tr>
+</table>
+
+<BR>
+<TABLE width="100%" border="0">
+  <TR> 
+    <TD width="37%">&nbsp;</TD>
+     
+    <TD width="6%"><A href="t_2_3.htm"><IMG name="image8" src="comunes/flecha_re.gif" width="22" height="22" border="0"></A></TD>
+     
+    <TD width="6%"><A href="index.htm"><IMG name="image8" src="comunes/flecha_home.gif" width="22" height="22" border="0"></A></TD>
+		
+    <TD width="6%"><A href="t_3_1.htm"><IMG name="image2" src="comunes/flecha_av.gif" width="22" height="22" border="0"></A></TD>
+    <TD width="45%"> 
+      <DIV align="right">Pag. 2.4</DIV>
+    </TD>
+  </TR>
+</TABLE>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <div align="center"><font size="-1">Aviso legal: este curso es gratuito 
+        siempre que se visualice desde la p&aacute;gina web de aulaClic. No est&aacute; 
+        permitido descargar el curso ni utilizarlo en academias o centros de ense&ntilde;anza 
+        privados sin estar conectado a Internet. </font></div>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <div align="center"><font size="-1">© aulaClic. Todos los derechos reservados. 
+ <a href="http://www.teacherclick.com/" style="text-decoration: none; color: black;" target="_blank">Free Computer tutorials</a> . 
+        Prohibida la reproducci&oacute;n por cualquier medio.<br>
+        </font><font size="2">Abril-2001.aulaClic.com</font></div>
+    </td>
+  </tr>
+</table>
+<p style='text-align:justify'>&nbsp;</p>
+<!--  fin td width="770" --------------- fin texto pagina -------------------------------->
+
+    </td>
+    <td  valign="top">
+	<!--   td width="160" -------------- anuncios lateral derecho ---------------------------------->
+<table  border="0">
+
+  <tr> 
+    <td valign="bottom" height="700"> 
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 160;
+google_ad_height = 600;
+google_ad_format = "160x600_as";
+google_ad_type = "text_image";
+google_ad_channel ="2175968397";
+google_color_border = "FFF6EC";
+google_color_bg = "FFF6EC";
+google_color_link = "663300";
+google_color_text = "000000";
+google_color_url = "CC0000";
+//--></script>
+<script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>
+    </td>
+	
+  </tr>
+  
+  <tr> 
+    <td height="150">
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 125;
+google_ad_height = 125;
+google_ad_format = "125x125_as_rimg";
+google_cpa_choice = "CAAQmImJlAIaCN5uB6wtFhbmKNyMs4MB";
+google_ad_channel = "6146562423";
+//--></script>
+<script type="text/javascript" src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>
+    </td>
+  </tr>
+
+  <tr> 
+    <td height="150">
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 160;
+google_ad_height = 90;
+google_ad_format = "160x90_0ads_al";
+google_ad_channel ="2175968397";
+google_color_border = "FAF1E3";
+google_color_bg = "FAF1E3";
+google_color_link = "663300";
+google_color_text = "000000";
+google_color_url = "CC0000";
+//--></script>
+<script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>    </td>
+  </tr>
+</table>
+
+	<!--   td width="160" ----------- fin anuncios lateral derecho -------------------------------------->
+
+ </td>
+ </tr>
+<!--   table de "980" ----------------------------------------------->
+</table>
+
+</body>
+
+
+<!-- Mirrored from www.aulaclic.es/sql/t_2_4.htm by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 10 Jun 2011 06:49:11 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
+</html>

@@ -1,0 +1,585 @@
+
+<html>
+
+<!-- Mirrored from www.aulaclic.es/sql/t_4_1.htm by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 10 Jun 2011 06:48:53 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name="keywords" content="SQL Base datos access access2000 tutorial manual gratis office enseñanza educacion ddl dcl dml">
+<LINK REL=STYLESHEET TYPE="text/css" HREF="estilo_sinf_osc.css" TITLE="estilo_sinf_osc">
+<title>Tema 4 Las consultas de resumen</title>
+<SCRIPT language=JavaScript>
+<!--
+var previous = "t_3_5.htm";
+var next = "t_4_2.htm";
+//-->
+</SCRIPT>
+</head><body>
+<script type='text/javascript' src='../js/sqlmenu_osc.js'></script> 
+<script type='text/javascript' src='../js/menu8_com.js'></script> 
+
+<table width="900" border="0">
+  <tr>
+    <td width="144"><a href="http://www.aulaclic.es/index.html"><img src="comunes/logo_ac1_50.gif" alt="P&aacute;gina inicial"  border="0" longdesc="P%e1gina%20inicial.html"></a></td>
+    <td width="505">&nbsp;</td>
+	    <td width="234">
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 234;
+google_ad_height = 60;
+google_ad_format = "234x60_as";
+google_ad_type = "text_image";
+google_ad_channel ="";
+google_color_border = "FAF1E3";
+google_color_bg = "FAF1E3";
+google_color_link = "663300";
+google_color_text = "000000";
+google_color_url = "CC0000";
+//--></script>
+<script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+
+</script>
+    </td>
+        </tr>
+</table>
+
+<br />
+
+<!--   table de "980" ----------------------------------------------->
+
+<table  border="0"> 
+  <tr> 
+<td >  </td>
+<td  > </td>
+  </tr>
+  <tr> 
+<td > 
+<!--   td width="770" ------------------ texto pagina ------------------------------>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR>
+    <TD><p class=tit-1 > <font color="#800000"><B>Tema 4. Las consultas de resumen </B> (I) </font></p></TD>
+    <td><!-- Search Google -->
+        <center>
+          <form method="get" action="http://www.google.es/custom" target="google_window">
+            <table bgcolor="#ffffff">
+              <tr>
+                <td nowrap="nowrap" valign="top" align="left" height="32"><a href="http://www.google.com/"> <img src="../../www.google.com/logos/Logo_25wht.gif" border="0" alt="Google" align="middle"></a>
+                    <input type="text" name="q" size="20" maxlength="255" value="">
+                    <input type="submit" name="sa" value="B&uacute;squeda">
+                    <input type="hidden" name="client" value="pub-1875034419890743">
+                    <input type="hidden" name="forid" value="1">
+                    <input type="hidden" name="ie" value="ISO-8859-1">
+                    <input type="hidden" name="oe" value="ISO-8859-1">
+                    <input type="hidden" name="cof" value="GALT:#008000;GL:1;DIV:#336699;VLC:663399;AH:center;BGC:FFF6EC;LBGC:FFF6EC;ALC:000000;LC:000000;T:0000FF;GFNT:0000FF;GIMP:0000FF;LH:50;LW:141;L:http://www.aulaclic.es/logo_ac1_50.jpg;S:http://www.aulaclic.es/;FORID:1;">
+                    <input type="hidden" name="hl" value="es">
+                </td>
+              </tr>
+            </table>
+          </form>
+        </center>
+      <!-- Search Google -->
+    </td>
+  </TR>
+</TABLE>
+<BR>
+<TABLE width="65%" border="0">
+  <TR> 
+    <TD width="50%"> 
+      <P class=tit-2 > <FONT color="#800000"><B> Introducci&oacute;n</B> </FONT></P>
+    </TD>
+  </TR>
+</TABLE>
+<BR>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD class="Normal"> 
+       
+      <P class=padding-1>En SQL de Microsoft Jet 4.x y de la mayor&iacute;a de 
+        los motores de bases de datos relacionales, podemos definir un <b><font color="#000080">tipo 
+        de consultas</font></b> cuyas filas<b><font color="#000080"> </font></b>resultantes 
+        <B><FONT color="#000080">son un resumen de las filas de la tabla origen</FONT></B>, 
+        por eso las denominamos <b><font color="#000080">consultas de resumen</font></b>, 
+        tambi&eacute;n se conocen como consultas sumarias.</P>
+      <P class=padding-1>Es importante entender que las<b><font color="#000080"> 
+        </font></b>filas del<b><font color="#000080"> </font></b>resultado de 
+        una consulta de resumen tienen una <b> <font color="#000080">naturaleza 
+        distinta</font></b> a las filas de las dem&aacute;s tablas resultantes 
+        de consultas, ya que corresponden a varias filas de la tabla orgen. Para 
+        simplificar, veamos el caso de una consulta basada en una sola tabla, 
+        una fila de una consulta 'no resumen' corresponde a una fila de la tabla 
+        origen, contiene datos que se encuentran en una sola fila del origen, 
+        mientras que <b><font color="#000080">una fila</font></b> <B><FONT color="#000080">de 
+        una</FONT></B> <b><font color="#000080">consulta de resumen corresponde</font></b> 
+        a un <b><font color="#000080">resumen de varias filas</font></b> de la 
+        <b> <font color="#000080">tabla origen</font></b>, esta diferencia es 
+        lo que va a originar una serie de restricciones que sufren las consultas 
+        de resumen y que veremos a lo largo del tema.</P>
+      <P class=padding-1>
+        En el ejemplo que viene a continuaci&oacute;n tienes un ejemplo de consulta 
+        normal en la que se visualizan las filas de la tabla oficinas ordenadas 
+        por region, en este caso cada fila del resultado se corresponde con una 
+        sola fila de la tabla oficinas, mientras que la segunda consulta es una 
+        consulta resumen, cada fila del resultado se corresponde con una o varias 
+        filas de la tabla oficinas.<BR>
+      </P>
+      </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD class="Normal" valign = 'top'> 
+      <P class=padding-1><img src="graficos/ejem_sumaria.gif" width="485" height="234"><BR>
+      </P>
+      </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD class="Normal"> 
+      <P class=padding-1>Las consultas de resumen introducen dos <b><font color="#000080">nuevas 
+        cl&aacute;usulas</font></b> a la sentencia SELECT, la<b><font color="#000080"> 
+        cl&aacute;usula GROUP BY</font></b> y la <b><font color="#000080">cl&aacute;usula 
+        HAVING</font></b>, son cl&aacute;usulas que <B><FONT color="#000080">s&oacute;lo</FONT></B><b><font color="#000080"> 
+        </font></b>se pueden utilizar en una consulta de resumen, se tienen que 
+        escribir <b><font color="#000080">entre</font></b> la cl&aacute;usula<b><font color="#000080"> 
+        WHERE</font></b><font color="#000080"><b> </b></font>y<font color="#000080"><b> 
+        </b></font>la cl&aacute;usula<b><font color="#000080"> ORDER BY</font></b> 
+        y tienen la siguiente sintaxis:<br>
+      </P>
+      </TD>
+  </TR>
+</TABLE>
+<table width="100%" border="0">
+  <tr>
+    <td><img src="graficos/select_resumen.gif" width="358" height="293"></td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr>
+    <td>
+      <p class=padding-1>Las detallaremos en la p&aacute;gina siguiente del tema, 
+        primero vamos a introducir otro concepto relacionado con las consultas 
+        de resumen, las funciones de columna. </p>
+      <p class=padding-1>&nbsp;</p>
+      </td>
+  </tr>
+</table>
+<TABLE width="65%" border="0">
+  <TR> 
+    <TD width="50%"> 
+      <P class=tit-2 > <FONT color="#800000"><B> <a name="funciones"></a>Funciones 
+        de columna</B></FONT></P>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD class="Normal"> 
+      <P class=padding-1>En la lista de selecci&oacute;n de una consulta de resumen 
+        aparecen<b><font color="#000080"> funciones de columna</font></b> tambi&eacute;n 
+        denominadas<b><font color="#000080"> </font></b>funciones de dominio agregadas. 
+        Una funci&oacute;n de columna <b><font color="#000080">se aplica a una 
+        columna</font></b> y obtiene un <b><font color="#000080">valor </font></b><FONT color="#000080"><B>que</B></FONT> 
+        <b><font color="#000080">resume</font></b> <B><FONT color="#000080">el</FONT></B> 
+        <b><font color="#000080">contenido</font></b> <B><FONT color="#000080">de 
+        la</FONT></B> <b><font color="#000080">columna</font></b>.</P>
+      <P class=padding-1>Tenemos las siguientes funciones de columna:</P>
+      </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD class="Normal"> 
+      <P class=padding-1><img src="graficos/funciones_col.gif" width="323" height="117"></P>
+      <P class=padding-1><BR>
+      </P>
+    </TD>
+  </TR>
+</TABLE>
+<table width="100%" border="0">
+  <tr>
+    <td>
+      <p class=padding-1>El <b><font color="#000080">argumento</font></b> de la 
+        funci&oacute;n indica <b><font color="#000080">con</font></b> <b><font color="#000080">qu&eacute; 
+        valores</font></b> se tiene que operar, por eso <i><b><font color="#000080">expresi&oacute;n</font></b></i> 
+        suele ser un <b><font color="#000080">nombre de columna</font></b>,<b><font color="#000080"> 
+        </font></b>columna que contiene los valores a resumir, pero tambi&eacute;n 
+        puede ser cualquier expresi&oacute;n v&aacute;lida que devuelva una lista 
+        de valores.</p>
+      <p class=padding-1><img src="orangeBall.gif" width="14" height="14"> La 
+        funci&oacute;n<b><font color="#000080"> SUM() </font></b>calcula la <b><font color="#000080">suma</font></b> 
+        de los<b><font color="#000080"> </font></b>valores indicados en el argumento. 
+        Los datos que se suman deben ser de <b> <font color="#000080">tipo num&eacute;rico</font></b> 
+        (entero, decimal, coma flotante o monetario...). El resultado ser&aacute; 
+        del mismo tipo aunque puede tener una precisi&oacute;n mayor.<br>
+        <br>
+        Ejemplo:</p>
+      </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr>
+    <td width="27%" valign='top'><p class=padding-sin><b><font color="#008000">SELECT SUM(ventas)<br>
+      FROM oficinas</font></b></P></td>
+    <td width="73%" valign='top'> <p class=padding-sin>Obtiene una sola fila con el resultado de sumar todos los 
+      valores de la columna ventas de la tabla oficinas.<br></P>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr>
+    <td> 
+      <p class=padding-1><img src="orangeBall.gif" width="14" height="14"> La 
+        funci&oacute;n <b><font color="#000080">AVG()</font></b> calcula el <b><font color="#000080">promedio</font></b> 
+        (la media arim&eacute;tica) de los valores indicados en el argumento, 
+        tambi&eacute;n se aplica a <b><font color="#000080">datos num&eacute;ricos</font></b>, 
+        y en este caso el tipo de dato del resultado puede cambiar seg&uacute;n 
+        las necesidades del sistema para representar el valor del resultado.</p>
+      <p class=padding-1><img src="orangeBall.gif" width="14" height="14"> <font color="#000080"><b>StDev()</b></font> 
+        y <b><font color="#000080">StDevP()</font></b> calculan la <b><font color="#000080">desviaci&oacute;n 
+        est&aacute;ndar</font></b> de una poblaci&oacute;n o de una muestra de 
+        la poblaci&oacute;n representada por los valores contenidos en la columna 
+        indicada en el argumento. Si la consulta base (el origen) tiene menos 
+        de dos registros, el resultado es nulo.<br>
+        <br>
+        Es interesante destacar que el <b><font color="#000080">valor nulo no 
+        equivale al valor 0</font></b>, las<b><font color="#000080"> funciones 
+        de columna</font></b> <b><font color="#000080">no consideran</font></b> 
+        los <b><font color="#000080">valores nulos</font></b> mientras que consideran 
+        el valor 0 como un valor, por lo tanto en las funciones AVG(), STDEV(), 
+        STDEVP() los resultados no ser&aacute;n los mismos con valores 0 que con 
+        valores nulos. Ve&aacute;moslo con un ejemplo:<br>
+      </p>
+      </td>
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="0">
+  <tr>
+    <td width="20%"  valign = 'top'> 
+      <P class=padding-sin> Si tenemos esta tabla: <img src="graficos/tabla1.gif" width="110" height="167" align="top"><br>
+      </p>
+    </td>
+    
+    <td  width="30%" valign = 'top'>
+      <P class=padding-sin>La consulta<br>
+        <br>
+        <b><font color="#008000" >SELECT AVG(col1) AS media<br>
+        FROM tabla1 </font></b></p>
+    </td>
+    <td   width="20%" valign = 'top'> 
+      <P class=padding-sin ><span class="padding-sin">devuelve:</span> <img src="graficos/media_tabla1.gif" width="79" height="36" align="top"></p>
+    </td>
+    <td  width="30%" valign = 'top'>  
+      <P class=padding-sin > En este caso los ceros entran en la media por lo 
+        que sale igual a 4<br>
+        (10+5+0+3+6+0)/6 = 4</p>
+    </td>
+  </tr>
+  <tr>
+    <td valign = 'top'>
+      <P class=padding-sin >Con esta otra tabla: <img src="graficos/tabla2.gif" width="110" height="167" align="top"></P>
+    </td>
+    <td valign = 'top'>
+      <P class=padding-sin ><font color="#008000"><b >SELECT 
+        AVG(col1) AS media<br>
+        FROM tabla2</b></font></P>
+    </td>
+    <td valign = 'top'><P class=padding-sin >devuelve: <img src="graficos/media_tabla2.gif" width="79" height="38" align="top"></p></td>
+    <td  width="25%" valign = 'top'>  
+      <P class=padding-sin > En este caso los ceros se han sustituido por valores 
+        nulos y no entran en el c&aacute;lculo por lo que la media sale igual 
+        a 6<br>
+        (10+5+3+6)/4 = 4</p>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr>
+    <td> 
+      <p class=padding-1><img src="orangeBall.gif" width="14" height="14"> Las 
+        funciones<b><font color="#000080"> MIN()</font></b> y <b><font color="#000080">MAX()</font></b> 
+        determinan los <b><font color="#000080">valores menores</font></b> y <b><font color="#000080">mayores</font></b> 
+        respectivamente. Los valores de la columna pueden ser de <b><font color="#000080">tipo</font></b> 
+        <b><font color="#000080">num&eacute;rico</font></b>,<b><font color="#000080"> 
+        texto</font></b> o <b><font color="#000080">fecha</font></b>. El<b><font color="#000080"> 
+        </font></b>resultado de la funci&oacute;n tendr&aacute; el mismo tipo 
+        de dato que la columna. Si la columna es de<b><font color="#000080"> tipo 
+        num&eacute;rico MIN()</font></b> devuelve el <b><font color="#000080">valor 
+        menor</font></b> contenido en la columna, si la columna es de <b><font color="#000080">tipo 
+        texto MIN()</font></b> devuelve el <b><font color="#000080">primer valor</font></b> 
+        en <b><font color="#000080">orden alfab&eacute;tico</font></b>, y si la 
+        columna es de<b><font color="#000080"> tipo fecha</font></b>, <b><font color="#000080">MIN()</font></b> 
+        devuelve la <b><font color="#000080">fecha m&aacute;s antigua</font></b> 
+        y <b><font color="#000080">MAX()</font></b> la <b><font color="#000080">fecha 
+        m&aacute;s reciente</font></b>. <br>
+      </P>
+       
+      <p class=padding-1><img src="orangeBall.gif" width="14" height="14"> La 
+        funci&oacute;n <b><font color="#000080">COUNT(nb columna)</font></b> cuenta 
+        el <b><font color="#000080">n&uacute;mero de valores</font></b> que hay 
+        <b> <font color="#000080">en la columna</font></b>, los datos de la columna 
+        pueden ser de <b><font color="#000080">cualquier tipo</font></b>, y la 
+        funci&oacute;n siempre devuelve un n&uacute;mero entero. Si la columna 
+        contiene <b><font color="#000080">valores nulos</font></b> esos valores 
+        <b> <font color="#000080">no</font></b> <B><FONT color="#000080">se cuentan</FONT></B>, 
+        si en la columna aparece un <b><font color="#000080">valor repetido</font></b>, 
+        lo <b><font color="#000080">cuenta varias veces</font></b>.<br>
+      </p>
+      <p class=padding-1> <img src="orangeBall.gif" width="14" height="14"> <font color="#000080"><b>COUNT(*)</b></font> 
+        permite <b><font color="#000080">contar filas</font></b> en vez de valores. 
+        Si la columna no contiene ning&uacute;n valor nulo, <b><font color="#008000">COUNT</font></b>(nbcolumna) 
+        y <b> <font color="#008000">COUNT(*)</font></b> devuelven el mismo resultado, 
+        mientras que si hay valores nulos en la columna, <b><font color="#008000">COUNT(*)</font></b> 
+        cuenta tambi&eacute;n esos valores mientras que <b><font color="#008000">COUNT</font></b>(nb 
+        columna) no los cuenta.</p>
+      <p class=padding-1><FONT color="#000080"><B>Ejemplo</B></FONT>:<br>
+        &iquest;Cu&aacute;ntos empleados tenemos?<br>
+        <br>
+        <b><font color="#008000">SELECT COUNT(numemp) <br>
+        FROM empleados</font></b><br>
+        <br>
+        o bien<br>
+        <br>
+        <b><font color="#008000">SELECT COUNT(*)<br>
+        FROM empleados</font></b><br>
+        <br>
+        En este caso las dos sentencias devuelen el mismo resultado ya que la 
+        columna numemp no contiene valores nulos (es la clave principal de la 
+        tabla empleados).<br>
+        <br>
+        &iquest;Cu&aacute;ntos empleados tienen una oficina asignada?<br>
+        <br>
+        <b><font color="#008000">SELECT COUNT(oficina) <br>
+        FROM empleados</font></b><br>
+        <br>
+        Esta sentencia por el contrario, nos devuelve el n&uacute;mero de valores 
+        no nulos que se encuentran en la columna oficina de la tabla empleados, 
+        por lo tanto nos dice cu&aacute;ntos empleados tienen una oficina asignada.<br>
+      </p>
+      </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <p class="padding-1"> <img src="orangeBall.gif" width="14" height="14"> 
+        Se pueden combinar varias funciones de columna en una expresi&oacute;n 
+        pero no se pueden anidar funciones de columna, es decir:</p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr valign ="top"> 
+    <td width="50%" >
+      <p class="padding-sin"><font color="#008000"><b>SELECT (AVG(ventas) * 3) 
+        + SUM(cuota)<br>
+        FROM ...</b></font><br>
+        es correcto</p>
+    </td>
+    <td width="50%" >
+      <p class="padding-sin"><font color="#008000"><b>SELECT AVG(SUM(ventas))<br>
+        FROM ...</b></font><br>
+        NO es correcto, no se puede incluir una funci&oacute;n de columna dentro 
+        de una funci&oacute;n de columna</p>
+    </td>
+  </tr>
+</table>
+<table width="65%" border="0">
+  <tr> 
+    <td width="50%"> 
+      <p class=tit-2 > <font color="#800000"><b> <a name="seleccion"></a>Selecci&oacute;n 
+        en el origen de datos.</b></font></p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="0">
+  <tr> 
+    <td class="Normal"> 
+      <p class=padding-1>Si<font color="#000080"><b> </b></font>queremos <b><font color="#000080">eliminar</font></b> 
+        del origen de datos algunas <b><font color="#000080">filas</font></b>, 
+        basta<b><font color="#000080"> </font></b>incluir la cl&aacute;usula <b><font color="#000080">WHERE</font></b> 
+        que ya conocemos despu&eacute;s de la cl&aacute;usula <b><font color="#008000">FROM</font></b>.<br>
+        <br>
+        Ejemplo: Queremos saber el acumulado de ventas de los empleados de la 
+        oficina 12.</p>
+      <p class=padding-sin><font color="#008000"><b>SELECT SUM(ventas)<br>
+        FROM empleados<br>
+        WHERE oficina = 12<br>
+        </b></font></p>
+      </td>
+  </tr>
+</table>
+<table width="65%" border="0">
+  <tr> 
+    <td width="50%"> 
+      <p class=tit-2 > <font color="#800000"><b> <a name="origen"></a>Origen m&uacute;ltiple.</b></font></p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="0">
+  <tr> 
+    <td class="Normal"> 
+      <p class=padding-1>Si los <b><font color="#000080">datos</font></b> que 
+        necesitamos utilizar para obtener nuestro resumen <b><font color="#000080">se 
+        encuentran</font></b> en <b><font color="#000080">varias tablas</font></b>, 
+        formamos el origen de datos adecuado en la cl&aacute;usula <b><font color="#000080">FROM</font></b> 
+        como si fuera una consulta <b><font color="#000080">multitabla</font></b> 
+        normal.<br>
+        <br>
+        Ejemplo: Queremos obtener el importe total de ventas de todos los empleados 
+        y el mayor objetivo de las oficinas asignadas a los empleados:</p>
+      <p class=padding-sin><font color="#008000"><b>SELECT SUM(empleados.ventas), 
+        MAX(objetivo) <br>
+        FROM empleados LEFT JOIN oficinas ON empleados.oficina=oficinas.oficina</b></font><br>
+        <br>
+        NOTA: combinamos empleados con oficinas por un <b><font color="#008000">LEFT 
+        JOIN</font></b> para que aparezcan en el origen de datos todos los empleados 
+        incluso los que no tengan una oficina asignada, as&iacute; el origen de 
+        datos estar&aacute; formado por una tabla con tantas filas como empleados 
+        hayan en la tabla empleados, con los datos de cada empleado y de la oficina 
+        a la que est&aacute; asignado. De esta tabla sacamos la suma del campo 
+        ventas (importe total de ventas de todos los empleados) y el objetivo 
+        m&aacute;ximo. Observar que el origen de datos no incluye las oficinas 
+        que no tienen empleados asignados, por lo que esas oficinas no entran 
+        a la hora de calcular el valor m&aacute;ximo del objetivo.<br>
+      </p>
+    </td>
+  </tr>
+</table>
+<BR>
+<table width="100%" border="0">
+  <tr> 
+    <td> <div align="center"> 
+        <script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_ad_channel ="5259272651";
+google_page_url = document.location;
+google_color_border = "FDE8D0";
+google_color_bg = "FFF6EC";
+google_color_link = "663300";
+google_color_url = "CC0000";
+google_color_text = "000000";
+//--></script>
+        <script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>
+      </div></td>
+  </tr>
+</table>
+
+<BR>
+<TABLE width="100%" border="0">
+  <TR> 
+    <TD width="37%">&nbsp;</TD>
+     
+    <TD width="6%"><A href="t_3_5.htm"><IMG name="image8" src="comunes/flecha_re.gif" width="22" height="22" border="0"></A></TD>
+     
+    <TD width="6%"><A href="index.htm"><IMG name="image8" src="comunes/flecha_home.gif" width="22" height="22" border="0"></A></TD>
+		
+    <TD width="6%"><A href="t_4_2.htm"><IMG name="image2" src="comunes/flecha_av.gif" width="22" height="22" border="0"></A></TD>
+    <TD width="45%"> 
+      <DIV align="right">Pag. 4.1</DIV>
+    </TD>
+  </TR>
+</TABLE>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <div align="center"><font size="-1">Aviso legal: este curso es gratuito 
+        siempre que se visualice desde la p&aacute;gina web de aulaClic. No est&aacute; 
+        permitido descargar el curso ni utilizarlo en academias o centros de ense&ntilde;anza 
+        privados sin estar conectado a Internet. </font></div>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <div align="center"><font size="-1">© aulaClic. Todos los derechos reservados. 
+ <a href="http://www.teacherclick.com/" style="text-decoration: none; color: black;" target="_blank">Free Computer tutorials</a> . 
+        Prohibida la reproducci&oacute;n por cualquier medio.<br>
+        </font><font size="2">Junio-2001.aulaClic.com</font></div>
+    </td>
+  </tr>
+</table>
+<p style='text-align:justify'>&nbsp;</p>
+<!--  fin td width="770" --------------- fin texto pagina -------------------------------->
+
+    </td>
+    <td  valign="top">
+	<!--   td width="160" -------------- anuncios lateral derecho ---------------------------------->
+<table  border="0">
+
+  <tr> 
+    <td valign="bottom" height="700"> 
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 160;
+google_ad_height = 600;
+google_ad_format = "160x600_as";
+google_ad_type = "text_image";
+google_ad_channel ="2175968397";
+google_color_border = "FFF6EC";
+google_color_bg = "FFF6EC";
+google_color_link = "663300";
+google_color_text = "000000";
+google_color_url = "CC0000";
+//--></script>
+<script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>
+    </td>
+	
+  </tr>
+  
+  <tr> 
+    <td height="150">
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 125;
+google_ad_height = 125;
+google_ad_format = "125x125_as_rimg";
+google_cpa_choice = "CAAQmImJlAIaCN5uB6wtFhbmKNyMs4MB";
+google_ad_channel = "6146562423";
+//--></script>
+<script type="text/javascript" src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>
+    </td>
+  </tr>
+
+  <tr> 
+    <td height="150">
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 160;
+google_ad_height = 90;
+google_ad_format = "160x90_0ads_al";
+google_ad_channel ="2175968397";
+google_color_border = "FAF1E3";
+google_color_bg = "FAF1E3";
+google_color_link = "663300";
+google_color_text = "000000";
+google_color_url = "CC0000";
+//--></script>
+<script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>    </td>
+  </tr>
+</table>
+
+	<!--   td width="160" ----------- fin anuncios lateral derecho -------------------------------------->
+
+ </td>
+ </tr>
+<!--   table de "980" ----------------------------------------------->
+</table>
+
+</body>
+
+
+<!-- Mirrored from www.aulaclic.es/sql/t_4_1.htm by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 10 Jun 2011 06:48:58 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
+</html>

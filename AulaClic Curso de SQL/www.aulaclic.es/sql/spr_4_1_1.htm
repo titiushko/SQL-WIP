@@ -1,0 +1,547 @@
+<html>
+
+
+<!-- Mirrored from www.aulaclic.es/sql/spr_4_1_1.htm by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 10 Jun 2011 06:49:43 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
+<head>
+<title>Soluci&oacute;n ejercicios consultas resumen</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<LINK REL=STYLESHEET TYPE="text/css" HREF="estilo_sinf_osc.css" TITLE="estilo_sinf_osc">
+<SCRIPT language=JavaScript>
+<!--
+var previous = "epr_4_1.htm#s1";
+var next = "epr_4_1.htm#s1";
+//-->
+</SCRIPT></head><body>
+
+<script type='text/javascript' src='../js/sqlmenu_osc.js'></script> 
+<script type='text/javascript' src='../js/menu8_com.js'></script> 
+
+<table width="900" border="0">
+  <tr>
+    <td width="144"><a href="http://www.aulaclic.es/index.html"><img src="comunes/logo_ac1_50.gif" alt="P&aacute;gina inicial"  border="0" longdesc="P%e1gina%20inicial.html"></a></td>
+    <td width="505">&nbsp;</td>
+	    <td width="234">
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 234;
+google_ad_height = 60;
+google_ad_format = "234x60_as";
+google_ad_type = "text_image";
+google_ad_channel ="";
+google_color_border = "FAF1E3";
+google_color_bg = "FAF1E3";
+google_color_link = "663300";
+google_color_text = "000000";
+google_color_url = "CC0000";
+//--></script>
+<script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+
+</script>
+    </td>
+        </tr>
+</table>
+
+<br />
+<!--   table de "980" ----------------------------------------------->
+
+<table  border="0"> 
+  <tr> 
+<td >  </td>
+<td  > </td>
+  </tr>
+  <tr> 
+<td > 
+<!--   td width="770" ------------------ texto pagina ------------------------------>
+<table width="943" border="0">
+  <tr> 
+	<td width="937" > 
+      <p class=tit-1 > <b><font color="#800040">Soluci&oacute;n ejercicios tema 
+        4. Las consultas de resumen</font></b></p>
+	</td>
+</tr>
+</table>
+ 
+<br>
+
+<table width="100%" border="0">
+<tr> 
+	<td width="34%"> 
+		
+      <p class=tit-2 > <font color="#800000">Ejercicio 1</font> </p>
+	</td>
+	<td width="66%">
+	</td>	
+</tr>
+</table>
+
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD width="45%" valign = "top">  
+      <P class=padding-sin><FONT size="-1" color="#008000"><B>SELECT AVG(cuota) 
+        AS cuota_media, AVG(ventas) AS ventas_media<BR>
+        FROM empleados<BR>
+        </B></FONT><BR>
+        <BR>
+      </P>
+    </TD>
+    <TD width="55%" valign = "top">
+      <P class=padding-sin>Sale una &uacute;nica fila con el resultado deseado. 
+        Siempre que se utilicen expresiones o funciones en la lista de selecci&oacute;n, 
+        queda mejor utilizar un alias de columna para que ese aparezca en el encabezado 
+        del resultado.</P>
+      </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0">
+  <TR> 
+    <TD width="34%"> 
+      <P class=tit-2 > <FONT color="#800000">Ejercicio 2</FONT> </P>
+    </TD>
+    <TD width="66%"> </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD width="45%" valign = "top"> 
+      <P class=padding-sin><FONT size="-1" color="#008000"><B>SELECT AVG(importe) 
+        AS importe_medio, SUM(importe) AS importe_total, AVG(importe/cant) AS 
+        precio_venta_medio <br>
+        FROM pedidos</B></FONT></P>
+    </TD>
+    <TD width="55%" valign = "top">  
+      <P class=padding-sin>El precio medio de venta es la media aritm&eacute;tica 
+        de los precios unitarios de cada pedido. El precio unitario se calcula 
+        dividiendo el importe del pedido por la cantidad del pedido: importe/cant, 
+        por lo que ponemos AVG(importe/cant).</P>
+      <P class=padding-sin>&nbsp;</P>
+      <P class=padding-sin>&nbsp;</P>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0">
+  <TR> 
+    <TD width="34%"> 
+      <P class=tit-2 > <FONT color="#800000">Ejercicio 3</FONT> </P>
+    </TD>
+    <TD width="66%"> </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD width="45%" valign = "top"> 
+      <P class=padding-sin><FONT size="-1" color="#008000"><B>SELECT AVG(precio) 
+        AS p_medio_ACI<BR>
+        FROM productos<br>
+        WHERE idfab = 'ACI'</B></FONT><BR>
+      </P>
+    </TD>
+    <TD width="55%" valign = "top"> 
+      <P class=padding-sin>Ahora no nos interesan todos los productos sino unicamente 
+        los del fabricante ACI, por lo que a&ntilde;adimos la cl&aacute;usula 
+        WHERE para que antes de calcular la media, elimine del origen de datos 
+        los registros que no cumplan la condici&oacute;n.</P>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0">
+  <TR> 
+    <TD width="34%"> 
+      <P class=tit-2 > <FONT color="#800000">Ejercicio 4</FONT> </P>
+    </TD>
+    <TD width="66%"> </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD width="45%" valign = "top"> 
+      <P class=padding-sin><FONT size="-1" color="#008000"><B>SELECT SUM(importe) 
+        AS total_pedidos_V_Pantalla<BR>
+        FROM empleados INNER JOIN pedidos ON empleados.numemp = pedidos.rep<BR>
+        WHERE nombre = 'Vicente Pantalla'</B></FONT><BR>
+      </P>
+    </TD>
+    <TD width="55%" valign = "top"> 
+      <P class=padding-sin>El importe total lo tenemos que sacar de la tabla de 
+        pedidos, y adem&aacute;s s&oacute;lo nos interesan los de Vicente Pantalla. 
+        Como nos dan el nombre del representante en vez de su n&uacute;mero y 
+        en el pedido s&oacute;lo tenemos el n&uacute;mero de representante tenemos 
+        que a&ntilde;adir a las l&iacute;neas de cada pedido, los datos del representante 
+        correspondiente, por lo que el origen de datos debe ser el que aparece 
+        en la FROM.</P>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0">
+  <TR> 
+    <TD width="34%"> 
+      <P class=tit-2 > <FONT color="#800000">Ejercicio 5</FONT> </P>
+    </TD>
+    <TD width="66%"> </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD width="45%" valign = "top"> 
+      <P class=padding-sin><FONT size="-1" color="#008000"><B>SELECT MIN(fechapedido) 
+        AS primer_pedido<BR>
+        FROM pedidos <br>
+        </B></FONT></P>
+      </TD>
+    <TD width="55%" valign = "top"> 
+      <P class=padding-sin>La fecha del primer pedido es la fecha m&aacute;s antigua 
+        de la tabla de pedidos.</P>
+      </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0">
+  <TR> 
+    <TD width="34%"> 
+      <P class=tit-2 > <FONT color="#800000">Ejercicio 6</FONT> </P>
+    </TD>
+    <TD width="66%"> </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD width="45%" valign = "top"> 
+      <P class=padding-sin><FONT size="-1" color="#008000"><B>SELECT COUNT(*) 
+        AS cuantos_pedidos_mayores <BR>
+        FROM pedidos<BR>
+        WHERE importe &gt; 25000<br>
+        </B></FONT></P>
+      <P class=padding-sin>&nbsp;</P>
+    </TD>
+   <TD width="55%" valign = "top"> 
+      <P class=padding-sin>Se pod&iacute;a haber utilizado tambi&eacute;n COUNT(numpedido) 
+        o cualquier nombre de columna que no pueda contener valores nulos, pero 
+        COUNT(*) es mejor por ser m&aacute;s r&aacute;pido (la diferencia se nota 
+        con tablas muy voluminosas).</P>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0">
+  <TR> 
+    <TD width="34%"> 
+      <P class=tit-2 > <FONT color="#800000">Ejercicio 7</FONT> </P>
+    </TD>
+    <TD width="66%"> </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD width="45%" valign = "top"> 
+      <P class=padding-sin><FONT size="-1" color="#008000"><B>SELECT oficina, 
+        COUNT(*) AS cuantos_empleados<br>
+        FROM empleados <br>
+        GROUP BY oficina</B></FONT></P>
+      <P class=padding-sin>&nbsp;</P>
+    </TD>
+    <TD width="55%" valign="top"> 
+      <P class=padding-sin>Con esta soluci&oacute;n obtenemos el listado pedido 
+        pero no aparecen las oficinas que no tienen empleados asignados ya que 
+        sacamos la informaci&oacute;n de la tabla empleados y aparece una fila 
+        con valor nulo en oficina que contiene el n&uacute;mero de empleados que 
+        no tienen oficina. Si quisieramos listar incluso las que no tengan empleados 
+        habr&iacute;a que recurrir a la soluci&oacute;n 2</P>
+    </TD>
+  </TR>
+</TABLE>
+<table width="100%" border="0" cellpadding="0">
+  <tr> 
+    <td width="45%" valign = "top"> 
+      <p class=padding-sin><font size="-1" color="#008000"><b><font color="#000000">Soluci&oacute;n 
+        2<br>
+        </font>SELECT oficinas.oficina, COUNT(numemp) AS cuantos_empleados<br>
+        FROM empleados RIGHT JOIN oficinas ON empleados.oficina = oficinas.oficina<br>
+        GROUP BY oficinas.oficina<br>
+        </b></font></p>
+      <p class=padding-sin>&nbsp;</p>
+    </td>
+    <td width="55%" valign="top"> 
+      <p class=padding-sin>Utilizamos un RIGHT JOIN para que el origen de datos 
+        incluya tambi&eacute;n una fila por cada oficina que no tenga empleados.<br>
+        En el GROUP BY y en la lista de selecci&oacute;n hay que indicar el campo 
+        oficina de la tabla oficinas, si ponemos el de la tabla empleados, agrupar&aacute; 
+        todas las oficinas que no tienen empleados en una fila (la columna empleados.oficina 
+        contiene valor nulo para esas filas).<br>
+        Aqu&iacute; no podemos utilizar COUNT(*) por que las oficinas sin empleados 
+        aparecer&iacute;an con 1 en la columna cuantos_empleados ya que para esa 
+        oficina hay una fila.</p>
+    </td>
+  </tr>
+</table>
+<TABLE width="100%" border="0">
+  <TR> 
+    <TD width="34%"> 
+      <P class=tit-2 > <FONT color="#800000">Ejercicio 8</FONT> </P>
+    </TD>
+    <TD width="66%"> </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD width="45%" valign = "top"> 
+      <P class=padding-sin><FONT size="-1" color="#008000"><B>SELECT numemp, nombre, 
+        clie AS cliente, SUM(importe) AS total_vendido <BR>
+        FROM empleados INNER JOIN pedidos ON pedidos.rep = empleados.numemp<BR>
+        GROUP BY numemp, nombre, clie</B></FONT></P>
+      <P class=padding-sin>&nbsp;</P>
+      </TD>
+    <TD width="55%" valign="top"> 
+      <P class=padding-sin>Necesitamos la tabla de pedidos para el importe vendido 
+        a qu&eacute; cliente, necesitamos la tabla empleados para el nombre del 
+        representante, la de clientes no la necesitamos ya que nos piden el n&uacute;mero 
+        de cliente y este est&aacute; en pedidos.<br>
+        La agrupaci&oacute;n b&aacute;sica que debemos realizar es por numemp 
+        y despu&eacute;s por clie, pero como aparece el nombre del empleado en 
+        la lista de selecci&oacute;n, hay que incluirlo tambi&eacute;n en el GROUP 
+        BY. <br>
+        Despu&eacute;s de determinar la agrupaci&oacute;n b&aacute;sica que nos 
+        hace falta, siempre que se incluye una columna adicional en el GROUP BY 
+        hay que comprobar que esa nueva columna no cambia la agrupaci&oacute;n 
+        b&aacute;sica.<br>
+        Por ejemplo no podr&iacute;amos a&ntilde;adir al GROUP BY la columna fechapedido 
+        ya que se formar&iacute;an m&aacute;s grupos.</P>
+      </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD width="45%" valign = "top"> 
+      <P class=padding-sin><FONT size="-1" color="#008000"><B><font color="#000000">Soluci&oacute;n 
+        2<br>
+        </font>SELECT numemp, nombre, clie AS cliente, SUM(importe) AS total_vendido 
+        <br>
+        FROM empleados LEFT JOIN pedidos ON pedidos.rep = empleados.numemp<br>
+        GROUP BY numemp, nombre, clie</B></FONT></P>
+      <P class=padding-sin>&nbsp;</P>
+    </TD>
+    <TD width="55%" valign="top"> 
+      <P class=padding-sin>Si queremos que salgan todos los empleados incluso 
+        los que no aparezcan en los pedidos habr&iacute;a que sustituir el INNER 
+        por un LEFT.</P>
+    </TD>
+  </TR>
+</TABLE>
+<table width="100%" border="0">
+  <tr> 
+    <td width="34%"> 
+      <p class=tit-2 > <font color="#800000">Ejercicio 9</font> </p>
+    </td>
+    <td width="66%"> </td>
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="0">
+  <tr> 
+    <td width="45%" valign = "top"> 
+      <p class=padding-sin><font size="-1" color="#008000"><b>SELECT rep, AVG(importe) 
+        AS importe_medio<br>
+        FROM pedidos <br>
+        GROUP BY rep<br>
+        HAVING SUM(importe) &gt; 30000</b></font></p>
+      <p class=padding-sin>&nbsp;</p>
+    </td>
+    <td width="55%" valign="top"> 
+      <p class=padding-sin>No queremos todos los empleados, unicamente los que 
+        tengan un importe total pedido superior a 30.000, luego tenemos que poner 
+        la condici&oacute;n SUM(importe) &gt; 30000. Como esta condici&oacute;n 
+        contiene una funci&oacute;n de columna (SUM()) se tiene que poner en la 
+        cl&aacute;usula HAVING ya que selecciona filas de la tabla resultante 
+        no del origen de datos.</p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td width="34%"> 
+      <p class=tit-2 > <font color="#800000">Ejercicio 10</font> </p>
+    </td>
+    <td width="66%"> </td>
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="0">
+  <tr> 
+    <td width="45%" valign = "top"> 
+      <p class=padding-sin><font size="-1" color="#008000"><b>SELECT descripcion, 
+        precio, SUM(importe) AS total_pedido<br>
+        FROM productos INNER JOIN pedidos ON pedidos.fab = productos.idfab AND 
+        pedidos.producto = productos.idproducto<br>
+        GROUP BY idfab, idproducto, descripcion, precio, existencias<br>
+        HAVING SUM(importe) &gt; existencias * 0.75<br>
+        ORDER BY 3</b></font></p>
+      <p class=padding-sin>&nbsp;</p>
+    </td>
+    <td width="55%" valign="top"> 
+      <p class=padding-sin>La agrupaci&oacute;n b&aacute;sica es por idfab e idproducto 
+        ya que son los dos campos que conjuntamente identifican un producto.<br>
+        Como descripci&oacute;n y precio aparecen en la lista de selecci&oacute;n 
+        y no modifican la agrupaci&oacute;n b&aacute;sica los incluimos en el 
+        GROUP BY.</p>
+      <p class=padding-sin>Como existencias aparece en el HAVING y no modifica 
+        la agrupaci&oacute;n b&aacute;sica lo incluimos tambi&eacute;n el el GROUP 
+        BY.</p>
+      <p class=padding-sin>Para calcular el 75% de las existencias multiplicamos 
+        existencias por 0,75; observar que en la sentencia SQL hay que utilizar 
+        el punto para indicar los decimales.</p>
+      <p class=padding-sin>Para indicar la columna de ordenaci&oacute;n no podemos 
+        utilizar el alias campo, utilizamos el n&uacute;mero de orden de la columna 
+        dentro de la lista de selecci&oacute;n. En este caso la suma de importes 
+        es la tercera columna.</p>
+      </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td width="34%"> 
+      <p class=tit-2 > <font color="#800000">Ejercicio 11</font> </p>
+    </td>
+    <td width="66%"> </td>
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="0">
+  <tr> 
+    <td width="45%" valign = "top"> 
+      <p class=padding-sin><font size="-1" color="#008000"><b><font color="#000000">Consulta: 
+        distintas_oficinas<br>
+        </font>SELECT DISTINCT oficina<br>
+        FROM empleados<br>
+        WHERE ventas &gt; cuota<br>
+        <font color="#000000">Consulta: sumaria11<br>
+        </font></b></font><font size="-1" color="#008000"><b>SELECT COUNT(*) AS 
+        cuantas_oficinas <br>
+        FROM distintas_oficinas<br>
+        </b></font></p>
+      <p class=padding-sin>&nbsp;</p>
+      <p class=padding-sin>&nbsp;</p>
+    </td>
+    <td width="55%" valign="top"> 
+      <p class=padding-sin>Si contamos las oficinas directamente de la tabla empleados 
+        nos salen 9 oficinas ya que la funci&oacute;n COUNT(nb columna) cuenta 
+        los valores no nulos pero los valores repetidos los cuenta tantas veces 
+        como se repiten, como tenemos oficinas de se repiten en la columna oficina 
+        de la tabla oficinas, esas oficinas son contadas varias veces, hay que 
+        contar los valores distintos.<br>
+        En otros SQL la funci&oacute;n COUNT puede llevar delante del nombre de 
+        la columna la cl&aacute;usula DISTINCT que indica que s&oacute;lo se tienen 
+        que tener en cuenta valores distintos (no cuenta los repetidos), por ejemplo 
+        COUNT(DISTINCT oficina), es una opci&oacute;n muy &uacute;til que desgraciadamente 
+        no incluye el SQL de Microsoft JET. Para solucionar el problema se resuelve 
+        con dos consultas, una con la cual nos quedamos con los valores distintos 
+        (en la soluci&oacute;n la consulta se llama distintas_oficinas), y la 
+        otra que nos cuenta esos valores.</p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+<tr> 
+	<td width="48%">&nbsp;	</td>
+	
+	<td width="5%" align="center"> <a href="epr_4_1.htm#s1"> <img name="image1" src="comunes/flecha_home.gif" width="22" height="22" border="0"> 
+      </a> </td>
+	<td width="47%">
+	</td>
+	
+</tr>
+</table>
+
+<br>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <div align="center"><font size="-1">Aviso legal: este curso es gratuito 
+        siempre que se visualice desde la p&aacute;gina web de aulaClic. No est&aacute; permitido descargar el curso y utilizarlo en academias o centros de ense&ntilde;anza 
+        privados sin estar conectado a Internet. </font></div>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <div align="center"><font size="-1">© aulaClic. Todos los derechos reservados. 
+ <a href="http://www.teacherclick.com/" style="text-decoration: none; color: black;" target="_blank">Free Computer tutorials</a> . 
+        Prohibida la reproducci&oacute;n por cualquier medio.<br>
+        </font><font size="2">Junio -2001.aulaClic.com</font></div>
+    </td>
+  </tr>
+</table>
+
+<!--  fin td width="770" --------------- fin texto pagina -------------------------------->
+
+    </td>
+    <td  valign="top">
+	<!--   td width="160" -------------- anuncios lateral derecho ---------------------------------->
+<table  border="0">
+
+  <tr> 
+    <td valign="bottom" height="700"> 
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 160;
+google_ad_height = 600;
+google_ad_format = "160x600_as";
+google_ad_type = "text_image";
+google_ad_channel ="2175968397";
+google_color_border = "FFF6EC";
+google_color_bg = "FFF6EC";
+google_color_link = "663300";
+google_color_text = "000000";
+google_color_url = "CC0000";
+//--></script>
+<script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>
+    </td>
+	
+  </tr>
+  
+  <tr> 
+    <td height="150">
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 125;
+google_ad_height = 125;
+google_ad_format = "125x125_as_rimg";
+google_cpa_choice = "CAAQmImJlAIaCN5uB6wtFhbmKNyMs4MB";
+google_ad_channel = "6146562423";
+//--></script>
+<script type="text/javascript" src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>
+    </td>
+  </tr>
+
+  <tr> 
+    <td height="150">
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 160;
+google_ad_height = 90;
+google_ad_format = "160x90_0ads_al";
+google_ad_channel ="2175968397";
+google_color_border = "FAF1E3";
+google_color_bg = "FAF1E3";
+google_color_link = "663300";
+google_color_text = "000000";
+google_color_url = "CC0000";
+//--></script>
+<script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>    </td>
+  </tr>
+</table>
+
+	<!--   td width="160" ----------- fin anuncios lateral derecho -------------------------------------->
+
+ </td>
+ </tr>
+<!--   table de "980" ----------------------------------------------->
+</table>
+
+</body>
+
+
+
+<!-- Mirrored from www.aulaclic.es/sql/spr_4_1_1.htm by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 10 Jun 2011 06:49:43 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
+</html>

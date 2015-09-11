@@ -1,0 +1,430 @@
+<html>
+
+
+<!-- Mirrored from www.aulaclic.es/sql/b_8_2_1.htm by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 10 Jun 2011 06:49:42 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
+<head>
+<title>Conceptos Integridad referencial</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="keywords" content="SQL Base datos access access2000 tutorial manual gratis office enseñanza educacion ddl dcl dml">
+<LINK REL=STYLESHEET TYPE="text/css" HREF="estilo_sinf_osc.css" TITLE="estilo_sinf_osc">
+<SCRIPT language=JavaScript>
+<!--
+var previous = "t_8_2.htm#b1";
+var next = "t_8_2.htm#b1";
+//-->
+</SCRIPT></head><body>
+<script type='text/javascript' src='../js/sqlmenu_osc.js'></script> 
+<script type='text/javascript' src='../js/menu8_com.js'></script> 
+
+<table width="900" border="0">
+  <tr>
+    <td width="144"><a href="http://www.aulaclic.es/index.html"><img src="comunes/logo_ac1_50.gif" alt="P&aacute;gina inicial"  border="0" longdesc="P%e1gina%20inicial.html"></a></td>
+    <td width="505">&nbsp;</td>
+	    <td width="234">
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 234;
+google_ad_height = 60;
+google_ad_format = "234x60_as";
+google_ad_type = "text_image";
+google_ad_channel ="";
+google_color_border = "FAF1E3";
+google_color_bg = "FAF1E3";
+google_color_link = "663300";
+google_color_text = "000000";
+google_color_url = "CC0000";
+//--></script>
+<script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+
+</script>
+    </td>
+        </tr>
+</table>
+
+<br />
+
+<!--   table de "980" ----------------------------------------------->
+
+<table  border="0"> 
+  <tr> 
+<td >  </td>
+<td  > </td>
+  </tr>
+  <tr> 
+<td > 
+<!--   td width="770" ------------------ texto pagina ------------------------------>
+<table width="895" border="0">
+  <tr> 
+	<td width="898" > 
+      <p class=tit-1b > <font color="#004000"><b>Conceptos b&aacute;sicos de integridad 
+        referencial.</b></font></p>
+	</td>
+</tr>
+</table>
+ 
+<br>
+<table width="100%" border="0">
+  <tr> 
+    <td  width="25%" height="23"> 
+      <p class=tit-2b ><font color="#004000">Introducci&oacute;n</font> </p>
+      </td>
+    <td width="75%" height="23">&nbsp; </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+<tr> 
+	<td> 
+      <p class=padding-1 align="left"> La <font color="#000080"><b>integridad 
+        referencial </b></font>es un sistema de<font color="#000080"><b> reglas</b></font> 
+        que utilizan la mayor&iacute;a de las bases de datos relacionales para 
+        <font color="#000080"><b>asegurarse que los registros de tablas relacionadas 
+        son válidos</b></font> y que no se borren o cambien datos relacionados 
+        de forma accidental produciendo errores de integridad.</p>
+      <p class=padding-1 align="left">Primero repasemos un poco los tipos de relaciones. 
+      </p>
+      <p class=padding-1 align="left">&nbsp; </p>
+      </td>
+</tr>	
+</table>
+ 
+
+<table width="100%" border="0">
+  <tr> 
+    <td  width="25%"> 
+      <p class=tit-2b > <font color="#004000">Tipos de relaciones.</font> </p>
+    </td>
+    <td width="75%">&nbsp; </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td width="97%"> 
+      <p class="padding-1" align="left"> Entre dos tablas de cualquier base de 
+        datos relacional pueden haber dos tipos de relaciones, relaciones uno 
+        a uno y relaciones uno a muchos:</p>
+      <p class="padding-1" align="left"> <img border="0" src="orangeBall.gif" width="14" height="14"> 
+        <b>Relación Uno a Uno</b>: Cuando <font color="#000080"><b> un registro 
+        de una tabla sólo puede estar relacionado con un único registro de la 
+        otra tabla y viceversa</b></font>. </p>
+      <p class="padding-1" align="left"> Por ejemplo: tenemos dos tablas una de 
+        profesores y otra de departamentos y queremos saber qu&eacute; profesor 
+        es jefe de qu&eacute; departamento, tenemos una relaci&oacute;n uno a 
+        uno entre las dos tablas ya que un departamento tiene un solo jefe y un 
+        profesor puede ser jefe de un solo departamento.</p>
+      <p class="padding-1" align="left"><img border="0" src="orangeBall.gif" width="14" height="14"> 
+        <b>Relación Uno a Varios</b>: Cuando <b><font color="#000080"> un registro 
+        de una tabla</font></b> (tabla secundaria) <font color="#000080"><b>sólo 
+        puede estar relacionado con un único registro de la otra tabla </b></font> 
+        (tabla principal) <b><font color="#000080">y un registro de la tabla principal 
+        </font></b><font color="#000080"><b>puede tener más de un registro relacionado 
+        en la tabla secundaria,</b></font> en este caso se suele hacer referencia 
+        a la tabla principal como tabla 'padre' y a la tabla secundaria como tabla 
+        'hijo', entonces la regla se convierte en 'un padre puede tener varios 
+        hijos pero un hijo solo tiene un padre (regla m&aacute;s f&aacute;cil 
+        de recordar).</p>
+      <p class="padding-1" align="left"> Por ejemplo: tenemos dos tablas una con 
+        los datos de diferentes poblaciones y otra con los habitantes, una población 
+        puede tener más de un habitante, pero un habitante pertenecerá (estará 
+        empadronado) en una única población. En este caso la tabla principal ser&aacute; 
+        la de poblaciones y la tabla secundaria ser&aacute; la de habitantes. 
+        Una poblaci&oacute;n puede tener varios habitantes pero un habitante pertenece 
+        a una sola poblaci&oacute;n. Esta relaci&oacute;n se representa incluyendo 
+        en la tabla 'hijo' una columna que se corresponde con la clave principal 
+        de la tabla 'padre', esta columna es lo denominamos clave for&aacute;nea 
+        (o clave ajena o clave externa).</p>
+      <p class="padding-1" align="left">Una clave for&aacute;nea es pues un campo 
+        de una tabla que contiene una referencia a un registro de otra tabla. 
+        Siguiendo nuestro ejemplo en la tabla habitantes tenemos una columna poblaci&oacute;n 
+        que contiene el c&oacute;digo de la poblaci&oacute;n en la que est&aacute; 
+        empadronado el habitante, esta columna es clave ajena de la tabla habitantes, 
+        y en la tabla poblaciones tenemos una columna codigo de poblacion clave 
+        principal de la tabla.</p>
+      </td>
+  </tr>
+</table>
+
+<table width="100%" border="0">
+  <tr>
+    <td><img src="graficos/relacion.gif" width="284" height="102"></td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td>
+      <p class="padding-1" align="left"> <img border="0" src="orangeBall.gif" width="14" height="14"> 
+        <b>Relación Varios a Varios</b>: Cuando <b><font color="#000080"> un registro 
+        de una tabla puede estar relacionado con más de un registro de la otra 
+        tabla y viceversa</font></b>. En este caso las dos tablas no pueden estar 
+        relacionadas directamente, se tiene que a&ntilde;adir una tabla entre 
+        las dos que incluya los pares de valores relacionados entre s&iacute;.</p>
+      <p class="padding-1" align="left"> Por ejemplo: tenemos dos tablas una con 
+        los datos de <I>clientes</I> y otra con los <I>artículos</I> que se venden 
+        en la empresa, un cliente podrá realizar un pedido con varios artículos, 
+        y un artículo podrá ser vendido a más de un cliente. </p>
+      <p class="padding-1" align="left">No se puede definir entre <I>clientes</I> 
+        y <I>art&iacute;culos</I>, hace falta otra tabla (por ejemplo una tabla 
+        de pedidos) relacionada con clientes y con art&iacute;culos. La tabla 
+        pedidos estar&aacute; relacionada con cliente por una relaci&oacute;n 
+        uno a muchos y tambi&eacute;n estar&aacute; relacionada con art&iacute;culos 
+        por un relaci&oacute;n uno a muchos.</p>
+      </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td><img src="graficos/relacion2.gif" width="424" height="114"></td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td  width="39%" height="23"> 
+      <p class=tit-2b ><font color="#004000">Integridad referencial</font> </p>
+    </td>
+    <td width="61%" height="23">&nbsp; </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <p class=padding-1 align="left"> Cuando se define una columna como clave 
+        for&aacute;nea, las filas de la tabla pueden contener en esa columna o 
+        bien el valor nulo (ning&uacute;n valor), o bien un valor que existe en 
+        la otra tabla, un error ser&iacute;a asignar a un habitante una poblaci&oacute;n 
+        que no est&aacute; en la tabla de poblaciones. Eso es lo que se denomina 
+        <b><font color="#000080">integridad referencial</font></b> y consiste 
+        en que <B><FONT color="#000080">los datos que referencian otros (claves 
+        for&aacute;neas) deben ser correctos</FONT></B>. La <font color="#000080"><b>integridad 
+        referencial </b></font>hace que el sistema gestor de la base de datos 
+        se asegure de que no hayan en las claves for&aacute;neas valores que no 
+        est&eacute;n en la tabla principal.</p>
+      <p class=padding-1 align="left"><FONT color="#000080"><B>La integridad referencial 
+        se activa en cuanto creamos una clave for&aacute;nea</B></FONT> y a partir 
+        de ese momento se comprueba cada vez que se modifiquen datos que puedan 
+        alterarla.</p>
+      <p class=padding-1 align="left"><FONT color="#000080"><B>&iquest; Cu&aacute;ndo 
+        se pueden producir errores en los datos?</B></FONT></p>
+      <p class=padding-1 align="left"><img src="comunes/redBall2-2.gif" width="14" height="14"> 
+        <B><FONT color="#000080">Cuando insertamos una nueva fila en la tabla 
+        secundaria y el valor de la clave for&aacute;nea no existe en la tabla 
+        principal</FONT></B>. insertamos un nuevo habitante y en la columna <I>poblacion</I> 
+        escribimos un c&oacute;digo de poblacion que no est&aacute; en la tabla 
+        de poblaciones (una poblaci&oacute;n que no existe).</p>
+      <p class=padding-1 align="left"><img src="comunes/redBall2-2.gif" width="14" height="14"> 
+        <B><FONT color="#000080">Cuando modificamos el valor de la clave principal 
+        de un registro que tiene 'hijos'</FONT></B>, modificamos el codigo de 
+        Valencia, sustituimos el valor que ten&iacute;a (1) por un nuevo valor 
+        (10), si Valencia ten&iacute;a habitantes asignados, qu&eacute; pasa con 
+        esos habitantes, no pueden seguir teniendo el codigo de poblaci&oacute;n 
+        1 porque la poblaci&oacute;n 1 ya no existe, en este caso hay dos alternativas, 
+        no dejar cambiar el codigo de Valencia o bien cambiar el codigo de poblaci&oacute;n 
+        de todos los habitantes de Valencia y asignarles el c&oacute;digo 10.</p>
+      <p class=padding-1 align="left"><img src="comunes/redBall2-2.gif" width="14" height="14"> 
+        <B><FONT color="#000080">Cuando modificamos el valor de la clave for&aacute;nea, 
+        el nuevo valor debe existir en la tabla principal</FONT></B>. Por ejemplo 
+        cambiamos la poblaci&oacute;n de un habitante, ten&iacute;a asignada la 
+        poblaci&oacute;n 1 (porque estaba empadronado en valencia) y ahora se 
+        le asigna la poblaci&oacute;n 2 porque cambia de lugar de residencia. 
+        La poblaci&oacute;n 2 debe existir en la tabla de poblaciones.</p>
+      <p class=padding-1 align="left"><img src="comunes/redBall2-2.gif" width="14" height="14"> 
+        <B><FONT color="#000080">Cuando queremos borrar una fila de la tabla principal 
+        y ese registro tiene 'hijos'</FONT></B>, por ejemplo queremos borrar la 
+        poblaci&oacute;n 1 (Valencia) si existen habitantes asignados a la poblaci&oacute;n 
+        1, estos no se pueden quedar con el valor 1 en la columna poblaci&oacute;n 
+        porque tendr&iacute;an asignada una poblaci&oacute;n que no existe. En 
+        este caso tenemos dos alternativas, no dejar borrar la poblaci&oacute;n 
+        1 de la tabla de poblaciones, o bien borrarla y poner a valor nulo el 
+        campo poblacion de todos sus 'hijos'.</p>
+      <p class=padding-1 align="left">Asociada a la integridad referencial est&aacute;n 
+        los conceptos de actualizar los registros en cascada y eliminar registros 
+        en cascada. </p>
+      <p class=padding-1 align="left">&nbsp;</p>
+      </td>
+  </tr>
+</table>
+ 
+<table width="100%" border="0">
+  <tr> 
+    <td  width="39%" height="23"> 
+      <p class=tit-2b ><font color="#004000">Actualizaci&oacute;n y borrado en 
+        cascada</font> </p>
+    </td>
+    <td width="61%" height="23">&nbsp; </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <p class=padding-1 align="left"> El actualizar y/o eliminar registros en 
+        cascada, son opciones que se definen cuando definimos la clave for&aacute;nea 
+        y que le indican al sistema gestor qu&eacute; hacer en los casos comentados 
+        en el punto anterior.</p>
+      <p class=padding-1 align="left"><img border="0" src="orangeBall.gif" width="14" height="14"> 
+        <b>Actualizar registros en cascada</b>: <BR>
+        <BR>
+        Esta opci&oacute;n le indica al sistema gestor de la base de datos que 
+        <B><FONT color="#000080">cuando se cambie un valor del campo clave de 
+        la tabla principal</FONT></B>, automáticamente <B> <FONT color="#000080">cambiar&aacute; 
+        el valor de la clave for&aacute;nea de los registros relacionados en la 
+        tabla secundaria</FONT></B>. <BR>
+        <BR>
+        Por ejemplo, si cambiamos en la tabla de poblaciones (la tabla principal) 
+        el valor 1 por el valor 10 en el campo codigo (la clave principal), autom&aacute;ticamente 
+        se actualizan todos los habitantes (en la tabla secundaria) que tienen 
+        el valor 1 en el campo poblacion (en la clave ajena) dejando 10 en vez 
+        de 1.</p>
+      <p class=padding-1 align="left">Si no se tiene definida esta opci&oacute;n, 
+        no se puede cambiar los valores de la clave principal de la tabla principal. 
+        En este caso, si intentamos cambiar el valor 1 del codigo de la tabla 
+        de poblaciones , no se produce el cambio y el sistema nos devuelve un 
+        error o un mensaje que los registros no se han podido modificar por infracciones 
+        de clave.</p>
+      <p class="padding-1" align="left"> <img border="0" src="orangeBall.gif" width="14" height="14"> 
+        <b>Eliminar registros en cascada</b>: <BR>
+        <BR>
+        Esta opci&oacute;n le indica al sistema gestor de la base de datos que 
+        <B><FONT color="#000080">cuando se elimina un registro de la tabla principal</FONT></B> 
+        autom&aacute;ticamente <B> <FONT color="#000080">se borran también los 
+        registros relacionados en la tabla secundaria</FONT></B>. <BR>
+        <br>
+        Por ejemplo: Si borramos la poblaci&oacute;n Onteniente en la tabla de 
+        poblaciones, autom&aacute;ticamente todos los habitantes de Onteniente 
+        se borrar&aacute;n de la tabla de habitantes. </p>
+      <p class="padding-1" align="left">Si no se tiene definida esta opci&oacute;n, 
+        no se pueden borrar registros de la tabla principal si estos tienen registros 
+        relacionados en la tabla secundaria. En este caso, si intentamos borrar 
+        la poblaci&oacute;n Onteniente, no se produce el borrado y el sistema 
+        nos devuelve un error o un mensaje que los registros no se han podido 
+        eliminar por infracciones de clave.<br>
+      </p>
+      
+    </td>
+  </tr>
+</table>
+ 
+<table width="100%" border="0">
+<tr> 
+	<td width="3%">&nbsp;
+		
+	</td>
+	<td width="3%">&nbsp;
+		
+	</td>
+	<td width="42%"> 
+		
+      <div align="right"> </div>
+	</td>
+	<td width="5%" align="center"> <a href="t_8_2.htm#b1"> <img name="image1" src="comunes/flecha_home.gif" width="22" height="22" border="0"> 
+      </a> </td>
+	<td width="39%">
+	</td>
+	<td width="3%">&nbsp;
+		
+	</td>
+	<td width="5%" align="center">&nbsp;
+		
+	</td>
+</tr>
+</table>
+
+<br>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <div align="center"><font size="-1">Aviso legal: este curso es gratuito 
+        siempre que se visualice desde la p&aacute;gina web de aulaClic. No est&aacute; 
+        permitido descargar el curso y utilizarlo en academias o centros de ense&ntilde;anza 
+        privados sin estar conectado a Internet. </font></div>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <div align="center"><font size="-1">© aulaClic. Todos los derechos reservados. 
+ <a href="http://www.teacherclick.com/" style="text-decoration: none; color: black;" target="_blank">Free Computer tutorials</a> . 
+        Prohibida la reproducci&oacute;n por cualquier medio.<br>
+        </font><font size="2">Julio-2000.aulaClic.com</font></div>
+    </td>
+  </tr>
+</table>
+
+<!--  fin td width="770" --------------- fin texto pagina -------------------------------->
+
+    </td>
+    <td  valign="top">
+	<!--   td width="160" -------------- anuncios lateral derecho ---------------------------------->
+<table  border="0">
+
+  <tr> 
+    <td valign="bottom" height="700"> 
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 160;
+google_ad_height = 600;
+google_ad_format = "160x600_as";
+google_ad_type = "text_image";
+google_ad_channel ="2175968397";
+google_color_border = "FFF6EC";
+google_color_bg = "FFF6EC";
+google_color_link = "663300";
+google_color_text = "000000";
+google_color_url = "CC0000";
+//--></script>
+<script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>
+    </td>
+	
+  </tr>
+  
+  <tr> 
+    <td height="150">
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 125;
+google_ad_height = 125;
+google_ad_format = "125x125_as_rimg";
+google_cpa_choice = "CAAQmImJlAIaCN5uB6wtFhbmKNyMs4MB";
+google_ad_channel = "6146562423";
+//--></script>
+<script type="text/javascript" src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>
+    </td>
+  </tr>
+
+  <tr> 
+    <td height="150">
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 160;
+google_ad_height = 90;
+google_ad_format = "160x90_0ads_al";
+google_ad_channel ="2175968397";
+google_color_border = "FAF1E3";
+google_color_bg = "FAF1E3";
+google_color_link = "663300";
+google_color_text = "000000";
+google_color_url = "CC0000";
+//--></script>
+<script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>    </td>
+  </tr>
+</table>
+
+	<!--   td width="160" ----------- fin anuncios lateral derecho -------------------------------------->
+
+ </td>
+ </tr>
+<!--   table de "980" ----------------------------------------------->
+</table>
+
+</body>
+
+
+
+<!-- Mirrored from www.aulaclic.es/sql/b_8_2_1.htm by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 10 Jun 2011 06:49:42 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
+</html>

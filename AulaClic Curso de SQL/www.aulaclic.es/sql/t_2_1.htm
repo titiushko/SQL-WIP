@@ -1,0 +1,531 @@
+
+<html>
+
+<!-- Mirrored from www.aulaclic.es/sql/t_2_1.htm by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 10 Jun 2011 06:48:48 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name="keywords" content="SQL Base datos access access2000 tutorial manual gratis office enseñanza educacion ddl dcl dml">
+<LINK REL=STYLESHEET TYPE="text/css" HREF="estilo_sinf_osc.css" TITLE="estilo_sinf_osc">
+<title>Tema 2 Las consultas simples</title>
+<SCRIPT language=JavaScript>
+<!--
+var previous = "t_1_2.htm";
+var next = "t_2_2.htm";
+//-->
+</SCRIPT>
+</head><body>
+<script type='text/javascript' src='../js/sqlmenu_osc.js'></script> 
+<script type='text/javascript' src='../js/menu8_com.js'></script> 
+
+<table width="900" border="0">
+  <tr>
+    <td width="144"><a href="http://www.aulaclic.es/index.html"><img src="comunes/logo_ac1_50.gif" alt="P&aacute;gina inicial"  border="0" longdesc="P%e1gina%20inicial.html"></a></td>
+    <td width="505">&nbsp;</td>
+	    <td width="234">
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 234;
+google_ad_height = 60;
+google_ad_format = "234x60_as";
+google_ad_type = "text_image";
+google_ad_channel ="";
+google_color_border = "FAF1E3";
+google_color_bg = "FAF1E3";
+google_color_link = "663300";
+google_color_text = "000000";
+google_color_url = "CC0000";
+//--></script>
+<script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+
+</script>
+    </td>
+        </tr>
+</table>
+
+<br />
+
+<!--   table de "980" ----------------------------------------------->
+
+<table  border="0"> 
+  <tr> 
+<td >  </td>
+<td  > </td>
+  </tr>
+  <tr> 
+<td > 
+<!--   td width="770" ------------------ texto pagina ------------------------------>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR>
+    <TD><p class=tit-1 > <font color="#800000"><B>Tema 2. Las consultas simples</B> (I) </font></p></TD>
+    <td><!-- Search Google -->
+        <center>
+          <form method="get" action="http://www.google.es/custom" target="google_window">
+            <table bgcolor="#ffffff">
+              <tr>
+                <td nowrap="nowrap" valign="top" align="left" height="32"><a href="http://www.google.com/"> <img src="../../www.google.com/logos/Logo_25wht.gif" border="0" alt="Google" align="middle"></a>
+                    <input type="text" name="q" size="20" maxlength="255" value="">
+                    <input type="submit" name="sa" value="B&uacute;squeda">
+                    <input type="hidden" name="client" value="pub-1875034419890743">
+                    <input type="hidden" name="forid" value="1">
+                    <input type="hidden" name="ie" value="ISO-8859-1">
+                    <input type="hidden" name="oe" value="ISO-8859-1">
+                    <input type="hidden" name="cof" value="GALT:#008000;GL:1;DIV:#336699;VLC:663399;AH:center;BGC:FFF6EC;LBGC:FFF6EC;ALC:000000;LC:000000;T:0000FF;GFNT:0000FF;GIMP:0000FF;LH:50;LW:141;L:http://www.aulaclic.es/logo_ac1_50.jpg;S:http://www.aulaclic.es/;FORID:1;">
+                    <input type="hidden" name="hl" value="es">
+                </td>
+              </tr>
+            </table>
+          </form>
+        </center>
+      <!-- Search Google -->
+    </td>
+  </TR>
+</TABLE>
+<BR>
+<TABLE width="65%" border="0">
+  <TR> 
+    <TD width="50%"> 
+      <P class=tit-2 > <FONT color="#800000"><B> Objetivo</B> </FONT></P>
+    </TD>
+  </TR>
+</TABLE>
+<BR>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD class="Normal"> 
+       
+      <P class=padding-1>Empezaremos por estudiar la sentencia <B><FONT color="#000080">SELECT</FONT></B>, 
+        que permite <B><FONT color="#000080">recuperar datos de</FONT></B> una 
+        o varias <B><FONT color="#000080">tablas</FONT></B>. La sentencia SELECT 
+        es con mucho la más compleja y potente de las sentencias SQL. Empezaremos 
+        por ver las <B><FONT color="#000080">consultas</FONT></B> más <B><FONT color="#000080">simples</FONT></B>, 
+        <B> <FONT color="#000080">basadas</FONT></B> en <B><FONT color="#000080">una</FONT></B> 
+        sola <B><FONT color="#000080">tabla</FONT></B>.</P>
+       
+      <P class=padding-1>Esta sentencia forma parte del DML (lenguaje de manipulaci&oacute;n 
+        de datos), en este tema veremos c&oacute;mo <B><FONT color="#000080">seleccionar 
+        columnas</FONT></B> de una tabla, c&oacute;mo <B><FONT color="#000080">seleccionar 
+        filas</FONT></B> y c&oacute;mo obtener las <B><FONT color="#000080">filas 
+        ordenadas</FONT></B> por el criterio que queramos.</P>
+       
+      <P class=padding-1>El resultado de la consulta es una <B><FONT color="#000080">tabla 
+        l&oacute;gica, </FONT></B>porque no se guarda en el disco sino que est&aacute; 
+        en memoria y cada vez que ejecutamos la consulta se vuelve a calcular.</P>
+      <P class=padding-1>Cuando ejecutamos la consulta se visualiza el resultado 
+        en forma de tabla con columnas y filas, pues en la SELECT tenemos que 
+        indicar qu&eacute; columnas queremos que tenga el resultado y qu&eacute; 
+        filas queremos seleccionar de la tabla origen.<BR>
+      </P>
+    </TD>
+  </TR>
+  <TR> 
+    <TD class="Normal"> 
+      <P class=padding-1>Si no conoces todav&iacute;a las tablas que utilizaremos 
+        para los ejemplos y ejercicios clic <A href="t_1_2.htm">aqu&iacute;</A> 
+      </P>
+</TD>
+  </TR>
+</TABLE>
+<BR>
+<TABLE width="65%" border="0">
+  <TR> 
+    <TD width="50%"> 
+      <P class=tit-2 > <FONT color="#800000"><B><A name="sintaxis"></A>Sintaxis 
+        de la sentencia SELECT</B> (consultas simples)</FONT></P>
+    </TD>
+  </TR>
+</TABLE>
+<BR>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD class="Normal" width="49%"><IMG src="graficos/tr_select_simple2.gif" width="571" height="281"><BR>
+    </TD>
+  </TR>
+</table>
+<TABLE width="65%" border="0">
+  <TR> 
+    <TD width="50%"> 
+      <P class=tit-2 > <FONT color="#800000"><B><A name="tabla"></A>La tabla origen 
+        - FROM -</B></FONT></P>
+    </TD>
+  </TR>
+</TABLE>
+<BR>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD class="Normal" width="49%"> 
+      <P class=padding-1>Con la cl&aacute;usula <B><FONT color="#000080">FROM</FONT></B> 
+        indicamos <B><FONT color="#000080">en</FONT></B> <B><FONT color="#000080">qu&eacute; 
+        tabla</FONT></B> tiene que <B><FONT color="#000080">buscar la informaci&oacute;n</FONT></B>. 
+        En este cap&iacute;tulo de consultas simples el resultado se obtiene de 
+        una &uacute;nica tabla. La sintaxis de la cl&aacute;usula es:<BR>
+        <B><BR>
+        <font color="#008000">FROM</font></B> <b><font color="#008000">especificaci&oacute;n 
+        de tabla</font></b></P>
+      <P class=padding-1>Una especificaci&oacute;n de tabla puede ser el nombre 
+        de una consulta guardada (las que aparecen en la ventana de base de datos), 
+        o el nombre de una tabla que a su vez puede tener el siguiente formato:<BR>
+      </P>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD class="Normal" width="49%"> 
+      <P class=padding-1><IMG src="graficos/espe_tabla.gif" width="436" height="51"><BR>
+      </P>
+    </TD>
+  </TR>
+</TABLE>
+<table width="100%" border="0">
+  <tr>
+    <td> 
+      <P class=padding-1> <B><FONT color="#000080"><IMG src="comunes/orangeBall.gif" width="14" height="14"> 
+        Aliastabla</FONT></B> es un nombre de <B><FONT color="#000080">alias</FONT></B>, 
+        es como un <B><FONT color="#000080">segundo nombre </FONT></B>que asignamos 
+        a la <B><FONT color="#000080">tabla</FONT></B>, si en una consulta definimos 
+        un alias para la tabla, esta se deber&aacute; nombrar utilizando ese nombre 
+        y no su nombre real, adem&aacute;s <B><FONT color="#000080">ese nombre 
+        s&oacute;lo</FONT></B> es <B><FONT color="#000080">v&aacute;lido en la 
+        consulta</FONT></B> donde se define. El alias se suele emplear en consultas 
+        basadas en m&aacute;s de una tabla que veremos en el tema siguiente. La 
+        palabra <b><font color="#008000">AS</font></b> que se puede poner delante 
+        del nombre de alias es opcional y es el valor por defecto por lo que no 
+        tienen ning&uacute;n efecto.<br>
+        <BR>
+        Ejemplo: <b><font color="#008000">SELECT ......FROM oficinas ofi</font></b> 
+        ; equivalente a <b><font color="#008000">SELECT ......FROM oficinas AS 
+        ofi</font></b> esta sentencia me indica que se van a buscar los datos 
+        en la tabla <I>oficinas</I> que queda renombrada en esta consulta con 
+        <I>ofi</I>.</P>
+      <P class=padding-1> <IMG src="comunes/orangeBall.gif" width="14" height="14"> 
+        En una <b><font color="#000080">SELECT</font></b> podemos utilizar tablas 
+        que no est&aacute;n definidas en la base de datos (siempre que tengamos 
+        los permisos adecuados claro), si la tabla no est&aacute; en la base de 
+        datos activa, debemos indicar en qu&eacute; base de datos se encuentra 
+        con la cl&aacute;usula <B><FONT color="#000080">IN</FONT></B>.</P>
+      <P class=padding-1> En la cl&aacute;usula <B><FONT color="#000080">IN</FONT></B> 
+        el nombre de la base de datos debe incluir el <B><FONT color="#000080">camino 
+        completo</FONT></B>, la <B><FONT color="#000080">extensi&oacute;n</FONT></B> 
+        (.mdb), y estar entre <B><FONT color="#000080">comillas simples</FONT></B>. 
+        <br>
+        <br>
+        Supongamos que la tabla empleados estuviese en otra base de datos llamada 
+        <I>otra</I> en la carpeta <I>c:\mis documentos\</I>, habr&iacute;a que 
+        indicarlo as&iacute;:<br>
+        <BR>
+        <b><font color="#008000">SELECT * <BR>
+        FROM empleados IN 'c:\mis documentos\otra.mdb'</font></b><BR>
+        <BR>
+        Generalmente tenemos las tablas en la misma base de datos y no hay que 
+        utilizar la cl&aacute;usula <b><font color="#000080">IN</font></b>.<BR>
+      </P>
+    </td>
+  </tr>
+</table>
+<TABLE width="65%" border="0">
+  <TR> 
+    <TD width="50%"> 
+      <P class=tit-2 > <FONT color="#800000"><B><a name="seleccion"></a>Selecci&oacute;n 
+        de columnas</B> </FONT></P>
+    </TD>
+  </TR>
+</TABLE>
+<table width="99%">
+  <TR> 
+    <TD class="Normal" width="33%"> 
+      <P class=padding-1>La lista de <B><FONT color="#000080">columnas</FONT></B> 
+        que queremos que <B><FONT color="#000080">aparezcan</FONT></B> en el <B><FONT color="#000080">resultado</FONT></B> 
+        es lo que llamamos <B><FONT color="#000080">lista de selección</FONT></B> 
+        y se especifica delante de la cláusula <b><font color="#000080">FROM</font></b>.</P>
+      <P><IMG src="graficos/tr_lista_seleccion.gif" width="236" height="75">  <BR>
+      </P>
+      </td>
+   
+  </TR>
+</table>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR>
+    <TD> 
+      <P class=padding-1><IMG src="comunes/orangeBall.gif" width="14" height="14"><B> 
+        Utilización del *</B><br>
+        <BR>
+        Se utiliza el asterisco * en la lista de selecci&oacute;n para indicar 
+        <FONT color="#000080"><B>'todas las columnas de la tabla'</B></FONT>.<BR>
+        Tiene dos <B><FONT color="#000080">ventajas</FONT></B>:<br>
+        <BR>
+        Evitar nombrar las columnas una a una (es m&aacute;s corto).<br>
+        <BR>
+        Si a&ntilde;adimos una columna nueva en la tabla, esta nueva columna saldr&aacute; 
+        sin tener que modificar la consulta.<BR>
+        Se puede combinar el * con el nombre de una tabla (ej. oficinas.*), pero 
+        esto se utiliza m&aacute;s cuando el origen de la consulta son dos tablas.<BR>
+      </P>
+      </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR>
+    <TD width=45%> 
+      <P class=padding-1><font color="#008000"><b>SELECT * FROM oficinas </b></font><BR>
+        o bien<BR>
+        <b><font color="#008000">SELECT oficinas.* FROM oficinas</font></b><BR>
+      </P>
+      </TD>
+    <TD width="55%">
+      <P class=padding-1>
+      Lista todos los datos de las oficinas</P></TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR>
+    <TD> 
+      <P class=padding-1><IMG src="comunes/orangeBall.gif" width="14" height="14"> 
+        <B>columnas de la tabla origen</B><BR>
+        Las columnas se pueden especificar mediante su <B><FONT color="#000080">nombre 
+        simple</FONT></B> (nbcol) o su <B><FONT color="#000080">nombre cualificado</FONT></B> 
+        (nbtabla.nbcol, el nombre de la columna precedido del nombre de la tabla 
+        que contiene la columna y separados por un punto).<BR>
+        El nombre cualificado se puede emplear siempre que queramos y es obligatorio 
+        en algunos casos que veremos m&aacute;s adelante.</P>
+      <P class=padding-1>Cuando el <B><FONT color="#000080">nombre</FONT></B> 
+        de la <B><FONT color="#000080">columna</FONT></B> o de la tabla <B><FONT color="#000080">contiene 
+        espacios en blanco</FONT></B>, hay que poner el nombre <B><FONT color="#000080">entre 
+        corchetes</FONT></B> [ ] y adem&aacute;s el n&uacute;mero de espacios 
+        en blanco debe coincidir. Por ejemplo [codigo de cliente] no es lo mismo 
+        que [ codigo de cliente] (el segundo lleva un espacio en blanco delante 
+        de c&oacute;digo)<br>
+        <BR>
+        Ejemplos : </P>
+</TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD width="45%">
+      <P class=padding-1><font color="#008000"><b>SELECT nombre, oficina, contrato<BR>
+        FROM ofiventas</b></font></P>
+    </TD>
+    <TD width="55%">
+      <P class=padding-1>Lista el nombre, oficina, y fecha de contrato de todos 
+        los empleados.</P>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD width="45%">
+      <P class=padding-1><font color="#008000"><b>SELECT idfab, idproducto, descripcion, 
+        precio <BR>
+        FROM productos</b></font></P>
+    </TD>
+    <TD width="55%"><P class=padding-1>Lista una tarifa de productos</P></TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR>
+    <TD> 
+      <P class=padding-1><IMG src="comunes/orangeBall.gif" width="14" height="14"><B> 
+        Alias de columna</B>. <BR>
+        Cuando se visualiza el resultado de la consulta, normalmente las columnas 
+        toman el nombre que tiene la columna en la tabla, si queremos cambiar 
+        ese nombre lo podemos hacer definiendo un alias de columna mediante la 
+        cl&aacute;usula <B><FONT color="#000080">AS</FONT></B> ser&aacute; el 
+        nombre que aparecer&aacute; como <B><FONT color="#000080">t&iacute;tulo 
+        de la columna.</FONT></B><br>
+        <BR>
+        Ejemplo: </P>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR>
+    <TD width="43%">
+      <P class=padding-1><font color="#008000"><b>SELECT idfab AS fabricante, 
+        idproducto, descripcion <BR>
+        FROM productos</b></font></P>
+    </TD>
+    <TD width="57%"><P class=padding-1>Como t&iacute;tulo de la primera columna aparecer&aacute; 
+      fabricante en vez de idfab</P></TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR>
+    <TD> 
+      <P class=padding-1><IMG src="comunes/orangeBall.gif" width="14" height="14"><B> 
+        Columnas calculadas</B>.<BR>
+        Además de las columnas que provienen directamente de la tabla origen, 
+        una consulta SQL puede incluir <B><FONT color="#000080">columnas calculadas</FONT></B> 
+        cuyos valores se calculan a partir de los valores de los datos almacenados.<br>
+        <BR>
+        Para solicitar una columna calculada, se especifica en la lista de selección 
+        una <B><FONT color="#000080">expresi&oacute;n</FONT></B> en vez de un 
+        nombre de columna. La expresión puede contener sumas, restas, multiplicaciones 
+        y divisiones, concatenación & , paréntesis y tambi&eacute;n funciones 
+        predefinidas).<BR>
+        Para ver con m&aacute;s detalle c&oacute;mo formar una expresi&oacute;n 
+        pincha aqu&iacute;<A name="b1"></A><A href="b_2_1_1.htm"><IMG src="comunes/ico_menos.gif" width="26" height="20" border="0"></A><BR>
+        <br>
+        Ejemplos: </P>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR>
+    <TD width="44%"> 
+      <P class=padding-1><font color="#008000"><b>SELECT ciudad, región, (ventas-objetivo) 
+        AS superavit<BR>
+        FROM oficinas</b></font></P>
+    </TD>
+    <TD width="56%"> <P class=padding-1>Lista la ciudad, región y el superavit de cada oficina.</P></TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD width="54%"> 
+      <P class=padding-1><font color="#008000"><b>SELECT idfab, idproducto, descripcion, 
+        (existencias * precio) AS valoracion <BR>
+        FROM productos</b></font></P>
+    </TD>
+    <TD width="46%"> <P class=padding-1>De cada producto obtiene su fabricante, idproducto, su descripción 
+      y el valor del inventario</P></TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD> 
+      <P class=padding-1><font color="#008000"><b>SELECT nombre, MONTH(contrato), 
+        YEAR(contrato)<BR>
+        FROM repventas</b></font></P>
+    </TD>
+    <TD> <P class=padding-1>Lista el nombre, mes y año del contrato de cada vendedor.<BR>
+      La funci&oacute;n MONTH() devuelve el mes de una fecha<BR>
+      La funci&oacute;n YEAR() devuelve el a&ntilde;o de una fecha</P></TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD>
+      <P class=padding-1> <b><font color="#008000">SELECT oficina, 'tiene ventas 
+        de ', ventas<BR>
+        FROM oficinas</font></b></P>
+    </TD>
+    <TD> <P class=padding-1>Listar las ventas en cada oficina con el formato: 22 tiene ventas de 
+      186,042.00 ptas </P></TD>
+  </TR>
+</TABLE>
+<br>
+<BR>
+<TABLE width="100%" border="0">
+  <TR> 
+    <TD width="37%">&nbsp;</TD>
+     
+    <TD width="6%"><A href="t_1_2.htm"><IMG name="image8" src="comunes/flecha_re.gif" width="22" height="22" border="0"></A></TD>
+     
+    <TD width="6%"><A href="index.htm"><IMG name="image8" src="comunes/flecha_home.gif" width="22" height="22" border="0"></A></TD>
+		
+    <TD width="6%"><A href="t_2_2.htm"><IMG name="image2" src="comunes/flecha_av.gif" width="22" height="22" border="0"></A></TD>
+    <TD width="45%"> 
+      <DIV align="right">Pag. 2.1</DIV>
+    </TD>
+  </TR>
+</TABLE>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <div align="center"><font size="-1">Aviso legal: este curso es gratuito 
+        siempre que se visualice desde la p&aacute;gina web de aulaClic. No est&aacute; 
+        permitido descargar el curso ni utilizarlo en academias o centros de ense&ntilde;anza 
+        privados sin estar conectado a Internet. </font></div>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <div align="center"><font size="-1">© aulaClic. Todos los derechos reservados. 
+ <a href="http://www.teacherclick.com/" style="text-decoration: none; color: black;" target="_blank">Free Computer tutorials</a> . 
+        Prohibida la reproducci&oacute;n por cualquier medio.<br>
+        </font><font size="2">Abril-2001.aulaClic.com</font></div>
+    </td>
+  </tr>
+</table>
+<p style='text-align:justify'>&nbsp;</p>
+<!--  fin td width="770" --------------- fin texto pagina -------------------------------->
+
+    </td>
+    <td  valign="top">
+	<!--   td width="160" -------------- anuncios lateral derecho ---------------------------------->
+<table  border="0">
+
+  <tr> 
+    <td valign="bottom" height="700"> 
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 160;
+google_ad_height = 600;
+google_ad_format = "160x600_as";
+google_ad_type = "text_image";
+google_ad_channel ="2175968397";
+google_color_border = "FFF6EC";
+google_color_bg = "FFF6EC";
+google_color_link = "663300";
+google_color_text = "000000";
+google_color_url = "CC0000";
+//--></script>
+<script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>
+    </td>
+	
+  </tr>
+  
+  <tr> 
+    <td height="150">
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 125;
+google_ad_height = 125;
+google_ad_format = "125x125_as_rimg";
+google_cpa_choice = "CAAQmImJlAIaCN5uB6wtFhbmKNyMs4MB";
+google_ad_channel = "6146562423";
+//--></script>
+<script type="text/javascript" src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>
+    </td>
+  </tr>
+
+  <tr> 
+    <td height="150">
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 160;
+google_ad_height = 90;
+google_ad_format = "160x90_0ads_al";
+google_ad_channel ="2175968397";
+google_color_border = "FAF1E3";
+google_color_bg = "FAF1E3";
+google_color_link = "663300";
+google_color_text = "000000";
+google_color_url = "CC0000";
+//--></script>
+<script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>    </td>
+  </tr>
+</table>
+
+	<!--   td width="160" ----------- fin anuncios lateral derecho -------------------------------------->
+
+ </td>
+ </tr>
+<!--   table de "980" ----------------------------------------------->
+</table>
+
+</body>
+
+
+<!-- Mirrored from www.aulaclic.es/sql/t_2_1.htm by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 10 Jun 2011 06:48:50 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
+</html>

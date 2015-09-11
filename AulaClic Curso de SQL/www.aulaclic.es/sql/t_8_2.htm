@@ -1,0 +1,327 @@
+
+<html>
+
+<!-- Mirrored from www.aulaclic.es/sql/t_8_2.htm by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 10 Jun 2011 06:49:31 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name="keywords" content="SQL Base datos access access2000 tutorial manual gratis office enseñanza educacion ddl dcl dml">
+<LINK REL=STYLESHEET TYPE="text/css" HREF="estilo_sinf_osc.css" TITLE="estilo_sinf_osc">
+<title>Tema  8  Definici&oacute;n de Datos</title>
+<SCRIPT language=JavaScript>
+<!--
+var previous = "t_8_1.htm";
+var next = "t_8_3.htm";
+//-->
+</SCRIPT>
+</head><body>
+<script type='text/javascript' src='../js/sqlmenu_osc.js'></script> 
+<script type='text/javascript' src='../js/menu8_com.js'></script> 
+
+<table width="900" border="0">
+  <tr>
+    <td width="144"><a href="http://www.aulaclic.es/index.html"><img src="comunes/logo_ac1_50.gif" alt="P&aacute;gina inicial"  border="0" longdesc="P%e1gina%20inicial.html"></a></td>
+    <td width="505">&nbsp;</td>
+	    <td width="234">
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 234;
+google_ad_height = 60;
+google_ad_format = "234x60_as";
+google_ad_type = "text_image";
+google_ad_channel ="";
+google_color_border = "FAF1E3";
+google_color_bg = "FAF1E3";
+google_color_link = "663300";
+google_color_text = "000000";
+google_color_url = "CC0000";
+//--></script>
+<script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+
+</script>
+    </td>
+        </tr>
+</table>
+
+<br />
+
+<!--   table de "980" ----------------------------------------------->
+
+<table  border="0"> 
+  <tr> 
+<td >  </td>
+<td  > </td>
+  </tr>
+  <tr> 
+<td > 
+<!--   td width="770" ------------------ texto pagina ------------------------------>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR>
+    <TD><p class=tit-1 > <font color="#800000"><B>Tema 8. El DDL, lenguaje de definici&oacute;n 
+      de datos </B> (II) </font></p></TD>
+    <td><!-- Search Google -->
+        <center>
+          <form method="get" action="http://www.google.es/custom" target="google_window">
+            <table bgcolor="#ffffff">
+              <tr>
+                <td nowrap="nowrap" valign="top" align="left" height="32"><a href="http://www.google.com/"> <img src="../../www.google.com/logos/Logo_25wht.gif" border="0" alt="Google" align="middle"></a>
+                    <input type="text" name="q" size="20" maxlength="255" value="">
+                    <input type="submit" name="sa" value="B&uacute;squeda">
+                    <input type="hidden" name="client" value="pub-1875034419890743">
+                    <input type="hidden" name="forid" value="1">
+                    <input type="hidden" name="ie" value="ISO-8859-1">
+                    <input type="hidden" name="oe" value="ISO-8859-1">
+                    <input type="hidden" name="cof" value="GALT:#008000;GL:1;DIV:#336699;VLC:663399;AH:center;BGC:FFF6EC;LBGC:FFF6EC;ALC:000000;LC:000000;T:0000FF;GFNT:0000FF;GIMP:0000FF;LH:50;LW:141;L:http://www.aulaclic.es/logo_ac1_50.jpg;S:http://www.aulaclic.es/;FORID:1;">
+                    <input type="hidden" name="hl" value="es">
+                </td>
+              </tr>
+            </table>
+          </form>
+        </center>
+      <!-- Search Google -->
+    </td>
+  </TR>
+</TABLE>
+<BR>
+<table width="65%" border="0">
+  <tr> 
+    <td width="50%"> 
+      <p class=tit-2 > <font color="#800000"><b> <a name="table"></a>CREATE TABLE...Continuaci&oacute;n</b></font></p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <p class=padding-1><img src="comunes/orangeBall.gif" width="14" height="14"> 
+        Una <b><font color="#000080">restricci&oacute;n de tipo 2</font></b> se 
+        utiliza <b><font color="#000080">para definir una caracter&iacute;stica 
+        que afecta a una columna o a una combinaci&oacute;n de columnas</font></b> 
+        de la tabla que estamos definiendo, <b><font color="#000080">se escribe 
+        despu&eacute;s de haber definido todas las columnas</font></b> de la tabla.</p>
+      <p class=padding-1>Tiene la siguiente<b><font color="#000080"> sintaxis</font></b>:</p>
+      <p class=padding-1><img src="graficos/restriccion2.gif" width="482" height="236"></p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <p class=padding-1>La sintaxis de una restricci&oacute;n de tipo 2 es muy 
+        similar a la <b><font color="#008000">CONSTRAINT</font></b> de una restricci&oacute;n 
+        1 la diferencia es que ahora tenemos que indicar sobre qu&eacute; columnas 
+        queremos definir la restricci&oacute;n. Se utilizan obligatoriamente las 
+        restricciones de tipo 2 cuando la restricci&oacute;n afecta a un grupo 
+        de columnas o cuando queremos definir m&aacute;s de una <b><font color="#008000">CONSTRAINT</font></b> 
+        para una columna (s&oacute;lo se puede definir una restricci&oacute;n1 
+        en cada columna).</p>
+      <p class=padding-1><img src="comunes/orangeBall.gif" width="14" height="14"> 
+        La cl&aacute;usula <b><font color="#008000">PRIMARY KEY</font></b> se 
+        utiliza para definir la <b><font color="#000080">clave principal </font></b>de 
+        la tabla. Despu&eacute;s de las palabras <b><font color="#008000">PRIMARY 
+        KEY</font></b> se indica entre par&eacute;ntesis el nombre de la columna 
+        o las columnas que forman la clave principal. Las columnas que forman 
+        la clave principal no pueden contener valores nulos ni pueden haber valores 
+        duplicados de la combinaci&oacute;n de columnas, por ejemplo la tabla 
+        pedidos de nuestros ejemplos tiene una clave principal formada por idfab 
+        e idproducto, pues no pueden haber dos filas con la misma combinaci&oacute;n 
+        de idfab con idproducto (<i>aci,0001</i> por ejemplo) pero s&iacute; pueden 
+        haber dos filas con el valor <i>aci</i> en la columna <i>idfab</i> si 
+        tienen valores diferentes en la columna <i>idproducto</i>, y pueden haber 
+        dos filas con el mismo idproducto pero distinto idfab.</p>
+      <p class=padding-1>En una tabla <b><font color="#000080">no pueden haber 
+        varias claves principales</font></b>, por lo que no podemos indicar la 
+        cl&aacute;usula <b><font color="#008000">PRIMARY KEY</font></b> m&aacute;s 
+        de una vez, en caso contrario la sentencia da un error.</p>
+      <p class=padding-1><img src="comunes/orangeBall.gif" width="14" height="14"> 
+        La cl&aacute;usula <b><font color="#008000">UNIQUE</font></b> sirve para 
+        definir un <font color="#000080"><b>&iacute;ndice &uacute;nico</b></font> 
+        sobre una columna o sobre una combinaci&oacute;n de columnas. Un &iacute;ndice 
+        &uacute;nico es un &iacute;ndice que<b><font color="#000080"> no permite 
+        valores duplicados</font></b>. Si el &iacute;ndice es sobre varias columnas 
+        no se puede repetir la misma combinaci&oacute;n de valores en dos o m&aacute;s 
+        filas. Se suele emplear para que el sistema compruebe el mismo que no 
+        se a&ntilde;aden valores que ya existen.</p>
+      <p class=padding-1><a name="b1"></a><img src="comunes/orangeBall.gif" width="14" height="14"> 
+        La cl&aacute;usula <b><font color="#008000">FOREIGN KEY</font></b> sirve 
+        para definir una <b><font color="#000080">clave for&aacute;nea</font></b> 
+        sobre una columna o una combinaci&oacute;n de columnas. Una clave for&aacute;nea 
+        es una columna o conjunto de columnas que <b><font color="#000080">contiene 
+        un valor que hace referencia a una fila de otra tabla</font></b>, en una 
+        restricci&oacute;n 1 se puede definir con la cl&aacute;usula <b><font color="#008000">REFERENCES</font></b>. 
+        Para definir una clave for&aacute;nea en una restricci&oacute;n de tipo 
+        2 debemos empezar por las palabras <b><font color="#008000">FOREIGN KEY</font></b> 
+        despu&eacute;s indicamos entre par&eacute;ntesis la/s columna/s que es 
+        clave for&aacute;nea, a continuaci&oacute;n la palabra reservada <b><font color="#008000">REFERENCES</font></b> 
+        seguida del nombre de la tabla a la que hace referencia, opcionalmente 
+        podemos indicar entre par&eacute;ntesis el nombre de la/s columna/s donde 
+        tiene que buscar el valor de referencia, por defecto coge la clave principal 
+        de la tabla2, si el valor que tiene que buscar se encuentra en otra/s 
+        columna/s de tabla2, entonces debemos escribir el nombre de esta/s columna/s 
+        entre par&eacute;ntesis, adem&aacute;s s&oacute;lo podemos utilizar una 
+        columna (o combinaci&oacute;n de columnas) que est&eacute; definida con 
+        una restricci&oacute;n de <b><font color="#008000">UNIQUE</font></b>, 
+        de lo contrario la sentencia <b><font color="#008000">CREATE TABLE</font></b> 
+        nos dar&aacute; un error.</p>
+      <p class=padding-1>Si necesitas repasar los <b><font color="#000080">conceptos 
+        de integridad referencial</font></b> pincha aqu&iacute; <a href="b_8_2_1.htm"><img src="comunes/ico_menos.gif" width="26" height="20" border="0"></a></p>
+      </td>
+  </tr>
+</table>
+
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <p class=padding-1>Ejemplo:</p>
+      <p class=padding-sin><font color="#008000"><b>CREATE TABLE tab1 (col1 INTEGER,<br>
+        col2 CHAR(25) NOT NULL,<br>
+        col3 CHAR(10),<br>
+        col4 INTEGER,<br>
+        col5 INT,<br>
+        CONSTRAINT pk PRIMARY KEY (col1),<br>
+        CONSTRAINT uni1 UNIQUE (col3),<br>
+        CONSTRAINT fk5 FOREIGN KEY (col5) REFERENCES tab2 </b></font><font color="#008000"><b> 
+        );</b></font></p>
+      <p class=padding-1>Con este ejemplo estamos creando la misma tabla<i> tab1</i> 
+        del ejemplo de la p&aacute;gina anterior pero ahora hemos definido las 
+        restricciones utilizando restricciones de tipo 2.</p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> <div align="center"> 
+        <script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_ad_channel ="5259272651";
+google_page_url = document.location;
+google_color_border = "FDE8D0";
+google_color_bg = "FFF6EC";
+google_color_link = "663300";
+google_color_url = "CC0000";
+google_color_text = "000000";
+//--></script>
+        <script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>
+      </div></td>
+  </tr>
+</table>
+
+<BR>
+<TABLE width="100%" border="0">
+  <TR> 
+    <TD width="37%">&nbsp;</TD>
+     
+    <TD width="6%"><A href="t_8_1.htm"><IMG name="image8" src="comunes/flecha_re.gif" width="22" height="22" border="0"></A></TD>
+     
+    <TD width="6%"><A href="index.htm"><IMG name="image8" src="comunes/flecha_home.gif" width="22" height="22" border="0"></A></TD>
+		
+    <TD width="6%"><A href="t_8_3.htm"><IMG name="image2" src="comunes/flecha_av.gif" width="22" height="22" border="0"></A></TD>
+    <TD width="45%"> 
+      <DIV align="right">Pag.8.2</DIV>
+    </TD>
+  </TR>
+</TABLE>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <div align="center"><font size="-1">Aviso legal: este curso es gratuito 
+        siempre que se visualice desde la p&aacute;gina web de aulaClic. No est&aacute; 
+        permitido descargar el curso ni utilizarlo en academias o centros de ense&ntilde;anza 
+        privados sin estar conectado a Internet. </font></div>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <div align="center"><font size="-1">© aulaClic. Todos los derechos reservados. 
+ <a href="http://www.teacherclick.com/" style="text-decoration: none; color: black;" target="_blank">Free Computer tutorials</a> . 
+        Prohibida la reproducci&oacute;n por cualquier medio.<br>
+        </font><font size="2">Julio-2001.aulaClic.com</font></div>
+    </td>
+  </tr>
+</table>
+<p style='text-align:justify'>&nbsp;</p>
+<!--  fin td width="770" --------------- fin texto pagina -------------------------------->
+
+    </td>
+    <td  valign="top">
+	<!--   td width="160" -------------- anuncios lateral derecho ---------------------------------->
+<table  border="0">
+
+  <tr> 
+    <td valign="bottom" height="700"> 
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 160;
+google_ad_height = 600;
+google_ad_format = "160x600_as";
+google_ad_type = "text_image";
+google_ad_channel ="2175968397";
+google_color_border = "FFF6EC";
+google_color_bg = "FFF6EC";
+google_color_link = "663300";
+google_color_text = "000000";
+google_color_url = "CC0000";
+//--></script>
+<script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>
+    </td>
+	
+  </tr>
+  
+  <tr> 
+    <td height="150">
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 125;
+google_ad_height = 125;
+google_ad_format = "125x125_as_rimg";
+google_cpa_choice = "CAAQmImJlAIaCN5uB6wtFhbmKNyMs4MB";
+google_ad_channel = "6146562423";
+//--></script>
+<script type="text/javascript" src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>
+    </td>
+  </tr>
+
+  <tr> 
+    <td height="150">
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 160;
+google_ad_height = 90;
+google_ad_format = "160x90_0ads_al";
+google_ad_channel ="2175968397";
+google_color_border = "FAF1E3";
+google_color_bg = "FAF1E3";
+google_color_link = "663300";
+google_color_text = "000000";
+google_color_url = "CC0000";
+//--></script>
+<script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>    </td>
+  </tr>
+</table>
+
+	<!--   td width="160" ----------- fin anuncios lateral derecho -------------------------------------->
+
+ </td>
+ </tr>
+<!--   table de "980" ----------------------------------------------->
+</table>
+
+</body>
+
+
+<!-- Mirrored from www.aulaclic.es/sql/t_8_2.htm by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 10 Jun 2011 06:49:33 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
+</html>

@@ -1,0 +1,534 @@
+
+<html>
+
+<!-- Mirrored from www.aulaclic.es/sql/t_4_2.htm by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 10 Jun 2011 06:49:18 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name="keywords" content="SQL Base datos access access2000 tutorial manual gratis office enseñanza educacion ddl dcl dml">
+<LINK REL=STYLESHEET TYPE="text/css" HREF="estilo_sinf_osc.css" TITLE="estilo_sinf_osc">
+<title>Tema 4 Las consultas de resumen</title>
+<SCRIPT language=JavaScript>
+<!--
+var previous = "t_4_1.htm";
+var next = "t_5_1.htm";
+//-->
+</SCRIPT>
+</head><body>
+
+<script type='text/javascript' src='../js/sqlmenu_osc.js'></script> 
+<script type='text/javascript' src='../js/menu8_com.js'></script> 
+
+<table width="900" border="0">
+  <tr>
+    <td width="144"><a href="http://www.aulaclic.es/index.html"><img src="comunes/logo_ac1_50.gif" alt="P&aacute;gina inicial"  border="0" longdesc="P%e1gina%20inicial.html"></a></td>
+    <td width="505">&nbsp;</td>
+	    <td width="234">
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 234;
+google_ad_height = 60;
+google_ad_format = "234x60_as";
+google_ad_type = "text_image";
+google_ad_channel ="";
+google_color_border = "FAF1E3";
+google_color_bg = "FAF1E3";
+google_color_link = "663300";
+google_color_text = "000000";
+google_color_url = "CC0000";
+//--></script>
+<script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+
+</script>
+    </td>
+        </tr>
+</table>
+
+<br />
+<!--   table de "980" ----------------------------------------------->
+
+<table  border="0"> 
+  <tr> 
+<td >  </td>
+<td  > </td>
+  </tr>
+  <tr> 
+<td > 
+<!--   td width="770" ------------------ texto pagina ------------------------------>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR>
+    <TD><p class=tit-1 > <font color="#800000"><B>Tema 4. Las consultas de resumen </B> (II) </font></p></TD>
+    <td><!-- Search Google -->
+        <center>
+          <form method="get" action="http://www.google.es/custom" target="google_window">
+            <table bgcolor="#ffffff">
+              <tr>
+                <td nowrap="nowrap" valign="top" align="left" height="32"><a href="http://www.google.com/"> <img src="../../www.google.com/logos/Logo_25wht.gif" border="0" alt="Google" align="middle"></a>
+                    <input type="text" name="q" size="20" maxlength="255" value="">
+                    <input type="submit" name="sa" value="B&uacute;squeda">
+                    <input type="hidden" name="client" value="pub-1875034419890743">
+                    <input type="hidden" name="forid" value="1">
+                    <input type="hidden" name="ie" value="ISO-8859-1">
+                    <input type="hidden" name="oe" value="ISO-8859-1">
+                    <input type="hidden" name="cof" value="GALT:#008000;GL:1;DIV:#336699;VLC:663399;AH:center;BGC:FFF6EC;LBGC:FFF6EC;ALC:000000;LC:000000;T:0000FF;GFNT:0000FF;GIMP:0000FF;LH:50;LW:141;L:http://www.aulaclic.es/logo_ac1_50.jpg;S:http://www.aulaclic.es/;FORID:1;">
+                    <input type="hidden" name="hl" value="es">
+                </td>
+              </tr>
+            </table>
+          </form>
+        </center>
+      <!-- Search Google -->
+    </td>
+  </TR>
+</TABLE>
+<BR>
+<TABLE width="65%" border="0">
+  <TR> 
+    <TD width="50%"> 
+      <P class=tit-2 > <FONT color="#800000"><B> La cl&aacute;usula GROUP BY</B> 
+        </FONT></P>
+    </TD>
+  </TR>
+</TABLE>
+<table width="75%" border="0">
+  <tr>
+    <td><br>
+      <img src="graficos/groupby.gif" width="277" height="41"></td>
+  </tr>
+</table>
+<BR>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD > 
+      <P class=padding-1>Hasta ahora las consultas de resumen que hemos visto 
+        utilizan todas las filas de la tabla y producen una &uacute;nica fila 
+        resultado.</P>
+      <P class=padding-1><br>
+        <img src="comunes/orangeBall.gif" width="14" height="14"> Se pueden obtener 
+        <B><FONT color="#000080">subtotales</FONT></B> con la cl&aacute;usula 
+        <B><FONT color="#000080">GROUP BY</FONT></B>. Una consulta con una cl&aacute;usula 
+        <b><font color="#008000">GROUP BY</font></b> se denomina <b><font color="#000080">consulta 
+        agrupada</font></b> ya que agrupa los datos de la tabla origen y <B><FONT color="#000080">produce 
+        una &uacute;nica fila resumen por cada grupo formado</FONT></B>. Las columnas 
+        indicadas en el <b><font color="#008000">GROUP BY</font></b> se llaman 
+        <b> <font color="#000080">columnas de agrupaci&oacute;n</font></b>.<br>
+        <br>
+        Ejemplo:</P>
+      
+      </TD>
+  </TR>
+</TABLE>
+<table width="100%" border="0">
+  <tr>
+    <td width="29%" valign="top"> 
+      <P class=padding-sin><font color="#008000"><b> SELECT SUM(ventas)<br>
+        FROM repventas</b></font><br>
+      </p>
+         </td>
+    <td width="71%" valign="top"><P class=padding-sin>Obtiene la suma de las ventas de todos los empleados.</P></td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr>
+    <td width="29%" valign="top"> 
+      <p class="padding-sin"><font color="#008000"><b>SELECT SUM(ventas)<br>
+        FROM repventas<br>
+        GROUP BY oficina</b></font></p>
+      </td>
+    <td width="71%" valign="top"><p class="padding-sin">Se forma un grupo para cada oficina, con las filas de la oficina, 
+      y la suma se calcula sobre las filas de cada grupo. El ejemplo anterior 
+      obtiene una lista con la suma de las ventas de los empleados de cada oficina. 
+      </p></td>
+  </tr>
+</table>
+
+<table width="100%" border="0">
+  <tr>
+    <td width="69%" valign="top"> 
+      <p class="padding-1">La consulta quedar&iacute;a mejor incluyendo en la 
+        lista de selecci&oacute;n la oficina para saber a qu&eacute; oficina corresponde 
+        la suma de ventas: </p>
+    </td>
+</tr>
+<tr>
+    <td width="31%"> 
+      <p class="padding-sin"><font color="#008000"><b>SELECT oficina,SUM(ventas)<br>
+        FROM repventas<br>
+        GROUP BY oficina</b></font><br>
+      </p> </td>
+  </tr>
+</table>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD class="Normal"> 
+      <P class=padding-1><img src="comunes/orangeBall.gif" width="14" height="14"> 
+        Un columna de agrupaci&oacute;n no puede ser de tipo memo u OLE. </P>
+      <P class=padding-1><img src="comunes/orangeBall.gif" width="14" height="14"> 
+        La <b><font color="#000080">columna de agrupaci&oacute;n</font></b> se 
+        puede indicar mediante un <b><font color="#000080">nombre de columna</font></b> 
+        o cualquier expresi&oacute;n v&aacute;lida basada en una columna pero 
+        no se pueden utilizar los alias de campo. <br>
+        <br>
+        Ejemplo: </P>
+      </TD>
+  </TR>
+</TABLE>
+<table width="100%" border="0">
+  <tr>
+    <td width="50%" valign="top">
+      <p class="padding-sin"><font color="#008000"><b>SELECT importe/cant , SUM(importe)<br>
+        FROM pedidos<br>
+        GROUP BY importe/cant </b></font><BR></p>
+        </td>
+<td width="50%" valign="top"><p class="padding-sin">
+        Est&aacute; permitido, equivaldr&iacute;a a agrupar las l&iacute;neas 
+        de pedido por precio unitario y sacar de cada precio unitario el importe 
+        total vendido.</p>
+    </td>
+   </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td width="50%" valign="top"> 
+      <p class="padding-sin"><font color="#008000"><b>SELECT importe/cant AS precio, 
+        SUM(importe)<br>
+        FROM pedidos<br>
+        GROUP BY precio</b></font><br>
+      </p>
+    </td>
+    <td width="50%" valign="top">
+      <p class="padding-sin"> No est&aacute; permitido, no se puede utilizar un 
+        alias campo.</p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <p class="padding-1"><b><font color="#000080"><img src="comunes/orangeBall.gif" width="14" height="14"> 
+        En la lista de selecci&oacute;n s&oacute;lo pueden aparecer</font></b> 
+        :<br>
+        <b><font color="#000080">valores constantes<br>
+        funciones de columna<br>
+        columnas de agrupaci&oacute;n</font></b> (columnas que aparecen en la 
+        cl&aacute;usula <b><font color="#008000">GROUP BY</font></b>)<br>
+        <b><font color="#000080">o cualquier expresi&oacute;n basada en las anteriores</font></b>.<br>
+      </p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr valign="top"> 
+    <td width="36%"> 
+      <p class="padding-sin"><font color="#008000"><b>SELECT SUM(importe),rep*10<br>
+        FROM pedidos<br>
+        GROUP BY rep*10</b></font><br>
+        Est&aacute; permitido </p>
+    </td>
+    <td width="64%"> 
+      <p class="padding-sin"><b><font color="#008000">SELECT SUM(importe),rep<br>
+        FROM pedidos<br>
+        GROUP BY rep*10 </font></b><br>
+        No est&aacute; permitido, rep es una columna simple que no est&aacute; 
+        encerrrada en una funci&oacute;n de columna, ni est&aacute; en la lista 
+        de columnas de agrupaci&oacute;n.<br>
+      </p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr>
+    <td> 
+      <p class=padding-1><img src="comunes/orangeBall.gif" width="14" height="14"> 
+        Se <b><font color="#000080">pueden agrupar</font></b> las filas <b><font color="#000080">por 
+        varias columnas</font></b>, en este caso se indican las columnas separadas 
+        por una coma y en el <b><font color="#000080">orden de mayor a menor agrupaci&oacute;n</font></b>. 
+        Se permite incluir en la lista de agrupaci&oacute;n hasta 10 columnas.<br>
+        <br>
+        Ejemplo: Queremos obtener la suma de las ventas de las oficinas agrupadas 
+        por region y ciudad:<font color="#008000"><b><br>
+        <br>
+        SELECT SUM(ventas)<br>
+        FROM oficinas<br>
+        GROUP BY region,ciudad</b></font></p>
+        
+      <p class=padding-1>Se agrupa primero por regi&oacute;n, y dentro de cada 
+        regi&oacute;n por ciudad.<br>
+      </p>
+      </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr>
+    <td class="padding-1"> 
+      <p class="padding-1"><img src="comunes/orangeBall.gif" width="14" height="14"> 
+        <b><font color="#000080">Todas las filas </font></b>que tienen<b><font color="#000080"> 
+        valor nulo</font></b> en el campo de agrupaci&oacute;n, pasan a formar 
+        <b> <font color="#000080">un &uacute;nico grupo</font></b>. Es decir, 
+        considera el valor nulo como un valor cualquiera a efectos de agrupaci&oacute;n.<br>
+        <br>
+        Ejemplo: </p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0" dwcopytype="CopyTableRow">
+<tr>
+    <td width="31%"> 
+      <p class="padding-sin"><font color="#008000"><b>SELECT oficina,SUM(ventas) 
+        AS ventas_totales<br>
+        FROM repventas<br>
+        GROUP BY oficina</b></font></p>
+    </td>
+  </tr>
+</table>
+
+<table width="100%" border="0">
+  <tr> 
+    <td class="padding-1"> 
+      <p class="padding-sin">En el resultado aparece una fila con el campo oficina 
+        sin valor y a continuaci&oacute;n una cantidad en el campo ventas_totales, 
+        esta cantidad corresponde a la suma de las ventas de los empleados que 
+        no tienen oficina asignada (campo <i>oficina</i> igual a nulo).<br>
+      </p>
+    </td>
+  </tr>
+</table>
+<table width="65%" border="0">
+  <tr> 
+    <td width="50%"> 
+      <p class=tit-2 > <font color="#800000"><b> <a name="clausula"></a>La cl&aacute;usula 
+        HAVING</b> </font></p>
+    </td>
+  </tr>
+</table>
+<table width="75%" border="0">
+  <tr> 
+    <td><br>
+      <img src="graficos/having.gif" width="278" height="21"><br>
+    </td>
+  </tr>
+</table>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD > 
+      <P class=padding-1><img src="comunes/orangeBall.gif" width="14" height="14"> 
+        La cl&aacute;usula <b><font color="#000080">HAVING</font></b> nos permite 
+        <b><font color="#000080">seleccionar filas</font></b> de la tabla resultante 
+        <b><font color="#000080">de una consulta de resumen</font></b>. <br></P>
+      <P class=padding-1>
+        <img src="comunes/orangeBall.gif" width="14" height="14"> Para la condici&oacute;n 
+        de selecci&oacute;n se pueden utilizar los mismos tests de comparaci&oacute;n 
+        descritos en la cl&aacute;usula <b><font color="#008000">WHERE</font></b>, 
+        tambi&eacute;n se pueden escribir condiciones compuestas (unidas por los 
+        operadores <b><font color="#008000">OR</font></b>, <b><font color="#008000">AND</font></b>, 
+        <b> <font color="#008000">NOT</font></b>), pero existe una restricci&oacute;n.<br>
+      </P>
+      <P class=padding-1> <b><font color="#000080"><img src="comunes/orangeBall.gif" width="14" height="14"> 
+        En la condici&oacute;n de selecci&oacute;n s&oacute;lo pueden aparecer</font></b> 
+        :<BR>
+        <b><font color="#000080">valores constantes<BR>
+        funciones de columna<BR>
+        columnas de agrupaci&oacute;n</font></b> (columnas que aparecen en la 
+        cl&aacute;usula GROUP BY)<BR>
+        <b><font color="#000080">o cualquier expresi&oacute;n basada en las anteriores</font></b>.<br>
+      </P>
+      <P class=padding-1>Ejemplo: Queremos saber las oficinas con un promedio 
+        de ventas de sus empleados mayor que 500.000 ptas.<br>
+        <br>
+        <font color="#008000"><b>SELECT oficina<br>
+        FROM empleados<br>
+        GROUP BY oficina<br>
+        HAVING AVG(ventas) &gt; 500000</b></font><br>
+      </p>
+        
+      <p class="padding-1">NOTA: Para obtener lo que se pide hay que calcular 
+        el promedio de ventas de los empleados de cada oficina, por lo que hay 
+        que utilizar la tabla empleados.Tenemos que agrupar los empleados por 
+        oficina y calcular el promedio para cada oficina, por &uacute;ltimo nos 
+        queda seleccionar del resultado las filas que tengan un promedio superior 
+        a 500.000 ptas.<br>
+      </P>
+      </TD>
+  </TR>
+</TABLE>
+<TABLE width="65%" border="0">
+  <TR> 
+    <TD width="50%"> 
+      <P class=tit-2 > <FONT color="#800000"><B> <a name="resumen"></a>Resumen 
+        del tema</B></FONT></P>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD class="Normal"> 
+      <P class=padding-1><img src="graficos/select_resumen.gif" width="358" height="293"></P>
+      </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD class="Normal"> 
+      <P class=padding-1><img src="comunes/orangeBall.gif" width="14" height="14"> 
+        &iquest;C&oacute;mo se ejecuta internamente una consulta de resumen?<br>
+      </P>
+      <P class=padding-sin>- Primero se forma la tabla origen de datos seg&uacute;n 
+        la cl&aacute;usula <b> <font color="#008000">FROM</font></b>,<br>
+        - se seleccionan del origen de datos las filas seg&uacute;n la cl&aacute;usula 
+        <b> <font color="#008000">WHERE</font></b>,<br>
+        - se forman los grupos de filas seg&uacute;n la cl&aacute;usula <b><font color="#008000">GROUP 
+        BY</font></b>,<br>
+        - por cada grupo se obtiene una fila en la tabla resultante con los valores 
+        que aparecen en las cl&aacute;usulas <b><font color="#008000">GROUP</font></b> 
+        <b><font color="#008000">BY, HAVING</font></b> y en la lista de selecci&oacute;n,<br>
+        - se seleccionan de la tabla resultante las filas seg&uacute;n la cl&aacute;usula 
+        <b> <font color="#008000">HAVING</font></b>,<br>
+        - se eliminan de la tabla resultante las columnas que no aparecen en la 
+        lista de selecci&oacute;n,<br>
+        - se ordenan las filas de la tabla resultante seg&uacute;n la cl&aacute;usula 
+        <b> <font color="#008000">ORDER BY</font></b></P>
+      <P class=padding-1><img src="comunes/orangeBall.gif" width="14" height="14"> 
+        Una consulta se convierte en consulta de resumen en cuanto aparece <b><font color="#008000">GROUP 
+        BY</font></b>, <b><font color="#008000">HAVING</font></b> o una funci&oacute;n 
+        de columna.</P>
+      <P class=padding-1><img src="comunes/orangeBall.gif" width="14" height="14"> 
+        En una consulta de resumen, la lista de selecci&oacute;n y la cl&aacute;usula 
+        <b> <font color="#008000">HAVING</font></b> s&oacute;lo pueden contener:<BR>
+        valores constantes<br>
+        funciones de columna<br>
+        columnas de agrupaci&oacute;n (columnas que aparecen en la cl&aacute;usula 
+        <b> <font color="#008000">GROUP BY</font></b>)<br>
+        o cualquier expresi&oacute;n basada en las anteriores.<br>
+      </P>
+      </TD>
+  </TR>
+</TABLE>
+<table width="100%" border="0" cellpadding="0">
+  <tr> 
+    <td > 
+      <p class=padding-1><a name="ej1"></a><img src="comunes/redBall2-2.gif" width="14" height="14" ><a href="epr_4_1.htm">Ejercicios 
+        propuestos</a><br>
+      </p>
+    </td>
+    <td > 
+      <p class=padding-1><br>
+      </p>
+    </td>
+  </tr>
+</table>
+<BR>
+<br>
+<BR>
+<TABLE width="100%" border="0">
+  <TR> 
+    <TD width="37%">&nbsp;</TD>
+     
+    <TD width="6%"><A href="t_4_1.htm"><IMG name="image8" src="comunes/flecha_re.gif" width="22" height="22" border="0"></A></TD>
+     
+    <TD width="6%"><A href="index.htm"><IMG name="image8" src="comunes/flecha_home.gif" width="22" height="22" border="0"></A></TD>
+		
+    <TD width="6%"><a href="t_5_1.htm"><img name="image2" src="comunes/flecha_av.gif" width="22" height="22" border="0"></a></TD>
+    <TD width="45%"> 
+      <DIV align="right">Pag. 4.2</DIV>
+    </TD>
+  </TR>
+</TABLE>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <div align="center"><font size="-1">Aviso legal: este curso es gratuito 
+        siempre que se visualice desde la p&aacute;gina web de aulaClic. No est&aacute; 
+        permitido descargar el curso ni utilizarlo en academias o centros de ense&ntilde;anza 
+        privados sin estar conectado a Internet. </font></div>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <div align="center"><font size="-1">© aulaClic. Todos los derechos reservados. 
+ <a href="http://www.teacherclick.com/" style="text-decoration: none; color: black;" target="_blank">Free Computer tutorials</a> . 
+        Prohibida la reproducci&oacute;n por cualquier medio.<br>
+        </font><font size="2">Junio-2001.aulaClic.com</font></div>
+    </td>
+  </tr>
+</table>
+<p style='text-align:justify'>&nbsp;</p>
+<!--  fin td width="770" --------------- fin texto pagina -------------------------------->
+
+    </td>
+    <td  valign="top">
+	<!--   td width="160" -------------- anuncios lateral derecho ---------------------------------->
+<table  border="0">
+
+  <tr> 
+    <td valign="bottom" height="700"> 
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 160;
+google_ad_height = 600;
+google_ad_format = "160x600_as";
+google_ad_type = "text_image";
+google_ad_channel ="2175968397";
+google_color_border = "FFF6EC";
+google_color_bg = "FFF6EC";
+google_color_link = "663300";
+google_color_text = "000000";
+google_color_url = "CC0000";
+//--></script>
+<script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>
+    </td>
+	
+  </tr>
+  
+  <tr> 
+    <td height="150">
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 125;
+google_ad_height = 125;
+google_ad_format = "125x125_as_rimg";
+google_cpa_choice = "CAAQmImJlAIaCN5uB6wtFhbmKNyMs4MB";
+google_ad_channel = "6146562423";
+//--></script>
+<script type="text/javascript" src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>
+    </td>
+  </tr>
+
+  <tr> 
+    <td height="150">
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 160;
+google_ad_height = 90;
+google_ad_format = "160x90_0ads_al";
+google_ad_channel ="2175968397";
+google_color_border = "FAF1E3";
+google_color_bg = "FAF1E3";
+google_color_link = "663300";
+google_color_text = "000000";
+google_color_url = "CC0000";
+//--></script>
+<script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>    </td>
+  </tr>
+</table>
+
+	<!--   td width="160" ----------- fin anuncios lateral derecho -------------------------------------->
+
+ </td>
+ </tr>
+<!--   table de "980" ----------------------------------------------->
+</table>
+
+</body>
+
+
+<!-- Mirrored from www.aulaclic.es/sql/t_4_2.htm by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 10 Jun 2011 06:49:19 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
+</html>

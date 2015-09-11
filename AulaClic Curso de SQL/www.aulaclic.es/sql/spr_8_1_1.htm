@@ -1,0 +1,482 @@
+<html>
+
+
+<!-- Mirrored from www.aulaclic.es/sql/spr_8_1_1.htm by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 10 Jun 2011 06:49:44 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
+<head>
+<title>Soluci&oacute;n ejercicios actualizaci&oacute;n</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<LINK REL=STYLESHEET TYPE="text/css" HREF="estilo_sinf_osc.css" TITLE="estilo_sinf_osc">
+<SCRIPT language=JavaScript>
+<!--
+var previous = "epr_8_1.htm#s1";
+var next = "epr_8_1.htm#s1";
+//-->
+</SCRIPT></head><body>
+<script type='text/javascript' src='../js/sqlmenu_osc.js'></script> 
+<script type='text/javascript' src='../js/menu8_com.js'></script> 
+
+<table width="900" border="0">
+  <tr>
+    <td width="144"><a href="http://www.aulaclic.es/index.html"><img src="comunes/logo_ac1_50.gif" alt="P&aacute;gina inicial"  border="0" longdesc="P%e1gina%20inicial.html"></a></td>
+    <td width="505">&nbsp;</td>
+	    <td width="234">
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 234;
+google_ad_height = 60;
+google_ad_format = "234x60_as";
+google_ad_type = "text_image";
+google_ad_channel ="";
+google_color_border = "FAF1E3";
+google_color_bg = "FAF1E3";
+google_color_link = "663300";
+google_color_text = "000000";
+google_color_url = "CC0000";
+//--></script>
+<script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+
+</script>
+    </td>
+        </tr>
+</table>
+
+<br />
+
+<!--   table de "980" ----------------------------------------------->
+
+<table  border="0"> 
+  <tr> 
+<td >  </td>
+<td  > </td>
+  </tr>
+  <tr> 
+<td > 
+<!--   td width="770" ------------------ texto pagina ------------------------------>
+<table width="943" border="0">
+  <tr> 
+	<td width="937" > 
+      <p class=tit-1 > <b><font color="#800040">Soluci&oacute;n ejercicios tema 
+        8. El DDL </font></b></p>
+	</td>
+</tr>
+</table>
+ 
+<br>
+
+<table width="100%" border="0">
+<tr> 
+	<td width="34%"> 
+		
+      <p class=tit-2 > <font color="#800000">Ejercicio 1</font> </p>
+	</td>
+	<td width="66%">
+	</td>	
+</tr>
+</table>
+
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD width="45%" valign = "top"> 
+      <P class=padding-sin><FONT size="-1" color="#008000"><B>CREATE TABLE empleados 
+        (<br>
+        numemp INTEGER PRIMARY KEY,<br>
+        nombre TEXT(30) NOT NULL,<br>
+        edad INTEGER,<br>
+        oficina INTEGER,<br>
+        titulo CHAR(20),<br>
+        contrato DATETIME NOT NULL,<br>
+        director INTEGER,<br>
+        cuota CURRENCY,<br>
+        ventas MONEY)</B></FONT><FONT size="-1" color="#008000"><B>;</B></FONT></P>
+      </TD>
+    <TD width="55%" valign = "top">
+      <P class=padding-sin>La soluci&oacute;n propuesta es una de la muchas posibles 
+        ya que cada uno puede elegir el tipo de datos que prefiera siempre y cuando 
+        ese tipo permita introducir los datos que tenemos en las tablas de ejemplo. 
+        Tambi&eacute;n la cl&aacute;usula NOT NULL se puede poner en m&aacute;s 
+        campos de los que tiene la soluci&oacute;n excepto en las columnas que 
+        tengan filas sin valor en las tablas de ejemplo. Por ejemplo en oficina 
+        (el empleado 110 no tiene oficina), en director (el empleado 106 no tiene 
+        director) y en cuota (el empleado 110 no tiene cuota asignada. Pero las 
+        columnas edad, titulo y ventas s&iacute; las podemos definir con la restricci&oacute;n 
+        NOT NULL. Para definir las columnas cuota y ventas hemos elegido el tipo 
+        moneda (CURRENCY y MONEY son sin&oacute;nimos).</P>
+      <P class=padding-sin>&nbsp;</P>
+      </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0">
+  <TR> 
+    <TD width="34%"> 
+      <P class=tit-2 > <FONT color="#800000">Ejercicio 2</FONT> </P>
+    </TD>
+    <TD width="66%"> </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD width="45%" valign = "top"> 
+      <P class=padding-sin><FONT size="-1" color="#008000"><B>CREATE TABLE oficinas 
+        (<br>
+        oficina INT PRIMARY KEY,<br>
+        ciudad TEXT(30),<br>
+        region TEXT(20),<br>
+        dir INT CONSTRAINT cf_dir REFERENCES empleados,<br>
+        objetivo CURRENCY,<br>
+        ventas CURRENCY );</B></FONT></P>
+    </TD>
+    <TD width="55%" valign = "top">  
+      <P class=padding-sin>Para definir la columna dir como clave for&aacute;nea 
+        hemos elegido una restricci&oacute;n1 (poner la definici&oacute;n dentro 
+        de la definici&oacute;n de la columna).</P>
+      </TD>
+  </TR>
+</TABLE>
+<table width="100%" border="0">
+  <tr> 
+    <td width="34%"> 
+      <p class=tit-2 > <font color="#800000">Ejercicio 3</font> </p>
+    </td>
+    <td width="66%"> </td>
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="0">
+  <tr> 
+    <td width="45%" valign = "top"> 
+      <p class=padding-sin><font size="-1" color="#008000"><b>CREATE TABLE productos 
+        (<br>
+        idfab TEXT(10),<br>
+        idproducto TEXT(20),<br>
+        descripcion TEXT(30) NOT NULL,<br>
+        precio CURRENCY NOT NULL,<br>
+        existencias INT ,<br>
+        CONSTRAINT cp PRIMARY KEY (idfab,idproducto) </b></font><font size="-1" color="#008000"><b>); 
+        </b></font></p>
+      </td>
+    <td width="55%" valign = "top"> 
+      <p class=padding-sin>En este caso la clave principal est&aacute; formada 
+        por dos columnas idfab e idproducto luego para definirla tenemos que utilizar 
+        necesariamente una restricci&oacute;n2.</p>
+      <p class=padding-sin>&nbsp;</p>
+    </td>
+  </tr>
+</table>
+<TABLE width="100%" border="0">
+  <TR> 
+    <TD width="34%"> 
+      <P class=tit-2 > <FONT color="#800000">Ejercicio 4</FONT> </P>
+    </TD>
+    <TD width="66%"> </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD width="45%" valign = "top"> 
+      <P class=padding-sin><font size="-1" color="#008000"><b>CREATE TABLE clientes 
+        ( <br>
+        numclie INT ,<br>
+        nombre TEXT(30) NOT NULL,<br>
+        repclie INT CONSTRAINT cf_repclie REFERENCES empleados,<br>
+        CONSTRAINT cp PRIMARY KEY (numclie) ) ;</b></font></P>
+    </TD>
+    <TD width="55%" valign = "top"> 
+      <P class=padding-sin>La clave principal se puede definir en una restricci&oacute;n2 
+        aunque est&eacute; compuesta por una sola columna.</P>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0">
+  <TR> 
+    <TD width="34%"> 
+      <P class=tit-2 > <FONT color="#800000">Ejercicio 5</FONT> </P>
+    </TD>
+    <TD width="66%"> </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD width="45%" valign = "top"> 
+      <P class=padding-sin><FONT size="-1" color="#008000"><b>CREATE TABLE pedidos 
+        ( <br>
+        codigo COUNTER,<br>
+        numpedido INT PRIMARY KEY,<br>
+        fechapedido DATETIME NOT NULL,<br>
+        clie INT NOT NULL,<br>
+        rep INT NOT NULL,<br>
+        fab TEXT(10) NOT NULL,<br>
+        producto TEXT(20) NOT NULL,<br>
+        cant INT NOT NULL,<br>
+        importe CURRENCY NOT NULL, <br>
+        CONSTRAINT cf_clie FOREIGN KEY (clie) REFERENCES clientes,<br>
+        CONSTRAINT cf_rep FOREIGN KEY (rep) REFERENCES empleados,<br>
+        CONSTRAINT cf_prod FOREIGN KEY (fab,producto) REFERENCES productos );</b></FONT></P>
+      </TD>
+    <TD width="55%" valign = "top"> 
+      <P class=padding-sin>Para exponer m&aacute;s formas de definir una tabla 
+        aqu&iacute; te hemos definido todas las claves como restricci&oacute;n2 
+        la &uacute;nica que es obligatoria en una restricci&oacute;n2 es la cf_prod 
+        ya que est&aacute; compuesta por varias columnas.</P>
+      <P class=padding-sin>&nbsp;</P>
+      </TD>
+  </TR>
+</TABLE>
+<table width="100%" border="0">
+  <tr> 
+    <td width="34%"> 
+      <p class=tit-2 > <font color="#800000">Ejercicio 6</font> </p>
+    </td>
+    <td width="66%"> </td>
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="0">
+  <tr> 
+    <td width="45%" valign = "top"> 
+      <p class=padding-sin><font size="-1" color="#008000"><b>ALTER TABLE clientes 
+        <br>
+        ADD COLUMN limitecredito MONEY;</b></font></p>
+    </td>
+    <td width="55%" valign = "top"> 
+      <p class=padding-sin>Para a&ntilde;adir una nueva columna a una tabla que 
+        ya existe debemos emplear la sentencia ALTER TABLE, y en nuestro caso 
+        la cl&aacute;usula ADD COLUMN (COLUMN es opcional).</p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td width="34%"> 
+      <p class=tit-2 > <font color="#800000">Ejercicio 7</font> </p>
+    </td>
+    <td width="66%"> </td>
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="0">
+  <tr> 
+    <td width="45%" valign = "top"> 
+      <p class=padding-sin><font size="-1" color="#008000"><b>ALTER TABLE empleados 
+        <br>
+        ADD CONSTRAINT cf_oficina FOREIGN KEY (oficina) REFERENCES oficinas, <br>
+        CONSTRAINT cf_director FOREIGN KEY (director) REFERENCES empleados;</b></font></p>
+    </td>
+    <td width="55%" valign = "top"> 
+      <p class=padding-sin>Para a&ntilde;adir una definici&oacute;n de clave for&aacute;nea 
+        hay que a&ntilde;adir una restricci&oacute;n2, se pueden a&ntilde;adir 
+        varias restricciones en la misma sentencia ALTER TABLE.</p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td width="34%"> 
+      <p class=tit-2 > <font color="#800000">Ejercicio 8</font> </p>
+    </td>
+    <td width="66%"> </td>
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="0">
+  <tr> 
+    <td width="45%" valign = "top"> 
+      <p class=padding-sin><font size="-1" color="#008000"><b><font color="#000000">Soluci&oacute;n 
+        1<br>
+        </font>ALTER TABLE empleados <br>
+        ADD CONSTRAINT u_nombre UNIQUE (nombre);<br>
+        <br>
+        </b></font><font size="-1" color="#008000"><b><font color="#000000">Soluci&oacute;n 
+        2<br>
+        </font>CREATE UNIQUE INDEX u_nombre ON empleados (nombre);</b></font></p>
+      </td>
+    <td width="55%" valign = "top"> 
+      <p class=padding-sin>Para que no se puedan repetir los valores en la columna 
+        nombre hay que definir un &iacute;ndice &uacute;nico, o bien definiendo 
+        una restricci&oacute;n sobre la columna como te indicamos en la soluci&oacute;n 
+        1 o bien creando el &iacute;ndice &uacute;nico como te indicamos en la 
+        soluci&oacute;n 2.</p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td width="34%"> 
+      <p class=tit-2 > <font color="#800000">Ejercicio 9</font> </p>
+    </td>
+    <td width="66%"> </td>
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="0">
+  <tr> 
+    <td width="45%" valign = "top"> 
+      <p class=padding-sin><font size="-1" color="#008000"><b><font color="#000000">Soluci&oacute;n 
+        1<br>
+        </font>ALTER TABLE pedidos<br>
+        ADD CONSTRAINT cp PRIMARY KEY (numpedido);</b></font></p>
+    </td>
+    <td width="55%" valign = "top"> 
+      <p class=padding-sin>Para a&ntilde;adir una definici&oacute;n de clave primaria 
+        hay que a&ntilde;adir una restricci&oacute;n2.</p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="0">
+  <tr> 
+    <td width="45%" valign = "top"> 
+      <p class=padding-sin><font size="-1" color="#008000"><b><font color="#000000">Soluci&oacute;n 
+        2<br>
+        </font>CREATE INDEX cp ON pedidos (numpedido) WITH PRIMARY ;</b></font></p>
+    </td>
+    <td width="55%" valign = "top"> 
+      <p class=padding-sin>Otra soluci&oacute;n es crear un &iacute;ndice con 
+        la cl&aacute;usula WITH PRIMARY. </p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td width="34%"> 
+      <p class=tit-2 > <font color="#800000">Ejercicio 10</font> </p>
+    </td>
+    <td width="66%"> </td>
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="0">
+  <tr> 
+    <td width="45%" valign = "top"> 
+      <p class=padding-sin><font size="-1" color="#008000"><b>CREATE INDEX i_region 
+        ON oficinas (region) ;</b></font></p>
+    </td>
+    <td width="55%" valign = "top"> 
+      <p class=padding-sin>&nbsp;</p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td width="34%"> 
+      <p class=tit-2 > <font color="#800000">Ejercicio 11</font> </p>
+    </td>
+    <td width="66%"> </td>
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="0">
+  <tr> 
+    <td width="45%" valign = "top"> 
+      <p class=padding-sin><font size="-1" color="#008000"><b>DROP INDEX i_region 
+        ON oficinas ;</b></font></p>
+    </td>
+    <td width="55%" valign = "top"> 
+      <p class=padding-sin>&nbsp;</p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+<tr> 
+	<td width="48%">&nbsp;	</td>
+	
+	<td width="5%" align="center"> <a href="epr_8_1.htm#s1"> <img name="image1" src="comunes/flecha_home.gif" width="22" height="22" border="0"> 
+      </a> </td>
+	<td width="47%">
+	</td>
+	
+</tr>
+</table>
+
+<br>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <div align="center"><font size="-1">Aviso legal: este curso es gratuito 
+        siempre que se visualice desde la p&aacute;gina web de aulaClic. No est&aacute; permitido descargar el curso y utilizarlo en academias o centros de ense&ntilde;anza 
+        privados sin estar conectado a Internet. </font></div>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <div align="center"><font size="-1">© aulaClic. Todos los derechos reservados. 
+ <a href="http://www.teacherclick.com/" style="text-decoration: none; color: black;" target="_blank">Free Computer tutorials</a> . 
+        Prohibida la reproducci&oacute;n por cualquier medio.<br>
+        </font><font size="2">Julio -2001.aulaClic.com</font></div>
+    </td>
+  </tr>
+</table>
+
+<!--  fin td width="770" --------------- fin texto pagina -------------------------------->
+
+    </td>
+    <td  valign="top">
+	<!--   td width="160" -------------- anuncios lateral derecho ---------------------------------->
+<table  border="0">
+
+  <tr> 
+    <td valign="bottom" height="700"> 
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 160;
+google_ad_height = 600;
+google_ad_format = "160x600_as";
+google_ad_type = "text_image";
+google_ad_channel ="2175968397";
+google_color_border = "FFF6EC";
+google_color_bg = "FFF6EC";
+google_color_link = "663300";
+google_color_text = "000000";
+google_color_url = "CC0000";
+//--></script>
+<script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>
+    </td>
+	
+  </tr>
+  
+  <tr> 
+    <td height="150">
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 125;
+google_ad_height = 125;
+google_ad_format = "125x125_as_rimg";
+google_cpa_choice = "CAAQmImJlAIaCN5uB6wtFhbmKNyMs4MB";
+google_ad_channel = "6146562423";
+//--></script>
+<script type="text/javascript" src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>
+    </td>
+  </tr>
+
+  <tr> 
+    <td height="150">
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 160;
+google_ad_height = 90;
+google_ad_format = "160x90_0ads_al";
+google_ad_channel ="2175968397";
+google_color_border = "FAF1E3";
+google_color_bg = "FAF1E3";
+google_color_link = "663300";
+google_color_text = "000000";
+google_color_url = "CC0000";
+//--></script>
+<script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>    </td>
+  </tr>
+</table>
+
+	<!--   td width="160" ----------- fin anuncios lateral derecho -------------------------------------->
+
+ </td>
+ </tr>
+<!--   table de "980" ----------------------------------------------->
+</table>
+
+</body>
+
+
+
+<!-- Mirrored from www.aulaclic.es/sql/spr_8_1_1.htm by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 10 Jun 2011 06:49:44 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
+</html>

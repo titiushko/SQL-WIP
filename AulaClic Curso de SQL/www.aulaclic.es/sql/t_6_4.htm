@@ -1,0 +1,422 @@
+
+<html>
+
+<!-- Mirrored from www.aulaclic.es/sql/t_6_4.htm by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 10 Jun 2011 06:49:23 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name="keywords" content="SQL Base datos access access2000 tutorial manual gratis office enseñanza educacion ddl dcl dml">
+<LINK REL=STYLESHEET TYPE="text/css" HREF="estilo_sinf_osc.css" TITLE="estilo_sinf_osc">
+<title>Tema 6  Actualizaci&oacute;n de datos</title>
+<SCRIPT language=JavaScript>
+<!--
+var previous = "t_6_3.htm";
+var next = "t_6_5.htm";
+//-->
+</SCRIPT>
+</head><body>
+<script type='text/javascript' src='../js/sqlmenu_osc.js'></script> 
+<script type='text/javascript' src='../js/menu8_com.js'></script> 
+
+<table width="900" border="0">
+  <tr>
+    <td width="144"><a href="http://www.aulaclic.es/index.html"><img src="comunes/logo_ac1_50.gif" alt="P&aacute;gina inicial"  border="0" longdesc="P%e1gina%20inicial.html"></a></td>
+    <td width="505">&nbsp;</td>
+	    <td width="234">
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 234;
+google_ad_height = 60;
+google_ad_format = "234x60_as";
+google_ad_type = "text_image";
+google_ad_channel ="";
+google_color_border = "FAF1E3";
+google_color_bg = "FAF1E3";
+google_color_link = "663300";
+google_color_text = "000000";
+google_color_url = "CC0000";
+//--></script>
+<script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+
+</script>
+    </td>
+        </tr>
+</table>
+
+<br />
+
+<!--   table de "980" ----------------------------------------------->
+
+<table  border="0"> 
+  <tr> 
+<td >  </td>
+<td  > </td>
+  </tr>
+  <tr> 
+<td > 
+<!--   td width="770" ------------------ texto pagina ------------------------------>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR>
+    <TD><p class=tit-1 > <font color="#800000"><B>Tema 6. Actualizaci&oacute;n de 
+      datos </B> (IV) </font></p></TD>
+    <td><!-- Search Google -->
+        <center>
+          <form method="get" action="http://www.google.es/custom" target="google_window">
+            <table bgcolor="#ffffff">
+              <tr>
+                <td nowrap="nowrap" valign="top" align="left" height="32"><a href="http://www.google.com/"> <img src="../../www.google.com/logos/Logo_25wht.gif" border="0" alt="Google" align="middle"></a>
+                    <input type="text" name="q" size="20" maxlength="255" value="">
+                    <input type="submit" name="sa" value="B&uacute;squeda">
+                    <input type="hidden" name="client" value="pub-1875034419890743">
+                    <input type="hidden" name="forid" value="1">
+                    <input type="hidden" name="ie" value="ISO-8859-1">
+                    <input type="hidden" name="oe" value="ISO-8859-1">
+                    <input type="hidden" name="cof" value="GALT:#008000;GL:1;DIV:#336699;VLC:663399;AH:center;BGC:FFF6EC;LBGC:FFF6EC;ALC:000000;LC:000000;T:0000FF;GFNT:0000FF;GIMP:0000FF;LH:50;LW:141;L:http://www.aulaclic.es/logo_ac1_50.jpg;S:http://www.aulaclic.es/;FORID:1;">
+                    <input type="hidden" name="hl" value="es">
+                </td>
+              </tr>
+            </table>
+          </form>
+        </center>
+      <!-- Search Google -->
+    </td>
+  </TR>
+</TABLE>
+<br>
+<table width="78%" border="0">
+  <tr> 
+    <td width="50%"> 
+      <p class=tit-2 > <font color="#800000"><b> Modificar el contenido de las 
+        filas ( UPDATE )</b> </font></p>
+    </td>
+  </tr>
+</table>
+<br>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <P class=padding-1>La sentencia <b><font color="#008000">UPDATE</font></b> 
+        <b><font color="#000080">modifica los valores de una o m&aacute;s columnas 
+        en las filas seleccionadas de una o varias tablas</font></b>.</p>
+      <P class=padding-1>La sintaxis es la siguiente:</p>
+      </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr>
+    <td> 
+      <P class=padding-sin><img src="graficos/update.gif" width="372" height="88"></p>
+      </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <P class=padding-1><font color="#000080"><b><img src="comunes/orangeBall.gif" width="14" height="14"> 
+        Origen</b></font> puede ser un <b><font color="#000080">nombre de tabla, 
+        un nombre de consulta o una composici&oacute;n de tablas</font></b>, tambi&eacute;n 
+        puede incluir la cl&aacute;usula <b><font color="#008000">IN</font></b> 
+        si la tabla a modificar se encuentra en una base de datos externa.</p>
+      </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <p class=padding-1><img src="comunes/orangeBall.gif" width="14" height="14"> 
+        La cl&aacute;usula <b><font color="#008000">SET</font></b> especifica 
+        <b><font color="#000080">qu&eacute; columnas van a modificarse</font></b> 
+        y <b><font color="#000080">qu&eacute; valores asignar a esas columnas</font></b>. 
+      </p>
+      <p class=padding-1><font color="#000080"><b><img src="comunes/orangeBall.gif" width="14" height="14"> 
+        nbcolumna</b></font><b><font color="#000080">,</font></b> es el <b><font color="#000080">nombre 
+        de la columna a la cual queremos asignar un nuevo valor</font></b> por 
+        lo tanto debe ser una columna de la tabla origen. El SQL est&aacute;ndar 
+        exige nombres sin cualificar pero algunas implementaciones (como por ejemplo 
+        el SQL de Microsoft Jet que estamos estudiando) s&iacute; lo permiten.</p>
+      <p class=padding-1><img src="comunes/orangeBall.gif" width="14" height="14"> 
+        La <b><font color="#000080">expresi&oacute;n</font></b> en cada asignaci&oacute;n 
+        <b><font color="#000080">debe generar un valor del tipo de dato apropiado</font></b> 
+        para la columna indicada. La expresi&oacute;n <b> <font color="#000080">debe 
+        ser calculable a partir de los valores de la fila que se est&aacute; actualizando</font></b>. 
+        <i>Expresi&oacute;n</i> <b><font color="#000080">no puede ser una subconsulta</font></b>.</p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <p class=padding-1>Ejemplo:</p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <p class=padding-sin><font color="#008000"><b>UPDATE oficinas INNER JOIN 
+        empleados <BR>
+        ON oficinas.oficina = empleados.oficina<BR>
+        SET cuota=objetivo*0.01;</b></font></p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <p class=padding-1>En este ejemplo queremos actualizar las cuotas de nuestros 
+        empleados de tal forma que la cuota de un empleado sea el 1% del objetivo 
+        de su oficina. La columna a actualizar es la cuota del empleado y el valor 
+        a asignar es el 1% del objetivo de la oficina del empleado, luego la cl&aacute;usula 
+        <b> <font color="#008000">SET</font></b> ser&aacute; <b><font color="#008000">SET 
+        cuota = objetivo*0.01</font></b> o <b><font color="#008000">SET cuota 
+        = objetivo/100</font></b>. El origen debe contener la cuota del empleado 
+        y el objetivo de su oficina, luego el origen ser&aacute; el <b><font color="#008000">INNER 
+        JOIN</font></b> de empleados con oficinas.</p>
+      </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <p class=padding-1><img src="comunes/orangeBall.gif" width="14" height="14"> 
+        La cl&aacute;usula <b><font color="#008000">WHERE</font></b> indica <b><font color="#000080">qu&eacute; 
+        filas van a ser modificadas</font></b>. <b> <font color="#000080">Si se 
+        omite</font></b> la cl&aacute;usula <b><font color="#008000">WHERE</font></b> 
+        <b><font color="#000080">se actualizan todas las filas</font></b>. </p>
+      <p class=padding-1><img src="comunes/orangeBall.gif" width="14" height="14"> 
+        En la condici&oacute;n del <b><font color="#008000">WHERE</font></b> <b><font color="#000080">se 
+        puede incluir una subconsulta</font></b>. En SQL standard la tabla que 
+        aparece en la <b><font color="#008000">FROM</font></b> de la subconsulta 
+        no puede ser la misma que la tabla que aparece como origen, pero en el 
+        SQL de Microsoft Jet s&iacute; se puede. </p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <p class=padding-1>Ejemplo: Queremos poner a cero las ventas de los empleados 
+        de la oficina 12</p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <p class=padding-sin><font color="#008000"><b>UPDATE empleados SET ventas 
+        = 0 WHERE oficina = 12;</b></font></p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <p class=padding-1>Ejemplo: Queremos poner a cero el limite de credito de 
+        los clientes asignados a empleados de la oficina 12.</p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <p class=padding-sin><font color="#008000"><b>UPDATE clientes SET limitecredito 
+        = 0 <BR>
+        WHERE repclie IN (SELECT numemp FROM empleados WHERE oficina = 12);</b></font></p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <p class=padding-1><img src="comunes/orangeBall.gif" width="14" height="14"> 
+        Si para el c&aacute;lculo de <i>expresion</i> se utiliza una columna que 
+        tambi&eacute;n se modifica, el valor que se utiliza es el antes de la 
+        modificaci&oacute;n, lo mismo para la condici&oacute;n de b&uacute;squeda. 
+        <br>
+      </p>
+      <p class=padding-1><img src="comunes/orangeBall.gif" width="14" height="14"> 
+        Cuando se ejecuta una sentencia <b><font color="#008000">UPDATE</font></b> 
+        <b><font color="#000080">primero se genera el origen y se seleccionan 
+        las filas</font></b> seg&uacute;n la cl&aacute;usula <b><font color="#008000">WHERE</font></b>. 
+        A continuaci&oacute;n <b><font color="#000080">se coge una fila de la 
+        selecci&oacute;n y se le aplica la cl&aacute;usula</font></b> <b> <font color="#008000">SET</font></b>, 
+        <b> <font color="#000080">se actualizan todas las columnas</font></b> 
+        incluidas en la cl&aacute;usula <b> <font color="#008000">SET</font></b> 
+        <b><font color="#000080">a la vez</font></b> por lo que los nombres de 
+        columna pueden especificarse en cualquier orden. Despu&eacute;s se coge 
+        la siguiente fila de la selecci&oacute;n y se le aplica del mismo modo 
+        la cl&aacute;usula <b><font color="#008000">SET</font></b>, as&iacute; 
+        sucesivamente con todas las filas de la selecci&oacute;n.</p>
+      </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <p class=padding-1>Ejemplo:</p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <p class=padding-sin><font color="#008000"><b>UPDATE oficinas SET ventas=0, 
+        objetivo=ventas;</b></font></p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <p class=padding-1>O bien:</p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <p class=padding-sin><font color="#008000"><b>UPDATE oficinas SET objetivo=ventas, 
+        ventas=0;</b></font></p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <p class=padding-1>Los dos ejemplos anteriores son equivalentes ya que el 
+        valor de <i>ventas</i> que se asigna a <i>objetivo</i> es el valor antes 
+        de la actualizaci&oacute;n, se deja como <i>objetivo</i> las ventas que 
+        ha tenido la oficina hasta el momento y se pone a cero la columna <i>ventas</i>.</p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <p class=padding-1><font color="#000080"><b><img src="comunes/orangeBall.gif" width="14" height="14"> 
+        Si actualizamos una columna definida como clave for&aacute;nea,</b></font> 
+        esta columna se podr&aacute; actualizar o no siguiendo las <b><font color="#000080">reglas 
+        de integridad referencial</font></b>. El valor que se le asigna debe existir 
+        en la tabla de referencia. </p>
+      <p class=padding-1><font color="#000080"><b><img src="comunes/orangeBall.gif" width="14" height="14"> 
+        Si actualizamos una columna definida como columna principal de una relaci&oacute;n 
+        entre dos tablas</b></font>, esta columna se podr&aacute; actualizar o 
+        no siguiendo las <b><font color="#000080">reglas de integridad referencial.</font></b> 
+        Aqu&iacute; puedes repasar las reglas de integridad referencial.<a name="b1"></a><a href="b_6_4_1.htm"><img src="comunes/ico_menos.gif" width="26" height="20" border="0"></a></p>
+      </td>
+  </tr>
+</table>
+<BR>
+<TABLE width="100%" border="0">
+  <TR> 
+    <TD width="37%">&nbsp;</TD>
+     
+    <TD width="6%"><A href="t_6_3.htm"><IMG name="image8" src="comunes/flecha_re.gif" width="22" height="22" border="0"></A></TD>
+     
+    <TD width="6%"><A href="index.htm"><IMG name="image8" src="comunes/flecha_home.gif" width="22" height="22" border="0"></A></TD>
+		
+    <TD width="6%"><A href="t_6_5.htm"><IMG name="image2" src="comunes/flecha_av.gif" width="22" height="22" border="0"></A></TD>
+    <TD width="45%"> 
+      <DIV align="right">Pag.6.4</DIV>
+    </TD>
+  </TR>
+</TABLE>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <div align="center"><font size="-1">Aviso legal: este curso es gratuito 
+        siempre que se visualice desde la p&aacute;gina web de aulaClic. No est&aacute; 
+        permitido descargar el curso ni utilizarlo en academias o centros de ense&ntilde;anza 
+        privados sin estar conectado a Internet. </font></div>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <div align="center"><font size="-1">© aulaClic. Todos los derechos reservados. 
+ <a href="http://www.teacherclick.com/" style="text-decoration: none; color: black;" target="_blank">Free Computer tutorials</a> . 
+        Prohibida la reproducci&oacute;n por cualquier medio.<br>
+        </font><font size="2">Julio-2001.aulaClic.com</font></div>
+    </td>
+  </tr>
+</table>
+<p style='text-align:justify'>&nbsp;</p>
+<!--  fin td width="770" --------------- fin texto pagina -------------------------------->
+
+    </td>
+    <td  valign="top">
+	<!--   td width="160" -------------- anuncios lateral derecho ---------------------------------->
+<table  border="0">
+
+  <tr> 
+    <td valign="bottom" height="700"> 
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 160;
+google_ad_height = 600;
+google_ad_format = "160x600_as";
+google_ad_type = "text_image";
+google_ad_channel ="2175968397";
+google_color_border = "FFF6EC";
+google_color_bg = "FFF6EC";
+google_color_link = "663300";
+google_color_text = "000000";
+google_color_url = "CC0000";
+//--></script>
+<script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>
+    </td>
+	
+  </tr>
+  
+  <tr> 
+    <td height="150">
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 125;
+google_ad_height = 125;
+google_ad_format = "125x125_as_rimg";
+google_cpa_choice = "CAAQmImJlAIaCN5uB6wtFhbmKNyMs4MB";
+google_ad_channel = "6146562423";
+//--></script>
+<script type="text/javascript" src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>
+    </td>
+  </tr>
+
+  <tr> 
+    <td height="150">
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 160;
+google_ad_height = 90;
+google_ad_format = "160x90_0ads_al";
+google_ad_channel ="2175968397";
+google_color_border = "FAF1E3";
+google_color_bg = "FAF1E3";
+google_color_link = "663300";
+google_color_text = "000000";
+google_color_url = "CC0000";
+//--></script>
+<script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>    </td>
+  </tr>
+</table>
+
+	<!--   td width="160" ----------- fin anuncios lateral derecho -------------------------------------->
+
+ </td>
+ </tr>
+<!--   table de "980" ----------------------------------------------->
+</table>
+
+</body>
+
+
+<!-- Mirrored from www.aulaclic.es/sql/t_6_4.htm by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 10 Jun 2011 06:49:24 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
+</html>

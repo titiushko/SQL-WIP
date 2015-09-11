@@ -1,0 +1,529 @@
+
+<html>
+
+<!-- Mirrored from www.aulaclic.es/sql/t_1_1.htm by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 10 Jun 2011 06:48:40 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name="keywords" content="SQL Base datos access access2000 tutorial manual gratis office enseñanza educacion ddl dcl dml">
+<LINK REL=STYLESHEET TYPE="text/css" HREF="estilo_sinf_osc.css" TITLE="estilo_sinf_osc">
+<title>Tema 1 Introducci&oacute;n</title>
+<SCRIPT language=JavaScript>
+<!---
+var previous = "index.htm";
+var next = "t_1_2.htm";
+//-->//-----------
+function iSg(){
+mURL= 'http://www.aulaclic.es/';
+var currPage = parent.location;
+	tuvector = parent.mainFrame.location.href.split("http://www.aulaclic.es/");
+//	 alert ('tuvector: '+ tuvector[0]);
+	if (tuvector[0]!="t_1_1.htm"){
+	   currPage.href = eval('"' + mURL + '"');	}
+}
+//
+</SCRIPT>
+</head><body><script type='text/javascript' src='../js/sqlmenu_osc.js'></script> 
+<script type='text/javascript' src='../js/menu8_com.js'></script> 
+
+<table width="900" border="0">
+  <tr>
+    <td width="144"><a href="http://www.aulaclic.es/index.html"><img src="comunes/logo_ac1_50.gif" alt="P&aacute;gina inicial"  border="0" longdesc="P%e1gina%20inicial.html"></a></td>
+    <td width="505">&nbsp;</td>
+	    <td width="234">
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 234;
+google_ad_height = 60;
+google_ad_format = "234x60_as";
+google_ad_type = "text_image";
+google_ad_channel ="";
+google_color_border = "FAF1E3";
+google_color_bg = "FAF1E3";
+google_color_link = "663300";
+google_color_text = "000000";
+google_color_url = "CC0000";
+//--></script>
+<script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+
+</script>
+    </td>
+        </tr>
+</table>
+
+<br />
+
+
+<!--   table de "980" ----------------------------------------------->
+
+<table  border="0"> 
+  <tr> 
+<td >  </td>
+<td  > </td>
+  </tr>
+  <tr> 
+<td > 
+<!--   td width="770" ------------------ texto pagina ------------------------------>
+<!--table width="100%" border="0">
+  <tr> 
+    <td width="79%"> 
+      <div align="center"> 
+        <script language="JavaScript" src="http://impes.tradedoubler.com/imp/1124/101359"></script>
+      </div>
+    </td>
+    <td width="21%">&nbsp;<a href="http://www.lawebdelprogramador.com" target="_blank"><img src="../logo_lwp2.gif" width="153" height="65" align="absbottom" border="0"></a></td>
+  </tr>
+</table-->
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD> 
+      <p class=tit-1 > <font color="#800000"><B>Tema 1. Introducci&oacute;n</B> 
+        (I) </font></p>
+    </TD>
+	<td><!-- Search Google -->
+        <center>
+          <form method="get" action="http://www.google.es/custom" target="google_window">
+            <table bgcolor="#ffffff">
+              <tr>
+                <td nowrap="nowrap" valign="top" align="left" height="32"><a href="http://www.google.com/"> <img src="../../www.google.com/logos/Logo_25wht.gif" border="0" alt="Google" align="middle"></a>
+                    <input type="text" name="q" size="20" maxlength="255" value="">
+                    <input type="submit" name="sa" value="B&uacute;squeda">
+                    <input type="hidden" name="client" value="pub-1875034419890743">
+                    <input type="hidden" name="forid" value="1">
+                    <input type="hidden" name="ie" value="ISO-8859-1">
+                    <input type="hidden" name="oe" value="ISO-8859-1">
+                    <input type="hidden" name="cof" value="GALT:#008000;GL:1;DIV:#336699;VLC:663399;AH:center;BGC:FFF6EC;LBGC:FFF6EC;ALC:000000;LC:000000;T:0000FF;GFNT:0000FF;GIMP:0000FF;LH:50;LW:141;L:http://www.aulaclic.es/logo_ac1_50.jpg;S:http://www.aulaclic.es/;FORID:1;">
+                    <input type="hidden" name="hl" value="es">
+                </td>
+              </tr>
+            </table>
+          </form>
+        </center>
+      <!-- Search Google -->
+    </td>
+  </TR>
+</TABLE>
+<br>
+<TABLE width="39%" border="0">
+  <TR> 
+    <TD width="50%"> 
+      <P class=tit-2 > <FONT color="#800000"><B> &iquest;Qu&eacute; es el SQL 
+        ? </B> </FONT></P>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD class="Normal"> 
+      <P class=padding-1>Antes de empezar debes tener unas nociones b&aacute;sicas 
+        de bases de datos relacionales, si quieres repasarlas haz clic aqu&iacute;<A name="b1"> 
+        </A><A href="b_1_1_1.htm"><IMG src="comunes/ico_menos.gif" width="26" height="20" border="0"></A> 
+        <BR>
+        El <B><FONT color="#000080">SQL</FONT></B> (Structured query language),<B><FONT color="#000080"> 
+        lenguaje de consulta estructurado</FONT></B>, es un lenguaje surgido de 
+        un proyecto de investigación de IBM para el acceso a bases de datos relacionales. 
+        Actualmente se ha convertido en un <B><FONT color="#000080">estándar</FONT></B>  
+        de lenguaje de bases de datos, y la mayoría de los sistemas de bases de 
+        datos lo soportan, desde sistemas para ordenadores personales, hasta grandes 
+        ordenadores.<br>
+        <br>
+        Por supuesto, a partir del estándar cada sistema ha desarrollado su propio 
+        SQL que puede variar de un sistema a otro, pero con cambios que no suponen 
+        ninguna complicación para alguien que conozca un SQL concreto, como el 
+        que vamos a ver aqu&iacute; corespondiente al Access2000.<BR>
+      </P>
+       
+      <P class=padding-1>Como su nombre indica, el SQL nos <B><FONT color="#000080">permite</FONT></B> 
+        realizar <B><FONT color="#000080">consultas a la base de datos</FONT></B>. 
+        Pero el nombre se queda corto ya que SQL además realiza funciones de <B><FONT color="#000080">definición, 
+        control y gestión de la base de datos.</FONT></B> Las sentencias SQL se 
+        clasifican según su finalidad dando origen a tres ‘lenguajes’ o mejor 
+        dicho sublenguajes: <BR>
+      </P>
+    </TD>
+  </TR>
+  <TR> 
+    <TD class="Normal"> 
+      <P class=padding-1><IMG src="comunes/orangeBall.gif" width="14" height="14"> 
+        el <B><FONT color="#000080">DDL</FONT></B> (Data Description Language), 
+        <B> <FONT color="#000080">lenguaje de definición </FONT></B>de datos, 
+        incluye órdenes para definir, modificar o borrar las tablas en las que 
+        se almacenan los datos y de las relaciones entre estas. (Es el que más 
+        varia de un sistema a otro)<BR>
+      </P>
+    </TD>
+  </TR>
+  <TR> 
+    <TD class="Normal">
+      <P class=padding-1><IMG src="comunes/orangeBall.gif" width="14" height="14"> 
+        el <B><FONT color="#000080">DCL</FONT></B> (Data Control Language), <B><FONT color="#000080">lenguaje 
+        de control</FONT></B> de datos, contiene elementos útiles para trabajar 
+        en un entorno multiusuario, en el que es importante la protección de los 
+        datos, la seguridad de las tablas y el establecimiento de restricciones 
+        en el acceso, así como elementos para coordinar la compartición de datos 
+        por parte de usuarios concurrentes, asegurando que no interfieren unos 
+        con otros.<BR>
+      </P>
+    </TD>
+  </TR>
+  <TR> 
+    <TD >
+      <P class=padding-1><IMG src="comunes/orangeBall.gif" width="14" height="14"> 
+        el <B><FONT color="#000080">DML</FONT></B> (Data Manipulation Language), 
+        <B> <FONT color="#000080">lenguaje de manipulación</FONT></B> de datos, 
+        nos permite recuperar los datos almacenados en la base de datos y también 
+        incluye órdenes para permitir al usuario actualizar la base de datos añadiendo 
+        nuevos datos, suprimiendo datos antiguos o modificando datos previamente 
+        almacenados.<BR>
+      </P>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE width="65%" border="0">
+  <TR> 
+    <TD width="50%"> 
+      <P class=tit-2 > <FONT color="#800000"><B><a name="caracteristicas"></a>Caracter&iacute;sticas 
+        del lenguaje</B> </FONT></P>
+    </TD>
+  </TR>
+</TABLE>
+<TABLE width="100%" border="0" cellpadding="0">
+  <TR> 
+    <TD  width="49%">
+      <P class=padding-1>Una sentencia SQL es como una <B><FONT color="#000080">frase</FONT></B> 
+        (escrita en <B><FONT color="#000080">inglés</FONT></B> ) con la que decimos 
+        <B><FONT color="#000080">lo que  queremos obtener y de donde obtenerlo</FONT></B>.<BR>
+      </P>
+      <P class=padding-1>Todas las sentencias empiezan con un <B><FONT color="#000080">verbo</FONT></B> 
+        (palabra reservada que indica la acción a realizar), seguido del resto 
+        de <B><FONT color="#000080">cláusulas</FONT></B>, algunas <B><FONT color="#000080">obligatorias</FONT></B> 
+        y otras <B><FONT color="#000080">opcionales</FONT></B> que completan la 
+        frase. Todas las sentencias siguen una <B><FONT color="#000080">sintaxis</FONT></B> 
+        para que se puedan ejecutar correctamente, para describir esa sintaxis 
+        utilizaremos un <B><FONT color="#000080">diagrama sintáctico</FONT></B> 
+        como el que se muestra a continuación.<BR>
+      </P>
+    </TD>
+  </TR>
+</table>
+<TABLE width="65%" border="0">
+  <TR> 
+    <TD width="50%"> 
+      <P class=tit-2 > <FONT color="#800000"><B><a name="interpretar"></a>C&oacute;mo 
+        interpretar un diagrama sint&aacute;ctico </B> </FONT></P>
+    </TD>
+  </TR>
+</TABLE>
+<table>
+  <TR> 
+    <TD class="Normal" width="33%"> <B><IMG src="graficos/tr_diagrama_sintactico.gif" width="351" height="191" align="left"></B> 
+    </td>
+    <TD width="66%"> 
+      <P class=padding-1>Las palabras que aparecen en mayúsculas son palabras 
+        reservadas se tienen que poner tal cual y no se pueden utilizar para otro 
+        fin, por ejemplo, en el diagrama de la figura tenemos las palabras reservadas 
+        <b> <font color="#008000">SELECT</font></b>, <b><font color="#008000">ALL, 
+        DISTINCT, FROM, WHERE</font></b>. <BR>
+        Las palabras en minúsculas son variables que el usuario deberá sustituir 
+        por un dato concreto. En el diagrama tenemos nbcolumna, expresion-tabla 
+        y condicion-de-busqueda.</P>
+    </TD>
+  </TR>
+</table>
+<table>
+  <TR> 
+    <TD class="Normal" width="100%"><BR>
+       
+      <P class=padding-1>Una sentencia válida se construye siguiendo la línea 
+        a través del diagrama hasta el punto que marca el final. Las líneas se 
+        siguen de <B><FONT color="#000080">izquierda a derecha y de arriba abajo</FONT></B>. 
+        Cuando se quiere alterar el orden normal  se indica con una <B><FONT color="#000080">flecha</FONT></B>.</P>
+    </TD>
+  </TR>
+  <TR> 
+    <TD class="Normal" width="100%"> 
+      <P class=padding-1><BR>
+        ¿Cómo se interpretar&iacute;a el diagrama sint&aacute;ctico de la figura?<br>
+        <BR>
+        Hay que empezar  por la palabra <b><font color="#008000">SELECT</font></b>, 
+        despu&eacute;s puedes poner <b><font color="#008000">ALL</font></b> o 
+        bien <b><font color="#008000">DISTINCT</font></b> o nada, a continuación  
+        un nombre de columna, o varios separados por comas, a continuación la 
+        palabra <b><font color="#008000">FROM</font></b> y una expresión-tabla, 
+        y por último de forma opcional puedes incluir la cláusula <b><font color="#008000">WHERE</font></b> 
+        con una condición-de-búsqueda. <br>
+        <BR>
+        Por ejemplo: <br>
+        <BR>
+        <b><font color="#008000">SELECT ALL col1,col2,col3 FROM mitabla<br>
+        <BR>
+        SELECT col1,col2,col3 FROM mitabla<br>
+        <BR>
+        SELECT DISTINCT col1 FROM mitabla<br>
+        <BR>
+        SELECT col1,col2 FROM mitabla WHERE col2 = 0</font></b><BR>
+        <BR>
+        Todas estas sentencias se podrían escribir y no dar&iacute;an lugar a 
+        errores sint&aacute;cticos.<br>
+        <BR>
+        Cuando una palabra opcional está <B><FONT color="#000080">subrayada</FONT></B>, 
+        esto indica que ese es el <B><FONT color="#000080">valor por defecto</FONT></B> 
+        ( el valor que se asume si no se pone nada). En el ejemplo anterior las 
+        dos primeras sentencias son equivalentes (en el diagrama ALL aparece subrayada).<BR>
+      </P>
+    </TD>
+  </TR>
+</TABLE>
+<table width="65%" border="0">
+  <tr> 
+    <td width="50%"> 
+      <p class=tit-2 > <font color="#800000"><b> <a name="crea"></a>C&oacute;mo 
+        se crea una sentencia SQL en ACCESS</b> </font></p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="0">
+  <tr> 
+    <td  width="49%"> 
+       
+      <P class=padding-1>Este manual est&aacute; basado en el SQL del motor de 
+        base de datos que utiliza el Access2000, el <B><FONT color="#000080">Microsoft 
+        Jet 4.x</FONT></B>, para que los ejemplos y ejercicios se puedan ejecutar 
+        y probar. Aunque el curso est&eacute; realizado para Access2000, sirve tambi&eacute;n para Access en sus versiones posteriores Access 2002, Access 2003 y Access 2007.</p>
+       
+      <P class=padding-1>Para crear y despu&eacute;s ejecutar una sentencia SQL 
+        en Access, lo f&aacute;cil es utilizar<b><font color="#000080"> la ventana 
+        SQL de las consultas</font></b>.<BR>
+      </p>
+      </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <p class="padding-1" align="left">Para <b><font color="#000080">crear una 
+        consulta de selecci&oacute;n</font></b>, seguir los siguientes pasos: 
+      </p>
+      <p class=padding-1 align="left"> Abrir la base de datos donde se encuentra 
+        la consulta a crear. </p>
+      <p class=padding-1 align="left"> Hacer clic sobre el objeto <b><font color="#008000">Consulta</font></b> 
+        que se encuentra a la izquierda de la ventana de la base de datos. </p>
+      <p class=padding-1 align="left"> Hacer clic sobre el botón <b><font color="#008000">Nuevo</font></b> 
+        <IMG border="0" src="graficos/B_Nuevo_bd_Access.gif" width="56" height="24" align="absmiddle">de 
+        la ventana de la base de datos. </p>
+      <p class=padding-1 align="left">&nbsp; </p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <p class=padding-1 align="left"><img border="0" src="graficos/Nueva_consulta_Access.gif" width="503" height="231" align="right">Aparecerá 
+        el siguiente cuadro de diálogo: </p>
+      <p class="padding-1" align="left"> Seleccionar <b><font color="#008000">Vista 
+        Diseño</font></b>. <br>
+        <br>
+        Hacer clic sobre el botón <b><font color="#008000">Aceptar</font></b>. 
+      </p>
+      <p class="padding-1" align="left"><br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+      </p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <p class="padding-1" align="left"><img border="0" src="graficos/Mostrar_tablas_Access.gif" width="349" height="271" align="right">Aparecerá 
+        el siguiente cuadro de di&aacute;logo:</p>
+      <p class="padding-1" align="left"> Como no queremos utilizar el generador 
+        de consultas sino escribir nuestras propias sentencias SQL, no agregamos 
+        ninguna tabla.</p>
+      <p class="padding-1" align="left"> <b><br>
+        </b>Hacer clic sobre el botón <b><font color="#008000">Cerrar</font></b>. 
+      </p>
+      <p class="padding-1" align="left"> <br>
+        Aparecerá la ventana de diseño de consultas. </p>
+      <p class="padding-1" align="left">&nbsp;</p>
+      <p class="padding-1" align="left"><br>
+      </p>
+    </td>
+  </tr>
+</table>
+<TABLE width="100%" border="0">
+  <TR> 
+    <TD> 
+      <P class="padding-1" align="left">Hacer clic sobre el bot&oacute;n <IMG src="graficos/botonsql.gif" width="38" height="22" align="absmiddle">, 
+        este bot&oacute;n es el que permite elegir la vista de la consulta, puede 
+        adoptar una de estas tres formas<BR>
+      </P>
+      </TD>
+<td><IMG src="graficos/lista_vista.gif" width="139" height="59" align="right">
+</td>
+  </TR>
+</TABLE>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <P class=padding-1><img src="graficos/ventana_sql.gif" width="287" height="145" align="right">Al 
+        apretar el bot&oacute;n cerrar de la pantalla anterior se abre esta ventana 
+        donde introducimos la sentencia SQL.<br>
+        <br>
+        Una vez escrita s&oacute;lo nos queda ver si est&aacute; bien hecha.<br>
+        Hacer clic sobre el botón <img border="0" src="graficos/Boton_ejecutar_Access.gif" width="25" height="24" align="absmiddle"> 
+        de la barra de herramientas para <B><FONT color="#000080">ejecutar</FONT></B> 
+        la sentencia.</p>
+       
+      <P class=padding-1>Si nos hemos equivocado a la hora de escribir la sintaxis, 
+        Access nos saca un <B><FONT color="#000080">mensaje de error</FONT></B> 
+        y muchas veces el cursor se queda posicionado en la palabra donde ha saltado 
+        el error. Ojo, a veces el error est&aacute; antes o despu&eacute;s de 
+        donde se ha quedado el cursor.</p>
+      <P class=padding-1>Si no saca ning&uacute;n mensaje de error, esto quiere 
+        decir que la sentencia respeta la sintaxis definida, pero esto 
+        no quiere decir que la sentencia est&eacute; bien, puede que no obtenga 
+        lo que nosotros queremos, en este caso habr&aacute; que rectificar la 
+        sentencia.</p>
+       
+      <P class=padding-1>Guardar la consulta haciendo clic sobre el botón <img border="0" src="graficos/Boton_Guardar.gif" width="24" height="23" align="absmiddle"> 
+        de la barra de herramientas.<br>
+      </p>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> <div align="center"> 
+        <script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_ad_channel ="5259272651";
+google_page_url = document.location;
+google_color_border = "FDE8D0";
+google_color_bg = "FFF6EC";
+google_color_link = "663300";
+google_color_url = "CC0000";
+google_color_text = "000000";
+//--></script>
+        <script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>
+      </div></td>
+  </tr>
+</table>
+<TABLE width="100%" border="0">
+  <TR> 
+    <TD width="37%">&nbsp;</TD>
+    <TD width="6%"><a href="index.htm"><img name="image8" src="comunes/flecha_re.gif" width="22" height="22" border="0"></a></TD>
+    <TD width="6%"><A href="index.htm"><IMG name="image8" src="comunes/flecha_home.gif" width="22" height="22" border="0"></A></TD>
+    <TD width="6%"><A href="t_1_2.htm"><IMG name="image2" src="comunes/flecha_av.gif" width="22" height="22" border="0"></A></TD>
+    <TD width="45%"> 
+      <DIV align="right">Pag. 1.1</DIV>
+    </TD>
+  </TR>
+</TABLE>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <div align="center"><font size="-1">Aviso legal: este curso es gratuito 
+        siempre que se visualice desde la p&aacute;gina web de aulaClic. No est&aacute; 
+        permitido descargar el curso ni utilizarlo en academias o centros de ense&ntilde;anza 
+        privados sin estar conectado a Internet. </font></div>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <div align="center"><font size="-1">© aulaClic. Todos los derechos reservados. 
+ <a href="http://www.teacherclick.com/" style="text-decoration: none; color: black;" target="_blank">Free Computer tutorials</a> .
+        Prohibida la reproducci&oacute;n por cualquier medio.<br>
+        </font><font size="2">Abril-2001.aulaclic.com</font></div>
+    </td>
+  </tr>
+</table>
+<p style='text-align:justify'>&nbsp;</p>
+<!--  fin td width="770" --------------- fin texto pagina -------------------------------->
+
+    </td>
+    <td  valign="top">
+	<!--   td width="160" -------------- anuncios lateral derecho ---------------------------------->
+<table  border="0">
+
+  <tr> 
+    <td valign="bottom" height="700"> 
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 160;
+google_ad_height = 600;
+google_ad_format = "160x600_as";
+google_ad_type = "text_image";
+google_ad_channel ="2175968397";
+google_color_border = "FFF6EC";
+google_color_bg = "FFF6EC";
+google_color_link = "663300";
+google_color_text = "000000";
+google_color_url = "CC0000";
+//--></script>
+<script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>
+    </td>
+	
+  </tr>
+  
+  <tr> 
+    <td height="150">
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 125;
+google_ad_height = 125;
+google_ad_format = "125x125_as_rimg";
+google_cpa_choice = "CAAQmImJlAIaCN5uB6wtFhbmKNyMs4MB";
+google_ad_channel = "6146562423";
+//--></script>
+<script type="text/javascript" src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>
+    </td>
+  </tr>
+
+  <tr> 
+    <td height="150">
+<script type="text/javascript"><!--
+google_ad_client = "pub-1875034419890743";
+google_ad_width = 160;
+google_ad_height = 90;
+google_ad_format = "160x90_0ads_al";
+google_ad_channel ="2175968397";
+google_color_border = "FAF1E3";
+google_color_bg = "FAF1E3";
+google_color_link = "663300";
+google_color_text = "000000";
+google_color_url = "CC0000";
+//--></script>
+<script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.html">
+</script>    </td>
+  </tr>
+</table>
+
+	<!--   td width="160" ----------- fin anuncios lateral derecho -------------------------------------->
+
+ </td>
+ </tr>
+<!--   table de "980" ----------------------------------------------->
+</table>
+
+</body>
+
+
+<!-- Mirrored from www.aulaclic.es/sql/t_1_1.htm by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 10 Jun 2011 06:48:46 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
+</html>

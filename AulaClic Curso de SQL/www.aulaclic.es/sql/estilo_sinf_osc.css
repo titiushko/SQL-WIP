@@ -1,0 +1,114 @@
+Body {
+	background-color: #F7F0E2;
+	background-repeat:no-repeat;
+	margin: 1%;
+	font-family: Arial,Helvetica;
+	font-size:12px;
+	font-weight:normal;
+color:#6B0101;
+	SCROLLBAR-FACE-COLOR: #FFF7EC;
+	SCROLLBAR-HIGHLIGHT-COLOR: #800000;
+	SCROLLBAR-DARKSHADOW-COLOR: #800000;
+	SCROLLBAR-SHADOW-COLOR: #800000;
+	SCROLLBAR-3DLIGHT-COLOR: #800000;
+	SCROLLBAR-ARROW-COLOR: #800000;
+	SCROLLBAR-TRACK-COLOR: #F5E2CB;
+
+
+}
+
+p.tit-1 {	BACKGROUND: URL(f_rotulo2a.gif);
+		font-family: Arial,Helvetica; 
+		font-size:19px; 
+		color: #800000;
+}
+
+p.tit-2 {	BACKGROUND: URL(f_rotulo2a.gif); 
+		font-family: Arial, Helvetica; 
+		font-size:17px; 
+		color: #800040;
+}
+
+p.tit-1b {
+		BACKGROUND: URL(f_rotu_verde_osc.gif);
+		font-family: Arial, Helvetica;
+		font-size:19px;
+		color: #004000;
+
+}
+
+
+p.tit-2b {	BACKGROUND: URL(f_rotu_verde.gif);
+		font-family: Arial,Helvetica; 
+		font-size:17px; 
+		color: #006600;
+}
+
+
+p.tit-1a {	BACKGROUND: URL(f_rotu_azul_osc.gif);
+		font-family: Arial,Helvetica; 
+		font-size:19px; 
+		color: #000080;
+}
+
+
+p.tit-2a {	BACKGROUND: URL(f_rotu_azul.gif);
+		font-family: Arial,Helvetica; 
+		font-size:17px; 
+		color: #000080;
+}
+
+p.tit-1ev {font-family: Arial, Helvetica; font-size:22px; background:url(f_rotulo2a.gif); color: #800000}
+
+p.tit-2ev {font-family: Arial, Helvetica; font-size:18px; background:URL(f_rotulo2b.gif); color: #800000}
+
+.peque {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; font-style: normal; line-height: normal; font-weight: normal}
+
+p.padding-sin {	margin-left:15px; 
+		margin-right:10px;
+		margin-top:16px; 
+		margin-bottom:5px;
+		font-size:13px; 
+		font-weight:normal;
+		line-height: 1.5;
+
+}
+
+p.padding-1 {	margin-left:15px; 
+		margin-right:10px;
+		margin-top:16px; 
+		margin-bottom:5px;
+		font-size:13px; 
+		text-indent:15px; 
+		text-align: justify;
+		font-weight:normal;
+		line-height: 1.5;
+}
+
+
+P.indice-2 {	text-underline:none; 
+		text-decoration:none;
+}
+
+.sin_subrayar {  text-decoration: none;
+}
+
+.azul {		font-weight: bold;
+		color: #6C6CCA;
+}
+
+.verde {	font-weight: bold;
+		color: #008000;
+}
+
+.marron {	font-weight: bold;
+		color: #800000;
+}
+
+.valores {	font-style: italic;
+		font-weight: bold;
+}
+.enlacenormal {color: #800000; text-decoration:none; font-size: 13px; font-weight: normal}
+.enlaceavanzado {color: #000080; text-decoration:none; font-size: 13px; font-weight: normal}
+.enlacebasico {color: #006600; text-decoration:none; font-size: 13px; font-weight: normal}.pie {  font-size: 13px; font-weight: normal}
+.letra {  font-size: 13px; font-weight: normal}
