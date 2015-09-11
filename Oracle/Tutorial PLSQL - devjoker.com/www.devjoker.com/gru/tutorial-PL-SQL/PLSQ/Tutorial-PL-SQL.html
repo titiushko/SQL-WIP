@@ -1,0 +1,1510 @@
+
+<!DOCTYPE html >
+<html lang="es">
+<head id="Head1"><title>
+	www.devjoker.com
+</title>
+        <meta name="description" content="www.devjoker.com Programacion .NET ASP.NET C# VB.NET SQL Server ORACLE">
+    <meta name="keywords" content=".NET, C#, Visual Basic .NET, ASP.NET, SQL Server, Oracle, SQL, T SQL, PL SQL, Windows, Linux, BSD" /><link rel="icon" href="http://www.devjoker.com/favicon.ico" type="image/ico" /><link rel="shortcut icon" href="http://www.devjoker.com/favicon.ico" type="image/ico" />
+    
+	
+    <!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <!--[if IE 8]><link rel="stylesheet" href="/css/ie8.css" /><![endif]-->
+    <!--[if lt IE 8]><link rel="stylesheet" href="/css/ie7.css" /><![endif]-->
+    
+<link href="../../../App_Themes/normal/colorbox.css" type="text/css" rel="stylesheet" /><link href="../../../App_Themes/normal/jquery.lightbox-0.5.css" type="text/css" rel="stylesheet" /><link href="../../../App_Themes/normal/lavalamp.css" type="text/css" rel="stylesheet" /><link href="../../../App_Themes/normal/normal.css" type="text/css" rel="stylesheet" /><link href="../../../App_Themes/normal/oldsite.css" type="text/css" rel="stylesheet" /><link href="../../../App_Themes/normal/rater.css" type="text/css" rel="stylesheet" /><link href="../../../App_Themes/normal/tipTip.css" type="text/css" rel="stylesheet" /></head>
+<body  >
+    <div id="fb-root"></div>
+    <div id="container" >
+        <form method="post" action="http://www.devjoker.com/gru/tutorial-PL-SQL/PLSQ/Tutorial-PL-SQL.aspx?co_grupo=PLSQ" id="form1">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUJMjE3ODc1NDQxD2QWAmYPZBYCAgMPZBYCAgMPZBYCAgEPZBYGZg9kFgICBQ8PFgIeBFRleHQFD1R1dG9yaWFsIFBML1NRTGRkAgIPZBYCAgMPFCsAAmRkZAIFDw8WAh4HVmlzaWJsZWdkFgQCAQ8PFgIfAAUEUExTUWRkAgUPD2QPEBYBZhYBFgIeDlBhcmFtZXRlclZhbHVlBQRQTFNRFgFmZGQYAQU5Y3RsMDAkQ29udGVudF8yUGxhY2VIb2xkZXIkQXJ0aWN1bG9zTm90aWNpYXMxJGxzdE5vdGljaWFzD2dk0E9e7SlrmbjMLaJLzpYp0gkcY2sUyldJhacxzJHCDNo=" />
+
+
+<script src="../../../js/lib/jquery-lib.js" type="text/javascript"></script>
+<script src="../../../js/lavalamp/jquery.easing.min.js" type="text/javascript"></script>
+<script src="../../../js/lavalamp/jquery.lavalamp.min.js" type="text/javascript"></script>
+<script src="../../../js/lightbox/jquery.lightbox-0.5.min.js" type="text/javascript"></script>
+<script src="../../../js/colorbox/jquery.colorbox.js" type="text/javascript"></script>
+<script src="../../../js/rater/jquery.rater.packed.js" type="text/javascript"></script>
+<script src="../../../js/tipTip/jquery.tipTip.js" type="text/javascript"></script>
+<script src="../../../js/comportamientos.js" type="text/javascript"></script>
+        <!--[if lt IE 9]><script type="text/javascript" src="/js/tagcanvas/excanvas.js"></script><![endif]-->
+        <script src="../../../js/tagcanvas/jquery.tagcanvas.min.js" type="text/javascript"></script>
+        <script>
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "../../../../connect.facebook.net/es_ES/all.js#xfbml=1";
+                fjs.parentNode.insertBefore(js, fjs);
+            } (document, 'script', 'facebook-jssdk'));
+            var relative = 'http://www.devjoker.com/';
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-1026064-1']);
+            _gaq.push(['_trackPageview']);
+
+            (function () {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+
+            $(function () {
+                $("#menuCategorias").lavaLamp({
+                    fx: "backout",
+                    speed: 700
+                });
+                if (!$('#tagCloudCanvas').tagcanvas(
+                { textColour: '#000099', outlineThickness: 2, maxSpeed: 0.1, depth: 0.65, outlineColour: '#FF9909', textHeight: 18, stretchX: 7 }, 'tagsList')) {
+                    // TagCanvas failed to load
+                    $('#tagCloudCanvasContainer').hide();
+                }
+            });     
+        </script>
+        
+
+    <script language="javascript">
+        var codcategoria = "0";
+        var codelemento = "0";
+        var controlurl = "/control.aspx";
+        var _noticiasflag = false;
+
+        function paginarpost(numpagina, container, registros) {
+            var selector = "#" + container;
+            var targeturl = controlurl + " #render";
+            var controlfile = "";
+
+
+            if (parseInt(codcategoria) > 0) {
+                controlfile = "~/controls/categorias/ControlCategorias.ascx";
+            }
+            else if (parseInt(codelemento) > 0) {
+                controlfile = "~/controls/categorias/ControlElementos.ascx";
+            }
+            else if (_noticiasflag) {
+                controlfile = "~/controls/categorias/ArticulosNoticias.ascx";
+            }
+
+            var data = { "ControlFile": controlfile,
+                "codcategoria": codcategoria,
+                "codelemento": codelemento,
+                "numpagina": numpagina,
+                "registros": registros,
+                "container": container
+            };
+            var $item = $(selector);
+            $item.addClass("wait-loading");
+            $item.load(targeturl,
+                   data, function() { $item.removeClass("wait-loading"); });
+
+            return false;
+        }
+
+        function paginarNoticias(numpagina, container, registros) {
+
+            _noticiasflag = true;
+            codcategoria = 0;
+            paginarpost(numpagina, container, registros);
+        }
+        
+    </script>
+
+        
+        <header>
+            <nav id="menu">
+                
+ 
+<ul class="lavaLampNoImage" id="menuCategorias">
+    <li id="menu1_li_inicio" class="current"><a href="http://www.devjoker.com/Default.aspx" class="homelink">Inicio</a></li>
+    <li id="menu1_li_articulos"><a href="http://www.devjoker.com/cat/articulos_noticias/8/articulos_noticias.aspx">Articulos y noticias</a></li>
+    <li id="menu1_li_programacion"><a href="http://www.devjoker.com/cat/programacion/1/programacion.aspx">Programacion</a></li>
+    <li id="menu1_li_bases_datos"><a href="http://www.devjoker.com/cat/bases_datos/2/bases_datos.aspx">Bases de datos</a></li>
+    <li id="menu1_li_foros"><a href="http://www.devjoker.com/foros.aspx">Foros</a></li>
+    <li id="menu1_li_internet"><a href="http://www.devjoker.com/cat/internet/3/internet.aspx">Internet</a></li>
+    <li id="menu1_li_servicios"><a href="http://www.devjoker.com/cat/internet/6/servicios.aspx">Servicios</a></li>
+    <li id="menu1_li_contratacion"><a href="http://www.infolancer.net/freelance/Devjokercom/008mgflrqqip4464qs8" class="contratacionlink">Contratacion</a></li>
+    
+    <li id="menu1_li_mapa"><a href="http://www.devjoker.com/mapaweb.aspx">Mapa</a></li>
+</ul>
+
+ <iframe id="menu1_buscar1_iframebuscar" frameborder="0" scrolling="no" class="ifrm-buscar" src="http://www.devjoker.com/buscar.aspx">
+</iframe>
+
+            </nav>
+            <div id="header">
+                <a type="application/rss+xml" class="feeds-link" href="http://feeds.feedburner.com/devjoker">
+                    <img src="../../../images/feeds.png" id="Img1" alt="feeds" />
+                </a>               
+            </div>
+        </header>
+        <div id="content">
+            <section id="content_2" class="chip">
+                
+    
+<div class="controlcabecera-container">
+    <div class="controlcabecera-imagen">
+        
+        
+    </div>
+    <div class="controlcabecera-body">
+        <span id="Content_2PlaceHolder_cabecera1_lblTitulo" class="titulocabecera-label">Tutorial PL/SQL</span>
+        <br />
+        <span id="Content_2PlaceHolder_cabecera1_lblTexto" class="textocabecera-label"></span>
+    </div>
+</div>
+        <div id="cbcontainer">
+            
+
+<div class="controlgrupocontenidos-container">    
+    <div class="controlgrupocontenidos-body">    
+     
+        <div id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_divcontainer">
+    <div class="topdatapager-container">
+        
+    </div>
+    <div class="posttitlerepeater-container">
+        
+                <div class="posttitlerepeater-body-item">
+                    <div class="posttitlerepeater-body-item-fecha" >
+                        12/01/2006
+                    </div>
+                    <div class="posttitlerepeater-body-item-contenido">
+                        
+                        <div class="posttitlerepeater-body-item-titulo">
+                            <a id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lnkContenido_0" class="titulo-novedad" href="http://www.devjoker.com/contenidos/catss/22/Introduccion-a-PLSQL.aspx">Introducción a PLSQL</a>
+                        </div>
+                    </div>
+                    <div class="posttitlerepeater-body-item-labels">
+                        <div class="posttitlerepeater-body-item-labels-text">
+                            <div class="imagen-comentario-div">
+                            </div>
+                            <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lblComentarios_0" class="posttitlerepeater-label" style="display:inline-block;">64</span>
+                            <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_Label3_0" class="posttitlerepeater-label"></span>
+                            <div>
+                                <div class="imagen-visitas-div">
+                                </div>
+                                <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lblVisitas_0" style="display:inline-block;">237583</span></div>
+                            <div id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_RatingDiv_0" class="rating5"></div>
+                    
+                        </div>
+                        <div class="posttitlerepeater-body-item-labels-box">
+                            
+                        </div>                        
+                        <div class="posttitlerepeater-body-item-labels-box">
+                            
+                        </div>                        
+                    </div>
+                </div>
+            
+                <div class="posttitlerepeater-body-item">
+                    <div class="posttitlerepeater-body-item-fecha" >
+                        12/01/2006
+                    </div>
+                    <div class="posttitlerepeater-body-item-contenido">
+                        
+                        <div class="posttitlerepeater-body-item-titulo">
+                            <a id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lnkContenido_1" class="titulo-novedad" href="http://www.devjoker.com/contenidos/catss/21/Programacion-con-PLSQL.aspx">Programación con PL/SQL</a>
+                        </div>
+                    </div>
+                    <div class="posttitlerepeater-body-item-labels">
+                        <div class="posttitlerepeater-body-item-labels-text">
+                            <div class="imagen-comentario-div">
+                            </div>
+                            <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lblComentarios_1" class="posttitlerepeater-label" style="display:inline-block;">28</span>
+                            <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_Label3_1" class="posttitlerepeater-label"></span>
+                            <div>
+                                <div class="imagen-visitas-div">
+                                </div>
+                                <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lblVisitas_1" style="display:inline-block;">177907</span></div>
+                            <div id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_RatingDiv_1" class="rating4"></div>
+                    
+                        </div>
+                        <div class="posttitlerepeater-body-item-labels-box">
+                            
+                        </div>                        
+                        <div class="posttitlerepeater-body-item-labels-box">
+                            
+                                    <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lstViewLinks_1_lblEnlaceMenuDerecho_0" class="label-naranja">Introducción</span>
+                        </div>                        
+                    </div>
+                </div>
+            
+                <div class="posttitlerepeater-body-item">
+                    <div class="posttitlerepeater-body-item-fecha" >
+                        31/03/2006
+                    </div>
+                    <div class="posttitlerepeater-body-item-contenido">
+                        
+                        <div class="posttitlerepeater-body-item-titulo">
+                            <a id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lnkContenido_2" class="titulo-novedad" href="http://www.devjoker.com/contenidos/catss/31/Fundamentos-de-PLSQL.aspx">Fundamentos de PL/SQL</a>
+                        </div>
+                    </div>
+                    <div class="posttitlerepeater-body-item-labels">
+                        <div class="posttitlerepeater-body-item-labels-text">
+                            <div class="imagen-comentario-div">
+                            </div>
+                            <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lblComentarios_2" class="posttitlerepeater-label" style="display:inline-block;">24</span>
+                            <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_Label3_2" class="posttitlerepeater-label"></span>
+                            <div>
+                                <div class="imagen-visitas-div">
+                                </div>
+                                <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lblVisitas_2" style="display:inline-block;">160417</span></div>
+                            <div id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_RatingDiv_2" class="rating5"></div>
+                    
+                        </div>
+                        <div class="posttitlerepeater-body-item-labels-box">
+                            
+                        </div>                        
+                        <div class="posttitlerepeater-body-item-labels-box">
+                            
+                                    <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lstViewLinks_2_lblEnlaceMenuDerecho_0" class="label-naranja">Primeros pasos con PL/SQL </span>
+                        </div>                        
+                    </div>
+                </div>
+            
+                <div class="posttitlerepeater-body-item">
+                    <div class="posttitlerepeater-body-item-fecha" >
+                        31/03/2006
+                    </div>
+                    <div class="posttitlerepeater-body-item-contenido">
+                        
+                        <div class="posttitlerepeater-body-item-titulo">
+                            <a id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lnkContenido_3" class="titulo-novedad" href="http://www.devjoker.com/contenidos/catss/60/Tipos-de-datos-en-PLSQL.aspx">Tipos de datos en PL/SQL</a>
+                        </div>
+                    </div>
+                    <div class="posttitlerepeater-body-item-labels">
+                        <div class="posttitlerepeater-body-item-labels-text">
+                            <div class="imagen-comentario-div">
+                            </div>
+                            <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lblComentarios_3" class="posttitlerepeater-label" style="display:inline-block;">42</span>
+                            <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_Label3_3" class="posttitlerepeater-label"></span>
+                            <div>
+                                <div class="imagen-visitas-div">
+                                </div>
+                                <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lblVisitas_3" style="display:inline-block;">232537</span></div>
+                            <div id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_RatingDiv_3" class="rating5"></div>
+                    
+                        </div>
+                        <div class="posttitlerepeater-body-item-labels-box">
+                            
+                        </div>                        
+                        <div class="posttitlerepeater-body-item-labels-box">
+                            
+                        </div>                        
+                    </div>
+                </div>
+            
+                <div class="posttitlerepeater-body-item">
+                    <div class="posttitlerepeater-body-item-fecha" >
+                        31/03/2006
+                    </div>
+                    <div class="posttitlerepeater-body-item-contenido">
+                        
+                        <div class="posttitlerepeater-body-item-titulo">
+                            <a id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lnkContenido_4" class="titulo-novedad" href="http://www.devjoker.com/contenidos/catss/61/Operadores-en-PLSQL.aspx">Operadores en PL/SQL</a>
+                        </div>
+                    </div>
+                    <div class="posttitlerepeater-body-item-labels">
+                        <div class="posttitlerepeater-body-item-labels-text">
+                            <div class="imagen-comentario-div">
+                            </div>
+                            <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lblComentarios_4" class="posttitlerepeater-label" style="display:inline-block;">22</span>
+                            <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_Label3_4" class="posttitlerepeater-label"></span>
+                            <div>
+                                <div class="imagen-visitas-div">
+                                </div>
+                                <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lblVisitas_4" style="display:inline-block;">169850</span></div>
+                            <div id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_RatingDiv_4" class="rating5"></div>
+                    
+                        </div>
+                        <div class="posttitlerepeater-body-item-labels-box">
+                            
+                        </div>                        
+                        <div class="posttitlerepeater-body-item-labels-box">
+                            
+                        </div>                        
+                    </div>
+                </div>
+            
+                <div class="posttitlerepeater-body-item">
+                    <div class="posttitlerepeater-body-item-fecha" >
+                        01/04/2006
+                    </div>
+                    <div class="posttitlerepeater-body-item-contenido">
+                        
+                        <div class="posttitlerepeater-body-item-titulo">
+                            <a id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lnkContenido_5" class="titulo-novedad" href="http://www.devjoker.com/contenidos/catss/33/Estructuras-de-control-en-PLSQL.aspx">Estructuras de control en PL/SQL</a>
+                        </div>
+                    </div>
+                    <div class="posttitlerepeater-body-item-labels">
+                        <div class="posttitlerepeater-body-item-labels-text">
+                            <div class="imagen-comentario-div">
+                            </div>
+                            <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lblComentarios_5" class="posttitlerepeater-label" style="display:inline-block;">15</span>
+                            <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_Label3_5" class="posttitlerepeater-label"></span>
+                            <div>
+                                <div class="imagen-visitas-div">
+                                </div>
+                                <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lblVisitas_5" style="display:inline-block;">269319</span></div>
+                            <div id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_RatingDiv_5" class="rating5"></div>
+                    
+                        </div>
+                        <div class="posttitlerepeater-body-item-labels-box">
+                            
+                        </div>                        
+                        <div class="posttitlerepeater-body-item-labels-box">
+                            
+                                    <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lstViewLinks_5_lblEnlaceMenuDerecho_0" class="label-naranja">Estrcuturas de control de flujo</span>
+                                    <br />
+                                
+                                    <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lstViewLinks_5_lblEnlaceMenuDerecho_1" class="label-naranja">Sentencia GOTO</span>
+                                    <br />
+                                
+                                    <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lstViewLinks_5_lblEnlaceMenuDerecho_2" class="label-naranja">Bucles</span>
+                        </div>                        
+                    </div>
+                </div>
+            
+                <div class="posttitlerepeater-body-item">
+                    <div class="posttitlerepeater-body-item-fecha" >
+                        04/03/2006
+                    </div>
+                    <div class="posttitlerepeater-body-item-contenido">
+                        
+                        <div class="posttitlerepeater-body-item-titulo">
+                            <a id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lnkContenido_6" class="titulo-novedad" href="http://www.devjoker.com/contenidos/catss/27/Bloques-PLSQL.aspx">Bloques PL/SQL</a>
+                        </div>
+                    </div>
+                    <div class="posttitlerepeater-body-item-labels">
+                        <div class="posttitlerepeater-body-item-labels-text">
+                            <div class="imagen-comentario-div">
+                            </div>
+                            <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lblComentarios_6" class="posttitlerepeater-label" style="display:inline-block;">27</span>
+                            <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_Label3_6" class="posttitlerepeater-label"></span>
+                            <div>
+                                <div class="imagen-visitas-div">
+                                </div>
+                                <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lblVisitas_6" style="display:inline-block;">177825</span></div>
+                            <div id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_RatingDiv_6" class="rating4"></div>
+                    
+                        </div>
+                        <div class="posttitlerepeater-body-item-labels-box">
+                            
+                        </div>                        
+                        <div class="posttitlerepeater-body-item-labels-box">
+                            
+                                    <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lstViewLinks_6_lblEnlaceMenuDerecho_0" class="label-naranja">Estructura de un Bloque</span>
+                                    <br />
+                                
+                                    <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lstViewLinks_6_lblEnlaceMenuDerecho_1" class="label-naranja">Sección de Declaración de Variables</span>
+                        </div>                        
+                    </div>
+                </div>
+            
+                <div class="posttitlerepeater-body-item">
+                    <div class="posttitlerepeater-body-item-fecha" >
+                        23/05/2006
+                    </div>
+                    <div class="posttitlerepeater-body-item-contenido">
+                        
+                        <div class="posttitlerepeater-body-item-titulo">
+                            <a id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lnkContenido_7" class="titulo-novedad" href="http://www.devjoker.com/contenidos/catss/32/Cursores-en-PLSQL.aspx">Cursores en PL/SQL</a>
+                        </div>
+                    </div>
+                    <div class="posttitlerepeater-body-item-labels">
+                        <div class="posttitlerepeater-body-item-labels-text">
+                            <div class="imagen-comentario-div">
+                            </div>
+                            <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lblComentarios_7" class="posttitlerepeater-label" style="display:inline-block;">64</span>
+                            <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_Label3_7" class="posttitlerepeater-label"></span>
+                            <div>
+                                <div class="imagen-visitas-div">
+                                </div>
+                                <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lblVisitas_7" style="display:inline-block;">294240</span></div>
+                            <div id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_RatingDiv_7" class="rating4"></div>
+                    
+                        </div>
+                        <div class="posttitlerepeater-body-item-labels-box">
+                            
+                        </div>                        
+                        <div class="posttitlerepeater-body-item-labels-box">
+                            
+                                    <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lstViewLinks_7_lblEnlaceMenuDerecho_0" class="label-naranja">Introducción a cursores PL/SQL</span>
+                        </div>                        
+                    </div>
+                </div>
+            
+                <div class="posttitlerepeater-body-item">
+                    <div class="posttitlerepeater-body-item-fecha" >
+                        24/05/2006
+                    </div>
+                    <div class="posttitlerepeater-body-item-contenido">
+                        
+                        <div class="posttitlerepeater-body-item-titulo">
+                            <a id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lnkContenido_8" class="titulo-novedad" href="http://www.devjoker.com/contenidos/catss/38/Cursores-Implicitos-en-PLSQL.aspx">Cursores Implicitos en PL/SQL</a>
+                        </div>
+                    </div>
+                    <div class="posttitlerepeater-body-item-labels">
+                        <div class="posttitlerepeater-body-item-labels-text">
+                            <div class="imagen-comentario-div">
+                            </div>
+                            <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lblComentarios_8" class="posttitlerepeater-label" style="display:inline-block;">26</span>
+                            <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_Label3_8" class="posttitlerepeater-label"></span>
+                            <div>
+                                <div class="imagen-visitas-div">
+                                </div>
+                                <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lblVisitas_8" style="display:inline-block;">167443</span></div>
+                            <div id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_RatingDiv_8" class="rating5"></div>
+                    
+                        </div>
+                        <div class="posttitlerepeater-body-item-labels-box">
+                            
+                        </div>                        
+                        <div class="posttitlerepeater-body-item-labels-box">
+                            
+                                    <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lstViewLinks_8_lblEnlaceMenuDerecho_0" class="label-naranja">Declaración de cursores implicitos.</span>
+                                    <br />
+                                
+                                    <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lstViewLinks_8_lblEnlaceMenuDerecho_1" class="label-naranja">Excepciones asociadas a los cursores implicitos.</span>
+                        </div>                        
+                    </div>
+                </div>
+            
+                <div class="posttitlerepeater-body-item">
+                    <div class="posttitlerepeater-body-item-fecha" >
+                        24/05/2006
+                    </div>
+                    <div class="posttitlerepeater-body-item-contenido">
+                        
+                        <div class="posttitlerepeater-body-item-titulo">
+                            <a id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lnkContenido_9" class="titulo-novedad" href="http://www.devjoker.com/contenidos/catss/39/Cursores-Explicitos-en-PLSQL.aspx">Cursores Explicitos en PL/SQL</a>
+                        </div>
+                    </div>
+                    <div class="posttitlerepeater-body-item-labels">
+                        <div class="posttitlerepeater-body-item-labels-text">
+                            <div class="imagen-comentario-div">
+                            </div>
+                            <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lblComentarios_9" class="posttitlerepeater-label" style="display:inline-block;">76</span>
+                            <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_Label3_9" class="posttitlerepeater-label"></span>
+                            <div>
+                                <div class="imagen-visitas-div">
+                                </div>
+                                <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lblVisitas_9" style="display:inline-block;">256576</span></div>
+                            <div id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_RatingDiv_9" class="rating5"></div>
+                    
+                        </div>
+                        <div class="posttitlerepeater-body-item-labels-box">
+                            
+                        </div>                        
+                        <div class="posttitlerepeater-body-item-labels-box">
+                            
+                                    <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lstViewLinks_9_lblEnlaceMenuDerecho_0" class="label-naranja">Declaración de cursores explicitos</span>
+                                    <br />
+                                
+                                    <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lstViewLinks_9_lblEnlaceMenuDerecho_1" class="label-naranja">Atributos de cursores</span>
+                                    <br />
+                                
+                                    <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lstViewLinks_9_lblEnlaceMenuDerecho_2" class="label-naranja">Manejo del cursor</span>
+                        </div>                        
+                    </div>
+                </div>
+            
+                <div class="posttitlerepeater-body-item">
+                    <div class="posttitlerepeater-body-item-fecha" >
+                        01/06/2006
+                    </div>
+                    <div class="posttitlerepeater-body-item-contenido">
+                        
+                        <div class="posttitlerepeater-body-item-titulo">
+                            <a id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lnkContenido_10" class="titulo-novedad" href="http://www.devjoker.com/contenidos/catss/40/Cursores-de-actualizacion-en-PLSQL.aspx">Cursores de actualización en PL/SQL</a>
+                        </div>
+                    </div>
+                    <div class="posttitlerepeater-body-item-labels">
+                        <div class="posttitlerepeater-body-item-labels-text">
+                            <div class="imagen-comentario-div">
+                            </div>
+                            <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lblComentarios_10" class="posttitlerepeater-label" style="display:inline-block;">21</span>
+                            <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_Label3_10" class="posttitlerepeater-label"></span>
+                            <div>
+                                <div class="imagen-visitas-div">
+                                </div>
+                                <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lblVisitas_10" style="display:inline-block;">128226</span></div>
+                            <div id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_RatingDiv_10" class="rating5"></div>
+                    
+                        </div>
+                        <div class="posttitlerepeater-body-item-labels-box">
+                            
+                        </div>                        
+                        <div class="posttitlerepeater-body-item-labels-box">
+                            
+                                    <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lstViewLinks_10_lblEnlaceMenuDerecho_0" class="label-naranja">Declaración y utiización de cursores de actualización.</span>
+                        </div>                        
+                    </div>
+                </div>
+            
+                <div class="posttitlerepeater-body-item">
+                    <div class="posttitlerepeater-body-item-fecha" >
+                        28/06/2006
+                    </div>
+                    <div class="posttitlerepeater-body-item-contenido">
+                        
+                        <div class="posttitlerepeater-body-item-titulo">
+                            <a id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lnkContenido_11" class="titulo-novedad" href="http://www.devjoker.com/contenidos/catss/48/Excepciones-en-PLSQL.aspx">Excepciones en PL/SQL</a>
+                        </div>
+                    </div>
+                    <div class="posttitlerepeater-body-item-labels">
+                        <div class="posttitlerepeater-body-item-labels-text">
+                            <div class="imagen-comentario-div">
+                            </div>
+                            <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lblComentarios_11" class="posttitlerepeater-label" style="display:inline-block;">31</span>
+                            <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_Label3_11" class="posttitlerepeater-label"></span>
+                            <div>
+                                <div class="imagen-visitas-div">
+                                </div>
+                                <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lblVisitas_11" style="display:inline-block;">230192</span></div>
+                            <div id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_RatingDiv_11" class="rating5"></div>
+                    
+                        </div>
+                        <div class="posttitlerepeater-body-item-labels-box">
+                            
+                        </div>                        
+                        <div class="posttitlerepeater-body-item-labels-box">
+                            
+                                    <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lstViewLinks_11_lblEnlaceMenuDerecho_0" class="label-naranja">Manejo de excepciones</span>
+                                    <br />
+                                
+                                    <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lstViewLinks_11_lblEnlaceMenuDerecho_1" class="label-naranja">Excepciones predefinidas </span>
+                                    <br />
+                                
+                                    <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lstViewLinks_11_lblEnlaceMenuDerecho_2" class="label-naranja">Excepciones definidas por el usuario </span>
+                                    <br />
+                                
+                                    <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lstViewLinks_11_lblEnlaceMenuDerecho_3" class="label-naranja">Reglas de Alcance</span>
+                                    <br />
+                                
+                                    <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lstViewLinks_11_lblEnlaceMenuDerecho_4" class="label-naranja">La sentencia RAISE</span>
+                                    <br />
+                                
+                                    <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lstViewLinks_11_lblEnlaceMenuDerecho_5" class="label-naranja">Uso de SQLCODE y SQLERRM</span>
+                        </div>                        
+                    </div>
+                </div>
+            
+                <div class="posttitlerepeater-body-item">
+                    <div class="posttitlerepeater-body-item-fecha" >
+                        17/10/2006
+                    </div>
+                    <div class="posttitlerepeater-body-item-contenido">
+                        
+                        <div class="posttitlerepeater-body-item-titulo">
+                            <a id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lnkContenido_12" class="titulo-novedad" href="http://www.devjoker.com/contenidos/catss/172/Excepciones-personalizadas-en-PLSQL.aspx">Excepciones personalizadas en PL/SQL</a>
+                        </div>
+                    </div>
+                    <div class="posttitlerepeater-body-item-labels">
+                        <div class="posttitlerepeater-body-item-labels-text">
+                            <div class="imagen-comentario-div">
+                            </div>
+                            <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lblComentarios_12" class="posttitlerepeater-label" style="display:inline-block;">25</span>
+                            <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_Label3_12" class="posttitlerepeater-label"></span>
+                            <div>
+                                <div class="imagen-visitas-div">
+                                </div>
+                                <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lblVisitas_12" style="display:inline-block;">87077</span></div>
+                            <div id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_RatingDiv_12" class="rating5"></div>
+                    
+                        </div>
+                        <div class="posttitlerepeater-body-item-labels-box">
+                            
+                        </div>                        
+                        <div class="posttitlerepeater-body-item-labels-box">
+                            
+                                    <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lstViewLinks_12_lblEnlaceMenuDerecho_0" class="label-naranja">RAISE APPLICATION ERROR</span>
+                        </div>                        
+                    </div>
+                </div>
+            
+                <div class="posttitlerepeater-body-item">
+                    <div class="posttitlerepeater-body-item-fecha" >
+                        28/06/2006
+                    </div>
+                    <div class="posttitlerepeater-body-item-contenido">
+                        
+                        <div class="posttitlerepeater-body-item-titulo">
+                            <a id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lnkContenido_13" class="titulo-novedad" href="http://www.devjoker.com/contenidos/catss/50/Propagacion-de-excepciones-en-PLSQL.aspx">Propagacion de excepciones en PL/SQL</a>
+                        </div>
+                    </div>
+                    <div class="posttitlerepeater-body-item-labels">
+                        <div class="posttitlerepeater-body-item-labels-text">
+                            <div class="imagen-comentario-div">
+                            </div>
+                            <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lblComentarios_13" class="posttitlerepeater-label" style="display:inline-block;">7</span>
+                            <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_Label3_13" class="posttitlerepeater-label"></span>
+                            <div>
+                                <div class="imagen-visitas-div">
+                                </div>
+                                <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lblVisitas_13" style="display:inline-block;">63861</span></div>
+                            <div id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_RatingDiv_13" class="rating5"></div>
+                    
+                        </div>
+                        <div class="posttitlerepeater-body-item-labels-box">
+                            
+                        </div>                        
+                        <div class="posttitlerepeater-body-item-labels-box">
+                            
+                        </div>                        
+                    </div>
+                </div>
+            
+                <div class="posttitlerepeater-body-item">
+                    <div class="posttitlerepeater-body-item-fecha" >
+                        10/07/2006
+                    </div>
+                    <div class="posttitlerepeater-body-item-contenido">
+                        
+                        <div class="posttitlerepeater-body-item-titulo">
+                            <a id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lnkContenido_14" class="titulo-novedad" href="http://www.devjoker.com/contenidos/catss/51/Subprogramas-en-PLSQL.aspx">Subprogramas en PL/SQL</a>
+                        </div>
+                    </div>
+                    <div class="posttitlerepeater-body-item-labels">
+                        <div class="posttitlerepeater-body-item-labels-text">
+                            <div class="imagen-comentario-div">
+                            </div>
+                            <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lblComentarios_14" class="posttitlerepeater-label" style="display:inline-block;">5</span>
+                            <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_Label3_14" class="posttitlerepeater-label"></span>
+                            <div>
+                                <div class="imagen-visitas-div">
+                                </div>
+                                <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lblVisitas_14" style="display:inline-block;">72590</span></div>
+                            <div id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_RatingDiv_14" class="rating5"></div>
+                    
+                        </div>
+                        <div class="posttitlerepeater-body-item-labels-box">
+                            
+                        </div>                        
+                        <div class="posttitlerepeater-body-item-labels-box">
+                            
+                        </div>                        
+                    </div>
+                </div>
+            
+                <div class="posttitlerepeater-body-item">
+                    <div class="posttitlerepeater-body-item-fecha" >
+                        28/06/2006
+                    </div>
+                    <div class="posttitlerepeater-body-item-contenido">
+                        
+                        <div class="posttitlerepeater-body-item-titulo">
+                            <a id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lnkContenido_15" class="titulo-novedad" href="http://www.devjoker.com/contenidos/catss/52/Procedimientos-almacenados-en-PLSQL.aspx">Procedimientos almacenados en PL/SQL</a>
+                        </div>
+                    </div>
+                    <div class="posttitlerepeater-body-item-labels">
+                        <div class="posttitlerepeater-body-item-labels-text">
+                            <div class="imagen-comentario-div">
+                            </div>
+                            <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lblComentarios_15" class="posttitlerepeater-label" style="display:inline-block;">53</span>
+                            <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_Label3_15" class="posttitlerepeater-label"></span>
+                            <div>
+                                <div class="imagen-visitas-div">
+                                </div>
+                                <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lblVisitas_15" style="display:inline-block;">222851</span></div>
+                            <div id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_RatingDiv_15" class="rating4"></div>
+                    
+                        </div>
+                        <div class="posttitlerepeater-body-item-labels-box">
+                            
+                        </div>                        
+                        <div class="posttitlerepeater-body-item-labels-box">
+                            
+                        </div>                        
+                    </div>
+                </div>
+            
+                <div class="posttitlerepeater-body-item">
+                    <div class="posttitlerepeater-body-item-fecha" >
+                        10/07/2006
+                    </div>
+                    <div class="posttitlerepeater-body-item-contenido">
+                        
+                        <div class="posttitlerepeater-body-item-titulo">
+                            <a id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lnkContenido_16" class="titulo-novedad" href="http://www.devjoker.com/contenidos/catss/53/Funciones-en-PLSQL.aspx">Funciones en PL/SQL</a>
+                        </div>
+                    </div>
+                    <div class="posttitlerepeater-body-item-labels">
+                        <div class="posttitlerepeater-body-item-labels-text">
+                            <div class="imagen-comentario-div">
+                            </div>
+                            <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lblComentarios_16" class="posttitlerepeater-label" style="display:inline-block;">42</span>
+                            <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_Label3_16" class="posttitlerepeater-label"></span>
+                            <div>
+                                <div class="imagen-visitas-div">
+                                </div>
+                                <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lblVisitas_16" style="display:inline-block;">173541</span></div>
+                            <div id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_RatingDiv_16" class="rating5"></div>
+                    
+                        </div>
+                        <div class="posttitlerepeater-body-item-labels-box">
+                            
+                        </div>                        
+                        <div class="posttitlerepeater-body-item-labels-box">
+                            
+                        </div>                        
+                    </div>
+                </div>
+            
+                <div class="posttitlerepeater-body-item">
+                    <div class="posttitlerepeater-body-item-fecha" >
+                        28/06/2006
+                    </div>
+                    <div class="posttitlerepeater-body-item-contenido">
+                        
+                        <div class="posttitlerepeater-body-item-titulo">
+                            <a id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lnkContenido_17" class="titulo-novedad" href="http://www.devjoker.com/contenidos/catss/54/Triggers-en-PLSQL.aspx">Triggers en PL/SQL</a>
+                        </div>
+                    </div>
+                    <div class="posttitlerepeater-body-item-labels">
+                        <div class="posttitlerepeater-body-item-labels-text">
+                            <div class="imagen-comentario-div">
+                            </div>
+                            <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lblComentarios_17" class="posttitlerepeater-label" style="display:inline-block;">65</span>
+                            <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_Label3_17" class="posttitlerepeater-label"></span>
+                            <div>
+                                <div class="imagen-visitas-div">
+                                </div>
+                                <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lblVisitas_17" style="display:inline-block;">184585</span></div>
+                            <div id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_RatingDiv_17" class="rating5"></div>
+                    
+                        </div>
+                        <div class="posttitlerepeater-body-item-labels-box">
+                            
+                        </div>                        
+                        <div class="posttitlerepeater-body-item-labels-box">
+                            
+                                    <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lstViewLinks_17_lblEnlaceMenuDerecho_0" class="label-naranja">Declaración de triggers</span>
+                                    <br />
+                                
+                                    <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lstViewLinks_17_lblEnlaceMenuDerecho_1" class="label-naranja">Orden de ejecución de los triggers</span>
+                                    <br />
+                                
+                                    <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lstViewLinks_17_lblEnlaceMenuDerecho_2" class="label-naranja">Restricciones de los triggers</span>
+                                    <br />
+                                
+                                    <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lstViewLinks_17_lblEnlaceMenuDerecho_3" class="label-naranja">Utilización de :OLD y :NEW</span>
+                                    <br />
+                                
+                                    <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lstViewLinks_17_lblEnlaceMenuDerecho_4" class="label-naranja">Utilización de predicados de los triggers: INSERTING, UPDATING y DELETING</span>
+                        </div>                        
+                    </div>
+                </div>
+            
+                <div class="posttitlerepeater-body-item">
+                    <div class="posttitlerepeater-body-item-fecha" >
+                        10/07/2006
+                    </div>
+                    <div class="posttitlerepeater-body-item-contenido">
+                        
+                        <div class="posttitlerepeater-body-item-titulo">
+                            <a id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lnkContenido_18" class="titulo-novedad" href="http://www.devjoker.com/contenidos/catss/57/Subprogramas-en-bloques-anonimos.aspx">Subprogramas en bloques anónimos</a>
+                        </div>
+                    </div>
+                    <div class="posttitlerepeater-body-item-labels">
+                        <div class="posttitlerepeater-body-item-labels-text">
+                            <div class="imagen-comentario-div">
+                            </div>
+                            <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lblComentarios_18" class="posttitlerepeater-label" style="display:inline-block;">14</span>
+                            <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_Label3_18" class="posttitlerepeater-label"></span>
+                            <div>
+                                <div class="imagen-visitas-div">
+                                </div>
+                                <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lblVisitas_18" style="display:inline-block;">68565</span></div>
+                            <div id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_RatingDiv_18" class="rating5"></div>
+                    
+                        </div>
+                        <div class="posttitlerepeater-body-item-labels-box">
+                            
+                        </div>                        
+                        <div class="posttitlerepeater-body-item-labels-box">
+                            
+                        </div>                        
+                    </div>
+                </div>
+            
+                <div class="posttitlerepeater-body-item">
+                    <div class="posttitlerepeater-body-item-fecha" >
+                        13/07/2006
+                    </div>
+                    <div class="posttitlerepeater-body-item-contenido">
+                        
+                        <div class="posttitlerepeater-body-item-titulo">
+                            <a id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lnkContenido_19" class="titulo-novedad" href="http://www.devjoker.com/contenidos/catss/55/Paquetes-en-PLSQL.aspx">Paquetes en PL/SQL</a>
+                        </div>
+                    </div>
+                    <div class="posttitlerepeater-body-item-labels">
+                        <div class="posttitlerepeater-body-item-labels-text">
+                            <div class="imagen-comentario-div">
+                            </div>
+                            <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lblComentarios_19" class="posttitlerepeater-label" style="display:inline-block;">30</span>
+                            <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_Label3_19" class="posttitlerepeater-label"></span>
+                            <div>
+                                <div class="imagen-visitas-div">
+                                </div>
+                                <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lblVisitas_19" style="display:inline-block;">101298</span></div>
+                            <div id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_RatingDiv_19" class="rating5"></div>
+                    
+                        </div>
+                        <div class="posttitlerepeater-body-item-labels-box">
+                            
+                        </div>                        
+                        <div class="posttitlerepeater-body-item-labels-box">
+                            
+                        </div>                        
+                    </div>
+                </div>
+            
+                <div class="posttitlerepeater-body-item">
+                    <div class="posttitlerepeater-body-item-fecha" >
+                        14/07/2006
+                    </div>
+                    <div class="posttitlerepeater-body-item-contenido">
+                        
+                        <div class="posttitlerepeater-body-item-titulo">
+                            <a id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lnkContenido_20" class="titulo-novedad" href="http://www.devjoker.com/contenidos/catss/58/Registros-PLSQL.aspx">Registros PL/SQL</a>
+                        </div>
+                    </div>
+                    <div class="posttitlerepeater-body-item-labels">
+                        <div class="posttitlerepeater-body-item-labels-text">
+                            <div class="imagen-comentario-div">
+                            </div>
+                            <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lblComentarios_20" class="posttitlerepeater-label" style="display:inline-block;">20</span>
+                            <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_Label3_20" class="posttitlerepeater-label"></span>
+                            <div>
+                                <div class="imagen-visitas-div">
+                                </div>
+                                <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lblVisitas_20" style="display:inline-block;">87222</span></div>
+                            <div id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_RatingDiv_20" class="rating5"></div>
+                    
+                        </div>
+                        <div class="posttitlerepeater-body-item-labels-box">
+                            
+                        </div>                        
+                        <div class="posttitlerepeater-body-item-labels-box">
+                            
+                                    <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lstViewLinks_20_lblEnlaceMenuDerecho_0" class="label-naranja">Declaración de un registro.</span>
+                                    <br />
+                                
+                                    <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lstViewLinks_20_lblEnlaceMenuDerecho_1" class="label-naranja">Declaración de registros con el atributo %ROWTYPE</span>
+                        </div>                        
+                    </div>
+                </div>
+            
+                <div class="posttitlerepeater-body-item">
+                    <div class="posttitlerepeater-body-item-fecha" >
+                        14/07/2006
+                    </div>
+                    <div class="posttitlerepeater-body-item-contenido">
+                        
+                        <div class="posttitlerepeater-body-item-titulo">
+                            <a id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lnkContenido_21" class="titulo-novedad" href="http://www.devjoker.com/contenidos/catss/59/Tablas-PLSQL.aspx">Tablas PL/SQL</a>
+                        </div>
+                    </div>
+                    <div class="posttitlerepeater-body-item-labels">
+                        <div class="posttitlerepeater-body-item-labels-text">
+                            <div class="imagen-comentario-div">
+                            </div>
+                            <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lblComentarios_21" class="posttitlerepeater-label" style="display:inline-block;">45</span>
+                            <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_Label3_21" class="posttitlerepeater-label"></span>
+                            <div>
+                                <div class="imagen-visitas-div">
+                                </div>
+                                <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lblVisitas_21" style="display:inline-block;">144002</span></div>
+                            <div id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_RatingDiv_21" class="rating4"></div>
+                    
+                        </div>
+                        <div class="posttitlerepeater-body-item-labels-box">
+                            
+                        </div>                        
+                        <div class="posttitlerepeater-body-item-labels-box">
+                            
+                                    <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lstViewLinks_21_lblEnlaceMenuDerecho_0" class="label-naranja">Declaración de tablas de PL/SQL</span>
+                                    <br />
+                                
+                                    <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lstViewLinks_21_lblEnlaceMenuDerecho_1" class="label-naranja">Tablas PL/SQL de registros</span>
+                                    <br />
+                                
+                                    <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lstViewLinks_21_lblEnlaceMenuDerecho_2" class="label-naranja">Funciones para el manejo de tablas PL/SQL</span>
+                        </div>                        
+                    </div>
+                </div>
+            
+                <div class="posttitlerepeater-body-item">
+                    <div class="posttitlerepeater-body-item-fecha" >
+                        17/07/2006
+                    </div>
+                    <div class="posttitlerepeater-body-item-contenido">
+                        
+                        <div class="posttitlerepeater-body-item-titulo">
+                            <a id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lnkContenido_22" class="titulo-novedad" href="http://www.devjoker.com/contenidos/catss/62/Tipo-VARRAY.aspx">Tipo VARRAY</a>
+                        </div>
+                    </div>
+                    <div class="posttitlerepeater-body-item-labels">
+                        <div class="posttitlerepeater-body-item-labels-text">
+                            <div class="imagen-comentario-div">
+                            </div>
+                            <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lblComentarios_22" class="posttitlerepeater-label" style="display:inline-block;">19</span>
+                            <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_Label3_22" class="posttitlerepeater-label"></span>
+                            <div>
+                                <div class="imagen-visitas-div">
+                                </div>
+                                <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lblVisitas_22" style="display:inline-block;">77336</span></div>
+                            <div id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_RatingDiv_22" class="rating5"></div>
+                    
+                        </div>
+                        <div class="posttitlerepeater-body-item-labels-box">
+                            
+                        </div>                        
+                        <div class="posttitlerepeater-body-item-labels-box">
+                            
+                                    <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lstViewLinks_22_lblEnlaceMenuDerecho_0" class="label-naranja">Definición de VARRAYS</span>
+                                    <br />
+                                
+                                    <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lstViewLinks_22_lblEnlaceMenuDerecho_1" class="label-naranja">Varrays en la base de datos</span>
+                        </div>                        
+                    </div>
+                </div>
+            
+                <div class="posttitlerepeater-body-item">
+                    <div class="posttitlerepeater-body-item-fecha" >
+                        21/02/2007
+                    </div>
+                    <div class="posttitlerepeater-body-item-contenido">
+                        
+                        <div class="posttitlerepeater-body-item-titulo">
+                            <a id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lnkContenido_23" class="titulo-novedad" href="http://www.devjoker.com/contenidos/catss/216/BULK-COLLECT.aspx">BULK COLLECT</a>
+                        </div>
+                    </div>
+                    <div class="posttitlerepeater-body-item-labels">
+                        <div class="posttitlerepeater-body-item-labels-text">
+                            <div class="imagen-comentario-div">
+                            </div>
+                            <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lblComentarios_23" class="posttitlerepeater-label" style="display:inline-block;">21</span>
+                            <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_Label3_23" class="posttitlerepeater-label"></span>
+                            <div>
+                                <div class="imagen-visitas-div">
+                                </div>
+                                <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lblVisitas_23" style="display:inline-block;">83253</span></div>
+                            <div id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_RatingDiv_23" class="rating5"></div>
+                    
+                        </div>
+                        <div class="posttitlerepeater-body-item-labels-box">
+                            
+                        </div>                        
+                        <div class="posttitlerepeater-body-item-labels-box">
+                            
+                        </div>                        
+                    </div>
+                </div>
+            
+                <div class="posttitlerepeater-body-item">
+                    <div class="posttitlerepeater-body-item-fecha" >
+                        20/07/2006
+                    </div>
+                    <div class="posttitlerepeater-body-item-contenido">
+                        
+                        <div class="posttitlerepeater-body-item-titulo">
+                            <a id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lnkContenido_24" class="titulo-novedad" href="http://www.devjoker.com/contenidos/catss/63/Transacciones-con-PLSQL.aspx">Transacciones con PL/SQL</a>
+                        </div>
+                    </div>
+                    <div class="posttitlerepeater-body-item-labels">
+                        <div class="posttitlerepeater-body-item-labels-text">
+                            <div class="imagen-comentario-div">
+                            </div>
+                            <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lblComentarios_24" class="posttitlerepeater-label" style="display:inline-block;">13</span>
+                            <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_Label3_24" class="posttitlerepeater-label"></span>
+                            <div>
+                                <div class="imagen-visitas-div">
+                                </div>
+                                <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lblVisitas_24" style="display:inline-block;">65370</span></div>
+                            <div id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_RatingDiv_24" class="rating5"></div>
+                    
+                        </div>
+                        <div class="posttitlerepeater-body-item-labels-box">
+                            
+                        </div>                        
+                        <div class="posttitlerepeater-body-item-labels-box">
+                            
+                        </div>                        
+                    </div>
+                </div>
+            
+                <div class="posttitlerepeater-body-item">
+                    <div class="posttitlerepeater-body-item-fecha" >
+                        24/07/2006
+                    </div>
+                    <div class="posttitlerepeater-body-item-contenido">
+                        
+                        <div class="posttitlerepeater-body-item-titulo">
+                            <a id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lnkContenido_25" class="titulo-novedad" href="http://www.devjoker.com/contenidos/catss/64/Transacciones-autonomas.aspx">Transacciones autónomas</a>
+                        </div>
+                    </div>
+                    <div class="posttitlerepeater-body-item-labels">
+                        <div class="posttitlerepeater-body-item-labels-text">
+                            <div class="imagen-comentario-div">
+                            </div>
+                            <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lblComentarios_25" class="posttitlerepeater-label" style="display:inline-block;">12</span>
+                            <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_Label3_25" class="posttitlerepeater-label"></span>
+                            <div>
+                                <div class="imagen-visitas-div">
+                                </div>
+                                <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lblVisitas_25" style="display:inline-block;">51854</span></div>
+                            <div id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_RatingDiv_25" class="rating5"></div>
+                    
+                        </div>
+                        <div class="posttitlerepeater-body-item-labels-box">
+                            
+                        </div>                        
+                        <div class="posttitlerepeater-body-item-labels-box">
+                            
+                        </div>                        
+                    </div>
+                </div>
+            
+                <div class="posttitlerepeater-body-item">
+                    <div class="posttitlerepeater-body-item-fecha" >
+                        24/07/2006
+                    </div>
+                    <div class="posttitlerepeater-body-item-contenido">
+                        
+                        <div class="posttitlerepeater-body-item-titulo">
+                            <a id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lnkContenido_26" class="titulo-novedad" href="http://www.devjoker.com/contenidos/catss/66/SQL-Dinamico.aspx">SQL Dinamico</a>
+                        </div>
+                    </div>
+                    <div class="posttitlerepeater-body-item-labels">
+                        <div class="posttitlerepeater-body-item-labels-text">
+                            <div class="imagen-comentario-div">
+                            </div>
+                            <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lblComentarios_26" class="posttitlerepeater-label" style="display:inline-block;">43</span>
+                            <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_Label3_26" class="posttitlerepeater-label"></span>
+                            <div>
+                                <div class="imagen-visitas-div">
+                                </div>
+                                <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lblVisitas_26" style="display:inline-block;">168867</span></div>
+                            <div id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_RatingDiv_26" class="rating3"></div>
+                    
+                        </div>
+                        <div class="posttitlerepeater-body-item-labels-box">
+                            
+                        </div>                        
+                        <div class="posttitlerepeater-body-item-labels-box">
+                            
+                                    <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lstViewLinks_26_lblEnlaceMenuDerecho_0" class="label-naranja">Sentencias DML con SQL dinamico</span>
+                                    <br />
+                                
+                                    <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lstViewLinks_26_lblEnlaceMenuDerecho_1" class="label-naranja">Cursores con SQL dinámico</span>
+                        </div>                        
+                    </div>
+                </div>
+            
+                <div class="posttitlerepeater-body-item">
+                    <div class="posttitlerepeater-body-item-fecha" >
+                        21/07/2006
+                    </div>
+                    <div class="posttitlerepeater-body-item-contenido">
+                        
+                        <div class="posttitlerepeater-body-item-titulo">
+                            <a id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lnkContenido_27" class="titulo-novedad" href="http://www.devjoker.com/contenidos/catss/67/Funciones-integradas-de-PLSQL.aspx">Funciones integradas de PL/SQL</a>
+                        </div>
+                    </div>
+                    <div class="posttitlerepeater-body-item-labels">
+                        <div class="posttitlerepeater-body-item-labels-text">
+                            <div class="imagen-comentario-div">
+                            </div>
+                            <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lblComentarios_27" class="posttitlerepeater-label" style="display:inline-block;">48</span>
+                            <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_Label3_27" class="posttitlerepeater-label"></span>
+                            <div>
+                                <div class="imagen-visitas-div">
+                                </div>
+                                <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lblVisitas_27" style="display:inline-block;">406499</span></div>
+                            <div id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_RatingDiv_27" class="rating5"></div>
+                    
+                        </div>
+                        <div class="posttitlerepeater-body-item-labels-box">
+                            
+                        </div>                        
+                        <div class="posttitlerepeater-body-item-labels-box">
+                            
+                                    <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lstViewLinks_27_lblEnlaceMenuDerecho_0" class="label-naranja">SYSDATE</span>
+                                    <br />
+                                
+                                    <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lstViewLinks_27_lblEnlaceMenuDerecho_1" class="label-naranja">NVL</span>
+                                    <br />
+                                
+                                    <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lstViewLinks_27_lblEnlaceMenuDerecho_2" class="label-naranja">DECODE</span>
+                                    <br />
+                                
+                                    <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lstViewLinks_27_lblEnlaceMenuDerecho_3" class="label-naranja">TO_DATE</span>
+                                    <br />
+                                
+                                    <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lstViewLinks_27_lblEnlaceMenuDerecho_4" class="label-naranja">TO_CHAR</span>
+                                    <br />
+                                
+                                    <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lstViewLinks_27_lblEnlaceMenuDerecho_5" class="label-naranja">TO_NUMBER</span>
+                                    <br />
+                                
+                                    <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lstViewLinks_27_lblEnlaceMenuDerecho_6" class="label-naranja">TRUNC</span>
+                                    <br />
+                                
+                                    <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lstViewLinks_27_lblEnlaceMenuDerecho_7" class="label-naranja">LENGTH</span>
+                                    <br />
+                                
+                                    <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lstViewLinks_27_lblEnlaceMenuDerecho_8" class="label-naranja">INSTR</span>
+                                    <br />
+                                
+                                    <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lstViewLinks_27_lblEnlaceMenuDerecho_9" class="label-naranja">REPLACE</span>
+                                    <br />
+                                
+                                    <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lstViewLinks_27_lblEnlaceMenuDerecho_10" class="label-naranja">SUBSTR</span>
+                                    <br />
+                                
+                                    <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lstViewLinks_27_lblEnlaceMenuDerecho_11" class="label-naranja">UPPER</span>
+                                    <br />
+                                
+                                    <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lstViewLinks_27_lblEnlaceMenuDerecho_12" class="label-naranja">LOWER</span>
+                                    <br />
+                                
+                                    <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lstViewLinks_27_lblEnlaceMenuDerecho_13" class="label-naranja">ROWIDTOCHAR</span>
+                                    <br />
+                                
+                                    <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lstViewLinks_27_lblEnlaceMenuDerecho_14" class="label-naranja">RPAD</span>
+                                    <br />
+                                
+                                    <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lstViewLinks_27_lblEnlaceMenuDerecho_15" class="label-naranja">LPAD</span>
+                                    <br />
+                                
+                                    <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lstViewLinks_27_lblEnlaceMenuDerecho_16" class="label-naranja">RTRIM</span>
+                                    <br />
+                                
+                                    <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lstViewLinks_27_lblEnlaceMenuDerecho_17" class="label-naranja">LTRIM</span>
+                                    <br />
+                                
+                                    <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lstViewLinks_27_lblEnlaceMenuDerecho_18" class="label-naranja">TRIM</span>
+                                    <br />
+                                
+                                    <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lstViewLinks_27_lblEnlaceMenuDerecho_19" class="label-naranja">MOD</span>
+                        </div>                        
+                    </div>
+                </div>
+            
+                <div class="posttitlerepeater-body-item">
+                    <div class="posttitlerepeater-body-item-fecha" >
+                        26/07/2006
+                    </div>
+                    <div class="posttitlerepeater-body-item-contenido">
+                        
+                        <div class="posttitlerepeater-body-item-titulo">
+                            <a id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lnkContenido_28" class="titulo-novedad" href="http://www.devjoker.com/contenidos/catss/68/Secuencias.aspx">Secuencias</a>
+                        </div>
+                    </div>
+                    <div class="posttitlerepeater-body-item-labels">
+                        <div class="posttitlerepeater-body-item-labels-text">
+                            <div class="imagen-comentario-div">
+                            </div>
+                            <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lblComentarios_28" class="posttitlerepeater-label" style="display:inline-block;">42</span>
+                            <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_Label3_28" class="posttitlerepeater-label"></span>
+                            <div>
+                                <div class="imagen-visitas-div">
+                                </div>
+                                <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lblVisitas_28" style="display:inline-block;">113895</span></div>
+                            <div id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_RatingDiv_28" class="rating5"></div>
+                    
+                        </div>
+                        <div class="posttitlerepeater-body-item-labels-box">
+                            
+                        </div>                        
+                        <div class="posttitlerepeater-body-item-labels-box">
+                            
+                        </div>                        
+                    </div>
+                </div>
+            
+                <div class="posttitlerepeater-body-item">
+                    <div class="posttitlerepeater-body-item-fecha" >
+                        26/07/2006
+                    </div>
+                    <div class="posttitlerepeater-body-item-contenido">
+                        
+                        <div class="posttitlerepeater-body-item-titulo">
+                            <a id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lnkContenido_29" class="titulo-novedad" href="http://www.devjoker.com/contenidos/catss/65/PLSQL-y-Java.aspx">PL/SQL y Java</a>
+                        </div>
+                    </div>
+                    <div class="posttitlerepeater-body-item-labels">
+                        <div class="posttitlerepeater-body-item-labels-text">
+                            <div class="imagen-comentario-div">
+                            </div>
+                            <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lblComentarios_29" class="posttitlerepeater-label" style="display:inline-block;">86</span>
+                            <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_Label3_29" class="posttitlerepeater-label"></span>
+                            <div>
+                                <div class="imagen-visitas-div">
+                                </div>
+                                <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lblVisitas_29" style="display:inline-block;">85343</span></div>
+                            <div id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_RatingDiv_29" class="rating5"></div>
+                    
+                        </div>
+                        <div class="posttitlerepeater-body-item-labels-box">
+                            
+                        </div>                        
+                        <div class="posttitlerepeater-body-item-labels-box">
+                            
+                                    <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lstViewLinks_29_lblEnlaceMenuDerecho_0" class="label-naranja">Creacion de Objetos Java en la base de datos ORACLE.</span>
+                                    <br />
+                                
+                                    <span id="Content_2PlaceHolder_ControlGrupoContenidos1_posttitleRepeater1_dlTitleRepeater_lstViewLinks_29_lblEnlaceMenuDerecho_1" class="label-naranja">Ejecución de programas Java con PL/SQL</span>
+                        </div>                        
+                    </div>
+                </div>
+            
+    </div>    
+    <div class="bottomdatapager-container">
+        
+    </div>
+</div>                
+        
+    </div>
+    
+</div>
+
+        </div>
+    
+
+                
+                    <div class="fb-like-box" data-href="http://www.facebook.com/pages/devjokercom/188781521219799"
+                        data-width="780" data-show-faces="true" data-stream="false" data-header="true">
+                    </div>
+                
+                <div id="tagCloudCanvasContainer">
+                    <canvas width="800" height="120" id="tagCloudCanvas">
+                    </canvas>
+                </div>
+                <nav id="tagsList" style="display: none">
+                    <ul>
+                        <li><a href="http://www.devjoker.com/ele/programacion/6/AspNET.aspx">ASP.NET</a></li>
+                        <li><a href="http://www.devjoker.com/gru/TutorialCSharp/TUCS/C.aspx">C#</a></li>
+                        <li><a href="http://www.devjoker.com/ele/programacion/64/WCF.aspx">WCF</a></li>
+                        <li><a href="Tutorial-PL-SQL.html">PL/SQL</a></li>
+                        <li><a href="http://www.devjoker.com/gru/Tutorial-Transact-SQL/TSQL/Tutorial-Transact-SQL.aspx">Transact SQL</a></li>
+                        <li><a href="http://www.devjoker.com/gru/Tutorial-Transact-SQL/TSQL/Tutorial-Transact-SQL.aspx">SQL</a></li>
+                        <li><a href="http://www.devjoker.com/ele/programacion/4/VisualBasicNET.aspx">Visual Basic .NET</a></li>
+                        <li><a href="http://www.devjoker.com/ele/programacion/43/ADO_NET.aspx">ADO.NET</a></li>
+                        <li><a href="http://www.devjoker.com/ele/programacion/61/LinQ.aspx">LINQ</a></li>
+                        <li><a href="http://www.devjoker.com/ele/programacion/65/TFS.aspx">TFS</a></li>
+                        <li><a href="http://www.devjoker.com/ele/programacion/27/ASP.aspx">ASP</a></li>
+                        <li><a href="http://www.devjoker.com/ele/programacion/63/Visual_Studio.aspx">Visual Studio</a></li>
+                        <li><a href="http://www.devjoker.com/ele/programacion/17/CSS.aspx">CSS</a></li>
+                        <li><a href="http://www.devjoker.com/gru/Tutorial-RSS/TRSS/Tutorial-RSS.aspx">RSS</a></li>
+                        <li><a href="http://www.devjoker.com/foros.aspx">Foros</a></li>
+                        <li><a href="http://www.devjoker.com/ele/programacion/46/Windows_9x_2000.aspx">Windows</a></li>
+                        <li><a href="http://www.devjoker.com/ele/programacion/48/Linux.aspx">Linux</a></li>
+                        <li><a href="http://www.devjoker.com/ele/programacion/49/BSD.aspx">BSD</a></li>
+                        <li><a href="http://www.devjoker.com/ele/programacion/53/PL-SQL.aspx">ORACLE</a></li>
+                        <li><a href="http://www.devjoker.com/ele/programacion/9/Transact-SQL.aspx">SQL Server</a></li>
+                        <li><a href="http://www.devjoker.com/ele/programacion/3/Java.aspx">Java</a></li>
+                        <li><a href="http://www.devjoker.com/ele/programacion/43/ADO_NET.aspx">Entity Framework</a></li>
+                    </ul>
+                </nav>
+            </section>            
+            <aside id="content_3">                
+                
+
+                <table id="menuLateal1_DataListMenuElementos" cellspacing="0">
+	<tr>
+		<td>    
+       <div id="menuLateal1_DataListMenuElementos_MenuElementosItem_0_divHead_0" class="menu-lateral-head titulo-menu">.NET</div>
+<nav class="menu-lateral-body">
+    <ul>
+        
+                <li><a href='http://www.devjoker.com/contenidos/programacion/25/Introduccion-a-NET.aspx'>
+                    Introducción a.NET</a></li>
+            
+                <li><a href='http://www.devjoker.com/gru/Conceptos-generales-NET/INET/Conceptos-generales-NET.aspx'>
+                    Conceptos generales .NET</a></li>
+            
+                <li><a href='http://www.devjoker.com/ele/programacion/5/CSharp.aspx'>
+                    C#</a></li>
+            
+                <li><a href='http://www.devjoker.com/gru/TutorialCSharp/TUCS/C.aspx'>
+                    Tutorial C#</a></li>
+            
+                <li><a href='http://www.devjoker.com/ele/programacion/6/AspNET.aspx'>
+                    ASP.NET</a></li>
+            
+                <li><a href='http://www.devjoker.com/ele/programacion/43/ADO_NET.aspx'>
+                    ADO.NET</a></li>
+            
+                <li><a href='http://www.devjoker.com/ele/programacion/61/LinQ.aspx'>
+                    LinQ</a></li>
+            
+                <li><a href='http://www.devjoker.com/ele/programacion/64/WCF.aspx'>
+                    WCF</a></li>
+            
+    </ul>
+</nav>
+<div class="menu-lateral-foot">
+</div>
+       
+    </td>
+	</tr><tr>
+		<td>    
+       <div id="menuLateal1_DataListMenuElementos_MenuElementosItem_1_divHead_1" class="menu-lateral-head titulo-menu">SQL</div>
+<nav class="menu-lateral-body">
+    <ul>
+        
+                <li><a href='http://www.devjoker.com/gru/Tutorial-SQL/CSQL/TutorialSQL.aspx'>
+                    Tutorial SQL</a></li>
+            
+    </ul>
+</nav>
+<div class="menu-lateral-foot">
+</div>
+       
+    </td>
+	</tr><tr>
+		<td>    
+       <div id="menuLateal1_DataListMenuElementos_MenuElementosItem_2_divHead_2" class="menu-lateral-head titulo-menu">SQL Server</div>
+<nav class="menu-lateral-body">
+    <ul>
+        
+                <li><a href='http://www.devjoker.com/ele/programacion/9/Transact-SQL.aspx'>
+                    Transact-SQL</a></li>
+            
+                <li><a href='http://www.devjoker.com/gru/Tutorial-Transact-SQL/TSQL/Tutorial-Transact-SQL.aspx'>
+                    Tutorial de Transact-SQL</a></li>
+            
+    </ul>
+</nav>
+<div class="menu-lateral-foot">
+</div>
+       
+    </td>
+	</tr><tr>
+		<td>    
+       <div id="menuLateal1_DataListMenuElementos_MenuElementosItem_3_divHead_3" class="menu-lateral-head titulo-menu">ORACLE</div>
+<nav class="menu-lateral-body">
+    <ul>
+        
+                <li><a href='Tutorial-PL-SQL.html'>
+                    Tutorial PL/SQL</a></li>
+            
+                <li><a href='http://www.devjoker.com/ele/programacion/53/PL-SQL.aspx'>
+                    PL/SQL</a></li>
+            
+    </ul>
+</nav>
+<div class="menu-lateral-foot">
+</div>
+       
+    </td>
+	</tr><tr>
+		<td>    
+       <div id="menuLateal1_DataListMenuElementos_MenuElementosItem_4_divHead_4" class="menu-lateral-head titulo-menu">Reina Roja</div>
+<nav class="menu-lateral-body">
+    <ul>
+        
+                <li><a href='http://www.devjoker.com/ele/programacion/57/Humor.aspx'>
+                    Humor</a></li>
+            
+                <li><a href='http://www.devjoker.com/contenidos/bibliografia/24/bibliografia.aspx'>
+                    Bibliografia</a></li>
+            
+                <li><a href='http://www.devjoker.com/mapaweb.aspx'>
+                    Mapa devjoker.com</a></li>
+            
+                <li><a href='http://www.devjoker.com/contenidos/acercade/23/acercade.aspx'>
+                    Acerca de ...</a></li>
+            
+                <li><a href='http://www.devjoker.com/comentarios.aspx'>
+                    Comentarios</a></li>
+            
+    </ul>
+</nav>
+<div class="menu-lateral-foot">
+</div>
+       
+    </td>
+	</tr>
+</table>
+
+<div class="banner-lateral-container">
+    <div class="banner-lateral">
+        <a href="http://www.aldeamedia.com/" target="_blank">
+            <img src="../../../images/aldeamedia.jpg" id="menuLateal1_BannerEnlacesLateralIzq1_img1" alt="aldeamedia" /></a>
+    </div>
+    <div class="banner-lateral">
+        <a href="http://www.geeks.ms/" target="_blank">
+            <img src="../../../images/geeks.gif" id="menuLateal1_BannerEnlacesLateralIzq1_img2" alt="geeks.ms" /></a>
+    </div>
+    <div class="banner-lateral">
+        <a href="http://www.mobilenug.com/default.aspx" target="_blank">
+            <img src="../../../images/Mnug.jpg" id="menuLateal1_BannerEnlacesLateralIzq1_img3" alt="www.mobilenug.com" /></a></div>
+    <div class="banner-lateral">
+        <a href="http://www.onglasses.net/" target="_blank">
+            <img src="../../../images/LOGO4_Onglases.jpg" id="menuLateal1_BannerEnlacesLateralIzq1_img4" alt="www.onglasses.net" /></a></div>
+    <div class="banner-lateral">
+        <a href="http://www.clikear.com/" target="_blank">
+            <img src="../../../images/logoClikear.jpg" id="menuLateal1_BannerEnlacesLateralIzq1_img5" alt="www.clikear.com" /></a></div>
+    <div class="banner-lateral">
+        <a href="http://www.lawebdelprogramador.com/" target="_blank">
+            <img src="../../../images/lwplogo.gif" id="menuLateal1_BannerEnlacesLateralIzq1_img6" alt="www.lawebdelprogramador.com" /></a></div>
+    <div class="banner-lateral">
+        <a href="http://www.mundoprogramacion.com/default.aspx" target="_blank">
+            <img src="../../../images/el_guille_logo.gif" id="menuLateal1_BannerEnlacesLateralIzq1_img7" alt="http://www.mundoprogramacion.com/default.aspx" /></a></div>
+    <div >
+        <img src="../../../images/PoweredByAsp.GIF" id="menuLateal1_BannerEnlacesLateralIzq1_img8" alt="ASP.Net Logo" /></div>
+</div>
+
+
+                
+<div class="banner-lateral-container">
+    <div>
+        <a href="http://www.prchecker.info/" target="_blank">
+            <img src="http://pr.prchecker.info/getpr.php?codex=aHR0cDovL3d3dy5kZXZqb2tlci5jb20=&amp;tag=2"
+                alt="Free PageRank Checker" border="0" /></a>
+    </div>
+</div>
+
+<div class="banner-lateral-container">
+    
+<script type="text/javascript"><!--
+google_ad_client = "pub-4941153863616679";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text_image";
+google_ad_channel ="";
+google_color_border = "000099";
+google_color_bg = "FFFFFF";
+google_color_link = "000099";
+google_color_url = "008000";
+google_color_text = "000000";
+//--></script>
+<script type="text/javascript"
+  src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+</div>
+
+            </aside>
+        </div>
+        <footer id="footer">
+            <div id="footerin">
+                <a id="aHomeLink" class="homelink footerlink" href="http://www.devjoker.com/">www.devjoker.com</a>|
+                <a id="aFacebookLink" class="fblink footerlink" href="http://www.facebook.com/pages/devjokercom/188781521219799" target="_blank">Siguenos en facebook!</a>|
+                <a href="http://www.devjoker.com/contenidos/acercade/23/acercade.aspx" id="A1">Acerca de ...</a>|
+                <a href="http://www.infolancer.net/freelance/Devjokercom/008mgflrqqip4464qs8" id="aContrataLink" class="contratacionlink footerlink">Contratación</a>|
+                <a href="mapaweb.html">Mapa del site</a>
+            </div>
+        </footer>
+        </form>
+    </div>
+</body>
+
+<!-- Mirrored from www.devjoker.com/gru/tutorial-PL-SQL/PLSQ/Tutorial-PL-SQL.aspx by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 15 Sep 2012 19:59:41 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

@@ -1,0 +1,83 @@
+
+        .lavaLampNoImage {
+            position: relative;
+            height: 28px;                        
+            padding-left : 15px;            
+            overflow: hidden;
+            
+        }
+         ul
+        {
+			margin: 0px;    	
+        	}
+        .lavaLampNoImage li
+		{
+			float: left;
+			list-style-type: none;
+		}
+        
+        .lavaLampNoImage li.back
+{
+    border-width: 4px;
+    border-color: #FF9933;
+    border-style: solid none solid none;
+    width: 9px;
+    height: 16px;
+ /*   z-index: 100;*/
+    position: absolute;
+    margin-top: 2px;
+}
+        .lavaLampNoImage li a
+{
+	font: normal 12px arial;
+	text-decoration: none;
+	color: #F1F0ED;
+	outline: none;
+	text-align: center;
+	top: 7px; /*text-transform: uppercase;*/
+	letter-spacing: 0;
+	z-index: 10;
+	display: block;
+	float: left;
+	height: 30px;
+	position: relative;
+	overflow: hidden;
+	margin: auto 10px;
+}
+        .lavaLampNoImage li a:hover, 
+        .lavaLampNoImage li a:active
+{
+	border: none;
+	color: #D1AFBB;
+}                 
+
+.homelink
+{
+	background-image: url('images/home.png');
+	/*background-position: -2px -3px;*/
+	background-repeat: no-repeat;
+	width: 30px;
+	height: 24px;
+	padding-left: 25px;
+	text-align: left;
+}
+.contratacionlink
+{
+	background-image: url('images/djk.png');
+	/*background-position: -1px -1px  ;*/
+	background-repeat:no-repeat;
+	width:70px; 
+	height:24px;
+	padding-left: 22px;
+	text-align: left;
+	}
+.emaillink
+{
+	background-image: url('images/mail.png');
+	/*background-position: -1px -1px  ;*/
+	background-repeat:no-repeat;
+	/*width:40px; 
+	height:24px;*/
+	padding-left: 22px;
+	text-align: left;	
+	}	

@@ -1,0 +1,281 @@
+﻿p, div, span {
+	font-family: Tahoma, 'Trebuchet MS', 'Lucida Grande', Verdana, Arial, sans-serif; 
+	font-size: 13px
+}
+.tabla_lateral {
+	border-bottom: #000099 1px solid; 
+	border-left: #000099 1px solid; 
+	background-color: white; 
+	font-size: 11px; 
+	border-top: #000099 1px solid; 
+	border-right: #000099 1px solid
+}
+.titulo_tabla_lateral
+{
+    background-color: #000099;
+    background-repeat: no-repeat;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    height:25px;
+}
+.color_naranja {
+	color: #ff9909
+}
+a {
+	font-family: Helvetica, Arial, Tahoma, Verdana; 
+	color: #0033ff; 
+	font-size: 11px; 
+	font-weight: bold; 
+	text-decoration: none
+}
+a:hover {
+	color: #33ccff; 
+	text-decoration: underline
+}
+
+
+
+.Subtitulo {
+	text-indent: 0pt; 
+	color: #0066cc; 
+	font-size: 14px; 
+	font-weight: bold
+}
+
+a {
+	font-family: Helvetica, Arial, Tahoma, Verdana; 
+	color: #0033ff; 
+	font-size: 11px; 
+	font-weight: bold; 	
+}
+a:hover {
+	COLOR: #33ccff; 	
+}
+
+.tabla_datos
+{
+    border-bottom: #000099 1px solid;
+    border-left: #000099 1px solid;
+    padding-bottom: 1px;
+    padding-left: 1px;
+    width: 390px;
+    padding-right: 1px;
+    color: black;
+    font-size: 12px;
+    border-top: #000099 1px solid;
+    border-right: #000099 1px solid;
+    padding-top: 1px;
+}
+.tabla_datos TD
+{
+    background-color: white;
+}
+.tabla_datos .titulo
+{
+    background-color: #000099;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+}
+.tabla_datos .datos
+{
+    color: black;
+    font-size: 9px;
+}
+
+/*
+candidatos para eliminar*//*
+
+BODY {
+	MARGIN: 0px
+}
+BODY {
+	
+}
+
+DIV {
+	FONT-FAMILY: Tahoma, 'Trebuchet MS', 'Lucida Grande', Verdana, Arial, sans-serif; FONT-SIZE: 13px
+}
+SPAN {
+	FONT-FAMILY: Tahoma, 'Trebuchet MS', 'Lucida Grande', Verdana, Arial, sans-serif; FONT-SIZE: 13px
+}
+TD {
+	FONT-FAMILY: Tahoma, 'Trebuchet MS', 'Lucida Grande', Verdana, Arial, sans-serif; FONT-SIZE: 13px
+}
+
+A.categoria {
+	FONT-FAMILY: Arial, Tahoma, Verdana; COLOR: white; FONT-SIZE: 11px; FONT-WEIGHT: bold
+}
+A.menu_lateral_tb {
+	COLOR: #666699
+}
+A.naranja {
+	COLOR: #ff9909; FONT-WEIGHT: normal
+}
+A.categoria:hover {
+	COLOR: yellow
+}
+A.categoria:active {
+	COLOR: yellow
+}
+A.enlaceMenu:hover {
+	COLOR: yellow
+}
+.blanco {
+	COLOR: white
+}
+A.blanco:hover {
+	COLOR: yellow
+}
+.borde {
+	BACKGROUND-COLOR: #000099
+}
+#pagina_inicio {
+	BACKGROUND-COLOR: #000099; COLOR: white
+}
+
+
+.texto_tabla_lateral {
+	TEXT-TRANSFORM: none; BACKGROUND-COLOR: white; PADDING-LEFT: 1mm; FONT-SIZE: 13px; FONT-WEIGHT: bold
+}
+.fila_activa {
+	BACKGROUND-COLOR: #000099
+}
+
+.titulo_tabla_lateral TD {
+	BACKGROUND-COLOR: #000099; BACKGROUND-REPEAT: no-repeat; COLOR: white; FONT-SIZE: 12px; FONT-WEIGHT: bold
+}
+.titulo_tabla_lateral_deg {
+	BACKGROUND-IMAGE: url(/images/fondotitulo.gif); BACKGROUND-COLOR: #000099; BACKGROUND-REPEAT: no-repeat; COLOR: white; FONT-SIZE: 12px; FONT-WEIGHT: bold
+}
+
+.categoria_foro {
+	TEXT-INDENT: 0pt; COLOR: #0066cc; FONT-SIZE: 16px; FONT-WEIGHT: bold
+}
+
+.sizetrece {
+	FONT-SIZE: 13px
+}
+.textoDOS {
+	
+}
+.texto_mensaje_foro {
+	FONT-SIZE: 11px
+}
+.nojustify {
+	TEXT-ALIGN: left
+}
+HR {
+	COLOR: #0066cc
+}
+.titulo2 {
+	COLOR: white; FONT-SIZE: 16px; FONT-WEIGHT: bold
+}
+.pregunta {
+	TEXT-ALIGN: center; LETTER-SPACING: normal; FONT-SIZE: 10px; FONT-WEIGHT: bold; WORD-SPACING: normal
+}
+.respuesta {
+	LETTER-SPACING: normal; FONT-SIZE: 10px; FONT-WEIGHT: normal; WORD-SPACING: normal
+}
+.cabecera {
+	BACKGROUND-IMAGE: url(../images/teclado.jpg); BACKGROUND-POSITION: right top
+}
+.lateral {
+	BACKGROUND: url(/images/circuito.jpg) #d6dfe6 no-repeat left top
+}
+.contenido {
+	BACKGROUND: white
+}
+.descarga {
+	BACKGROUND-IMAGE: url(/images/descarga.jpg); BACKGROUND-REPEAT: no-repeat; BACKGROUND-POSITION: right top
+}
+.encuesta {
+	BACKGROUND-IMAGE: url(/images/encuesta.jpg); BACKGROUND-REPEAT: no-repeat; BACKGROUND-POSITION: left bottom
+}
+.diccionario {
+	BACKGROUND: url(/images/diccionario.jpg) #d6dfe6 fixed no-repeat right top
+}
+.database {
+	BACKGROUND: url(/images/circuito.jpg) #d6dfe6 fixed no-repeat right top
+}
+.termino {
+	COLOR: #000099; FONT-SIZE: 11px; FONT-WEIGHT: bold
+}
+.acronimo {
+	COLOR: black; FONT-SIZE: 9px; FONT-WEIGHT: bold
+}
+.contenidos {
+	TEXT-JUSTIFY: auto; TEXT-ALIGN: justify; TEXT-INDENT: 10pt; FONT-SIZE: 12px; VERTICAL-ALIGN: baseline
+}
+.nota {
+	TEXT-JUSTIFY: auto; TEXT-ALIGN: justify; COLOR: black; FONT-SIZE: 9px; FONT-WEIGHT: bold
+}
+.cita {
+	TEXT-JUSTIFY: auto; TEXT-ALIGN: justify; FONT-STYLE: italic; COLOR: gray; FONT-SIZE: 11px
+}
+.Autorcita {
+	TEXT-JUSTIFY: auto; TEXT-ALIGN: justify; FONT-STYLE: italic; COLOR: gray; FONT-SIZE: 11px; FONT-WEIGHT: bold
+}
+.nota_azul {
+	COLOR: #0066cc; FONT-SIZE: 9px; VERTICAL-ALIGN: baseline
+}
+.descripcion_foro {
+	TEXT-JUSTIFY: auto; TEXT-ALIGN: justify; COLOR: black; FONT-SIZE: 11px
+}
+
+.textomini {
+	FONT-SIZE: 9px
+}
+LI {
+	FONT-SIZE: 12px
+}
+PRE.comentario {
+	WORD-WRAP: break-word; COLOR: #000099
+}
+.palabra_clave {
+	COLOR: #000099
+}
+.comentario {
+	COLOR: #006600
+}
+.boton {
+	FONT-SIZE: 12px
+}
+.campoformulario {
+	BORDER-BOTTOM: black 1px solid; BORDER-LEFT: black 1px solid; BACKGROUND-COLOR: white; MARGIN: 1px; BORDER-TOP: black 1px solid; BORDER-RIGHT: black 1px solid
+}
+.enlaceMenu {
+	TEXT-DECORATION: none
+}
+
+.oculto {
+	DISPLAY: none
+}
+A.link1 {
+	FONT-STYLE: italic; FONT-SIZE: 20px; FONT-WEIGHT: bold
+}
+A.link2 {
+	FONT-STYLE: italic; FONT-SIZE: 18px; FONT-WEIGHT: bold
+}
+A.link3 {
+	FONT-STYLE: italic; FONT-SIZE: 16px; FONT-WEIGHT: bold
+}
+.tema_foro {
+	FONT-SIZE: 12px
+}
+.autor_foro {
+	FONT-STYLE: italic; FONT-FAMILY: Tahoma; COLOR: dimgray; FONT-SIZE: 10pt
+}
+.SinBordeInferior {
+	BORDER-BOTTOM-STYLE: none; MARGIN-BOTTOM: 0px
+}
+.centrado {
+	TEXT-ALIGN: center
+}
+.azulSuave {
+	COLOR: #000099; FONT-SIZE: 8pt
+}
+
+ 
+*/
