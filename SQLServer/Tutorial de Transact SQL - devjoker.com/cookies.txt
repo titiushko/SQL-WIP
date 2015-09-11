@@ -1,0 +1,5 @@
+# HTTrack Website Copier Cookie File
+# This file format is compatible with Netscape cookies
+www.devjoker.com	TRUE	/	FALSE	1999999999	ASP.NET_SessionId	yhihc2z4j0qivagyptco0kdy
+www.devjoker.com	TRUE	/	FALSE	1999999999	AutorCode	c9d93ab1-a5c0-4d79-89db-705cc532d5d9
+
