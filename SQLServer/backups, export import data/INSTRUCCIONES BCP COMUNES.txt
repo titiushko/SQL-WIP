@@ -1,0 +1,53 @@
+********* IMPORTAR REGITROS DESDE ARCHIVO USANDO AUTENTICACION SQL*********************
+
+bcp NOMBREBD.dbo.NOMBRETABLA IN C:\UBICACION.xxx -c -SNOMBRE-SERVIDOR -Usa -PPASS
+
+********* IMPORTAR REGITROS DESDE ARCHIVO USANDO AUTENTICACION WINDOWS ****************
+
+bcp NOMBREBD.dbo.NOMBRETABLA IN C:\UBICACION.xxx -c -T
+
+***** ****************************************************************************
+IMPORTAR REGITROS DESDE ARCHIVO CON FORMATO USANDO AUTENTICACION WINDOWS
+*********************************************************************************
+
+bcp NOMBREBD.dbo.NOMBRETABLA IN C:\UBICACION.xxx format nul -f C:\UBICACION.fmt
+-SNOMBRE-SERVIDOR -Usa -PPASS
+
+***** ****************************************************************************
+IMPORTAR REGITROS DESDE ARCHIVO CON FORMATO XML USANDO AUTENTICACION WINDOWS
+*********************************************************************************
+
+bcp NOMBREBD.dbo.NOMBRETABLA IN C:\UBICACION.xxx -f C:\UBICACION.xml
+-SNOMBRE-SERVIDOR -Usa -PPASS
+
+
+***** ****************************************************************************
+IMPORTAR REGITROS DESDE ARCHIVO Y GENERAR ARCHIVO DE ERROR AUTENTIC SQL
+*********************************************************************************
+
+bcp NOMBREBD.dbo.NOMBRETABLA IN C:\UBICACION.xxx -eC:\NOMBREARCHIVO.xxx -c
+-SNOMBRE-SERVIDOR -Usa -PPASS
+
+***** ****************************************************************************
+EXPORTAR RESULTADO DE UNA CONSULTA EN UN ARCHIVO AUTENTICACION SQL
+*********************************************************************************
+
+bcp "SELECT * FROM PARCIAL3" queryout C:\NOMBREARCHIVO.xxx -c 
+-SNOMBRE-SERVIDOR -Usa -PPASS
+
+-k LAS COLUMNAS VACIAS DEBEN CONSERVAR EL NULL DURANTE LA OPERACION, EN LUGAR
+DE TENER VALORES PREDETERMINADOS PARA LAS COLUMNAS ISNERTADAS.
+
+-R PARA FORMATOS DE FECHA, HORA Y MONEDAS, SE CONSERVA EL FORMATO REGIONAL
+DEFINIDO PARA LA CONSIGURACION REGIONAL DEL EQUIPO CLIENTE
+
+-r ESPECIFICA EL TERMINADOR DE FILA. VALOR POR DEFECTO \n
+
+-t ESPECIFICA EL TERMINADOR DE CAMPO (DONDE TERMINA). VALOR POR DEFECTO \t
+
+-q ESPECIFICA QUE EL NOMBRE DE UN OBJETO LLEVA EN MEDIO COMILLAS. SE DEBE
+PONER TODO ENTRE " "
+
+-n COPIA CON TIPOS DE DATOS NATIVOS. NO EFECTUA PETICION PARA CADA CAMPO.
+
+

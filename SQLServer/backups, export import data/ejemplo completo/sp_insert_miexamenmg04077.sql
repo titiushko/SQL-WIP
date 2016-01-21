@@ -1,0 +1,26 @@
+USE PARCIAL3
+GO
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE sp_insert_MiExamenMG04077 @cantidad int
+AS
+BEGIN
+	DECLARE @contador int;
+	SET @contador=0;
+	WHILE(@contador<@cantidad)
+	BEGIN
+		SET	@contador=@contador+1;
+		BEGIN TRY
+			BEGIN TRAN
+			INSERT INTO MiExamenMG04077 VALUES ('2012-01-22','NUMDOC','SI','CORREL','S','DEPN','N','NO','CHEQUE','ACUERDO','2012-01-22','0','RECIBIDO','99.99','1','2012-01-22 4:50:35.000','CODUSER')
+			COMMIT
+		END TRY
+		BEGIN CATCH
+			ROLLBACK
+			PRINT ERROR_MESSAGE();
+		END CATCH
+	END /*fin while*/
+END /*fin sp_insert_MiExamenMG04077*/

@@ -1,0 +1,12 @@
+*********
+EXPORTAR
+*********
+bcp PARCIAL3.dbo.MiExamenMG04077 out E:\practica_parcial3_mg04077\exportacion.dat -eE:\practica_parcial3_mg04077\errores_exportacion.txt -c -T -k -R -r -t
+bcp PARCIAL3.dbo.MiExamenMG04077 out exportacion.dat -c -.\TITIUSHKO -Usa
+bcp PARCIAL3.dbo.MiExamenMG04077 out exportacion.dat -c -T
+bcp PARCIAL3.dbo.MiExamenMG04077 out E:\practica_parcial3_mg04077\exportacion.dat -c -TITIUSHKO-PC\MSSQL10_50.TITIUSHKO -USA -PTito1986
+
+*********
+IMPORTAR
+*********
+bcp PARCIAL3.dbo.MiExamenMG04077 in E:\practica_parcial3_mg04077\importacion.dat -eE:\practica_parcial3_mg04077\errores_importacion.txt -c -T -f
