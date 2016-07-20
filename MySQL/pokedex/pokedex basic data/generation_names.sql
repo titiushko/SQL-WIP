@@ -1,0 +1,18 @@
+INSERT INTO generation_names (generation_id, local_language_id, name) VALUES
+  (1, 6, 'Generation I'),
+  (1, 9, 'Generation I'),
+  (2, 6, 'Generation II'),
+  (2, 9, 'Generation II'),
+  (3, 6, 'Generation III'),
+  (3, 9, 'Generation III'),
+  (4, 6, 'Generation IV'),
+  (4, 9, 'Generation IV'),
+  (5, 6, 'Generation V'),
+  (5, 9, 'Generation V'),
+  (6, 6, 'Generation VI'),
+  (6, 9, 'Generation VI'),
+  (1, 10, 'I. generace'),
+  (4, 10, 'IV. generace'),
+  (3, 10, 'III. generace'),
+  (5, 10, 'V. generace'),
+  (2, 10, 'II. generace');

@@ -1,0 +1,17 @@
+INSERT INTO `growth_rate_prose` (`growth_rate_id`, `local_language_id`, `name`) VALUES
+  (1, 6, 'langsam'),
+  (1, 9, 'slow'),
+  (2, 6, 'mittel'),
+  (2, 9, 'medium'),
+  (3, 6, 'schnell'),
+  (3, 9, 'fast'),
+  (4, 6, 'mittel langsam'),
+  (4, 9, 'medium slow'),
+  (5, 6, 'langsam, dann sehr schnell'),
+  (5, 9, 'slow then very fast'),
+  (6, 6, 'schnell, dann sehr langsam'),
+  (6, 9, 'fast then very slow'),
+  (1, 10, 'pomalá'),
+  (4, 10, 'celkem pomalá'),
+  (3, 10, 'rychlá'),
+  (2, 10, 'prumerná');

@@ -193,7 +193,7 @@ BEGIN
   PRINT '<br /><br /><br /><table border="0" cellspacing="0" cellpadding="0" width="1250px"><tr><td align="right"><a href="#index">Index</a></td></tr>'
   PRINT @Output
   PRINT '</table><br />'
-  PRINT '<table border="0" cellspacing="0" cellpadding="0" width="1250px"><tr><th align="left">Nro Filas</th><th align="left">Reservado</th><th align="left">Tamaño de los Datos</th><th align="left">Tamaño de los Indices</th><th align="left">No Usado</th></tr>'
+  PRINT '<table border="0" cellspacing="0" cellpadding="0" width="1250px"><tr><th align="left">No Rows</th><th align="left">Reserved</th><th align="left">Size Data</th><th align="left">Size Indices</th><th align="left">No Used</th></tr>'
   SELECT
     @Output = '<tr><td align="left">' + rows + '</td><td align="left">' + reserved + '</td><td align="left">' + data + '</td><td align="left">' + index_size + '</td><td align="left">' + unused + '</td></tr>'
   FROM @tamanio
@@ -634,7 +634,7 @@ BEGIN
   --------------------------------------------------------------------------------------------
   SET @i = @i + 1;
   --Print @Output
-  PRINT 'Autor: ROBINSON MOSCOSO - SIPSE'
+  --PRINT 'Autor: ROBINSON MOSCOSO - SIPSE'
 END
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- procedures
@@ -674,8 +674,7 @@ BEGIN
   SET @j = @j + 1;
 END
 
-PRINT '</table><br />'
-PRINT 'Autor: ROBINSON MOSCOSO - SIPSE'
+PRINT '</table>'
 PRINT '</body>'
 PRINT '</html>'
 

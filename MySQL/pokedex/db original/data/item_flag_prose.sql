@@ -1,0 +1,17 @@
+INSERT INTO `item_flag_prose` (`item_flag_id`, `local_language_id`, `name`, `description`) VALUES
+  (1, 9, 'Countable', 'Has a count in the bag'),
+  (2, 9, 'Consumable', 'Consumed when used'),
+  (3, 9, 'Usable_overworld', 'Usable outside battle'),
+  (4, 9, 'Usable_in_battle', 'Usable in battle'),
+  (5, 9, 'Holdable', 'Can be held by a Pokémon'),
+  (6, 9, 'Holdable_passive', 'Works passively when held'),
+  (7, 9, 'Holdable_active', 'Usable by a Pokémon when held'),
+  (8, 9, 'Underground', 'Appears in Sinnoh Underground'),
+  (4, 10, NULL, 'Použitelný v souboji'),
+  (5, 10, 'Držitelný', 'Muže být držen pokémonem'),
+  (3, 10, NULL, 'Použitelný mimo souboj'),
+  (6, 10, NULL, 'Funguje pasivne pri držení'),
+  (8, 10, 'Podzemí', 'Nachází se v Sinnohském podzemí'),
+  (2, 10, 'Spotrebující se', 'Spotrebuje se po použití'),
+  (7, 10, NULL, 'Použitelný pokémonem pri držení'),
+  (1, 10, 'Pocítatelný', NULL);
